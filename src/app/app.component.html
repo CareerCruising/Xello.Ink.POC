@@ -1,1 +1,27 @@
-<router-outlet />
+<div class="wrapper wrapper--bg-{{currentBackground}}" [@background]="currentBackground">
+    <div></div>
+    <div class="container">
+        <div class="reader reader--{{currentMode}} reader--cols-{{numColumns}}">
+            <div class="text-wrapper" [@fadeIn]="currentText.length">
+                @for (text of currentText; track text) {
+                    <div
+                        class="text"
+                        [innerHTML]="text">
+                    </div>
+                }
+            </div>
+            <div class="choices" [@choices]="currentChoices.length">
+                @for (choice of currentChoices; track choice.index) {
+                    <taco-button
+                        size="md"
+                        type="basic"
+                        class="choice"
+                        (tacoButtonClick)="SelectChoice(choice)"
+                        value="{{choice.text}}">
+                    </taco-button>
+                }    
+            </div>
+        </div>
+        
+    </div>    
+</div>

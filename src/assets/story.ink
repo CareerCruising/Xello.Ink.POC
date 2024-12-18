@@ -15,6 +15,9 @@ VAR role = CivilEngineer
     {header("The Real Game")}
     Dream big, spend wisely.
     
+    >>> background: gradient
+    >>> columns: 2
+    
     + [Play]
         -> ch1
 
@@ -22,7 +25,7 @@ VAR role = CivilEngineer
 === ch1 ===
     >>> mode: text
     You're all alone on a dark night.
-    You centure down a strange alley, hoping to get home faster.
+    You venture down a strange alley, hoping to get home faster.
     Suddenly, you pass through a strange, shimmery film stretched across the passage.
     You look around in a panic. The world seems the same.
     But you feel... different. Older, more mature....
@@ -57,14 +60,17 @@ VAR role = CivilEngineer
     * [Check pockets]
         You search your pockets and pull out an employee ID card.
         <large>What does it reveal about your life?</large>
-        ++ Next
+        ++ [Next]
             -> ch4
     * [Search bag]
         {header("Score! You pull out a crumpled resume.")}
         What education and training did you take to prepare for this role?
-        ++ Uncover education
+        ++ [Uncover education]
+            -> DONE
     * [Turn on phone]
-    -
+        -> DONE
+    * ->
+        -> DONE
     
     
 === ch4 ===
