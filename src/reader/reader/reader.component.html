@@ -1,0 +1,99 @@
+<div class="wrapper wrapper--bg-{{currentBackground}}">
+    <div></div>
+    <div class="container">
+        <ng-container [ngSwitch]="currentAccent">
+            <img class="accent" *ngSwitchCase="'stars'" src="../assets/img/bg-stars.svg" />
+            <ng-container *ngSwitchDefault></ng-container>
+        </ng-container>
+        <div class="reader reader--{{currentMode}} reader--cols-{{numColumns}}">
+            @if (numColumns === 2) {
+                <div class="reader--left">
+                    <div class="text-wrapper" [@fadeIn]="groups['left']?.length">
+                        @for (line of groups['left']; track line.content) {
+                            <ng-container [ngSwitch]="line.type">
+                                <div
+                                    class="text"
+                                    [innerHTML]="line.content"
+                                    *ngSwitchDefault>
+                                </div>
+                                <taco-illustration
+                                    class="text"
+                                    illustration="{{line.content}}"
+                                    size="xxxxlg"
+                                    *ngSwitchCase="'illustration'"
+                                ></taco-illustration>
+        
+                            </ng-container>
+                        }
+                    </div>
+                </div>
+            } @else {
+                <div></div>
+            }
+            <div class="reader--right">
+                <div class="text-wrapper" [@fadeIn]="groups['right']?.length">
+                    @for (line of groups['right']; track line.content) {
+                        <ng-container [ngSwitch]="line.type">
+                            <div
+                                class="text"
+                                [innerHTML]="line.content"
+                                *ngSwitchDefault>
+                            </div>
+                            <taco-illustration
+                                class="text"
+                                illustration="{{line.content}}"
+                                size="xxxxlg"
+                                *ngSwitchCase="'illustration'"
+                            ></taco-illustration>
+    
+                        </ng-container>
+                    }
+                </div>
+                <div class="choices" [@choices]="currentChoices.length">
+                    @for (choice of currentChoices; track choice.index) {
+                        <taco-button
+                            size="md"
+                            type="basic"
+                            class="choice"
+                            (tacoButtonClick)="SelectChoice(choice)"
+                            value="{{choice.text}}">
+                        </taco-button>
+                    }    
+                </div>
+            </div>
+        </div>
+        
+    </div>    
+</div>
+
+<ng-container #main>
+    <div class="text-wrapper" [@fadeIn]="groups['right'].length">
+        @for (line of groups['right']; track line.content) {
+            <ng-container [ngSwitch]="line.type">
+                <div
+                    class="text"
+                    [innerHTML]="line.content"
+                    *ngSwitchDefault>
+                </div>
+                <taco-illustration
+                    class="text"
+                    illustration="{{line.content}}"
+                    size="xxxxlg"
+                    *ngSwitchCase="'illustration'"
+                ></taco-illustration>
+
+            </ng-container>
+        }
+    </div>
+    <div class="choices" [@choices]="currentChoices.length">
+        @for (choice of currentChoices; track choice.index) {
+            <taco-button
+                size="md"
+                type="basic"
+                class="choice"
+                (tacoButtonClick)="SelectChoice(choice)"
+                value="{{choice.text}}">
+            </taco-button>
+        }    
+    </div>
+</ng-container>
