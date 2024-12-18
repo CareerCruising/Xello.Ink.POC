@@ -12,7 +12,7 @@ VAR role = CivilEngineer
 === intro ===
     >>> mode: splash
     
-    {header("The Real Game")}
+    {biggest("The Real Game")}
     Dream big, spend wisely.
     
     >>> background: gradient
@@ -24,6 +24,9 @@ VAR role = CivilEngineer
 
 === ch1 ===
     >>> mode: text
+    >>> background: basic
+    >>> accent: stars
+    
     You're all alone on a dark night.
     You venture down a strange alley, hoping to get home faster.
     Suddenly, you pass through a strange, shimmery film stretched across the passage.
@@ -37,8 +40,10 @@ VAR role = CivilEngineer
     
 === ch2 ===
     >>> mode: splash
+    >>> background: gradient
+    
     {illustration("il-directional-signs")}
-    {header("Aw snap.")}
+    {big("Aw snap.")}
     Interdimensional time travel was not something you expected to do today.
     
     + [Next]
@@ -46,35 +51,43 @@ VAR role = CivilEngineer
     
     
 === ch3 ===
+    >>> mode: splash
+    >>> background: gradient
+    
     {illustration("il-magnifying-glass")}
 
     {
         -   came_from(-> ch6.ratedRole):
-            {header("How did you qualify for this job?")}
+            {big("How did you qualify for this job?")}
             You're feeling strangely prepared to start working.
         -   // Default
-            {header("What's going on?")}
+            {big("What's going on?")}
             Maybe there's a clue that can help you figure this out.
     }
 
     * [Check pockets]
+        >>> background: basic
         You search your pockets and pull out an employee ID card.
-        <large>What does it reveal about your life?</large>
+        {bigger("What does it say?")}
         ++ [Next]
             -> ch4
     * [Search bag]
-        {header("Score! You pull out a crumpled resume.")}
+        >>> background: basic
+        {big("Score! You pull out a crumpled resume.")}
         What education and training did you take to prepare for this role?
         ++ [Uncover education]
             -> DONE
     * [Turn on phone]
+        >>> background: basic
         -> DONE
     * ->
         -> DONE
     
     
 === ch4 ===
-    {header("You are a {roleNameLowercase(role)}.")}
+    >>> background: gradient
+    
+    {bigger("You are a {roleNameLowercase(role)}.")}
     And your job starts today. Better get over there!
     
     >>> frame: employee-id
@@ -84,7 +97,7 @@ VAR role = CivilEngineer
         
 
 === ch5 ===
-    {header("Investigation time: {roleName(role)}")}
+    {big("Investigation time: {roleName(role)}")}
     How do you feel about this career?
     
     + [Rate role]
@@ -171,8 +184,16 @@ VAR ratingVacation = 0
     -
     ->->
 
-=== function header(text) ===
+=== function big(text) ===
     <h3>{text}</h3>
+    ~ return
+    
+=== function bigger(text) ===
+    <h2>{text}</h2>
+    ~ return
+    
+=== function biggest(text) ===
+    <h1>{text}</h1>
     ~ return
 
 === function roleName(_role) ===

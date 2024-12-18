@@ -1,13 +1,27 @@
-<div class="wrapper wrapper--bg-{{currentBackground}}" [@background]="currentBackground">
+<div class="wrapper wrapper--bg-{{currentBackground}}">
     <div></div>
     <div class="container">
+        <ng-container [ngSwitch]="currentAccent">
+            <img class="accent" *ngSwitchCase="'stars'" src="../assets/img/bg-stars.svg" />
+            <ng-container *ngSwitchDefault></ng-container>
+        </ng-container>
         <div class="reader reader--{{currentMode}} reader--cols-{{numColumns}}">
             <div class="text-wrapper" [@fadeIn]="currentText.length">
-                @for (text of currentText; track text) {
-                    <div
-                        class="text"
-                        [innerHTML]="text">
-                    </div>
+                @for (line of currentText; track line.content) {
+                    <ng-container [ngSwitch]="line.type">
+                        <div
+                            class="text"
+                            [innerHTML]="line.content"
+                            *ngSwitchDefault>
+                        </div>
+                        <taco-illustration
+                            class="text"
+                            illustration="{{line.content}}"
+                            size="xxxxlg"
+                            *ngSwitchCase="'illustration'"
+                        ></taco-illustration>
+
+                    </ng-container>
                 }
             </div>
             <div class="choices" [@choices]="currentChoices.length">

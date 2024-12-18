@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 40px 112px;
     width: 100%;
+    position: relative;
 }
 
 .wrapper {
@@ -15,13 +16,35 @@
     grid-template-rows: 64px 1fr;
 
     &--bg-gradient{
-        background: linear-gradient(270deg, var(--taco-color-cornflower-900), var(--taco-color-purple-700));
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(108.98deg, #905DA7 2.26%, #34496B 100.06%);
+            animation: fade-in .5s ease-in-out;
+        }
     }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.accent {
+    position: absolute;
+    top: -37px;
+    left: 27px;
 }
 
 .reader {
     display: flex;
     flex-direction: column;
+    row-gap: var(--taco-space-300);
+    font-size: var(--taco-font-size-300);
 }
 
 .reader--splash {
@@ -31,20 +54,29 @@
     transform: translateY(-50%);
 
     ::ng-deep {
-        font-size: var(--taco-font-size-500);
-        h3 {
+        h1 {
             font-size: var(--taco-font-size-700);
+            margin: 0;
+        }
+        h2 {
+            font-size: var(--taco-font-size-500);
+            margin: 0;
+        }
+        h3 {
+            font-size: var(--taco-font-size-400);
             margin: 0;
         }
     }
 }
 
 .reader--text {
+    font-size: var(--taco-font-size-400);
+    padding: 0 27px;
+
     .text-wrapper {
         display: flex;
         flex-direction: column;
-        row-gap: var(--taco-space-300);
-        font-size: var(--taco-font-size-400);            
+        row-gap: var(--taco-space-300);     
     }
 
     .choices {
@@ -65,5 +97,4 @@
     justify-content: center;
     column-gap: 16px;
     min-height: 51px;
-    margin-top: 20px;
 }

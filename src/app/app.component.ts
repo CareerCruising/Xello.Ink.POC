@@ -3,8 +3,8 @@ import { Story } from 'inkjs';
 import * as json from '../assets/story.ink.json';
 import { Choice } from 'inkjs/engine/Choice';
 import { loadScript, loadStyle } from '../helpers/url.helpers';
-import { DOCUMENT } from '@angular/common';
-import { animate, group, keyframes, query, stagger, style, transition, trigger } from '@angular/animations';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { animate, group, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -18,22 +18,16 @@ export const scriptIDs = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   schemas: [ NO_ERRORS_SCHEMA ],
   animations: [
-    trigger('background', [
-      transition('* => *', [
-        style({ background: '*' }),
-        animate('0.5s ease-in-out', style({ background: '*' }))
-      ])
-    ]),
     trigger('choices', [
       transition('* => *', [
         query(':enter', [
           style({ height: 0, opacity: 0 }),
-          animate('0.5s 1s ease-in-out', style({ height: '*', opacity: 1 }))  
+          animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))  
         ], { optional: true })
       ])
     ]),
@@ -51,14 +45,15 @@ export class AppComponent {
   title = 'ng-ink-player';
   story = new Story(json);
 
-  currentText: string[] = [];
+  currentText: {type: string, content: string}[] = [];
   currentChoices: Choice[] = [];
   currentMode: string = '';
+  currentAccent = '';
   CDN_ABSOLUTE_URL = 'https://cdn-dev-anaca.azureedge.net/';
 
   currentBackground = '';
   numColumns = 1;
-  delay = 500;
+  delay = 1000;
 
   isPlaying = false;
   isComplete = false;
@@ -105,6 +100,7 @@ export class AppComponent {
       return;
     }
     this.isPlaying = true;
+    this.currentChoices = this.story.currentChoices;
     if (this.story.canContinue) {
       this.isComplete = false;
       const text = this.story.Continue() ?? '';
@@ -115,7 +111,12 @@ export class AppComponent {
         switch (tokens[0].replaceAll(':', '')) {
           case 'mode':
             this.currentMode = tokens[1];
-            console.log(tokens[1]);
+            break;
+          case 'accent':
+            this.currentAccent = tokens[1];
+            break;
+          case 'illustration':
+            this.currentText.push({type: 'illustration', content: tokens[1]});
             break;
           case 'background':
             this.currentBackground = tokens[1];
@@ -124,23 +125,21 @@ export class AppComponent {
         this.Continue();
         return;
       } else {
-        this.currentText.push(text);
+        this.currentText.push({type: 'text', content: text});
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
         }, this.delay);
       }
     } else {
-      setTimeout(() => {
-        this.isComplete = true;
-      }, this.delay);
+      this.isComplete = true;
     }
-    this.currentChoices = this.story.currentChoices;
     this.isPlaying = false;
   }
 
   SelectChoice(choice: Choice) {
     this.currentText = [];
+    this.currentAccent = '';
     this.currentBackground = '';
     this.story.ChooseChoiceIndex(choice.index);
     this.Continue();
