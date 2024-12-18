@@ -15,8 +15,9 @@ VAR role = CivilEngineer
     {biggest("The Real Game")}
     Dream big, spend wisely.
     
-    >>> background: gradient
+    >>> shift: right
     >>> columns: 2
+    >>> background: gradient
     
     + [Play]
         -> ch1
@@ -53,17 +54,22 @@ VAR role = CivilEngineer
 === ch3 ===
     >>> mode: splash
     >>> background: gradient
+    >>> columns: 2
     
+    >>> group: left
     {illustration("il-magnifying-glass")}
 
+    >>> group: right
     {
         -   came_from(-> ch6.ratedRole):
-            {big("How did you qualify for this job?")}
+            <b>"How did you qualify for this job?</b>
             You're feeling strangely prepared to start working.
         -   // Default
-            {big("What's going on?")}
+            <b>What's going on?</b>
             Maybe there's a clue that can help you figure this out.
     }
+
+    >>> choice-mode: list
 
     * [Check pockets]
         >>> background: basic
@@ -162,10 +168,10 @@ VAR ratingVacation = 0
 === rate(-> instructions, ref out) ===
     >>> mode: two-column
 
-    >>> left
+    >>> group: left
     >>> frame: career-page({role})
     
-    >>> right
+    >>> group: right
     <- instructions
     
     >>> choice-mode: rating

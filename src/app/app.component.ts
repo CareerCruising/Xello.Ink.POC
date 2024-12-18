@@ -15,6 +15,8 @@ export const scriptIDs = {
   LOTTIE_PLAYER_ID: 'lottie-player-js',
 };
 
+export interface ContentLine {type: string, content: string, group?: string}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -45,10 +47,11 @@ export class AppComponent {
   title = 'ng-ink-player';
   story = new Story(json);
 
-  currentText: {type: string, content: string}[] = [];
+  groups: {[id: string]: ContentLine[]} = {};
   currentChoices: Choice[] = [];
   currentMode: string = '';
   currentAccent = '';
+  currentGroup = 'right';
   CDN_ABSOLUTE_URL = 'https://cdn-dev-anaca.azureedge.net/';
 
   currentBackground = '';
@@ -115,8 +118,15 @@ export class AppComponent {
           case 'accent':
             this.currentAccent = tokens[1];
             break;
+          case 'columns':
+            const columns = +tokens[1];
+            this.numColumns = columns;
+            break;
+          case 'group':
+            this.currentGroup = tokens[1];
+            break;
           case 'illustration':
-            this.currentText.push({type: 'illustration', content: tokens[1]});
+            this.addLine(this.currentGroup, {type: 'illustration', group: this.currentGroup, content: tokens[1]});
             break;
           case 'background':
             this.currentBackground = tokens[1];
@@ -125,7 +135,7 @@ export class AppComponent {
         this.Continue();
         return;
       } else {
-        this.currentText.push({type: 'text', content: text});
+        this.addLine(this.currentGroup, {type: 'text', group: this.currentGroup, content: text});
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
@@ -137,10 +147,22 @@ export class AppComponent {
     this.isPlaying = false;
   }
 
-  SelectChoice(choice: Choice) {
-    this.currentText = [];
+  addLine(group: string, line: ContentLine) {
+    if (!this.groups[group]) {
+      this.groups[group] = [];
+    }
+    this.groups[group].push(line);
+  }
+
+  Reset() {
+    this.groups = {};
     this.currentAccent = '';
     this.currentBackground = '';
+    this.numColumns = 1;
+  }
+
+  SelectChoice(choice: Choice) {
+    this.Reset();
     this.story.ChooseChoiceIndex(choice.index);
     this.Continue();
   }
