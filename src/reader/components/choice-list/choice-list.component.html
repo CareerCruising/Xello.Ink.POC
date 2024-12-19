@@ -1,5 +1,8 @@
 <ng-container [ngSwitch]="mode">
-    <div class="choices__wrapper choices__wrapper--rating" *ngSwitchCase="'rating'" [@choiceList]="choices.length">
+
+    <div class="choices__wrapper choices__wrapper--rating"
+         *ngSwitchCase="'rating'"
+         [@choiceList]="choices.length">
         <div class="choices choices--rating">
             @for (choice of choices; track choice.index) {
                 <button
@@ -25,9 +28,10 @@
             (tacoButtonClick)="confirmChoice()"
         ></taco-button>
     </div>
+
     <div class="choices__wrapper choices__wrapper--list"
-        [@choiceList]="choices.length"
-        *ngSwitchCase="'list'">
+         [@choiceList]="choices.length"
+         *ngSwitchCase="'list'">
         <div class="choices choices--list">        
             @for (choice of choices; track choice.index) {
                 <button
@@ -49,10 +53,11 @@
             (tacoButtonClick)="confirmChoice()"
         ></taco-button>
     </div>
+
     <div class="choices"
-        [ngClass]="'choices--' + (mode || 'basic')"
-        [@choices]="choices.length"
-        *ngSwitchDefault>
+         [ngClass]="'choices--' + (mode || 'basic')"
+         [@choices]="choices.length"
+         *ngSwitchDefault>
         @for (choice of choices; track choice.index) {
             <taco-button
                 size="md"

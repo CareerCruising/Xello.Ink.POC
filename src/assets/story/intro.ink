@@ -1,19 +1,5 @@
 
 
-=== intro ===
-    >>> mode: splash
-    
-    {biggest("The Real Game")}
-    Dream big, spend wisely.
-    
-    // >>> shift: right
-    // >>> columns: 2
-    >>> background: gradient
-    
-    + [Play]
-        -> enter
-
-
 === enter ===
     >>> mode: text
     >>> background: basic
@@ -146,28 +132,4 @@ VAR ratingVacation = 0
         <b>Vacation time</b>
         -> DONE
 
-
-
-=== rate(-> instructions, ref out) ===
-    >>> group: left
-    >>> frame: career-page({role})
-    
-    >>> group: right
-    <- instructions
-    
-    >>> choice-mode: rating
-    
-    + [1]
-        ~ out = 1
-    + [2]
-        ~ out = 2
-    + [3]
-        ~ out = 3
-    + [4]
-        ~ out = 4
-    + [5]
-        ~ out = 5
-    
-    -
-    ->->
 

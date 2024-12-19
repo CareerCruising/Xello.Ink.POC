@@ -1,15 +1,20 @@
-<div class="wrapper wrapper--bg-{{currentBackground}}">
-    <div></div>
+<div class="wrapper wrapper--bg-{{inkService.currentBackground}}">
+    <div class="action-bar">
+        <div class="action-bar__left">
+        </div>
+        <div class="action-bar__right">
+        </div>
+    </div>
     <div class="container">
-        <ng-container [ngSwitch]="currentAccent">
-            <img class="accent" *ngSwitchCase="'stars'" src="../assets/img/bg-stars.svg" />
+        <ng-container [ngSwitch]="inkService.currentAccent">
+            <img class="accent" *ngSwitchCase="'stars'" alt="" src="../assets/img/bg-stars.svg" />
             <ng-container *ngSwitchDefault></ng-container>
         </ng-container>
-        <div class="reader reader--{{currentMode}} reader--cols-{{numColumns}}">
-            @if (numColumns === 2) {
+        <div class="reader reader--{{inkService.currentMode}} reader--cols-{{inkService.numColumns}}">
+            @if (inkService.numColumns === 2) {
                 <div class="reader--left">
-                    <div class="text-wrapper" [@fadeIn]="groups['left']?.length">
-                        @for (line of groups['left']; track line.content) {
+                    <div class="text-wrapper" [@fadeIn]="inkService.groups['left']?.length">
+                        @for (line of inkService.groups['left']; track line.content) {
                             <ng-container [ngSwitch]="line.type">
                                 <div
                                     class="text"
@@ -39,8 +44,8 @@
 </div>
 
 <ng-template #main>
-    <div class="text-wrapper" [@fadeIn]="groups['right']?.length">
-        @for (line of groups['right']; track line.content) {
+    <div class="text-wrapper" [@fadeIn]="inkService.groups['right']?.length">
+        @for (line of inkService.groups['right']; track line.content) {
             <ng-container [ngSwitch]="line.type">
                 <div
                     class="text"
@@ -53,14 +58,13 @@
                     size="xxxxlg"
                     *ngSwitchCase="'illustration'"
                 ></taco-illustration>
-
             </ng-container>
         }
     </div>
     <app-choice-list
-        [mode]="currentChoiceMode"
-        [choices]="currentChoices"
-        [attr.alignment]="currentMode === 'text' ? 'left' : 'center'"
-        (handleChoice)="SelectChoice($event)"
+        [mode]="inkService.currentChoiceMode"
+        [choices]="inkService.currentChoices"
+        [attr.alignment]="inkService.currentMode === 'text' ? 'left' : 'center'"
+        (handleChoice)="inkService.SelectChoice($event)"
     ></app-choice-list>
 </ng-template>

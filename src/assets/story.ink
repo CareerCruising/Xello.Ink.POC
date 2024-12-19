@@ -17,3 +17,17 @@ VAR role = CivilEngineer
     ~ role = CivilEngineer
     
     -> intro
+
+
+=== intro ===
+    >>> mode: splash
+    
+    {biggest("The Real Game")}
+    Dream big, spend wisely.
+    
+    // >>> shift: right
+    // >>> columns: 2
+    >>> background: gradient
+    
+    + [Play]
+        -> enter
