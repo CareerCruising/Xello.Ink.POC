@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="reader reader--{{inkService.currentMode}} reader--cols-{{inkService.numColumns}}">
+        @if (inkService.numColumns === 2) {
+            <div class="reader--left">
+                <div class="text-wrapper" [@fadeIn]="inkService.groups['left']?.length">
+                    @for (line of inkService.groups['left']; track line.content) {
+                        <ng-container [ngSwitch]="line.type">
+                            <div
+                                class="text"
+                                [innerHTML]="line.content"
+                                *ngSwitchDefault>
+                            </div>
+                            <taco-illustration
+                                class="text"
+                                illustration="{{line.content}}"
+                                size="xxxxxlg"
+                                *ngSwitchCase="'illustration'"
+                            ></taco-illustration>
+        
+                        </ng-container>
+                    }
+                </div>
+            </div>
+        } @else {
+            <div></div>
+        }
+        <app-basic class="reader--right"></app-basic>
+    </div>
+</div>

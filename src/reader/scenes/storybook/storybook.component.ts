@@ -1,16 +1,16 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { InkService } from '../../../services/ink.service';
 import { CommonModule } from '@angular/common';
-import { ChoiceListComponent } from '../components/choice-list/choice-list.component';
-import { InkService } from '../../services/ink.service';
+import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
+import { animate, query, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'app-reader',
+  selector: 'app-storybook',
   standalone: true,
   imports: [ CommonModule, ChoiceListComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  templateUrl: './reader.component.html',
-  styleUrl: './reader.component.scss',
+  templateUrl: './storybook.component.html',
+  styleUrl: './storybook.component.scss',
   animations: [
     trigger('fadeIn', [
       transition('* => *', [
@@ -22,8 +22,7 @@ import { InkService } from '../../services/ink.service';
     ])
   ]
 })
-export class ReaderComponent {
-  constructor(public inkService: InkService) {
-    this.inkService.Continue();
-  }
+export class StorybookComponent {
+
+  constructor(public inkService: InkService) {}
 }

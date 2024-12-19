@@ -2,7 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, Inject, NO_ERRORS_SCHEMA, RendererFa
 import { Choice } from 'inkjs/engine/Choice';
 import { loadScript, loadStyle } from '../helpers/url.helpers';
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { ReaderComponent } from "../reader/reader/reader.component";
+import { ReaderComponent } from "../reader/reader.component";
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',

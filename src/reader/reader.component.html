@@ -1,0 +1,15 @@
+<div class="wrapper wrapper--bg-{{inkService.currentBackground}}">
+    <div class="action-bar">
+        <div class="action-bar__left">
+        </div>
+        <div class="action-bar__right">
+        </div>
+    </div>
+    <ng-container [ngSwitch]="inkService.currentMode">
+        <app-hero *ngSwitchCase="'splash'"></app-hero>
+        <app-storybook *ngSwitchCase="'text'"></app-storybook>
+        <div class="container" *ngSwitchDefault>
+            <app-basic class="reader reader--{{inkService.currentMode}}"></app-basic>            
+        </div>    
+    </ng-container>
+</div>
