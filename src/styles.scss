@@ -9,3 +9,9 @@ body {
   margin: 0;
   font-family: proxima-nova, Helvetica, Arial, sans-serif;
 }
+
+button {
+  font-family: proxima-nova, Helvetica, Arial, sans-serif;
+  padding: 12px 24px;
+  border-radius: var(--taco-radius-all);
+}

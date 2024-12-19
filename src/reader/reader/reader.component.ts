@@ -4,34 +4,27 @@ import * as json from '../../assets/story.ink.json';
 import { Choice } from 'inkjs/engine/Choice';
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { ChoiceListComponent } from '../components/choice-list/choice-list.component';
 
 export interface ContentLine {type: string, content: string, group?: string};
 
 @Component({
   selector: 'app-reader',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [ CommonModule, ChoiceListComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   templateUrl: './reader.component.html',
   styleUrl: './reader.component.scss',
-    animations: [
-      trigger('choices', [
-        transition('* => *', [
-          query(':enter', [
-            style({ height: 0, opacity: 0 }),
-            animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))  
-          ], { optional: true })
-        ])
-      ]),
-      trigger('fadeIn', [
-        transition('* => *', [
-          query(':enter', [
-            style({ height: 0, opacity: 0 }),
-            animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))
-          ], { optional: true }),
-        ])
+  animations: [
+    trigger('fadeIn', [
+      transition('* => *', [
+        query(':enter', [
+          style({ height: 0, opacity: 0 }),
+          animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))
+        ], { optional: true }),
       ])
-    ]
+    ])
+  ]
 })
 export class ReaderComponent {
 
@@ -42,6 +35,7 @@ export class ReaderComponent {
   currentMode: string = '';
   currentAccent = '';
   currentGroup = 'right';
+  currentChoiceMode = '';
 
   currentBackground = '';
   numColumns = 1;
@@ -77,6 +71,9 @@ export class ReaderComponent {
           case 'columns':
             const columns = +tokens[1];
             this.numColumns = columns;
+            break;
+          case 'choice-mode':
+            this.currentChoiceMode = tokens[1];
             break;
           case 'group':
             this.currentGroup = tokens[1];
@@ -115,6 +112,7 @@ export class ReaderComponent {
     this.currentAccent = '';
     this.currentBackground = '';
     this.numColumns = 1;
+    this.currentChoiceMode = '';
   }
 
   SelectChoice(choice: Choice) {

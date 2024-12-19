@@ -15,8 +15,8 @@ VAR role = CivilEngineer
     {biggest("The Real Game")}
     Dream big, spend wisely.
     
-    >>> shift: right
-    >>> columns: 2
+    // >>> shift: right
+    // >>> columns: 2
     >>> background: gradient
     
     + [Play]

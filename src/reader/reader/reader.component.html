@@ -19,7 +19,7 @@
                                 <taco-illustration
                                     class="text"
                                     illustration="{{line.content}}"
-                                    size="xxxxlg"
+                                    size="xxxxxlg"
                                     *ngSwitchCase="'illustration'"
                                 ></taco-illustration>
         
@@ -31,42 +31,14 @@
                 <div></div>
             }
             <div class="reader--right">
-                <div class="text-wrapper" [@fadeIn]="groups['right']?.length">
-                    @for (line of groups['right']; track line.content) {
-                        <ng-container [ngSwitch]="line.type">
-                            <div
-                                class="text"
-                                [innerHTML]="line.content"
-                                *ngSwitchDefault>
-                            </div>
-                            <taco-illustration
-                                class="text"
-                                illustration="{{line.content}}"
-                                size="xxxxlg"
-                                *ngSwitchCase="'illustration'"
-                            ></taco-illustration>
-    
-                        </ng-container>
-                    }
-                </div>
-                <div class="choices" [@choices]="currentChoices.length">
-                    @for (choice of currentChoices; track choice.index) {
-                        <taco-button
-                            size="md"
-                            type="basic"
-                            class="choice"
-                            (tacoButtonClick)="SelectChoice(choice)"
-                            value="{{choice.text}}">
-                        </taco-button>
-                    }    
-                </div>
+                <ng-container [ngTemplateOutlet]="main"></ng-container>
             </div>
         </div>
         
     </div>    
 </div>
 
-<ng-container #main>
+<ng-template #main>
     <div class="text-wrapper" [@fadeIn]="groups['right'].length">
         @for (line of groups['right']; track line.content) {
             <ng-container [ngSwitch]="line.type">
@@ -85,15 +57,9 @@
             </ng-container>
         }
     </div>
-    <div class="choices" [@choices]="currentChoices.length">
-        @for (choice of currentChoices; track choice.index) {
-            <taco-button
-                size="md"
-                type="basic"
-                class="choice"
-                (tacoButtonClick)="SelectChoice(choice)"
-                value="{{choice.text}}">
-            </taco-button>
-        }    
-    </div>
-</ng-container>
+    <app-choice-list
+        [mode]="currentChoiceMode"
+        [choices]="currentChoices"
+        (handleChoice)="SelectChoice($event)"
+    ></app-choice-list>
+</ng-template>

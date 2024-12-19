@@ -58,6 +58,10 @@
     font-size: var(--taco-font-size-300);
 }
 
+.reader--left {
+    min-height: 300px;
+}
+
 .reader {
     display: grid;
     grid-template-columns: 0fr 1fr;
@@ -123,5 +127,16 @@
     justify-content: center;
     column-gap: 16px;
     min-height: 51px;
+}
+
+.choices--list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    .choice {
+        border-radius: 0;
+    }
 }
 

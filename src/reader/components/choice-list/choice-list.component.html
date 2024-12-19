@@ -1,1 +1,14 @@
-<p>choice-list works!</p>
+
+<div class="choices"
+    [ngClass]="'choices--' + (mode || 'basic')"
+    [@choices]="choices.length">
+    @for (choice of choices; track choice.index) {
+        <taco-button
+            size="md"
+            type="basic"
+            class="choice"
+            (tacoButtonClick)="handleChoice.emit(choice)"
+            value="{{choice.text}}">
+        </taco-button>
+    }    
+</div>
