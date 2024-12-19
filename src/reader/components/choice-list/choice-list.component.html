@@ -1,6 +1,6 @@
 <ng-container [ngSwitch]="mode">
     <div class="choices choices--list"
-        [@choices]="choices.length"
+        [@choiceList]="choices.length"
         *ngSwitchCase="'list'">
         @for (choice of choices; track choice.index) {
             <button

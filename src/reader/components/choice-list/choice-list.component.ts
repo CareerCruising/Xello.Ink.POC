@@ -19,6 +19,14 @@ import { Choice } from 'inkjs/engine/Choice';
         ], { optional: true })
       ])
     ]),
+    trigger('choiceList', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0 }),
+          animate('0.5s ease-in-out', style({ opacity: 1 }))  
+        ], { optional: true })
+      ])
+    ]),
   ]
 })
 export class ChoiceListComponent {
