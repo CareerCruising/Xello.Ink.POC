@@ -6,7 +6,7 @@ VAR role = CivilEngineer
 === init ===
     // Load user data from BE, in a proper version
     ~ role = CivilEngineer
-    -> ch6// intro
+    -> intro
 
 
 === intro ===

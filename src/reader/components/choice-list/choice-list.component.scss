@@ -21,7 +21,6 @@
     justify-content: center;
     column-gap: 16px;
     min-height: 51px;
-    padding-bottom: 16px;
 }
 
 .choice-button {
@@ -48,6 +47,7 @@
 
 .choices--rating {
     column-gap: 0;
+    padding-bottom: 16px;
 
     .choice {
         padding: 4px;
