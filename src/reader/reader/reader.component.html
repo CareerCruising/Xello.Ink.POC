@@ -60,6 +60,7 @@
     <app-choice-list
         [mode]="currentChoiceMode"
         [choices]="currentChoices"
+        [attr.alignment]="currentMode === 'text' ? 'left' : 'center'"
         (handleChoice)="SelectChoice($event)"
     ></app-choice-list>
 </ng-template>

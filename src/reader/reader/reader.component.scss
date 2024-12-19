@@ -117,26 +117,3 @@
 .text {
     opacity: 1;
 }
-
-.choice {
-    display: block;
-}
-
-.choices {
-    display: flex;
-    justify-content: center;
-    column-gap: 16px;
-    min-height: 51px;
-}
-
-.choices--list {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-
-    .choice {
-        border-radius: 0;
-    }
-}
-

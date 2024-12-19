@@ -1,0 +1,34 @@
+:host-context([alignment="left"]) {
+    .choices {
+        justify-content: flex-start;
+    }
+}
+
+.choice {
+    display: block;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    column-gap: 16px;
+    min-height: 51px;
+}
+
+.choices--list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    row-gap: 8px;
+
+    .choice {
+        border-radius: 4px;
+        padding: 16px;
+        color: var(--taco-color-text-primary);
+        border: solid 1px var(--taco-color-border-primary);
+        text-align: left;
+        font-size: var(--taco-font-size-175);
+    }
+}
+

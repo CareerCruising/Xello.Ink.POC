@@ -1,14 +1,29 @@
-
-<div class="choices"
-    [ngClass]="'choices--' + (mode || 'basic')"
-    [@choices]="choices.length">
-    @for (choice of choices; track choice.index) {
-        <taco-button
-            size="md"
-            type="basic"
-            class="choice"
-            (tacoButtonClick)="handleChoice.emit(choice)"
-            value="{{choice.text}}">
-        </taco-button>
-    }    
-</div>
+<ng-container [ngSwitch]="mode">
+    <div class="choices choices--list"
+        [@choices]="choices.length"
+        *ngSwitchCase="'list'">
+        @for (choice of choices; track choice.index) {
+            <button
+                size="md"
+                type="basic"
+                class="choice choice--square"
+                (click)="handleChoice.emit(choice)">
+                {{choice.text}}
+            </button>
+        }    
+    </div>
+    <div class="choices"
+        [ngClass]="'choices--' + (mode || 'basic')"
+        [@choices]="choices.length"
+        *ngSwitchDefault>
+        @for (choice of choices; track choice.index) {
+            <taco-button
+                size="md"
+                type="basic"
+                class="choice"
+                (tacoButtonClick)="handleChoice.emit(choice)"
+                value="{{choice.text}}">
+            </taco-button>
+        }    
+    </div>
+</ng-container>
