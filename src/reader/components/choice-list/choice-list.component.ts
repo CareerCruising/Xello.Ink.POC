@@ -1,4 +1,4 @@
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, group, query, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
 import { Choice } from 'inkjs/engine/Choice';
@@ -33,4 +33,16 @@ export class ChoiceListComponent {
   @Input() mode = 'basic';
   @Input() choices: Choice[] = [];
   @Output() handleChoice = new EventEmitter<Choice>();
+
+  choiceSelected: Choice | null = null;
+
+  selectChoice(choice: Choice) {
+    this.choiceSelected = choice;
+  }
+
+  confirmChoice() {
+    if (!this.choiceSelected) { return; }
+    this.handleChoice.emit(this.choiceSelected);
+    this.choiceSelected = null;
+  }
 }

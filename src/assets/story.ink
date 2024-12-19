@@ -6,7 +6,7 @@ VAR role = CivilEngineer
 === init ===
     // Load user data from BE, in a proper version
     ~ role = CivilEngineer
-    -> intro
+    -> ch6// intro
 
 
 === intro ===
@@ -128,6 +128,8 @@ VAR ratingVacation = 0
     
     
 === ch6 ===
+    >>> mode: splash
+    
     -> rate(-> ex1, ratingJobDesc) ->
     -> rate(-> ex2, ratingMonthlyPay) ->
     -> rate(-> ex3, ratingHours) ->
@@ -166,8 +168,6 @@ VAR ratingVacation = 0
 
 
 === rate(-> instructions, ref out) ===
-    >>> mode: two-column
-
     >>> group: left
     >>> frame: career-page({role})
     
