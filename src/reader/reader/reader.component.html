@@ -39,7 +39,7 @@
 </div>
 
 <ng-template #main>
-    <div class="text-wrapper" [@fadeIn]="groups['right'].length">
+    <div class="text-wrapper" [@fadeIn]="groups['right']?.length">
         @for (line of groups['right']; track line.content) {
             <ng-container [ngSwitch]="line.type">
                 <div

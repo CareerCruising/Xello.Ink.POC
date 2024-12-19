@@ -62,7 +62,7 @@ VAR role = CivilEngineer
     >>> group: right
     {
         -   came_from(-> ch6.ratedRole):
-            <b>"How did you qualify for this job?</b>
+            <b>How did you qualify for this job?</b>
             You're feeling strangely prepared to start working.
         -   // Default
             <b>What's going on?</b>
@@ -82,7 +82,11 @@ VAR role = CivilEngineer
         {big("Score! You pull out a crumpled resume.")}
         What education and training did you take to prepare for this role?
         ++ [Uncover education]
-            -> DONE
+            >>> background: gradient
+            {big("Ready to go!")}
+            You’re confident you can rock your first day of work.
+            +++ [Next]
+                -> ch3
     * [Turn on phone]
         >>> background: basic
         -> DONE

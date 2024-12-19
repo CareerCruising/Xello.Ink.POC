@@ -15,16 +15,22 @@
     display: grid;
     grid-template-rows: 64px 1fr;
 
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background: linear-gradient(108.98deg, #905DA7 2.26%, #34496B 100.06%);
+        transition: opacity .15s ease-in-out;
+    }
+
     &--bg-gradient{
         &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(108.98deg, #905DA7 2.26%, #34496B 100.06%);
-            animation: fade-in .5s ease-in-out;
+            opacity: 1;
+            transition: opacity .5s ease-in-out;
         }
     }
 }
