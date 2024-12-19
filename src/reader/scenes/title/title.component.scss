@@ -1,23 +1,53 @@
-.reader {
+.reader--cols-2 {
   display: grid;
-  grid-template-columns: 0fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  // animation: shift-over 1s ease-in-out;
+
+  .reader--right {
+    text-align: left;
+  }
 }
 
-.reader--right,
-.reader--left {
+.reader {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  ::ng-deep {
+    h1 {
+      font-size: var(--taco-font-size-700);
+      margin: 0;
+    }
+    h2 {
+      font-size: var(--taco-font-size-500);
+      margin: 0;
+    }
+    h3 {
+      font-size: var(--taco-font-size-400);
+      margin: 0;
+    }
+  }
+}
+
+.reader--left,
+.reader--right {
   display: flex;
   flex-direction: column;
   row-gap: var(--taco-space-300);
   font-size: var(--taco-font-size-300);
 }
 
-.reader--cols-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    // animation: shift-over 1s ease-in-out;
-  
-    .reader--right {
-      text-align: left;
-    }
-  }
-  
+.text-wrapper {
+  margin-bottom: 16px;
+}
+
+.text {
+  opacity: 1;
+}
+
+.accent {
+  position: absolute;
+  top: -37px;
+  left: 27px;
+}

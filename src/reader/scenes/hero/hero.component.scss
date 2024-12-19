@@ -8,6 +8,28 @@
   }
 }
 
+.reader {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    ::ng-deep {
+      h1 {
+        font-size: var(--taco-font-size-700);
+        margin: 0;
+      }
+      h2 {
+        font-size: var(--taco-font-size-500);
+        margin: 0;
+      }
+      h3 {
+        font-size: var(--taco-font-size-400);
+        margin: 0;
+      }
+    }
+}
+
 .reader--left,
 .reader--right {
   display: flex;
@@ -18,45 +40,6 @@
 
 .text-wrapper {
   margin-bottom: 16px;
-}
-
-.reader--splash {
-  text-align: center;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-
-  ::ng-deep {
-    h1 {
-      font-size: var(--taco-font-size-700);
-      margin: 0;
-    }
-    h2 {
-      font-size: var(--taco-font-size-500);
-      margin: 0;
-    }
-    h3 {
-      font-size: var(--taco-font-size-400);
-      margin: 0;
-    }
-  }
-}
-
-.reader--text {
-  font-size: var(--taco-font-size-400);
-  padding: 0 27px;
-
-  ::ng-deep {
-    .text-wrapper {
-      display: flex;
-      flex-direction: column;
-      row-gap: var(--taco-space-300);
-    }
-  }
-
-  .choices {
-    justify-content: flex-start;
-  }
 }
 
 .text {

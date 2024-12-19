@@ -1,3 +1,16 @@
+LIST Components = Basic, Hero, Storybook
+VAR currentComponent = Components.Basic
+
+=== function changeComponent(component) ===
+    ~ currentComponent = component
+    {component:
+    -   Components.Hero:
+        >>> mode: splash
+    -   Components.Storybook:
+        >>> mode: text
+    -   else:
+        >>> mode: basic
+    }
 
 === function big(text) ===
     <h3>{text}</h3>

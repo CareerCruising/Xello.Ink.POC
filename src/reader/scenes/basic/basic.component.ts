@@ -7,10 +7,10 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
 @Component({
   selector: 'app-basic',
   standalone: true,
-  imports: [ CommonModule, ChoiceListComponent ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   templateUrl: './basic.component.html',
   styleUrl: './basic.component.scss',
+  imports: [ CommonModule, ChoiceListComponent ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   animations: [
     trigger('fadeIn', [
       transition('* => *', [

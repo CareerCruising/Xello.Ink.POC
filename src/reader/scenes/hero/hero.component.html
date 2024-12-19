@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="reader reader--{{inkService.currentMode}} reader--cols-{{inkService.numColumns}}">
+    <div class="reader reader--cols-{{inkService.numColumns}}">
         @if (inkService.numColumns === 2) {
             <div class="reader--left">
                 <div class="text-wrapper" [@fadeIn]="inkService.groups['left']?.length">

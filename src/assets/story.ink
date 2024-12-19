@@ -12,7 +12,7 @@ LIST Roles = CivilEngineer
 VAR role = CivilEngineer
 
 === init ===
-    // Load user data from BE, in a proper version
+    // This is where we'd load user data, like this:
 
     ~ role = CivilEngineer
     
@@ -20,7 +20,7 @@ VAR role = CivilEngineer
 
 
 === intro ===
-    >>> mode: splash
+    {changeComponent(Components.Hero)}
     
     {biggest("The Real Game")}
     Dream big, spend wisely.

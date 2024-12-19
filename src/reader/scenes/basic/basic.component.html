@@ -18,6 +18,6 @@
 <app-choice-list
     [mode]="inkService.currentChoiceMode"
     [choices]="inkService.currentChoices"
-    [attr.alignment]="inkService.currentMode === 'text' ? 'left' : 'center'"
+    alignment="center"
     (handleChoice)="inkService.SelectChoice($event)"
 ></app-choice-list>

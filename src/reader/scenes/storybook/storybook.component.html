@@ -3,7 +3,7 @@
         <img class="accent" *ngSwitchCase="'stars'" alt="" src="../assets/img/bg-stars.svg" />
         <ng-container *ngSwitchDefault></ng-container>
     </ng-container>
-    <div class="reader reader--text">
+    <div class="reader">
         <div class="text-wrapper" [@fadeIn]="inkService.groups['right']?.length">
             @for (line of inkService.groups['right']; track line.content) {
                 <ng-container [ngSwitch]="line.type">
@@ -24,7 +24,7 @@
         <app-choice-list
             [mode]="inkService.currentChoiceMode"
             [choices]="inkService.currentChoices"
-            [attr.alignment]="inkService.currentMode === 'text' ? 'left' : 'center'"
+            alignment="left"
             (handleChoice)="inkService.SelectChoice($event)"
         ></app-choice-list>        
     </div>
