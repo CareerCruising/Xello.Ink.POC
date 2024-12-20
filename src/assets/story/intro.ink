@@ -1,35 +1,65 @@
 
+=== intro ===
+    >>> mode: hero
+    
+    {culture:
+    - esUS:
+        {biggest("El Juego Real")}
+        Sueña en grande, gasta sabiamente.
+    - frCA:
+        {biggest("Le Real Game")}
+        Dream grande, spend prudemment.
+    - else:
+        {biggest("The Real Game")}
+        Dream big, spend wisely.
+    }
+    
+    >>> background: gradient
+    
+    + [Play]
+        -> passage
 
-=== enter ===
-    >>> mode: text
+
+=== passage ===
+    >>> mode: storybook
     >>> background: basic
     >>> accent: stars
     
-    You're all alone on a dark night.
-    You venture down a strange alley, hoping to get home faster.
-    Suddenly, you pass through a strange, shimmery film stretched across the passage.
-    You look around in a panic. The world seems the same.
-    But you feel... different. Older, more mature....
-    Are you dreaming? Or is this real life?
+    {culture:
+    - esUS:
+    - frCA:
+    - else:
+        You're all alone on a dark night.
+        You venture down a strange alley, hoping to get home faster.
+        Suddenly, you pass through a strange, shimmery film stretched across the passage.
+        You look around in a panic. The world seems the same.
+        But you feel... different. Older, more mature....
+        Are you dreaming? Or is this real life?
+    }
     
     + [Next]
         -> aw_snap
     
     
 === aw_snap ===
-    >>> mode: splash
+    >>> mode: hero
     >>> background: gradient
     
-    {illustration("il-directional-signs")}
-    {big("Aw snap.")}
-    Interdimensional time travel was not something you expected to do today.
+    {culture:
+    - esUS:
+    - frCA:
+    - else:
+        {illustration("il-directional-signs")}
+        {big("Aw snap.")}
+        Interdimensional time travel was not something you expected to do today.
+    }
     
     + [Next]
         -> investigation
     
     
 === investigation ===
-    >>> mode: splash
+    >>> mode: hero
     >>> background: gradient
     >>> columns: 2
     
@@ -38,6 +68,8 @@
 
     >>> group: right
     {
+        -   check_pockets and search_bag and turn_on_phone:
+            -> onboarding
         -   came_from(-> role_rating.done):
             <b>How did you qualify for this job?</b>
             You're feeling strangely prepared to start working.
@@ -48,13 +80,13 @@
 
     >>> choice-mode: list
 
-    * [Check pockets]
+    * (check_pockets) [Check pockets]
         >>> background: basic
         You search your pockets and pull out an employee ID card.
         {bigger("What does it say?")}
         ++ [Next]
             -> role_revealed
-    * [Search bag]
+    * (search_bag) [Search bag]
         >>> background: basic
         {big("Score! You pull out a crumpled resume.")}
         What education and training did you take to prepare for this role?
@@ -64,13 +96,20 @@
             You’re confident you can rock your first day of work.
             +++ [Next]
                 -> investigation
-    * [Turn on phone]
+    * (turn_on_phone) [Turn on phone]
         >>> background: basic
-        -> DONE
+        >>> mode: hero
+        
+        (I don't know what happens here.)
+        {big("It's not in the prototype.")}
+        
+        ++ [lol]
+            -> investigation
+    + {debug} [Debug: Skip]
+        -> onboarding
     * ->
-        -> DONE
-    
-    
+        -> onboarding
+
 === role_revealed ===
     >>> background: gradient
     
@@ -95,7 +134,7 @@ VAR ratingVacation = 0
     
     
 === role_rating ===
-    >>> mode: splash
+    >>> mode: hero
     
     -> rate(-> ex1, ratingJobDesc) ->
     -> rate(-> ex2, ratingMonthlyPay) ->

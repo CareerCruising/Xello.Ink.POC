@@ -5,7 +5,7 @@ VAR currentComponent = Components.Basic
     ~ currentComponent = component
     {component:
     -   Components.Hero:
-        >>> mode: splash
+        >>> mode: hero
     -   Components.Storybook:
         >>> mode: text
     -   else:

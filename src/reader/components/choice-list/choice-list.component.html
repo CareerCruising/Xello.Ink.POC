@@ -32,7 +32,7 @@
     <div class="choices__wrapper choices__wrapper--list"
          [@choiceList]="choices.length"
          *ngSwitchCase="'list'">
-        <div class="choices choices--list">        
+        <div class="choices choices--list">
             @for (choice of choices; track choice.index) {
                 <button
                     size="md"
