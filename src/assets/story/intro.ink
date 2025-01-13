@@ -15,7 +15,7 @@
     }
     
     >>> background: gradient
-    
+
     + [Play]
         -> passage
 
@@ -105,10 +105,11 @@
         
         ++ [lol]
             -> investigation
-    + {debug} [Debug: Skip]
+    +  (skip_to_onboarding) {debug} [Debug: Skip]
         -> onboarding
     * ->
         -> onboarding
+
 
 === role_revealed ===
     >>> background: gradient
@@ -125,6 +126,7 @@
     
     + [Rate role]
         -> role_rating
+
 
 
 VAR ratingJobDesc = 0
