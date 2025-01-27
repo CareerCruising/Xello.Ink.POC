@@ -25,6 +25,7 @@ export class InkService {
 
   currentBackground = '';
   numColumns = 1;
+  showFullUI = false;
 
   knots: string[] = [];
 

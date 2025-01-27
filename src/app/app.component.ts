@@ -21,7 +21,7 @@ export const scriptIDs = {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  imports: [ ReaderComponent ]
+  imports: [ ReaderComponent, CommonModule ]
 })
 export class AppComponent {
   title = 'ng-ink-player';

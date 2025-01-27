@@ -1,9 +1,10 @@
 
 .app__wrapper {
     display: grid;
-    grid-template-areas: 'reader';
+    grid-template-areas: 'header'
+                         'reader';
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 0 1fr;
     min-height: 100vh;
     color: white;
     background: var(--taco-color-cornflower-900);
@@ -40,8 +41,23 @@
     }
 }
 
+.action-bar {
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    &__left, &__right {
+        display: flex;
+        align-items: center;
+        padding: 0 27px;
+    }
+    &__right {
+        justify-content: flex-end;
+    }
+}
+
 .app__header {
     grid-area: header;
+    height: 64px;
 }
 .app__sidebar {
     grid-area: sidebar;
