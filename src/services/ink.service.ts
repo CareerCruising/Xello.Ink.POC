@@ -26,7 +26,9 @@ export class InkService {
   currentBackground = '';
   numColumns = 1;
 
-  constructor() { }
+  constructor() {
+    this.story.variablesState.$('environment', 'web');
+  }
 
   Continue() {
     if (this.isPlaying) {

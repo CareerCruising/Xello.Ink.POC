@@ -16,23 +16,22 @@ button {
   border-radius: var(--taco-radius-all);
 }
 
+small {
+  font-size: var(--taco-font-size-225);
+}
+
 .container {
   max-width: 1312px;
   margin: 0 auto;
-  padding: 40px 112px;
   width: 100%;
   height: 100%;
   position: relative;
 }
 
 .wrapper {
-  background: var(--taco-color-cornflower-900);
-  background-color: var(--taco-color-cornflower-900);
   color: white;
-  height: 100vh;
-
-  display: grid;
-  grid-template-rows: 64px 1fr;
+  width: 100%;
+  height: 100%;
 
   &:before {
       content: "";

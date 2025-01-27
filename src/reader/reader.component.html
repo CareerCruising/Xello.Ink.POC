@@ -1,10 +1,4 @@
 <div class="wrapper wrapper--bg-{{inkService.currentBackground}}">
-    <div class="action-bar">
-        <div class="action-bar__left">
-        </div>
-        <div class="action-bar__right">
-        </div>
-    </div>
     <ng-container [ngSwitch]="inkService.currentMode">
         <app-hero *ngSwitchCase="'hero'"></app-hero>
         <app-storybook *ngSwitchCase="'storybook'"></app-storybook>

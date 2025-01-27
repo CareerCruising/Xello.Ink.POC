@@ -72,10 +72,10 @@
             -> onboarding
         -   came_from(-> role_rating.done):
             <b>How did you qualify for this job?</b>
-            You're feeling strangely prepared to start working.
+            <small>You're feeling strangely prepared to start working.</small>
         -   // Default
             <b>What's going on?</b>
-            Maybe there's a clue that can help you figure this out.
+            <small>Maybe there's a clue that can help you figure this out.</small>
     }
 
     >>> choice-mode: list
@@ -105,8 +105,6 @@
         
         ++ [lol]
             -> investigation
-    +  (skip_to_onboarding) {debug} [Debug: Skip]
-        -> onboarding
     * ->
         -> onboarding
 

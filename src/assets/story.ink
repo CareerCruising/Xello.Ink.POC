@@ -14,6 +14,8 @@ VAR role = CivilEngineer
 LIST Cultures = enCA, frCA, enUS, esUS
 VAR culture = Cultures.enCA
 
+VAR environment = "inky"
+
 -> init
 
 

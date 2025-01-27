@@ -1,18 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .reader--cols-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 100%;
+  padding: 30px;
+  justify-content: center;
   // animation: shift-over 1s ease-in-out;
 
   .reader--right {
     text-align: left;
+  }
+  .reader--left, .reader--right {
+    max-width: 528px;
   }
 }
 
 .reader {
     text-align: center;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
   
     ::ng-deep {
       h1 {
@@ -31,16 +41,21 @@
     }
 }
 
+.reader--left {
+  justify-content: center;
+}
+.reader--right {
+  .text-wrapper {
+    margin-bottom: 16px;
+  }
+}
+
 .reader--left,
 .reader--right {
   display: flex;
   flex-direction: column;
   row-gap: var(--taco-space-300);
   font-size: var(--taco-font-size-300);
-}
-
-.text-wrapper {
-  margin-bottom: 16px;
 }
 
 .text {
