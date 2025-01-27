@@ -16,8 +16,13 @@
   max-width: 1312px;
   // animation: shift-over 1s ease-in-out;
 
+  .reader--left {
+    justify-content: center;
+    justify-self: flex-end;
+  }
   .reader--right {
     text-align: left;
+    justify-self: flex-start;
   }
   .reader--left, .reader--right {
     max-width: 528px;
@@ -42,14 +47,10 @@
         font-size: var(--taco-font-size-400);
         margin: 0;
       }
-      b { margin: 6px 0; display: inline-block; }
+      b { display: inline-block; }
     }
 }
 
-.reader--left {
-  justify-content: center;
-  justify-self: flex-end;
-}
 .reader--right {
   .text-wrapper {
     margin-bottom: 16px;
@@ -60,7 +61,6 @@
 .reader--right {
   display: flex;
   flex-direction: column;
-  row-gap: var(--taco-space-300);
   font-size: var(--taco-font-size-300);
 }
 

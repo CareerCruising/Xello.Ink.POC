@@ -9,8 +9,6 @@
     color: white;
     background: var(--taco-color-cornflower-900);
     background-color: var(--taco-color-cornflower-900);
-    max-width: 1366px;
-    margin: 0 auto;
 
     &--full {
         grid-template-areas: 'header header'
@@ -39,6 +37,12 @@
             transition: opacity .5s ease-in-out;
         }
     }
+}
+.app__reader {
+    position: relative;
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
 }
 
 .action-bar {
