@@ -26,6 +26,8 @@ export class InkService {
   currentBackground = '';
   numColumns = 1;
 
+  knots: string[] = [];
+
   constructor() {
     this.story.variablesState.$('environment', 'web');
   }

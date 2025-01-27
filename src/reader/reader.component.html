@@ -1,9 +1,7 @@
-<div class="wrapper wrapper--bg-{{inkService.currentBackground}}">
-    <ng-container [ngSwitch]="inkService.currentMode">
-        <app-hero *ngSwitchCase="'hero'"></app-hero>
-        <app-storybook *ngSwitchCase="'storybook'"></app-storybook>
-        <div class="container" *ngSwitchDefault>
-            <app-basic class="reader reader--{{inkService.currentMode}}"></app-basic>            
-        </div>
-    </ng-container>
-</div>
+<ng-container [ngSwitch]="inkService.currentMode">
+    <app-hero *ngSwitchCase="'hero'"></app-hero>
+    <app-storybook *ngSwitchCase="'storybook'"></app-storybook>
+    <div class="container" *ngSwitchDefault>
+        <app-basic class="reader reader--{{inkService.currentMode}}"></app-basic>            
+    </div>
+</ng-container>

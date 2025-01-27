@@ -3,6 +3,7 @@ import { Choice } from 'inkjs/engine/Choice';
 import { loadScript, loadStyle } from '../helpers/url.helpers';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { ReaderComponent } from "../reader/reader.component";
+import { InkService } from '../services/ink.service';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -30,6 +31,7 @@ export class AppComponent {
 
   constructor(
     rendererFactory: RendererFactory2,
+    public inkService: InkService,
     @Inject(DOCUMENT) private document: Document,
   ) {
     const renderer = rendererFactory.createRenderer(null, null);
