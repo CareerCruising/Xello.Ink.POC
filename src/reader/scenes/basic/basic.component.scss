@@ -1,3 +1,9 @@
 :host {
     padding: 30px;
 }
+
+::ng-deep {
+    p {
+        margin: 16px 0;
+    }
+}

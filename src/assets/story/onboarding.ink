@@ -1,7 +1,12 @@
 === onboarding ===
-    >>> background: basic
+    >>> background: gradient
     >>> mode: hero
     >>> columns: 2
+    
+    >>> group: left
+    >>> illustration: il-smart-watch-ekg
+
+    >>> group: right
     
     <b>You suddenly notice a watch on your wrist...</b>
     It's beeping at you.
@@ -10,17 +15,22 @@
     
     + [Check for messages]
     + [Ignore it]
-        It's still talking...
     + [Turn it off]
-        Oops, you accidentally turned it on.
     -
     
+    >>> background: basic
+    >>> columns: 2
+    
+    >>> group: left
+    >>> group: right
+
     {bigger("A figure appears on the watch and says:")}
-    Hello, I’m Ollex, your guide!
-    I’ll give you some tips for figuring out this new life.
+    <p>Hello, I’m Ollex, your guide!</p>
+    <p>I’ll give you some tips for figuring out this new life.</p>
     
     + [Got it]
     -
+    
     >>> background: gradient
     >>> ui: game
     
