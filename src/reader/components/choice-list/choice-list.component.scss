@@ -16,11 +16,17 @@
     }
 }
 
+taco-button {
+    display: block;
+}
+
 .choices {
     display: flex;
     justify-content: center;
     column-gap: 16px;
     min-height: 51px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .choice-button {
@@ -34,11 +40,14 @@
     align-items: stretch;
     justify-content: flex-start;
     row-gap: 16px;
-    padding-bottom: 16px;
 
     .choice {
         border-radius: 4px;
         text-align: left;
+    }
+
+    taco-button {
+        display: block;
     }
 }
 
@@ -48,7 +57,7 @@
 
 .choices--rating {
     column-gap: 0;
-    padding-bottom: 16px;
+    margin-bottom: 16px;
 
     .choice {
         padding: 4px;

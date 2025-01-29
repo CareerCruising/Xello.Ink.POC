@@ -14,17 +14,23 @@ import { Choice } from 'inkjs/engine/Choice';
     trigger('choices', [
       transition('* => *', [
         query(':enter', [
-          style({ height: 0, opacity: 0 }),
-          animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))  
+          style({ opacity: 0 }),
+          animate('0.5s ease-in-out', style({ opacity: 1 }))  
         ], { optional: true })
       ])
     ]),
     trigger('choiceList', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0 }),
-          animate('0.5s ease-in-out', style({ opacity: 1 }))  
-        ], { optional: true })
+      transition('void => *', [
+        group([
+          group([
+            style({ height: 0, marginBottom: '16px' }),
+            animate('0.5s ease-in-out', style({ height: '*', marginBottom: '55px' }))
+          ]),
+          group([
+            style({ opacity: 0 }),
+            animate('1s 0.5s ease-in-out', style({ opacity: 1, marginBottom: '55px'  }))
+          ]),
+        ])
       ])
     ]),
   ]
