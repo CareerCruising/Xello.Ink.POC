@@ -1,9 +1,16 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Inject, NO_ERRORS_SCHEMA, RendererFactory2 } from '@angular/core';
-import { Choice } from 'inkjs/engine/Choice';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  Inject,
+  RendererFactory2,
+} from '@angular/core';
 import { loadScript, loadStyle } from '../helpers/url.helpers';
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { ReaderComponent } from "../reader/reader.component";
+import { ReaderComponent } from '../reader/reader.component';
 import { InkService } from '../services/ink.service';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -14,25 +21,29 @@ export const scriptIDs = {
   LOTTIE_PLAYER_ID: 'lottie-player-js',
 };
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  imports: [ ReaderComponent, CommonModule ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    ReaderComponent,
+    CommonModule,
+    FooterComponent,
+    HeaderComponent,
+    SidebarComponent,
+  ],
 })
 export class AppComponent {
   title = 'ng-ink-player';
 
   CDN_ABSOLUTE_URL = 'https://cdn-dev-anaca.azureedge.net/';
 
-
   constructor(
     rendererFactory: RendererFactory2,
     public inkService: InkService,
-    @Inject(DOCUMENT) private document: Document,
+    @Inject(DOCUMENT) private document: Document
   ) {
     const renderer = rendererFactory.createRenderer(null, null);
 
@@ -64,5 +75,4 @@ export class AppComponent {
       scriptIDs.TACO_STYLE_ID
     );
   }
-
 }

@@ -1,27 +1,14 @@
-<div class="app__wrapper app__wrapper--full" *ngIf="inkService.showFullUI; else simple">
-    <ng-container [ngTemplateOutlet]="header"></ng-container>
-    <div class="app__sidebar"></div>
+<div class="app__wrapper app__wrapper--full app__wrapper--bg-{{inkService.currentBackground}}"
+     *ngIf="inkService.showFullUI; else simple">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
     <app-reader class="app__reader"></app-reader>
-    <div class="app__footer">
-        <img class="illustration__wrapper" src="../assets/img/illustration_bg.svg" alt="" />
-    </div>
+    <app-footer></app-footer>
 </div>
 
 <ng-template #simple>
     <div class="app__wrapper app__wrapper--bg-{{inkService.currentBackground}}">
-        <ng-container [ngTemplateOutlet]="header"></ng-container>
+        <app-header></app-header>
         <app-reader class="app__reader"></app-reader>
     </div>    
-</ng-template>
-
-<ng-template #header>
-    <div class="app__header action-bar">
-        <div class="action-bar__left">
-        </div>
-        <div class="action-bar__right">
-            <button class="btn btn-link">
-                Leave game &nbsp; <taco-icon size="sm" icon="ic-chevron-right" fill="white-100"></taco-icon>
-            </button>
-        </div>
-    </div>
 </ng-template>

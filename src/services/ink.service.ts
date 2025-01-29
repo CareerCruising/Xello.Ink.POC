@@ -25,6 +25,8 @@ export class InkService {
   currentChoiceMode = '';
   startingKnot = '';
 
+  isInitialized = false
+
   currentBackground = '';
   numColumns = 1;
   showFullUI = false;
@@ -40,6 +42,7 @@ export class InkService {
     if (this.isPlaying) {
       return;
     }
+    this.isInitialized = true;
     this.isPlaying = true;
     this.currentChoices = this.story.currentChoices;
     if (this.story.canContinue) {
@@ -50,6 +53,9 @@ export class InkService {
         const tokens = command.split(' ');
         console.log(tokens);
         switch (tokens[0].replaceAll(':', '')) {
+          case 'ui':
+            this.showFullUI = tokens[1] === 'game';
+            break;
           case 'mode':
             this.currentMode = tokens[1];
             break;

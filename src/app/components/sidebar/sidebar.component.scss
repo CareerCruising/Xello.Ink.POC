@@ -1,0 +1,15 @@
+
+:host {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    margin-left: 27px;
+    row-gap: 8px;
+    z-index: 1;
+}
+.sidebar__section {
+    padding: var(--taco-space-200);
+    border-radius: var(--taco-radius-all);
+    background-color: #5A3A6880;   
+}
