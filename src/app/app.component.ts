@@ -36,7 +36,6 @@ export const scriptIDs = {
   ],
 })
 export class AppComponent {
-  title = 'ng-ink-player';
 
   CDN_ABSOLUTE_URL = 'https://cdn-dev-anaca.azureedge.net/';
 

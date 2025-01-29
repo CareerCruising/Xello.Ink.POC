@@ -29,7 +29,9 @@
     <p>I’ll give you some tips for figuring out this new life.</p>
     
     + [Got it]
-    -
+        -> begin_onboarding
+        
+=== begin_onboarding ===
     
     >>> background: gradient
     >>> ui: game

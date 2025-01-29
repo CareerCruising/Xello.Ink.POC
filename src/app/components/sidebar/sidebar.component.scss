@@ -13,3 +13,25 @@
     border-radius: var(--taco-radius-all);
     background-color: #5A3A6880;   
 }
+.sidebar__badge {
+    position: relative;
+    height: 32px;
+
+    .badge__level {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.student__info {
+    display: grid;
+    column-gap: 8px;
+    grid-template-columns: 32px 1fr;
+
+    :last-child {
+        display: flex;
+        flex-direction: column;
+        font-size: var(--taco-font-size-175);
+    }
+}
