@@ -3,6 +3,7 @@ import { Story } from 'inkjs';
 import * as json from '../assets/story.ink.json';
 import { Choice } from 'inkjs/engine/Choice';
 import { ContentLine } from '../models/content-line.interface';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class InkService {
   currentAccent = '';
   currentGroup = 'right';
   currentChoiceMode = '';
+  startingKnot = '';
 
   currentBackground = '';
   numColumns = 1;
@@ -30,6 +32,7 @@ export class InkService {
   knots: string[] = [];
 
   constructor() {
+    this.startingKnot = environment.STARTING_KNOT;
     this.story.variablesState.$('environment', 'web');
   }
 
@@ -87,6 +90,14 @@ export class InkService {
 
   Choose(choice: Choice) {
     this.story.ChooseChoiceIndex(choice.index);
+  }
+
+  ChoosePathString(path: string) {
+    if (!this.story.HasFunction(path)) {
+      console.error(`Attempting to navigate to ${path}, which does not exist in this story!`)
+      return;
+    }
+    this.story.ChoosePathString(path);
   }
 
   addLine(group: string, line: ContentLine) {

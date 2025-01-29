@@ -26,6 +26,9 @@ import { HeroComponent } from './scenes/hero/hero.component';
 })
 export class ReaderComponent {
   constructor(public inkService: InkService) {
+    if (this.inkService.startingKnot) {
+      this.inkService.ChoosePathString(this.inkService.startingKnot)
+    }
     this.inkService.Continue();
   }
 }

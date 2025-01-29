@@ -3,10 +3,6 @@
     >>> mode: hero
     >>> columns: 2
     
-    {not role_revealed:
-        (Cool. You're a {roleNameLowercase(role)} by the way.)
-    }
-
     <b>You suddenly notice a watch on your wrist...</b>
     It's beeping at you.
     
