@@ -94,8 +94,9 @@
 === role_revealed ===
     ~ setTemplate(Templates.StoryBite)
     ~ setBackground(Gradient)
+    >>> delay: 1000
 
-    <h1>You are a {roleNameLowercase(role)}.</h1>
+    <h1>You have a job as a {roleNameLowercase(role)}.</h1>
     And your job starts today. Better get over there!
     
     >>> frame: employee-id
@@ -124,7 +125,6 @@ VAR ratingVacation = 0
     -> rate(-> ex2, ratingMonthlyPay) ->
     -> rate(-> ex3, ratingHours) ->
     -> rate(-> ex4, ratingVacation) ->
-    
     
     ~ setTemplate(Templates.RatingSummary)
     

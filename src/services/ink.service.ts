@@ -99,6 +99,10 @@ export class InkService {
       case 'ui':
         this.showFullUI = tokens[1] === 'game';
         break;
+      case 'delay':
+        this.delay = +tokens[1];
+        await sleep(this.delay);
+        break;
       case 'mode':
       case 'template':
         this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
