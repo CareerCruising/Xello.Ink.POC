@@ -120,8 +120,6 @@ VAR ratingVacation = 0
     
     
 === role_rating ===
-    ~ setTemplate(Templates.Rating)
-    
     -> rate(-> ex1, ratingJobDesc) ->
     -> rate(-> ex2, ratingMonthlyPay) ->
     -> rate(-> ex3, ratingHours) ->

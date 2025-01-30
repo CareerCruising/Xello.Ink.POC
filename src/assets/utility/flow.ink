@@ -5,11 +5,10 @@
     
 
 === rate(-> instructions, ref out) ===
-    >>> group: right
+    ~ setTemplate(Templates.Rating)
+    
     <- instructions
-    
-    >>> choice-mode: rating
-    
+
     + [1]
         ~ out = 1
     + [2]
