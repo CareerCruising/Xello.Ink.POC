@@ -19,6 +19,7 @@ export class InkService {
   isComplete = false;
 
   groups: {[id: string]: ContentLine[]} = {};
+  currentText: ContentLine[] = [];
   currentChoices: Choice[] = [];
   currentAccent = '';
   currentGroup = 'right';
@@ -66,18 +67,11 @@ export class InkService {
           case 'accent':
             this.currentAccent = tokens[1];
             break;
-          case 'columns':
-            const columns = +tokens[1];
-            this.numColumns = columns;
-            break;
           case 'choice-mode':
             this.currentChoiceMode = tokens[1];
             break;
-          case 'group':
-            this.currentGroup = tokens[1];
-            break;
           case 'illustration':
-            this.addLine(this.currentGroup, {type: 'illustration', group: this.currentGroup, content: tokens[1]});
+            this.addLine({type: 'illustration', group: this.currentGroup, content: tokens[1]});
             break;
           case 'background':
             this.currentBackground = tokens[1].toLowerCase();
@@ -86,7 +80,7 @@ export class InkService {
         this.Continue();
         return;
       } else {
-        this.addLine(this.currentGroup, {type: 'text', group: this.currentGroup, content: text});
+        this.addLine({type: 'text', group: this.currentGroup, content: text});
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
@@ -110,17 +104,21 @@ export class InkService {
     this.story.ChoosePathString(path);
   }
 
-  addLine(group: string, line: ContentLine) {
-    if (!this.groups[group]) {
-      this.groups[group] = [];
-    }
-    this.groups[group].push(line);
+  addLine(line: Partial<ContentLine>) {
+    console.log(line);
+    this.currentText.push({
+      id: this.currentText.length,
+      type: 'text',
+      content: '',
+      ...line
+    });
   }
 
   Reset() {
     this.groups = {};
     this.currentAccent = '';
     this.currentBackground = '';
+    this.currentText = [];
     this.numColumns = 1;
     this.currentChoiceMode = '';
   }

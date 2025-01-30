@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { animate, query, style, transition, trigger } from '@angular/animations';
 import { InkService } from '../../../services/ink.service';
-import { BasicComponent } from "../basic/basic.component";
+import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
+import { animate, query, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-multi-choice',
   standalone: true,
-  imports: [ CommonModule, BasicComponent ],
+  templateUrl: './multi-choice.component.html',
+  styleUrl: './multi-choice.component.scss',
+  imports: [ CommonModule, ChoiceListComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
   animations: [
     trigger('fadeIn', [
       transition('* => *', [
@@ -22,8 +22,7 @@ import { BasicComponent } from "../basic/basic.component";
     ])
   ]
 })
-export class HeroComponent {
+export class MultiChoiceComponent {
 
   constructor(public inkService: InkService) {}
-
 }

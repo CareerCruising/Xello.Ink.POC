@@ -3,28 +3,29 @@
     <img class="accent" *ngSwitchCase="'stars'" alt="" src="../assets/img/bg-stars.svg" />
     <ng-container *ngSwitchDefault></ng-container>
 </ng-container>
-<div class="reader">
-    <div class="text-wrapper" [@fadeIn]="inkService.groups['right']?.length">
-        @for (line of inkService.groups['right']; track line.content) {
-            <ng-container [ngSwitch]="line.type">
-                <div
-                    class="text"
-                    [innerHTML]="line.content"
-                    *ngSwitchDefault>
-                </div>
-                <taco-illustration
-                    class="text"
-                    illustration="{{line.content}}"
-                    size="xxxxlg"
-                    *ngSwitchCase="'illustration'"
-                ></taco-illustration>
-            </ng-container>
-        }
-    </div>
-    <app-choice-list
-        [mode]="inkService.currentChoiceMode"
-        [choices]="inkService.currentChoices"
-        alignment="left"
-        (handleChoice)="inkService.SelectChoice($event)"
-    ></app-choice-list>        
+
+<div class="text-wrapper" [@fadeIn]="lines.length">
+    @for (line of lines; track line.id) {
+        <ng-container [ngSwitch]="line.type">
+            <div
+                class="text"
+                [innerHTML]="line.content"
+                *ngSwitchDefault>
+            </div>
+            <taco-illustration
+                class="text"
+                illustration="{{line.content}}"
+                size="xxxxlg"
+                *ngSwitchCase="'illustration'"
+            ></taco-illustration>
+        </ng-container>
+    }
 </div>
+<app-choice-list
+    [mode]="inkService.currentChoiceMode"
+    [choices]="inkService.currentChoices"
+    class="choice-list"
+    alignment="center"
+    (handleChoice)="inkService.SelectChoice($event)"
+></app-choice-list>
+

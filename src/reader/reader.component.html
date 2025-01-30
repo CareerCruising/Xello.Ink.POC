@@ -1,8 +1,9 @@
 <ng-container [ngSwitch]="inkService.currentTemplate">
     <app-title *ngSwitchCase="'Title'"></app-title>
-    <app-hero *ngSwitchCase="'hero'"></app-hero>
+    <app-story-bite *ngSwitchCase="'hero'"></app-story-bite>
+    <app-story-bite *ngSwitchCase="'StoryBite'"></app-story-bite>
     <app-story-scene *ngSwitchCase="'StoryScene'"></app-story-scene>
     <div class="container" *ngSwitchDefault>
-        <app-basic class="reader reader--{{inkService.currentTemplate}}"></app-basic>            
+        <app-basic class="reader reader--{{inkService.currentTemplate}}"></app-basic>
     </div>
 </ng-container>

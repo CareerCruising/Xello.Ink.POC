@@ -1,16 +1,16 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { animate, query, style, transition, trigger } from '@angular/animations';
-import { BasicComponent } from '../basic/basic.component';
-import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
+import { InkService } from '../../../services/ink.service';
+import { BasicComponent } from "../basic/basic.component";
 
 @Component({
-  selector: 'app-story-scene',
+  selector: 'app-story-bite',
   standalone: true,
-  imports: [ CommonModule, ChoiceListComponent ],
+  imports: [ CommonModule, BasicComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  templateUrl: './story-scene.component.html',
-  styleUrl: './story-scene.component.scss',
+  templateUrl: './story-bite.component.html',
+  styleUrl: './story-bite.component.scss',
   animations: [
     trigger('fadeIn', [
       transition('* => *', [
@@ -22,6 +22,8 @@ import { ChoiceListComponent } from '../../components/choice-list/choice-list.co
     ])
   ]
 })
-export class StorySceneComponent extends BasicComponent {
+export class StoryBiteComponent {
+
+  constructor(public inkService: InkService) {}
 
 }

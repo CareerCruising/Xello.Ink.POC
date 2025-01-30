@@ -4,27 +4,27 @@
     
     {culture:
     - esUS:
-        {biggest("El Juego Real")}
+        <h1>El Juego Real</h1>
         Sueña en grande, gasta sabiamente.
     - frCA:
-        {biggest("Le Real Game")}
+        <h1>Le Real Game</h1>
         Dream grande, spend prudemment.
     - else:
-        {biggest("The Real Game")}
+        <h1>The Real Game</h1>
         Dream big, spend wisely.
     }
     
     ~ setBackground(Backgrounds.Gradient)
 
-    + [Play]
+    + [Get started]
         -> passage
 
 
 === passage ===
 
     ~ setTemplate(Templates.StoryScene)
+    ~ setBackground(Backgrounds.Basic)
 
-    >>> background: basic
     >>> accent: stars
     
     {culture:
@@ -35,8 +35,10 @@
         You venture down a strange alley, hoping to get home faster.
         Suddenly, you pass through a strange, shimmery film stretched across the passage.
         You look around in a panic. The world seems the same.
-        But you feel... different. Older, more mature....
-        Are you dreaming? Or is this real life?
+        But you feel... different.
+        Older, more mature....
+        Are you dreaming?
+        Or is this real life?
     }
     
     + [Next]
@@ -44,15 +46,16 @@
     
     
 === aw_snap ===
-    >>> mode: hero
-    >>> background: gradient
+
+    ~ setTemplate(Templates.StoryBite)
+    ~ setBackground(Backgrounds.Gradient)
     
     {culture:
     - esUS:
     - frCA:
     - else:
-        {illustration("il-directional-signs")}
-        {big("Aw snap.")}
+        >>> illustration: il-directional-signs
+        <h1>Aw snap.</h1>
         Interdimensional time travel was not something you expected to do today.
     }
     
@@ -61,26 +64,21 @@
     
     
 === investigation ===
-    >>> mode: hero
-    >>> background: gradient
-    >>> columns: 2
-    
-    >>> group: left
-    {illustration("il-magnifying-glass")}
 
-    >>> group: right
+    ~ setTemplate(Templates.MultiChoice)
+    ~ setBackground(Backgrounds.Gradient)
+    
+    >>> illustration: il-magnifying-glass
     {
         -   check_pockets and search_bag and turn_on_phone:
             -> onboarding
         -   came_from(-> role_rating.done):
-            <b>How did you qualify for this job?</b>
-            <small>You're feeling strangely prepared to start working.</small>
+            <h1>How did you qualify for this job?</h1>
+            You're feeling strangely prepared to start working.
         -   // Default
-            <b>What's going on?</b>
-            <small>Maybe there's a clue that can help you figure this out.</small>
+            <h1>What's going on?</h1>
+            Maybe there's a clue that can help you figure this out.
     }
-
-    >>> choice-mode: list
 
     * (check_pockets) [Check pockets]
         >>> background: basic

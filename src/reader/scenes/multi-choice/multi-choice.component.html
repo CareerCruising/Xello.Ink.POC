@@ -1,0 +1,8 @@
+<app-basic></app-basic>
+<app-choice-list
+    [mode]="inkService.currentChoiceMode"
+    [choices]="inkService.currentChoices"
+    class="choice-list"
+    alignment="center"
+    (handleChoice)="inkService.SelectChoice($event)"
+></app-choice-list>

@@ -1,5 +1,5 @@
-<div class="text-wrapper" [@fadeIn]="inkService.groups['right']?.length">
-    @for (line of inkService.groups['right']; track line.content) {
+<div class="text-wrapper" [@fadeIn]="lines.length">
+    @for (line of lines; track line.id) {
         <ng-container [ngSwitch]="line.type">
             <div
                 class="text"

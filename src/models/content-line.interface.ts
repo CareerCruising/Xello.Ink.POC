@@ -1,1 +1,1 @@
-export interface ContentLine {type: string, content: string, group?: string};
+export interface ContentLine {type: string, id: number, content: string, group?: string};

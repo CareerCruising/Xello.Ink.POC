@@ -4,6 +4,7 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  font-size: var(--taco-font-size-500);
 
   ::ng-deep {
     h1 {
@@ -11,21 +12,14 @@
       margin: 0;
     }
     h2 {
-      font-size: var(--taco-font-size-500);
+      font-size: var(--taco-font-size-700);
       margin: 0;
     }
     h3 {
-      font-size: var(--taco-font-size-400);
+      font-size: var(--taco-font-size-700);
       margin: 0;
     }
   }
-}
-
-.reader--left,
-.reader--right {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--taco-font-size-300);
 }
 
 .text-wrapper {
@@ -34,10 +28,4 @@
 
 .text {
   opacity: 1;
-}
-
-.accent {
-  position: absolute;
-  top: -37px;
-  left: 27px;
 }

@@ -23,6 +23,9 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class BasicComponent {
-
   constructor(public inkService: InkService) {}
+
+  get lines() {
+    return this.inkService.currentText;
+  }
 }

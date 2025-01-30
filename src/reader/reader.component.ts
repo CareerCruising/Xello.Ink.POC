@@ -9,7 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { InkService } from '../services/ink.service';
 import { BasicComponent } from './scenes/basic/basic.component';
-import { HeroComponent } from './scenes/hero/hero.component';
+import { StoryBiteComponent } from './scenes/story-bite/story-bite.component';
 import { StorySceneComponent } from './scenes/story-scene/story-scene.component';
 import { TitleComponent } from './scenes/title/title.component';
 
@@ -20,7 +20,7 @@ import { TitleComponent } from './scenes/title/title.component';
     CommonModule,
     BasicComponent,
     TitleComponent,
-    HeroComponent,
+    StoryBiteComponent,
     StorySceneComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
