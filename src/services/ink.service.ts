@@ -127,6 +127,7 @@ export class InkService {
 
   Reset() {
     this.groups = {};
+    this.currentTemplate = Templates.None;
     this.currentAccent = '';
     this.currentBackground = '';
     this.currentText = [];

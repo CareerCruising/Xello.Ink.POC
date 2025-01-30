@@ -14,11 +14,9 @@ import { takeUntil } from 'rxjs';
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   animations: [
     trigger('fadeIn', [
-      transition('* => *', [
-        query(':enter', [
-          style({ height: 0, opacity: 0 }),
-          animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))
-        ], { optional: true }),
+      transition('* <=> *', [
+        style({ opacity: 0 }),
+        animate('0.5s 0.5s ease-in-out', style({ opacity: 1 }))
       ])
     ])
   ]
@@ -28,6 +26,7 @@ export class MultiChoiceComponent extends BasicComponent implements OnInit {
   illustration: string = '';
 
   ngOnInit(): void {
+    this.inkService.delay = 0;
     this.inkService.onCommandReceived.subscribe(command => {
       switch (command.name) {
         case 'illustration':

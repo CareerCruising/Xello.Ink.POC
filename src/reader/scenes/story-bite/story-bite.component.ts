@@ -13,7 +13,7 @@ import { takeUntil } from 'rxjs';
   styleUrl: './story-bite.component.scss',
   animations: [
     trigger('fadeIn', [
-      transition('* => *', [
+      transition('* <=> *', [
         style({ opacity: 0 }),
         animate('0.5s 0.5s ease-in-out', style({ opacity: 1 }))
       ])
@@ -23,8 +23,10 @@ import { takeUntil } from 'rxjs';
 export class StoryBiteComponent extends BasicComponent implements OnInit {
 
   illustration: string = '';
+  fadeIn = false;
 
   ngOnInit(): void {
+    this.fadeIn = true;
     this.inkService.delay = 0;
     this.inkService.onCommandReceived.subscribe(command => {
       switch (command.name) {

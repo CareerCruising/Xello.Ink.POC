@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container" [@fadeIn]="lines.length">
     <taco-illustration
         class="illustration"
         *ngIf="illustration"
         illustration="{{illustration}}"
-        size="xxxxlg"
+        size="xxxxxxlg"
     ></taco-illustration>
     <div class="content">
-        <div class="text-wrapper" [@fadeIn]="lines.length">
+        <div class="text-wrapper">
             @for (line of lines; track line.id) {
                 <div
                     class="text"

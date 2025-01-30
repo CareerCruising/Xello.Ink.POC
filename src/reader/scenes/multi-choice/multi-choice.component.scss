@@ -1,5 +1,6 @@
 :host {
     width: 100%;
+    font-size: var(--taco-font-size-225);
 }
 
 .container {
@@ -12,13 +13,15 @@
 .illustration {
     align-self: center;
     justify-self: center;
+    transform: scale(1.9);
 }
 
 ::ng-deep {
     h1 {
-        margin: 0 0 16px 0;
+        font-size: var(--taco-font-size-300);
+        margin: 0;
     }
     p {
-        margin: 16px 0;
+        margin: 0 0 16px 0;
     }
 }

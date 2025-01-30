@@ -1,5 +1,6 @@
 
-LIST Templates = Title,
+LIST Templates = None,
+                 Title,
                  StoryScene,
                  StoryBite,
                  ChapterTitle,
@@ -18,6 +19,7 @@ LIST Templates = Title,
 VAR currentTemplate = Templates.Title
 
 === function setTemplate(template) ===
+    >>> template: None
     >>> template: {template}
     ~ currentTemplate = template
     ~ return

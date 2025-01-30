@@ -92,6 +92,7 @@
 
 
 === role_revealed ===
+    ~ setTemplate(Templates.StoryBite)
     ~ setBackground(Gradient)
 
     <h1>You are a {roleNameLowercase(role)}.</h1>
@@ -101,6 +102,9 @@
     
     + [Next]
     -
+    
+    ~ setTemplate(Templates.StoryBite)
+    
     <h1>Investigation time: {roleName(role)}</h1>
     How do you feel about this career?
     
@@ -122,6 +126,9 @@ VAR ratingVacation = 0
     -> rate(-> ex2, ratingMonthlyPay) ->
     -> rate(-> ex3, ratingHours) ->
     -> rate(-> ex4, ratingVacation) ->
+    
+    
+    ~ setTemplate(Templates.RatingSummary)
     
     Nicely done! Here's how you rated this role:
     Job description {rating(ratingJobDesc)}

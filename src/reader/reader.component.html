@@ -1,4 +1,5 @@
 <ng-container [ngSwitch]="inkService.currentTemplate">
+    <div *ngSwitchCase="Templates.None"></div>
     <app-title *ngSwitchCase="Templates.Title"></app-title>
     <app-story-bite *ngSwitchCase="Templates.StoryBite"></app-story-bite>
     <app-story-scene *ngSwitchCase="Templates.StoryScene"></app-story-scene>

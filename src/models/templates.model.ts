@@ -1,5 +1,6 @@
 
 export enum Templates {
+    None = '',
     Title = 'Title',
     StoryScene = 'StoryScene',
     StoryBite = 'StoryBite',
