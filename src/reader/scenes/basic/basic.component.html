@@ -18,6 +18,7 @@
 <app-choice-list
     [mode]="inkService.currentChoiceMode"
     [choices]="inkService.currentChoices"
+    *ngIf="showChoices"
     class="choice-list"
     alignment="center"
     (handleChoice)="inkService.SelectChoice($event)"

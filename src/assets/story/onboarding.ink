@@ -1,13 +1,9 @@
 === onboarding ===
-    >>> background: gradient
-    >>> mode: hero
-    >>> columns: 2
+    ~ setTemplate(StoryBite)
+    ~ setBackground(Gradient)
     
-    >>> group: left
     >>> illustration: il-smart-watch-ekg
 
-    >>> group: right
-    
     <b>You suddenly notice a watch on your wrist...</b>
     It's beeping at you.
     

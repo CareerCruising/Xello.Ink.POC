@@ -2,6 +2,7 @@
     <app-title *ngSwitchCase="Templates.Title"></app-title>
     <app-story-bite *ngSwitchCase="Templates.StoryBite"></app-story-bite>
     <app-story-scene *ngSwitchCase="Templates.StoryScene"></app-story-scene>
+    <app-rating *ngSwitchCase="Templates.Rating"></app-rating>
     <app-multi-choice *ngSwitchCase="Templates.MultiChoice"></app-multi-choice>
     <div class="container" *ngSwitchDefault>
         <app-basic class="reader reader--{{inkService.currentTemplate}}"></app-basic>

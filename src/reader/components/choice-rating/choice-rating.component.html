@@ -1,25 +1,27 @@
-
-<div class="choices choices--rating">
-    @for (choice of choices; track choice.index) {
-        <button
-            size="md"
-            type="basic"
-            class="choice choice-button"
-            [ngClass]="{ active: choiceSelected?.index === choice.index }"
-            (click)="selectChoice(choice)">
-            <taco-defined-icon
-                size="lg"
-                fill="black-500"
-                [icon]="(choiceSelected && choiceSelected.index >= choice.index) ? 'icd-100-percent-star' : 'icd-0-percent-star'"
-            ></taco-defined-icon>
-        </button>
-    }
+<div [@fadeIn]="choices.length">
+    <div class="choices">
+        @for (choice of choices; track choice.index) {
+            <button
+                size="md"
+                type="basic"
+                class="choice choice-button"
+                [ngClass]="{ active: choiceSelected?.index === choice.index }"
+                (click)="selectChoice(choice)">
+                <taco-defined-icon
+                    size="lg"
+                    fill="black-500"
+                    [icon]="(choiceSelected && choiceSelected.index >= choice.index) ? 'icd-100-percent-star' : 'icd-0-percent-star'"
+                ></taco-defined-icon>
+            </button>
+        }
+    </div>
+    <taco-button
+        size="md"
+        type="basic"
+        class="choice choice__next"
+        [ngClass]="{ 'hidden': !choices.length }"
+        [attr.disabled]="!choiceSelected ? true : undefined"
+        value="Next"
+        (tacoButtonClick)="confirmChoice()"
+    ></taco-button>
 </div>
-<taco-button
-    size="md"
-    type="basic"
-    class="choice choice__next"
-    [attr.disabled]="!choiceSelected ? true : undefined"
-    value="Next"
-    (tacoButtonClick)="confirmChoice()"
-></taco-button>

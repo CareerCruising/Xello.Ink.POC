@@ -14,6 +14,7 @@ import { StorySceneComponent } from './scenes/story-scene/story-scene.component'
 import { TitleComponent } from './scenes/title/title.component';
 import { Templates } from '../models/templates.model';
 import { MultiChoiceComponent } from './scenes/multi-choice/multi-choice.component';
+import { RatingComponent } from './scenes/rating/rating.component';
 
 @Component({
   selector: 'app-reader',
@@ -24,7 +25,8 @@ import { MultiChoiceComponent } from './scenes/multi-choice/multi-choice.compone
     TitleComponent,
     StoryBiteComponent,
     StorySceneComponent,
-    MultiChoiceComponent
+    MultiChoiceComponent,
+    RatingComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './reader.component.html',

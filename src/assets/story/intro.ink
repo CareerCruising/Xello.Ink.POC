@@ -63,27 +63,27 @@
     }
 
     * (check_pockets) [Check pockets]
-        >>> background: basic
+        ~ setTemplate(Templates.StoryBite)
         You search your pockets and pull out an employee ID card.
-        {bigger("What does it say?")}
+        <h1>What does it say?</h1>
         ++ [Next]
             -> role_revealed
     * (search_bag) [Search bag]
-        >>> background: basic
-        {big("Score! You pull out a crumpled resume.")}
+        ~ setTemplate(Templates.StoryBite)
+        <h1>Score! You pull out a crumpled resume.</h1>
         What education and training did you take to prepare for this role?
         ++ [Uncover education]
-            >>> background: gradient
-            {big("Ready to go!")}
+            ~ setTemplate(Templates.StoryBite)
+            ~ setBackground(Backgrounds.Gradient)
+            <h1>Ready to go!</h1>
             You’re confident you can rock your first day of work.
             +++ [Next]
                 -> investigation
     * (turn_on_phone) [Turn on phone]
-        >>> background: basic
-        >>> mode: hero
-        
+        ~ setTemplate(Templates.StoryBite)
+
         (I don't know what happens here.)
-        {big("It's not in the prototype.")}
+        <h1>It's not in the prototype.</h1>
         
         ++ [lol]
             -> investigation
@@ -92,16 +92,16 @@
 
 
 === role_revealed ===
-    >>> background: gradient
+    ~ setBackground(Gradient)
 
-    {bigger("You are a {roleNameLowercase(role)}.")}
+    <h1>You are a {roleNameLowercase(role)}.</h1>
     And your job starts today. Better get over there!
     
     >>> frame: employee-id
     
     + [Next]
     -
-    {big("Investigation time: {roleName(role)}")}
+    <h1>Investigation time: {roleName(role)}</h1>
     How do you feel about this career?
     
     + [Rate role]
@@ -116,7 +116,7 @@ VAR ratingVacation = 0
     
     
 === role_rating ===
-    >>> mode: hero
+    ~ setTemplate(Templates.Rating)
     
     -> rate(-> ex1, ratingJobDesc) ->
     -> rate(-> ex2, ratingMonthlyPay) ->

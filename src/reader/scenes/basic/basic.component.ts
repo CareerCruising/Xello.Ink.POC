@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnDestroy } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
@@ -24,6 +24,8 @@ import { BehaviorSubject } from 'rxjs';
   ]
 })
 export class BasicComponent implements OnDestroy {
+
+  @Input() showChoices = true;
 
   get lines() {
     return this.inkService.currentText;

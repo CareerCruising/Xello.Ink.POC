@@ -1,0 +1,10 @@
+
+<div class="reader">
+    <app-basic class="content" [showChoices]="false"></app-basic>
+
+    <app-choice-rating
+        [choices]="inkService.currentChoices"
+        class="choice-list"
+        (handleChoice)="inkService.SelectChoice($event)"
+    ></app-choice-rating>
+</div>
