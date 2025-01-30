@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Story } from 'inkjs';
 import * as json from '../assets/story.ink.json';
 import { Choice } from 'inkjs/engine/Choice';
@@ -10,6 +10,8 @@ import { Templates } from '../models/templates.model';
   providedIn: 'root'
 })
 export class InkService {
+
+  onCommandReceived = new EventEmitter<{ name: string, params: any[] }>();
 
   story = new Story(json);
 
@@ -50,30 +52,10 @@ export class InkService {
     if (this.story.canContinue) {
       this.isComplete = false;
       const text = this.story.Continue() ?? '';
+
       if (text.startsWith('>>>')) {
-        const command = text.substring(3).trim();
-        const tokens = command.split(' ');
-        console.log(tokens);
-        switch (tokens[0].replaceAll(':', '')) {
-          case 'ui':
-            this.showFullUI = tokens[1] === 'game';
-            break;
-          case 'mode':
-          case 'template':
-            this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
-            break;
-          case 'accent':
-            this.currentAccent = tokens[1];
-            break;
-          case 'illustration':
-            this.addLine({type: 'illustration', content: tokens[1]});
-            break;
-          case 'background':
-            this.currentBackground = tokens[1].toLowerCase();
-        }
-        this.isPlaying = false;
+        this.HandleCommand(text.substring(3).trim())
         this.Continue();
-        return;
       } else {
         this.addLine({type: 'text', content: text});
         setTimeout(() => {
@@ -97,6 +79,37 @@ export class InkService {
       return;
     }
     this.story.ChoosePathString(path);
+  }
+
+  HandleCommand(command: string) {
+    const tokens = command.split(' ');
+    console.log(tokens);
+
+    const commandName = tokens[0].replaceAll(':', '');
+
+    switch (commandName) {
+      case 'ui':
+        this.showFullUI = tokens[1] === 'game';
+        break;
+      case 'mode':
+      case 'template':
+        this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
+        break;
+      case 'accent':
+        this.currentAccent = tokens[1];
+        break;
+      case 'background':
+        this.currentBackground = tokens[1].toLowerCase();
+    }
+    
+    this.onCommandReceived.emit({
+      name: commandName,
+      params: tokens.slice(1)
+    });
+
+    this.isPlaying = false;
+    // this.Continue();
+    return;
   }
 
   addLine(line: Partial<ContentLine>) {

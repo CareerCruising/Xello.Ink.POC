@@ -1,24 +1,20 @@
 <div class="container">
-    <div class="text-wrapper" [@fadeIn]="lines.length">
-        @for (line of lines; track line.id) {
-            <ng-container [ngSwitch]="line.type">
+    <div class="illustration">
+        <!-- Illustration -->
+    </div>
+    <div class="content">
+        <div class="text-wrapper" [@fadeIn]="lines.length">
+            @for (line of lines; track line.id) {
                 <div
                     class="text"
-                    [innerHTML]="line.content"
-                    *ngSwitchDefault>
+                    [innerHTML]="line.content">
                 </div>
-                <taco-illustration
-                    class="text"
-                    illustration="{{line.content}}"
-                    size="xxxxlg"
-                    *ngSwitchCase="'illustration'"
-                ></taco-illustration>
-            </ng-container>
-        }
+            }
+        </div>
+        <app-choice-list-dense
+            [choices]="inkService.currentChoices"
+            class="choice-list"
+            (handleChoice)="inkService.SelectChoice($event)"
+        ></app-choice-list-dense>
     </div>
-    <app-choice-list-dense
-        [choices]="inkService.currentChoices"
-        class="choice-list"
-        (handleChoice)="inkService.SelectChoice($event)"
-    ></app-choice-list-dense>
 </div>

@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { InkService } from '../../../services/ink.service';
-import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { BasicComponent } from '../basic/basic.component';
 import { ChoiceListDenseComponent } from '../../components/choice-list-dense/choice-list-dense.component';
+import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-multi-choice',
@@ -24,5 +23,12 @@ import { ChoiceListDenseComponent } from '../../components/choice-list-dense/cho
     ])
   ]
 })
-export class MultiChoiceComponent extends BasicComponent {
+export class MultiChoiceComponent extends BasicComponent implements OnInit {
+  
+  ngOnInit(): void {
+    console.log('pew');
+    this.inkService.onCommandReceived.pipe(takeUntil(this.isDestroyed$)).subscribe(command => {
+      console.log(command)
+    });
+  }
 }

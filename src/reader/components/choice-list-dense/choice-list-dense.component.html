@@ -1,5 +1,6 @@
-<div class="choices"
-    [@choices]="choices.length">
+<div class="choices__wrapper">
+    <div class="choices"
+        [@list]="choices.length">
         @for (choice of choices; track choice.index) {
             <button
                 size="md"
@@ -10,13 +11,14 @@
                 {{choice.text}}
             </button>
         }
+        <taco-button
+            size="md"
+            type="basic"
+            class="choice choice__next"
+            [ngClass]="{ 'hidden': !choices.length }"
+            [attr.disabled]="(!choiceSelected) ? true : undefined"
+            value="Next"
+            (tacoButtonClick)="confirmChoice()"
+        ></taco-button>
+    </div>
 </div>
-<taco-button
-    size="md"
-    type="basic"
-    class="choice choice__next"
-    [attr.disabled]="!choiceSelected ? true : undefined"
-    value="Next"
-    (tacoButtonClick)="confirmChoice()"
-></taco-button>
-

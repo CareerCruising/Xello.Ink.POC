@@ -4,18 +4,6 @@
     }
 }
 
-.choice {
-    display: block;
-    color: var(--taco-color-text-primary);
-    font-size: var(--taco-font-size-175);
-    cursor: pointer;
-
-    &.active {
-        border-color: var(--taco-color-blue-500);
-        font-weight: 700;
-    }
-}
-
 taco-button {
     display: block;
 }
@@ -27,9 +15,4 @@ taco-button {
     min-height: 51px;
     margin-top: 16px;
     margin-bottom: 16px;
-}
-
-.choice-button {
-    padding: 16px;
-    border: solid 1px var(--taco-color-border-primary);
 }

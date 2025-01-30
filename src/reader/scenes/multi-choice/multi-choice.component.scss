@@ -1,8 +1,18 @@
-:host {
+.container {
     padding: 30px;
+    display: grid;
+    max-width: 1088px;
+    grid-template-columns: 1fr 1fr;
+}
+
+:host {
+    width: 100%;
 }
 
 ::ng-deep {
+    h1 {
+        margin: 0 0 16px 0;
+    }
     p {
         margin: 16px 0;
     }

@@ -1,4 +1,4 @@
-import { animate, group, query, style, transition, trigger } from '@angular/animations';
+import { animate, query, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
 import { Choice } from 'inkjs/engine/Choice';
@@ -17,20 +17,6 @@ import { Choice } from 'inkjs/engine/Choice';
           style({ opacity: 0 }),
           animate('0.5s ease-in-out', style({ opacity: 1 }))  
         ], { optional: true })
-      ])
-    ]),
-    trigger('choiceList', [
-      transition('void => *', [
-        group([
-          group([
-            style({ height: 0, marginBottom: '16px' }),
-            animate('0.5s ease-in-out', style({ height: '*', marginBottom: '55px' }))
-          ]),
-          group([
-            style({ opacity: 0 }),
-            animate('1s 0.5s ease-in-out', style({ opacity: 1, marginBottom: '55px'  }))
-          ]),
-        ])
       ])
     ]),
   ]

@@ -1,18 +1,23 @@
 
 
-.choices--list {
+.choices {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     row-gap: 16px;
+    
+    min-height: 51px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
 
-    .choice {
-        border-radius: 4px;
-        text-align: left;
-    }
+.choice {
+    display: block;
+    border-radius: 4px;
+    text-align: left;
 
-    taco-button {
-        display: block;
+    &.hidden {
+        opacity: 0;
     }
 }
