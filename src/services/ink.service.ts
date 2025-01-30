@@ -4,6 +4,7 @@ import * as json from '../assets/story.ink.json';
 import { Choice } from 'inkjs/engine/Choice';
 import { ContentLine } from '../models/content-line.interface';
 import { environment } from '../environments/environment';
+import { Templates } from '../models/templates.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,12 @@ export class InkService {
 
   groups: {[id: string]: ContentLine[]} = {};
   currentChoices: Choice[] = [];
-  currentMode: string = '';
   currentAccent = '';
   currentGroup = 'right';
   currentChoiceMode = '';
   startingKnot = '';
+
+  currentTemplate: Templates = Templates.Title;
 
   isInitialized = false
 
@@ -57,7 +59,9 @@ export class InkService {
             this.showFullUI = tokens[1] === 'game';
             break;
           case 'mode':
-            this.currentMode = tokens[1];
+          case 'template':
+            this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
+            // console.log('template:', tokens[1], this.currentTemplate);
             break;
           case 'accent':
             this.currentAccent = tokens[1];
@@ -76,7 +80,7 @@ export class InkService {
             this.addLine(this.currentGroup, {type: 'illustration', group: this.currentGroup, content: tokens[1]});
             break;
           case 'background':
-            this.currentBackground = tokens[1];
+            this.currentBackground = tokens[1].toLowerCase();
         }
         this.isPlaying = false;
         this.Continue();

@@ -1,6 +1,6 @@
 
 === intro ===
-    >>> mode: hero
+    ~ setTemplate(Templates.Title)
     
     {culture:
     - esUS:
@@ -14,14 +14,16 @@
         Dream big, spend wisely.
     }
     
-    >>> background: gradient
+    ~ setBackground(Backgrounds.Gradient)
 
     + [Play]
         -> passage
 
 
 === passage ===
-    >>> mode: storybook
+
+    ~ setTemplate(Templates.StoryScene)
+
     >>> background: basic
     >>> accent: stars
     
@@ -111,7 +113,7 @@
 
 === role_revealed ===
     >>> background: gradient
-    
+
     {bigger("You are a {roleNameLowercase(role)}.")}
     And your job starts today. Better get over there!
     

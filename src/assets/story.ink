@@ -1,10 +1,12 @@
 INCLUDE story/intro.ink
+INCLUDE story/onboarding.ink
 
 INCLUDE utility/typography.ink
 INCLUDE utility/roles.ink
 INCLUDE utility/flow.ink
 INCLUDE utility/media.ink
-INCLUDE story/onboarding.ink
+INCLUDE utility/templates.ink
+
 
 VAR debug = true
 

@@ -1,12 +1,3 @@
-.reader--cols-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  // animation: shift-over 1s ease-in-out;
-
-  .reader--right {
-    text-align: left;
-  }
-}
 
 .reader {
   text-align: center;

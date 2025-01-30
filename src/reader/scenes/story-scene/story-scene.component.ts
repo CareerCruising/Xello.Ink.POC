@@ -5,12 +5,12 @@ import { ChoiceListComponent } from '../../components/choice-list/choice-list.co
 import { animate, query, style, transition, trigger } from '@angular/animations';
 
 @Component({
-  selector: 'app-storybook',
+  selector: 'app-story-scene',
   standalone: true,
   imports: [ CommonModule, ChoiceListComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  templateUrl: './storybook.component.html',
-  styleUrl: './storybook.component.scss',
+  templateUrl: './story-scene.component.html',
+  styleUrl: './story-scene.component.scss',
   animations: [
     trigger('fadeIn', [
       transition('* => *', [
@@ -22,7 +22,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
-export class StorybookComponent {
+export class StorySceneComponent {
 
   constructor(public inkService: InkService) {}
 }
