@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { InkService } from '../../../services/ink.service';
 import { BasicComponent } from "../basic/basic.component";
 import { ChoiceRatingComponent } from "../../components/choice-rating/choice-rating.component";
@@ -15,16 +15,16 @@ import { ChoiceRatingComponent } from "../../components/choice-rating/choice-rat
   animations: [
     trigger('fadeIn', [
       transition('* => *', [
-        query(':enter', [
-          style({ height: 0, opacity: 0 }),
-          animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))
-        ], { optional: true }),
+        style({ opacity: 0 }),
+        animate('0.5s 0.5s ease-in-out', style({ opacity: 1 }))
       ])
     ])
   ]
 })
 export class RatingComponent {
 
-  constructor(public inkService: InkService) {}
+  constructor(public inkService: InkService) {
+    this.inkService.delay = 0;
+  }
 
 }
