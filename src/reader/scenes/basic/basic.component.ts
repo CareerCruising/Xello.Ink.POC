@@ -3,7 +3,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnDestroy } from '@angular/co
 import { InkService } from '../../../services/ink.service';
 import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-basic',
@@ -25,6 +25,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class BasicComponent implements OnDestroy {
 
+  @Input() animate = true;
   @Input() showChoices = true;
 
   get lines() {

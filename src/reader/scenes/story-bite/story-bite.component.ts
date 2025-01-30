@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { animate, query, style, transition, trigger } from '@angular/animations';
-import { InkService } from '../../../services/ink.service';
 import { BasicComponent } from "../basic/basic.component";
+import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-story-bite',
@@ -14,16 +14,26 @@ import { BasicComponent } from "../basic/basic.component";
   animations: [
     trigger('fadeIn', [
       transition('* => *', [
-        query(':enter', [
-          style({ height: 0, opacity: 0 }),
-          animate('0.5s ease-in-out', style({ height: '*', opacity: 1 }))
-        ], { optional: true }),
+        style({ opacity: 0 }),
+        animate('0.5s 0.5s ease-in-out', style({ opacity: 1 }))
       ])
     ])
   ]
 })
-export class StoryBiteComponent {
+export class StoryBiteComponent extends BasicComponent implements OnInit {
 
-  constructor(public inkService: InkService) {}
+  illustration: string = '';
 
+  ngOnInit(): void {
+    this.inkService.delay = 0;
+    this.inkService.onCommandReceived.subscribe(command => {
+      switch (command.name) {
+        case 'illustration':
+          this.illustration = command.params[0];
+          break;
+        default:
+          break;
+      }
+    });
+  }
 }

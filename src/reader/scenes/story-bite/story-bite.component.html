@@ -1,4 +1,10 @@
 
-<div class="reader">
-    <app-basic></app-basic>
+<div class="reader" [@fadeIn]="true">
+    <taco-illustration
+        class="illustration"
+        *ngIf="illustration"
+        illustration="{{illustration}}"
+        size="xxxxlg"
+    ></taco-illustration>
+    <app-basic [animate]="false"></app-basic>
 </div>

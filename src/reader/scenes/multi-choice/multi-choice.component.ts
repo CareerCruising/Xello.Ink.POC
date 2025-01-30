@@ -24,11 +24,18 @@ import { takeUntil } from 'rxjs';
   ]
 })
 export class MultiChoiceComponent extends BasicComponent implements OnInit {
-  
+
+  illustration: string = '';
+
   ngOnInit(): void {
-    console.log('pew');
-    this.inkService.onCommandReceived.pipe(takeUntil(this.isDestroyed$)).subscribe(command => {
-      console.log(command)
+    this.inkService.onCommandReceived.subscribe(command => {
+      switch (command.name) {
+        case 'illustration':
+          this.illustration = command.params[0]
+          break;
+        default:
+          break;
+      }
     });
   }
 }

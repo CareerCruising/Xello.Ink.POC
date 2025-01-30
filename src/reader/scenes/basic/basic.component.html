@@ -1,18 +1,9 @@
-<div class="text-wrapper" [@fadeIn]="lines.length">
+<div class="content" [ngClass]="{ 'text-wrapper--animated': animate }" [@fadeIn]="animate ? lines.length : 0">
     @for (line of lines; track line.id) {
-        <ng-container [ngSwitch]="line.type">
-            <div
-                class="text"
-                [innerHTML]="line.content"
-                *ngSwitchDefault>
-            </div>
-            <taco-illustration
-                class="text"
-                illustration="{{line.content}}"
-                size="xxxxlg"
-                *ngSwitchCase="'illustration'"
-            ></taco-illustration>
-        </ng-container>
+        <div
+            class="text"
+            [innerHTML]="line.content">
+        </div>
     }
 </div>
 <app-choice-list

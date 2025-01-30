@@ -6,6 +6,10 @@ import { ContentLine } from '../models/content-line.interface';
 import { environment } from '../environments/environment';
 import { Templates } from '../models/templates.model';
 
+async function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +46,7 @@ export class InkService {
     this.story.variablesState.$('environment', 'web');
   }
 
-  Continue() {
+  async Continue() {
     if (this.isPlaying) {
       return;
     }
@@ -54,7 +58,7 @@ export class InkService {
       const text = this.story.Continue() ?? '';
 
       if (text.startsWith('>>>')) {
-        this.HandleCommand(text.substring(3).trim())
+        await this.HandleCommand(text.substring(3).trim());
         this.Continue();
       } else {
         this.addLine({type: 'text', content: text});
@@ -81,12 +85,16 @@ export class InkService {
     this.story.ChoosePathString(path);
   }
 
-  HandleCommand(command: string) {
-    const tokens = command.split(' ');
+  async HandleCommand(str: string) {
+    const tokens = str.split(' ');
     console.log(tokens);
-
+    
     const commandName = tokens[0].replaceAll(':', '');
-
+    const command = {
+      name: commandName,
+      params: tokens.slice(1)
+    }
+  
     switch (commandName) {
       case 'ui':
         this.showFullUI = tokens[1] === 'game';
@@ -101,15 +109,11 @@ export class InkService {
       case 'background':
         this.currentBackground = tokens[1].toLowerCase();
     }
-    
-    this.onCommandReceived.emit({
-      name: commandName,
-      params: tokens.slice(1)
-    });
 
+    this.onCommandReceived.emit(command);
+    await sleep(1); // This ensures synchronicity when creating templates -- they need a chance to render and subscribe to events
     this.isPlaying = false;
-    // this.Continue();
-    return;
+    return command;
   }
 
   addLine(line: Partial<ContentLine>) {
@@ -127,6 +131,7 @@ export class InkService {
     this.currentBackground = '';
     this.currentText = [];
     this.numColumns = 1;
+    this.delay = 1000;
     this.currentChoiceMode = '';
   }
 
