@@ -22,7 +22,6 @@ export class InkService {
   currentText: ContentLine[] = [];
   currentChoices: Choice[] = [];
   currentAccent = '';
-  currentGroup = 'right';
   currentChoiceMode = '';
   startingKnot = '';
 
@@ -62,16 +61,12 @@ export class InkService {
           case 'mode':
           case 'template':
             this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
-            // console.log('template:', tokens[1], this.currentTemplate);
             break;
           case 'accent':
             this.currentAccent = tokens[1];
             break;
-          case 'choice-mode':
-            this.currentChoiceMode = tokens[1];
-            break;
           case 'illustration':
-            this.addLine({type: 'illustration', group: this.currentGroup, content: tokens[1]});
+            this.addLine({type: 'illustration', content: tokens[1]});
             break;
           case 'background':
             this.currentBackground = tokens[1].toLowerCase();
@@ -80,7 +75,7 @@ export class InkService {
         this.Continue();
         return;
       } else {
-        this.addLine({type: 'text', group: this.currentGroup, content: text});
+        this.addLine({type: 'text', content: text});
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
@@ -105,7 +100,6 @@ export class InkService {
   }
 
   addLine(line: Partial<ContentLine>) {
-    console.log(line);
     this.currentText.push({
       id: this.currentText.length,
       type: 'text',

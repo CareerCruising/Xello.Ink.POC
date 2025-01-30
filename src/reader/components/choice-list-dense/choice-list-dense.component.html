@@ -1,0 +1,22 @@
+<div class="choices"
+    [@choices]="choices.length">
+        @for (choice of choices; track choice.index) {
+            <button
+                size="md"
+                type="basic"
+                class="choice choice--square choice-button"
+                [ngClass]="{ active: choiceSelected?.index === choice.index }"
+                (click)="selectChoice(choice)">
+                {{choice.text}}
+            </button>
+        }
+</div>
+<taco-button
+    size="md"
+    type="basic"
+    class="choice choice__next"
+    [attr.disabled]="!choiceSelected ? true : undefined"
+    value="Next"
+    (tacoButtonClick)="confirmChoice()"
+></taco-button>
+

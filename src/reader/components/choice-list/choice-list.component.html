@@ -1,71 +1,13 @@
-<ng-container [ngSwitch]="mode">
 
-    <div class="choices__wrapper choices__wrapper--rating"
-         [@choiceList]="choices.length"
-         *ngSwitchCase="'rating'">
-        <div class="choices choices--rating">
-            @for (choice of choices; track choice.index) {
-                <button
-                    size="md"
-                    type="basic"
-                    class="choice choice-button"
-                    [ngClass]="{ active: choiceSelected?.index === choice.index }"
-                    (click)="selectChoice(choice)">
-                    <taco-defined-icon
-                        size="lg"
-                        fill="black-500"
-                        [icon]="(choiceSelected && choiceSelected.index >= choice.index) ? 'icd-100-percent-star' : 'icd-0-percent-star'"
-                    ></taco-defined-icon>
-                </button>
-            }
-        </div>
+<div class="choices"
+    [@choices]="choices.length">
+    @for (choice of choices; track choice.index) {
         <taco-button
             size="md"
             type="basic"
-            class="choice choice__next"
-            [attr.disabled]="!choiceSelected ? true : undefined"
-            value="Next"
-            (tacoButtonClick)="confirmChoice()"
-        ></taco-button>
-    </div>
-
-    <div class="choices__wrapper choices__wrapper--list"
-         *ngSwitchCase="'list'">
-        <div class="choices choices--list"
-            [@choiceList]="choices.length">
-            @for (choice of choices; track choice.index) {
-                <button
-                    size="md"
-                    type="basic"
-                    class="choice choice--square choice-button"
-                    [ngClass]="{ active: choiceSelected?.index === choice.index }"
-                    (click)="selectChoice(choice)">
-                    {{choice.text}}
-                </button>
-            }    
-            <taco-button
-                size="sm"
-                type="basic"
-                [attr.disabled]="!choiceSelected ? true : undefined"
-                class="choice choice__next"
-                value="Next"
-                (tacoButtonClick)="confirmChoice()"
-            ></taco-button>
-        </div>
-    </div>
-
-    <div class="choices"
-         [ngClass]="'choices--' + (mode || 'basic')"
-         [@choices]="choices.length"
-         *ngSwitchDefault>
-        @for (choice of choices; track choice.index) {
-            <taco-button
-                size="md"
-                type="basic"
-                class="choice"
-                (tacoButtonClick)="handleChoice.emit(choice)"
-                value="{{choice.text}}">
-            </taco-button>
-        }    
-    </div>
-</ng-container>
+            class="choice"
+            (tacoButtonClick)="handleChoice.emit(choice)"
+            value="{{choice.text}}">
+        </taco-button>
+    }    
+</div>

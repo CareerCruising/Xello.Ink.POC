@@ -2,17 +2,8 @@
 === intro ===
     ~ setTemplate(Templates.Title)
     
-    {culture:
-    - esUS:
-        <h1>El Juego Real</h1>
-        Sueña en grande, gasta sabiamente.
-    - frCA:
-        <h1>Le Real Game</h1>
-        Dream grande, spend prudemment.
-    - else:
-        <h1>The Real Game</h1>
-        Dream big, spend wisely.
-    }
+    <h1>The Real Game</h1>
+    Dream big, spend wisely.
     
     ~ setBackground(Backgrounds.Gradient)
 
@@ -27,19 +18,14 @@
 
     >>> accent: stars
     
-    {culture:
-    - esUS:
-    - frCA:
-    - else:
-        You're all alone on a dark night.
-        You venture down a strange alley, hoping to get home faster.
-        Suddenly, you pass through a strange, shimmery film stretched across the passage.
-        You look around in a panic. The world seems the same.
-        But you feel... different.
-        Older, more mature....
-        Are you dreaming?
-        Or is this real life?
-    }
+    You're all alone on a dark night.
+    You venture down a strange alley, hoping to get home faster.
+    Suddenly, you pass through a strange, shimmery film stretched across the passage.
+    You look around in a panic. The world seems the same.
+    But you feel... different.
+    Older, more mature....
+    Are you dreaming?
+    Or is this real life?
     
     + [Next]
         -> aw_snap
@@ -50,14 +36,10 @@
     ~ setTemplate(Templates.StoryBite)
     ~ setBackground(Backgrounds.Gradient)
     
-    {culture:
-    - esUS:
-    - frCA:
-    - else:
-        >>> illustration: il-directional-signs
-        <h1>Aw snap.</h1>
-        Interdimensional time travel was not something you expected to do today.
-    }
+    >>> illustration: il-directional-signs
+
+    <h1>Aw snap.</h1>
+    Interdimensional time travel was not something you expected to do today.
     
     + [Next]
         -> investigation

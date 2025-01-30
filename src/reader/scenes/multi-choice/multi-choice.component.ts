@@ -3,13 +3,15 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
+import { BasicComponent } from '../basic/basic.component';
+import { ChoiceListDenseComponent } from '../../components/choice-list-dense/choice-list-dense.component';
 
 @Component({
   selector: 'app-multi-choice',
   standalone: true,
   templateUrl: './multi-choice.component.html',
   styleUrl: './multi-choice.component.scss',
-  imports: [ CommonModule, ChoiceListComponent ],
+  imports: [ CommonModule, ChoiceListDenseComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   animations: [
     trigger('fadeIn', [
@@ -22,7 +24,5 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
-export class MultiChoiceComponent {
-
-  constructor(public inkService: InkService) {}
+export class MultiChoiceComponent extends BasicComponent {
 }

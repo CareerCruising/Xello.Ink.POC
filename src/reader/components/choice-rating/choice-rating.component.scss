@@ -1,0 +1,22 @@
+
+
+:host {
+    height: 100px;
+}
+
+.choices--rating {
+    column-gap: 0;
+    margin-bottom: 16px;
+
+    .choice {
+        padding: 4px;
+        border: none;
+        background: transparent;
+        transform: transform .15s ease-in-out;
+
+        &:hover, &:focus {
+            transform: scale(1.25);
+        }
+    }
+}
+

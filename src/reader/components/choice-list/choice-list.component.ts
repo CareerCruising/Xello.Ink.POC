@@ -36,7 +36,6 @@ import { Choice } from 'inkjs/engine/Choice';
   ]
 })
 export class ChoiceListComponent {
-  @Input() mode = 'basic';
   @Input() choices: Choice[] = [];
   @Output() handleChoice = new EventEmitter<Choice>();
 

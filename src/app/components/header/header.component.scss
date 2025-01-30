@@ -1,22 +1,19 @@
 
-.app__header {
+:host {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 64px;
     z-index: 1;
-}
-
-.action-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    &__left, &__right {
-        display: flex;
-        align-items: center;
-        padding: 0 27px;
-    }
-    &__right {
-        justify-content: flex-end;
-    }
+}
+.action-bar__left, .action-bar__right {
+    display: flex;
+    align-items: center;
+    padding: 0 27px;
+}
+.action-bar__right {
+    justify-content: flex-end;
 }

@@ -1,8 +1,8 @@
 <ng-container [ngSwitch]="inkService.currentTemplate">
-    <app-title *ngSwitchCase="'Title'"></app-title>
-    <app-story-bite *ngSwitchCase="'hero'"></app-story-bite>
-    <app-story-bite *ngSwitchCase="'StoryBite'"></app-story-bite>
-    <app-story-scene *ngSwitchCase="'StoryScene'"></app-story-scene>
+    <app-title *ngSwitchCase="Templates.Title"></app-title>
+    <app-story-bite *ngSwitchCase="Templates.StoryBite"></app-story-bite>
+    <app-story-scene *ngSwitchCase="Templates.StoryScene"></app-story-scene>
+    <app-multi-choice *ngSwitchCase="Templates.MultiChoice"></app-multi-choice>
     <div class="container" *ngSwitchDefault>
         <app-basic class="reader reader--{{inkService.currentTemplate}}"></app-basic>
     </div>
