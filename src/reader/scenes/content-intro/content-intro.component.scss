@@ -6,14 +6,23 @@
   max-width: 1366px;
 }
 
+.illustration__wrapper {
+  height: 160px;
+  margin-bottom: 24px;
+}
+.illustration {
+  transform-origin: top;
+  transform: scale(2);
+}
+
 .reader {
     text-align: center;
     position: relative;
   
     ::ng-deep {
-      font-size: var(--taco-font-size-300);
+      font-size: var(--taco-font-size-225);
       h1 {
-        font-size: var(--taco-font-size-400);
+        font-size: var(--taco-font-size-300);
         margin: 0;
       }
       p {

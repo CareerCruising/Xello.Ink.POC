@@ -11,12 +11,6 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.illustration {
-    align-self: center;
-    justify-self: center;
-    transform: scale(1.9);
-}
-
 ::ng-deep {
     h1 {
         font-size: var(--taco-font-size-300);

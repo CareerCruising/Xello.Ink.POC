@@ -63,17 +63,17 @@
     }
 
     * (check_pockets) [Check pockets]
-        ~ setTemplate(Templates.ContentIntro)
+        ~ setTemplate(Templates.StoryBite)
         You search your pockets and pull out an employee ID card.
         <h1>What does it say?</h1>
         ++ [Next]
             -> role_revealed
     * (search_bag) [Search bag]
-        ~ setTemplate(Templates.ContentIntro)
+        ~ setTemplate(Templates.StoryBite)
         <h1>Score! You pull out a crumpled resume.</h1>
         What education and training did you take to prepare for this role?
         ++ [Uncover education]
-            ~ setTemplate(Templates.ContentIntro)
+            ~ setTemplate(Templates.StoryBite)
             ~ setBackground(Backgrounds.Gradient)
             <h1>Ready to go!</h1>
             You’re confident you can rock your first day of work.
@@ -84,7 +84,7 @@
 
 
 === role_revealed ===
-    ~ setTemplate(Templates.ContentIntro)
+    ~ setTemplate(Templates.StoryBite)
     ~ setBackground(Gradient)
     >>> delay: 1000
 
@@ -96,7 +96,7 @@
     + [Next]
     -
     
-    ~ setTemplate(Templates.ContentIntro)
+    ~ setTemplate(Templates.StoryBite)
     
     <h1>Investigation time: {roleName(role)}</h1>
     How do you feel about this career?
