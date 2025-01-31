@@ -10,6 +10,10 @@ async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function capitalize(str: string) {
+  return str[0].toUpperCase() + str.slice(1)
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -44,6 +48,8 @@ export class InkService {
   constructor() {
     this.startingKnot = environment.STARTING_KNOT;
     this.story.variablesState.$('environment', 'web');
+    this.story.BindExternalFunction('lowercase', (str) => { return str.toLowerCase() }, true);
+    this.story.BindExternalFunction('titlecase', (str: string) => { return str.split(' ').map(text => capitalize(text)).join(' ') }, true);
   }
 
   async Continue() {

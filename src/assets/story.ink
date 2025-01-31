@@ -10,8 +10,7 @@ INCLUDE utility/templates.ink
 
 VAR debug = true
 
-LIST Roles = CivilEngineer
-VAR role = CivilEngineer
+VAR role = "Civil engineer"
 
 LIST Cultures = enCA, frCA, enUS, esUS
 VAR culture = Cultures.enCA
@@ -24,7 +23,7 @@ VAR environment = "inky"
 === init ===
     // This is where we'd load user data, like this:
 
-    ~ role = CivilEngineer
+    ~ role = "Civil engineer"
     ~ culture = Cultures.enCA
     
     -> intro // onboarding // 

@@ -87,7 +87,7 @@
     ~ setTemplate(Templates.StoryBite)
     >>> delay: 1000
 
-    <h1>You have a job as a {roleNameLowercase(role)}.</h1>
+    <h1>You have a job as a {lowercase(role)}.</h1>
     And your job starts today. Better get over there!
     
     >>> frame: employee-id
@@ -98,7 +98,7 @@
     ~ setTemplate(Templates.StoryBite)
     ~ setBackground(Gradient)
     
-    <h1>Investigation time: {roleName(role)}</h1>
+    <h1>Investigation time: {titlecase(role)}</h1>
     How do you feel about this career?
     
     + [Rate role]

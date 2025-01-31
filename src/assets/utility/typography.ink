@@ -1,3 +1,6 @@
+EXTERNAL lowercase(text)
+EXTERNAL titlecase(text)
+ 
 LIST Components = Basic, Hero, Storybook
 VAR currentComponent = Components.Basic
 
@@ -11,6 +14,14 @@ VAR currentComponent = Components.Basic
     -   else:
         >>> mode: basic
     }
+    
+=== function lowercase(text) ===
+    // NOTE: This does not work in Inky, but will work in the full application.
+    ~ return text
+    
+=== function titlecase(text) ===
+    // NOTE: This does not work in Inky, but will work in the full application.
+    ~ return text
 
 === function big(text) ===
     <h3>{text}</h3>
