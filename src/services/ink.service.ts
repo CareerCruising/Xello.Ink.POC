@@ -106,6 +106,9 @@ export class InkService {
       case 'template':
         this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
         break;
+      case 'rating':
+        this.addLine({ type: 'rating', content: tokens[1] })
+        break;
       case 'accent':
         this.currentAccent = tokens[1];
         break;

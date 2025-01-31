@@ -26,6 +26,10 @@ VAR currentComponent = Components.Basic
 
 
 === function rating(_rating) ===
+    {environment != "inky":
+        >>> rating: {_rating}
+        ~ return
+    }
     {_rating:
         - 0: ☆☆☆☆☆
         - 1: ★☆☆☆☆

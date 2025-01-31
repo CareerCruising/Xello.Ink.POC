@@ -145,11 +145,15 @@ VAR ratingVacation = 0
 === role_rating_summary ===
     ~ setTemplate(Templates.RatingSummary)
     
-    Nicely done! Here's how you rated this role:
-    Job description {rating(ratingJobDesc)}
-    Monthly pay {rating(ratingMonthlyPay)}
-    Hours of work a week {rating(ratingHours)}
-    Vacation time {rating(ratingVacation)}
+    <h1>Nicely done! Here's how you rated this role:</h1>
+    Description
+    {rating(ratingJobDesc)}
+    Monthly pay
+    {rating(ratingMonthlyPay)}
+    Hours of work a week
+    {rating(ratingHours)}
+    Vacation time
+    {rating(ratingVacation)}
     
     + [Done] #cta-footer
         - (done)

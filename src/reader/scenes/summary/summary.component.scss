@@ -11,10 +11,10 @@
   position: relative;
 
   ::ng-deep {
-    font-size: var(--taco-font-size-300);
+    font-size: var(--taco-font-size-225);
     h1 {
-      font-size: var(--taco-font-size-400);
-      margin: 0;
+      font-size: var(--taco-font-size-300);
+      margin: 0 0 16px 0;
     }
     p {
       margin: 0;

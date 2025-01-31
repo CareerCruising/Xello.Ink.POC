@@ -1,9 +1,22 @@
 <div class="content" [ngClass]="{ 'text-wrapper--animated': animate }" [@fadeIn]="animate ? lines.length : 0">
     @for (line of lines; track line.id) {
-        <div
-            class="text"
-            [innerHTML]="line.content">
-        </div>
+        <ng-container [ngSwitch]="line.type">
+            <div class="rating" *ngSwitchCase="'rating'">
+                @for (i of [1, 2, 3, 4, 5]; track i) {
+                    <taco-defined-icon
+                        size="md"
+                        fill="black-500"
+                        [icon]="(i <= +line.content) ? 'icd-100-percent-star' : 'icd-0-percent-star'"
+                    ></taco-defined-icon>
+                }
+                ({{line.content || 0}})
+            </div>
+            <div
+                class="text"
+                [innerHTML]="line.content"
+                *ngSwitchDefault>
+            </div>
+        </ng-container>
     }
 </div>
 <app-choice-list
