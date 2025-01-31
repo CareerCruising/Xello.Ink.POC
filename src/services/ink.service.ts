@@ -47,6 +47,10 @@ export class InkService {
 
   constructor() {
     this.startingKnot = environment.STARTING_KNOT;
+    this.initStory();
+  }
+
+  initStory() {
     this.story.variablesState.$('environment', 'web');
     this.story.BindExternalFunction('lowercase', (str) => { return str.toLowerCase() }, true);
     this.story.BindExternalFunction('titlecase', (str: string) => { return str.split(' ').map(text => capitalize(text)).join(' ') }, true);
