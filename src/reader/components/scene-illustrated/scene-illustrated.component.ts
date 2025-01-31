@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class SceneIllustratedComponent implements OnInit {
+
+  @Input() alwaysShowLeftPanel = false;
 
   illustration: string = '';
 

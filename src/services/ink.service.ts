@@ -87,7 +87,6 @@ export class InkService {
 
   async HandleCommand(str: string) {
     const tokens = str.split(' ');
-    console.log(tokens);
     
     const commandName = tokens[0].replaceAll(':', '');
     const command = {

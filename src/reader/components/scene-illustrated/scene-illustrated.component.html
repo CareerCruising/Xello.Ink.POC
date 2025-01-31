@@ -1,17 +1,20 @@
-<div class="container" [ngClass]="{illustrated: illustration}">
-    <ng-container *ngIf="illustration" [ngSwitch]="illustration">
-        <taco-logo
-            size="1000"
-            class="illustration"
-            logo="dude-white"
-            *ngSwitchCase="'dude-white'"
-        ></taco-logo>
-        <taco-illustration
-            class="illustration"
-            illustration="{{illustration}}"
-            *ngSwitchDefault
-            size="xxxxxxlg"
-        ></taco-illustration>
+<div class="container" [ngClass]="{illustrated: illustration || alwaysShowLeftPanel}">
+    <ng-container *ngIf="illustration || alwaysShowLeftPanel">
+        <div *ngIf="!illustration"></div>
+        <ng-container *ngIf="illustration" [ngSwitch]="illustration">
+            <taco-logo
+                size="1000"
+                class="illustration"
+                logo="dude-white"
+                *ngSwitchCase="'dude-white'"
+            ></taco-logo>
+            <taco-illustration
+                class="illustration"
+                illustration="{{illustration}}"
+                *ngSwitchDefault
+                size="xxxxxxlg"
+            ></taco-illustration>
+        </ng-container>
     </ng-container>
     <div class="content">
         <ng-content></ng-content>

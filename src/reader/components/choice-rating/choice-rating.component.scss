@@ -18,8 +18,10 @@
     background: transparent;
     transform: transform .15s ease-in-out;
 
-    &:hover, &:focus {
-        transform: scale(1.25);
+    &:not(.choice__next) {
+        &:hover, &:focus {
+            transform: scale(1.25);
+        }
     }
     &.hidden {
         opacity: 0;

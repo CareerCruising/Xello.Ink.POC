@@ -17,6 +17,7 @@ import { MultiChoiceComponent } from './scenes/multi-choice/multi-choice.compone
 import { RatingComponent } from './scenes/rating/rating.component';
 import { ChapterTitleComponent } from './scenes/chapter-title/chapter-title.component';
 import { ContentIntroComponent } from './scenes/content-intro/content-intro.component';
+import { SummaryComponent } from './scenes/summary/summary.component';
 
 @Component({
   selector: 'app-reader',
@@ -27,6 +28,7 @@ import { ContentIntroComponent } from './scenes/content-intro/content-intro.comp
     TitleComponent,
     ContentIntroComponent,
     ChapterTitleComponent,
+    SummaryComponent,
     StoryBiteComponent,
     StorySceneComponent,
     MultiChoiceComponent,

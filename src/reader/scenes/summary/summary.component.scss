@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1366px;
+}
+
+.reader {
+  text-align: center;
+  position: relative;
+
+  ::ng-deep {
+    font-size: var(--taco-font-size-300);
+    h1 {
+      font-size: var(--taco-font-size-400);
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+    b {
+      display: inline-block;
+    }
+  }
+}

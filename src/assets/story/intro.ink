@@ -54,7 +54,7 @@
     {
         -   check_pockets and search_bag:
             -> onboarding
-        -   came_from(-> role_rating.done):
+        -   came_from(-> role_rating_summary):
             <h1>How did you qualify for this job?</h1>
             You're feeling strangely prepared to start working.
         -   // Default
@@ -117,18 +117,7 @@ VAR ratingVacation = 0
     -> rate(-> ex2, ratingMonthlyPay) ->
     -> rate(-> ex3, ratingHours) ->
     -> rate(-> ex4, ratingVacation) ->
-    
-    ~ setTemplate(Templates.RatingSummary)
-    
-    Nicely done! Here's how you rated this role:
-    Job description {rating(ratingJobDesc)}
-    Monthly pay {rating(ratingMonthlyPay)}
-    Hours of work a week {rating(ratingHours)}
-    Vacation time {rating(ratingVacation)}
-    
-    + [Done] #cta-footer
-        - (done)
-        -> investigation
+    -> role_rating_summary
     
     = ex1
         Rate how you feel about this role's:
@@ -151,3 +140,17 @@ VAR ratingVacation = 0
         -> DONE
 
 
+
+    
+=== role_rating_summary ===
+    ~ setTemplate(Templates.RatingSummary)
+    
+    Nicely done! Here's how you rated this role:
+    Job description {rating(ratingJobDesc)}
+    Monthly pay {rating(ratingMonthlyPay)}
+    Hours of work a week {rating(ratingHours)}
+    Vacation time {rating(ratingVacation)}
+    
+    + [Done] #cta-footer
+        - (done)
+        -> investigation
