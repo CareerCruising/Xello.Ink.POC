@@ -1,0 +1,11 @@
+<div class="container" [ngClass]="{illustrated: illustration}">
+    <taco-illustration
+        class="illustration"
+        *ngIf="illustration"
+        illustration="{{illustration}}"
+        size="xxxxxxlg"
+    ></taco-illustration>
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>

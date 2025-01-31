@@ -1,4 +1,4 @@
-import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, style, transition, trigger } from '@angular/animations';
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChoiceListComponent } from '../choice-list/choice-list.component';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './choice-list-dense.component.scss',
   animations: [
     trigger('list', [
-      transition('* => *', [
+      transition('0 => *', [
         group([
           group([
             style({ height: 0 }),

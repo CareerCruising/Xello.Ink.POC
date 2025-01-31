@@ -2,11 +2,13 @@
 .reader {
   text-align: center;
   position: relative;
-  font-size: var(--taco-font-size-500);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--taco-font-size-400);
 
   ::ng-deep {
     h1 {
-      font-size: var(--taco-font-size-700);
+      font-size: var(--taco-font-size-500);
       margin: 0;
     }
   }

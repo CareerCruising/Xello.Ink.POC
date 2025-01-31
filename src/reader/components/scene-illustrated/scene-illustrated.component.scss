@@ -1,28 +1,21 @@
 :host {
     width: 100%;
     height: 100%;
-    font-size: var(--taco-font-size-225);
 }
 
 .container {
     padding: 30px;
     display: grid;
     max-width: 1088px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    &.illustrated {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .illustration {
     align-self: center;
     justify-self: center;
     transform: scale(1.9);
-}
-
-::ng-deep {
-    h1 {
-        font-size: var(--taco-font-size-300);
-        margin: 0;
-    }
-    p {
-        margin: 0 0 16px 0;
-    }
 }

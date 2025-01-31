@@ -1,23 +1,15 @@
-<div class="container" [@fadeIn]="lines.length">
-    <taco-illustration
-        class="illustration"
-        *ngIf="illustration"
-        illustration="{{illustration}}"
-        size="xxxxxxlg"
-    ></taco-illustration>
-    <div class="content">
-        <div class="text-wrapper">
-            @for (line of lines; track line.id) {
-                <div
-                    class="text"
-                    [innerHTML]="line.content">
-                </div>
-            }
-        </div>
-        <app-choice-list-dense
-            [choices]="inkService.currentChoices"
-            class="choice-list"
-            (handleChoice)="inkService.SelectChoice($event)"
-        ></app-choice-list-dense>
+<app-scene-illustrated [@fadeIn]="true">
+    <div class="text-wrapper">
+        @for (line of lines; track line.id) {
+            <div
+                class="text"
+                [innerHTML]="line.content">
+            </div>
+        }
     </div>
-</div>
+    <app-choice-list-dense
+        [choices]="inkService.currentChoices"
+        class="choice-list"
+        (handleChoice)="inkService.SelectChoice($event)"
+    ></app-choice-list-dense>
+</app-scene-illustrated>
