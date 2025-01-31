@@ -4,3 +4,9 @@
         margin: 16px 0;
     }
 }
+
+:host-context(.illustrated) {
+    .content {
+        text-align: left;
+    }
+}

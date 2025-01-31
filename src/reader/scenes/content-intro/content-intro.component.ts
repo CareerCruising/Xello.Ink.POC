@@ -2,15 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BasicComponent } from "../basic/basic.component";
-import { SceneIllustratedComponent } from '../../components/scene-illustrated/scene-illustrated.component';
 
 @Component({
-  selector: 'app-story-bite',
+  selector: 'app-content-intro',
   standalone: true,
-  imports: [ CommonModule, BasicComponent, SceneIllustratedComponent ],
+  imports: [ CommonModule, BasicComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  templateUrl: './story-bite.component.html',
-  styleUrl: './story-bite.component.scss',
+  templateUrl: './content-intro.component.html',
+  styleUrl: './content-intro.component.scss',
   animations: [
     trigger('fadeIn', [
       transition('* <=> *', [
@@ -20,7 +19,7 @@ import { SceneIllustratedComponent } from '../../components/scene-illustrated/sc
     ])
   ]
 })
-export class StoryBiteComponent extends BasicComponent implements OnInit {
+export class ContentIntroComponent extends BasicComponent implements OnInit {
 
   illustration: string = '';
   fadeIn = false;

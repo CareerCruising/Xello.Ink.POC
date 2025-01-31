@@ -1,10 +1,10 @@
 === onboarding ===
-    ~ setTemplate(StoryBite)
+    ~ setTemplate(Templates.MultiChoice)
     ~ setBackground(Gradient)
     
     >>> illustration: il-smart-watch-ekg
 
-    <b>You suddenly notice a watch on your wrist...</b>
+    <h1>You suddenly notice a watch on your wrist...</h1>
     It's beeping at you.
     
     >>> choice-mode: list
@@ -14,13 +14,11 @@
     + [Turn it off]
     -
     
-    >>> background: basic
-    >>> columns: 2
-    
-    >>> group: left
-    >>> group: right
+    ~ setTemplate(Templates.StoryBite)
+    >>> delay: 1000
+    >>> illustration: dude-white
 
-    {bigger("A figure appears on the watch and says:")}
+    <h1>A figure appears on the watch and says:</h1>
     <p>Hello, I’m Ollex, your guide!</p>
     <p>I’ll give you some tips for figuring out this new life.</p>
     

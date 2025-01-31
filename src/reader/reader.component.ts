@@ -15,6 +15,8 @@ import { TitleComponent } from './scenes/title/title.component';
 import { Templates } from '../models/templates.model';
 import { MultiChoiceComponent } from './scenes/multi-choice/multi-choice.component';
 import { RatingComponent } from './scenes/rating/rating.component';
+import { ChapterTitleComponent } from './scenes/chapter-title/chapter-title.component';
+import { ContentIntroComponent } from './scenes/content-intro/content-intro.component';
 
 @Component({
   selector: 'app-reader',
@@ -23,6 +25,8 @@ import { RatingComponent } from './scenes/rating/rating.component';
     CommonModule,
     BasicComponent,
     TitleComponent,
+    ContentIntroComponent,
+    ChapterTitleComponent,
     StoryBiteComponent,
     StorySceneComponent,
     MultiChoiceComponent,

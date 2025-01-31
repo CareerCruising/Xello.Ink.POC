@@ -1,4 +1,5 @@
-<div class="container" [ngClass]="{illustrated: illustration}">
+
+<div class="reader" [@fadeIn]="fadeIn">
     <ng-container *ngIf="illustration" [ngSwitch]="illustration">
         <taco-logo
             size="1000"
@@ -10,10 +11,8 @@
             class="illustration"
             illustration="{{illustration}}"
             *ngSwitchDefault
-            size="xxxxxxlg"
+            size="xxxxlg"
         ></taco-illustration>
     </ng-container>
-    <div class="content">
-        <ng-content></ng-content>
-    </div>
+    <app-basic></app-basic>
 </div>

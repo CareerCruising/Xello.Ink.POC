@@ -4,11 +4,14 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  font-size: var(--taco-font-size-400);
+  font-size: var(--taco-font-size-300);
 
   ::ng-deep {
     h1 {
-      font-size: var(--taco-font-size-500);
+      font-size: var(--taco-font-size-400);
+      margin: 0;
+    }
+    p { 
       margin: 0;
     }
   }
