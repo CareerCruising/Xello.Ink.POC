@@ -4,7 +4,7 @@
     grid-template-areas: 'reader';
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     background: var(--taco-color-cornflower-900);
     background-color: var(--taco-color-cornflower-900);
@@ -12,6 +12,7 @@
     &--full {
         grid-template-areas: 'sidebar reader';
         width: 100vw;
+        height: 100vh;
         grid-template-columns: 304px 1fr;
         grid-template-rows: 1fr;
         column-gap: var(--taco-space-400);
@@ -49,9 +50,12 @@
     width: 100%;
     max-width: 1366px;
     margin: 0 auto;
-    overflow-y: scroll;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &--full {
+        overflow-y: scroll;
+    }
 }

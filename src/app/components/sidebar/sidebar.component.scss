@@ -11,6 +11,10 @@
 .sidebar__section {
     padding: var(--taco-space-200);
     border-radius: var(--taco-radius-all);
+    background-color: #19273e80;
+    transition: background-color 0.5s ease-in-out;
+}
+.sidebar__section--gradient {
     background-color: #5A3A6880;   
 }
 .sidebar__badge {
