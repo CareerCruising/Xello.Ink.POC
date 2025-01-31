@@ -9,7 +9,7 @@ export const environment = {
   API_ENDPOINT: 'https://sparkdev.careercruising.com/api',
   LOGIN_URL: 'http://localhost:4200',
   LOGIN_DOMAIN: 'https://logindev.careercruising.com',
-  STARTING_KNOT: 'role_rating',
+  STARTING_KNOT: '',
   FEATURE_TOGGLE: {},
   CDN_ABSOLUTE_URL:'https://cdn-dev-anaca.azureedge.net/'
 };

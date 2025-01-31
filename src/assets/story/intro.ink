@@ -85,7 +85,6 @@
 
 === role_revealed ===
     ~ setTemplate(Templates.StoryBite)
-    ~ setBackground(Gradient)
     >>> delay: 1000
 
     <h1>You have a job as a {roleNameLowercase(role)}.</h1>
@@ -97,6 +96,7 @@
     -
     
     ~ setTemplate(Templates.StoryBite)
+    ~ setBackground(Gradient)
     
     <h1>Investigation time: {roleName(role)}</h1>
     How do you feel about this career?
@@ -120,21 +120,25 @@ VAR ratingVacation = 0
     -> role_rating_summary
     
     = ex1
+        ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Job description</b>
         -> DONE
     
     = ex2
+        ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Monthly pay</b>
         -> DONE
     
     = ex3
+        ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Hours of work a week</b>
         -> DONE
         
     = ex4
+        ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Vacation time</b>
         -> DONE
@@ -144,6 +148,7 @@ VAR ratingVacation = 0
     
 === role_rating_summary ===
     ~ setTemplate(Templates.RatingSummary)
+    ~ setBackground(Gradient)
     
     <h1>Nicely done! Here's how you rated this role:</h1>
     Description

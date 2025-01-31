@@ -1,7 +1,8 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { ChoiceListComponent } from '../choice-list/choice-list.component';
 import { CommonModule } from '@angular/common';
 import { animate, query, style, transition, trigger } from '@angular/animations';
+import { InkService } from '../../../services/ink.service';
 
 @Component({
   selector: 'app-choice-rating',
