@@ -7,6 +7,7 @@ import {
 import { loadScript, loadStyle } from '../helpers/url.helpers';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -27,6 +28,9 @@ export const scriptIDs = {
     CommonModule,
     RouterOutlet,
   ],
+  providers: [
+    HttpClient
+  ]
 })
 export class AppComponent {
 

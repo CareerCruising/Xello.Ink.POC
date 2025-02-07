@@ -1,1 +1,24 @@
-<p>login works!</p>
+<h1>Login</h1>
+
+<form class="form-signin" novalidate (ngSubmit)="submit()">
+    <label class="element-invisible" for="username-input">Username</label>
+    <input id="username-input" name="username" autocomplete="on" type="text" class="form-control"
+        placeholder="Username" required autofocus [(ngModel)]="username"
+        autocapitalize="none">
+    <label class="element-invisible" for="password-input">Password</label>
+    <input id="password-input" name="password" autocomplete="off" type="password" class="form-control"
+        placeholder="Password" required [(ngModel)]="password">
+    <div class="login-remember__wrapper">
+        <input class="login-remember__checkbox" [(ngModel)]="remember" name="remember" id="remember"
+            type="checkbox" />
+        <label for="remember">Remember?</label>
+    </div>
+
+    <taco-button
+        size="sm"
+        type="cta"
+        (tacoButtonClick)="submit()"
+        [loading]="tokenInProgress || undefined"
+        value="Sign in">
+    </taco-button>
+</form>

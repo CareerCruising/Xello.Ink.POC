@@ -4,11 +4,13 @@
 
 export const environment = {
   production: false,
-  CDN_ENDPOINT: 'https://cdn-dev-anaca.azureedge.net/spark',
-  IMAGE_SERVER: 'https://devimg.careercruising.com/res/images',
-  API_ENDPOINT: 'https://sparkdev.careercruising.com/api',
-  LOGIN_URL: 'http://localhost:4200',
-  LOGIN_DOMAIN: 'https://logindev.careercruising.com',
+  local: true,
+  CDN_ENDPOINT_FOR_IMAGES: "",
+  API_SERVER: "https://cc3dev.us.xello.tech/api",
+  IMAGE_SERVER: "https://devimg.us.xello.tech/res/images/",
+  IMAGE_ENDPOINT: "https://img-dev-anaca.azureedge.net/",
+  LOGIN_URL: "http://localhost:4200",
+  LOGIN_ENDPOINT: "https://cc3dev.us.xello.tech/api",
   STARTING_KNOT: '',
   FEATURE_TOGGLE: {},
   CDN_ABSOLUTE_URL:'https://cdn-dev-anaca.azureedge.net/'
