@@ -1,0 +1,46 @@
+@use "../../styles/mixins/mixins" as m;
+
+.container-image-card {
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  height: 160px;
+  width: 100%;
+
+  @include m.device(tabport) {
+    width: 184px;
+    height: auto;
+  }
+}
+
+.image-card {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gradient-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, #000 100%);
+}
+
+.container-saved {
+  display: flex;
+  gap: var(--taco-space-pixel-050);
+  position: absolute;
+  bottom: var(--taco-unit-pixel-100);
+  left: var(--taco-unit-pixel-100);
+}
+
+.text-saved {
+  color: var(--taco-color-text-primary-on-dark);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: var(--taco-font-small);
+}

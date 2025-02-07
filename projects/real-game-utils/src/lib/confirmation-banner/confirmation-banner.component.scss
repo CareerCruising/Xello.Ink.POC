@@ -1,0 +1,54 @@
+:host {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.container-banner {
+  display: flex;
+  border-bottom: 1px solid var(--taco-color-status-success-primary);
+  background: var(--taco-color-background-primary);
+  height: var(--taco-unit-pixel-500);
+  align-items: center;
+  align-self: stretch;
+}
+
+.container-banner-icon {
+  display: flex;
+  height: var(--taco-unit-pixel-500);
+  padding: var(--taco-space-pixel-100);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--taco-color-status-success-primary);
+}
+
+.container-banner-message-action {
+  display: flex;
+  padding: 0px var(--taco-space-pixel-100);
+  align-items: center;
+  gap: var(--taco-space-pixel-200);
+  flex: 1 0 0;
+}
+
+.container-banner-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1 0 0;
+}
+
+.banner-message {
+  color: var(--taco-color-text-primary);
+  font: var(--taco-font-small);
+}
+
+.container-banner-action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--taco-space-pixel-200);
+  cursor: pointer;
+}

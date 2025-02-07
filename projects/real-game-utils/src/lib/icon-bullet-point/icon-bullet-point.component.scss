@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  gap: var(--taco-space-pixel-100);
+  &:not(:last-of-type) {
+    margin-bottom: var(--taco-space-pixel-050);
+  }
+}
+
+.bullet-point {
+  margin: var(--taco-space-pixel-050) 0;
+}
+p {
+  font: var(--taco-font-medium);
+  color: var(--taco-color-text-primary);
+}

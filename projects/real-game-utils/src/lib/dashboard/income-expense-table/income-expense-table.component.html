@@ -1,0 +1,13 @@
+<h2 class="income-heading">
+  {{ title | translate }}
+</h2>
+@for (row of rows; track row.rightText) {
+  <rgs-income-expense-table-row
+    [leftText]="row.leftText"
+    [rightText]="row.rightText"
+    (onClick)="onClick(row.id)"
+    [heapId]="row.heapId"
+    [hover]="row.hover ?? true"
+    [isHighlighted]="row.isHighlighted ?? false"
+  ></rgs-income-expense-table-row>
+}

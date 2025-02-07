@@ -1,0 +1,42 @@
+@use "../../../lib/styles/mixins/mixins" as m;
+
+:host {
+  width: 100%;
+}
+
+.section-container-link {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-300);
+  padding: var(--taco-space-pixel-300);
+
+  @include m.device(tabland) {
+    max-width: 1024px;
+  }
+}
+
+.container-pay-statement {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-300);
+  align-self: stretch;
+}
+
+.container-sections {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: var(--taco-space-pixel-300);
+  row-gap: var(--taco-space-pixel-300);
+
+  @include m.device(tabport) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.summary-tooltip ::ng-deep .rgs-popover {
+  max-width: 250px;
+}

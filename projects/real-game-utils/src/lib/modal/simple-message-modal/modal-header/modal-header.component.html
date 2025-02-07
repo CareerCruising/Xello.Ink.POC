@@ -1,0 +1,14 @@
+<header class="modal-header">
+  <section class="container-header">
+    <h3 class="header-title">{{ header | translate }}</h3>
+    <div
+      class="container-header-icon"
+      (click)="clickCloseButton()"
+      tabindex="0"
+      (keydown.enter)="clickCloseButton()"
+    >
+      <taco-icon fill="grey-900" size="sm" icon="ic-close-isolated"></taco-icon>
+    </div>
+  </section>
+  <div class="header-divider"></div>
+</header>

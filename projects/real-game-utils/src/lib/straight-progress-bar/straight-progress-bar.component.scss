@@ -1,0 +1,67 @@
+@use "../styles/mixins/mixins" as m;
+
+$straight-progress-bar-accent-color: var(--taco-color-emerald-500, #52b886);
+$straight-progress-bar-background-color: var(
+  --taco-color-background-primary,
+  #fff
+);
+$straight-progress-bar-height: var(--taco-size-pixel-200, 16px);
+$straight-progress-bar-width: 143px;
+$straight-progress-border-radius: var(--taco-size-pixel-1000, 80px);
+$straight-progress-bar-border: 1px solid
+  var(--taco-color-border-secondary, #e1e1e1);
+$straight-progress-bar-fraction-numerator-font: var(--taco-font-bold-small);
+$straight-progress-bar-fraction-denominator-font: var(--taco-font-small);
+$straight-progress-bar-fraction-numerator-color: var(
+  --taco-color-text-primary,
+  #484848
+);
+$straight-progress-bar-fraction-denominator-color: var(
+  --taco-color-text-secondary,
+  #737373
+);
+$straight-progress-bar-gap-between-bar-and-fraction: var(
+  --taco-space-pixel-100,
+  8px
+);
+
+.straight-progress-bar {
+  display: flex;
+  gap: $straight-progress-bar-gap-between-bar-and-fraction;
+  align-items: center;
+
+  &__progress-bar {
+    position: relative;
+    height: $straight-progress-bar-height;
+    width: $straight-progress-bar-width;
+    background-color: $straight-progress-bar-background-color;
+    border-radius: $straight-progress-border-radius;
+    border: $straight-progress-bar-border;
+    overflow: hidden;
+
+    &__fill {
+      height: 100%;
+      // Initial width, will be dynamically adjusted based on the progress value
+      width: 0;
+      background-color: $straight-progress-bar-accent-color;
+      transition: width 300ms ease-out;
+    }
+
+    display: none;
+    @include m.device(tabport) {
+      display: block;
+    }
+  }
+
+  &__fraction {
+    &--numerator {
+      font: $straight-progress-bar-fraction-numerator-font;
+      color: $straight-progress-bar-fraction-numerator-color;
+    }
+
+    &--denominator {
+      font: $straight-progress-bar-fraction-denominator-font;
+      color: $straight-progress-bar-fraction-denominator-color;
+    }
+  }
+}

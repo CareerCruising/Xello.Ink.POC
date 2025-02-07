@@ -1,0 +1,34 @@
+<div class="accordion__wrapper" [class.open]="accordionIsOpen">
+  <div
+    class="accordion__heading"
+    (click)="toggleAccordion()"
+    (keydown.enter)="toggleAccordion()"
+    [attr.aria-label]="accordionIsOpen ? 'Close accordion' : 'Open accordion'"
+    tabindex="0"
+  >
+    <taco-article
+      headline="{{ heading }}"
+      size="md"
+      isolated
+      [attr.highlight]="accordionIsOpen ? '' : null"
+    ></taco-article>
+
+    <div class="container-header-icon" (click)="toggleAccordion()">
+      <taco-icon
+        (mouseover)="headerHovered = true"
+        (mouseout)="headerHovered = false"
+        (click)="toggleAccordion()"
+        [fill]="headerHovered ? 'blue-500' : 'grey-900'"
+        size="sm"
+        [icon]="accordionIsOpen ? 'ic-chevron-up' : 'ic-chevron-down'"
+      ></taco-icon>
+    </div>
+  </div>
+  @if(accordionIsOpen){
+  <div class="accordion__body" @slideInOut>
+    <div class="accordion__body-wrapper">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  }
+</div>

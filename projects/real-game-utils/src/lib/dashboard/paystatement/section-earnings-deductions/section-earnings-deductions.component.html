@@ -1,0 +1,26 @@
+<section class="section-earnings-deductions">
+  <div class="header">
+    <taco-article
+      size="md"
+      highlight
+      isolated
+      [headline]="header | translate"
+    ></taco-article>
+  
+    @if (tooltipLabel) {
+      <rgs-tooltip label="{{tooltipLabel}}"
+                  (open)="onTooltipOpen.emit($event)"
+                  (close)="onTooltipClose.emit()">
+        <span [innerHTML]="tooltipCompiled | translate"></span>
+      </rgs-tooltip>  
+    }
+  </div>
+
+  @for (row of rows; track row.leftText) {
+    <rgs-row-earning-deduction
+      [leftText]="row.leftText"
+      [rightText]="row.rightText"
+      [highlighted]="row.highlighted || false"
+    ></rgs-row-earning-deduction>
+  }
+</section>

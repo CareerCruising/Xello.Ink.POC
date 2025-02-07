@@ -1,0 +1,31 @@
+:host {
+  --text-color: var(--taco-color-text-secondary);
+}
+
+.description-card {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color);
+  font: var(--taco-font-small);
+}
+
+.container-read-more {
+  height: 0px;
+  &:before {
+    display: block;
+    content: "";
+    float: right;
+    height: var(--taco-unit-pixel-400);
+  }
+}
+
+.description-read-more {
+  height: var(--taco-unit-pixel-200);
+  float: right;
+  clear: both;
+}
+
+.showReadMoreParagraph {
+  height: var(--taco-unit-pixel-600);
+}

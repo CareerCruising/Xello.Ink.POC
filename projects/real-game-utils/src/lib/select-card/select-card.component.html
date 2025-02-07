@@ -1,0 +1,49 @@
+<section
+  class="container-card"
+  [class.selected]="selected"
+  [class.selectable]="selectable"
+  (click)="onClick()"
+  (keyup.enter)="onClick()"
+  [attr.heap-id]="heapId"
+  [attr.data-navbar-item-index]="index"
+  tabindex="0"
+  [id]="id"
+  [attr.datatest-id]="dataTestId"
+>
+  @if(shadowedImageUrl){
+  <rgs-shadowed-image
+    class="container-image-card"
+    [src]="shadowedImageUrl + '?maxwidth=800'"
+    [altText]="shadowedImageAltText"
+    [saved]="saved"
+  ></rgs-shadowed-image>
+  }
+  <section class="container-content">
+    <article class="container-title-description">
+      <h3 class="title-card">{{ title }}</h3>
+      @if(subtitle){
+      <h4 class="subtitle-card">{{ subtitle }}</h4>
+      }
+      <rgs-description-text [text]="description || ''"></rgs-description-text>
+      <ng-content></ng-content>
+    </article>
+    <section class="container-specs">
+      @for(data of specsSmall; track data.illustration){
+      <rgs-career-specs-small
+        [illustration]="data.illustration"
+        [text]="data.data + ' ' + (data.subtitle | translate)"
+      ></rgs-career-specs-small>
+      } @for(data of specsMedium; track data.illustration){
+      <rgs-specs-medium
+        [illustration]="data.illustration"
+        [text]="data.data"
+        [description]="data.subtitle | translate"
+      ></rgs-specs-medium>
+      }
+    </section>
+  </section>
+</section>
+
+@if (selected) {
+<rgs-card-selected-icon></rgs-card-selected-icon>
+}

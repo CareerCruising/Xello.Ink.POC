@@ -1,0 +1,29 @@
+<article
+  #descriptionCard
+  window:resize
+  class="description-card"
+  [class.showReadMore]="showReadMore()"
+  [class.expand]="expanded()"
+>
+  @if (showReadMore()) {
+  <div class="container-read-more">
+    <taco-button
+      class="description-read-more"
+      type="link"
+      variant="primary"
+      size="sm"
+      mode="light"
+      [value]="'READ_MORE' | translate"
+      (onClick)="onClickReadMore($event)"
+    ></taco-button>
+  </div>
+  <p #descriptionText class="showReadMoreParagraph">
+    {{ showReadMore() }}
+    {{ showReadMore() ? text : truncatedText }}
+  </p>
+  }@else {
+  <p #descriptionText>
+    {{ text }}
+  </p>
+  }
+</article>

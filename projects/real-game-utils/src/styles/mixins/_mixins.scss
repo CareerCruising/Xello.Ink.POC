@@ -1,0 +1,48 @@
+/*
+* $breakpoint:
+* - phone 320-767 px
+* - tab-port 768-1023 px
+* - tab-land 1024-1365 px
+* - desktop min-width: 1366+ px AND min-height: 720px
+*
+* To use the device mixin for media query:
+* At the top of the component scss file, add:
+* @use "<path to the this scss file without _>" as m;
+* eg: @use '../../styles/mixins' as m;
+*
+* Then to use it, simply put:
+* m is the namespace of the mixins file from the @use statement
+* @include m.device(phone) {     // argument can be phone, tabport, tabland, or desktop
+*   ...css
+* }
+*
+* Real example can refer to .container inside _layout.scss file
+*
+* !IMPORTANT: the breakpoint system is based on mobile first approach.
+*             So component should be styles for phone first then move up to larger devices
+*/
+@mixin device($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (min-width: 320px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tabport {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tabland {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1366px) {
+      @content;
+    }
+  }
+}

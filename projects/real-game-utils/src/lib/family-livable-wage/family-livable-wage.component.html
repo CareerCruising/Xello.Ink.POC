@@ -1,0 +1,113 @@
+<section class="livable-wage">
+  <div class="livable-wage__heading">
+    <h4 class="livable-wage__text">{{ "LIVABLE_WAGE.TITLE" | translate }}</h4>
+    <div class="popover-container">
+      <button
+        id="livableWageMinAmountTrigger"
+        class="trigger"
+        (click)="openLivableWageMinAmountPopover()"
+      >
+        <taco-icon
+          size="sm"
+          icon="ic-info"
+          [fill]="livableWageMinAmountInfoHover ? 'blue-700' : 'grey-900'"
+          onfocus=""
+          onblur=""
+          (mouseover)="livableWageMinAmountInfoHover = true"
+          (mouseout)="livableWageMinAmountInfoHover = false"
+        ></taco-icon>
+      </button>
+      <taco-popover
+        #livableWageMinAmountPopover
+        id="livableWageMinAmountPopover"
+        class="popover"
+        strategy="absolute"
+        (taco-popover-closed)="closePopover()"
+      >
+        <taco-article
+          size="sm"
+          [headline]="'LIVABLE_WAGE.TOOLTIP' | translate"
+          isolated
+          class="popover__desc"
+        ></taco-article>
+      </taco-popover>
+    </div>
+  </div>
+  <span class="livable-wage__description">
+    {{
+      "LIVABLE_WAGE.DESCRIPTION"
+        | translate
+          : {
+              income: formatMoney(monthlyLivingWage),
+            }
+    }}</span
+  >
+  <taco-tag
+    variant="flexible"
+    [color]="isLivingComfortably() ? 'muted-success' : 'muted-warning'"
+    [label]="
+      (isLivingComfortably()
+        ? 'LIVABLE_WAGE.EARNING_ENOUGH'
+        : 'LIVABLE_WAGE.NOT_EARNING_ENOUGH'
+      ) | translate
+    "
+  ></taco-tag>
+  @if (barChartData().length !== 0) {
+    <rgs-bar-graph [data]="barChartData()"></rgs-bar-graph>
+  }
+  <div class="livable-wage-legend-wrapper">
+    @if (isMobile()) {
+      <taco-button
+        type="link"
+        variant="primary"
+        size="sm"
+        mode="light"
+        [value]="'COMPARABLE_FAMILY_EXPENSE.TITLE' | translate"
+        class="livable-wage-legend mobile-only"
+        onkeydown=""
+        (click)="openComparableFamilySizeModal()"
+      />
+    } @else {
+      <div class="livable-wage__heading">
+        <h2 class="livable-wage__text">
+          {{ "COMPARABLE_FAMILY_EXPENSE.TITLE" | translate }}
+        </h2>
+        <div class="popover-container">
+          <button
+            id="livable-wage-legend-trigger"
+            class="trigger"
+            (click)="openLivableWageLegendPopover()"
+          >
+            <taco-icon
+              size="sm"
+              icon="ic-info"
+              [fill]="livableWageLegendTooltipHover() ? 'blue-700' : 'grey-900'"
+              onfocus=""
+              onblur=""
+              (mouseover)="livableWageLegendTooltipHover.set(true)"
+              (mouseout)="livableWageLegendTooltipHover.set(false)"
+            ></taco-icon>
+          </button>
+          <taco-popover
+            #livableWageLegendPopover
+            id="livable-wage-legend-popover"
+            class="popover"
+            defaultPlacement="bottom-end"
+            strategy="fixed"
+          >
+            <taco-article
+              class="popover__desc"
+              size="sm"
+              [headline]="'COMPARABLE_FAMILY_EXPENSE.INFO_TEXT' | translate"
+              isolated
+            ></taco-article>
+          </taco-popover>
+        </div>
+      </div>
+      <rgs-family-livable-wage-legend
+        [familyWageData]="familyWageData"
+        [avatar]="avatar"
+      ></rgs-family-livable-wage-legend>
+    }
+  </div>
+</section>

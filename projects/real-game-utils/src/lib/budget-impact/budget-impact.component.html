@@ -1,0 +1,87 @@
+<div class="loan-budget-impact-container">
+  <div class="loan-summary-section-title">
+    <h4>
+      {{ "LOAN_SUMMARY.BUDGET_IMPACT_TITLE" | translate }}
+    </h4>
+    <div class="popover-container">
+      <button
+        id="budget-impact-trigger"
+        class="budget-impact-trigger"
+        (click)="openBudgetImpactPopover()"
+        aria-label="open-budget-impact-popover"
+      >
+        <taco-icon
+          size="sm"
+          icon="ic-info"
+          [fill]="openBudgetInfoHovered ? 'blue-700' : 'grey-900'"
+          (mouseover)="openBudgetInfoHovered = true"
+          (mouseout)="openBudgetInfoHovered = false"
+          onFocus=""
+          onBlur=""
+        ></taco-icon>
+      </button>
+      <taco-popover
+        id="budgetImpactPopover"
+        class="budget-impact-popover"
+        defaultPlacement="bottom-end"
+        strategy="absolute"
+        (taco-popover-closed)="closingFunction()"
+      >
+        <taco-article
+          size="sm"
+          [headline]="'LOAN_SUMMARY.BUDGET_IMPACT_POPUP' | translate"
+          isolated
+          disabled
+        ></taco-article>
+      </taco-popover>
+    </div>
+  </div>
+  <div class="loan-budget-impact-graph-container">
+    <rgs-doughnut-graph
+      class="donut_graph"
+      [income]="currentCareer()?.monthlyNetSalary ?? 0"
+      [loanAmount]="selectedLoanAmount()"
+    ></rgs-doughnut-graph>
+    <div class="donut-center-text-container">
+      <taco-article
+        [desc]="'LOAN_SUMMARY.TAKE_HOME_PAY' | translate"
+        [headline]="formatAmount(currentCareer()?.monthlyNetSalary || 0)"
+        highlight
+        size="md"
+        reversed
+        center
+      ></taco-article>
+    </div>
+  </div>
+  <div class="budget-impact-legend">
+    <div class="budget-impact-legend-line">
+      <p class="legend-title">
+        {{ "LOAN_SUMMARY.MONTHLY_PAYMENT" | translate }}
+      </p>
+      <div class="legend-text">
+        <taco-icon
+          class="bullet-point"
+          fill="purple-500"
+          size="xxsm"
+          icon="ic-dot"
+        ></taco-icon>
+        <p>{{ formatAmount(this.selectedLoanAmount()) }}</p>
+        <p class="legend-percent">({{ costPercent() }})</p>
+      </div>
+    </div>
+    <div class="budget-impact-legend-line">
+      <p class="legend-title">
+        {{ "LOAN_SUMMARY.REMAINING_INCOME" | translate }}
+      </p>
+      <div class="legend-text">
+        <taco-icon
+          class="bullet-point"
+          fill="cornflower-500"
+          size="xxsm"
+          icon="ic-dot"
+        ></taco-icon>
+        <p>{{ remainingIncome() }}</p>
+      </div>
+    </div>
+  </div>
+</div>

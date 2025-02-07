@@ -1,0 +1,28 @@
+.modal-footer {
+  display: flex;
+  padding: 0px var(--taco-space-pixel-300) var(--taco-space-pixel-300)
+    var(--taco-space-pixel-300);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--taco-space-pixel-300);
+  align-self: stretch;
+  background: var(--taco-color-background-primary);
+}
+
+.footer-separator {
+  display: flex;
+  height: 1px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+  background: var(--taco-color-border-primary);
+}
+
+.footer-container-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--taco-space-pixel-300);
+  align-self: stretch;
+}

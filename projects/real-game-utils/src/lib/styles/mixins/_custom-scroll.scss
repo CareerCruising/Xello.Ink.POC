@@ -1,0 +1,23 @@
+@mixin custom-scrollbar() {
+  overflow-y: auto;
+
+  /* Works on Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--taco-color-white-900) var(--taco-color-white-300);
+
+  /* Works on Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: var(--taco-unit-pixel-100);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--taco-color-white-300);
+    border: 1px solid var(--taco-color-white-700);
+    border-radius: var(--taco-unit-pixel-250);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--taco-color-white-900);
+    border-radius: var(--taco-unit-pixel-250);
+  }
+}

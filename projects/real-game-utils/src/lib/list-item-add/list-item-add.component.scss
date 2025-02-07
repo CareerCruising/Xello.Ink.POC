@@ -1,0 +1,46 @@
+@use "../styles/mixins/mixins" as m;
+
+.container-fill {
+  display: flex;
+  padding: var(--taco-space-pixel-200);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--taco-space-pixel-200);
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: var(--taco-unit-pixel-050);
+  background: var(--taco-color-background-secondary);
+}
+
+.container-icon-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--taco-unit-pixel-150);
+
+  @include m.device(tabport) {
+    flex-direction: column;
+    gap: var(--taco-space-pixel-100);
+  }
+}
+
+.container-icon {
+  display: flex;
+  padding: var(--taco-space-pixel-100);
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: var(--taco-unit-pixel-600);
+  border: 1px solid var(--taco-color-border-button-secondary);
+  background: var(--taco-color-background-button-secondary);
+
+  &:hover {
+    background-color: var(--taco-color-background-button-secondary-hover);
+    border: 1px solid var(--taco-color-border-button-secondary-hover);
+  }
+
+  @include m.device(tabport) {
+    padding: var(--taco-space-pixel-200);
+  }
+}

@@ -1,0 +1,130 @@
+@use "../styles/mixins/mixins" as m;
+
+.rg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-200);
+  align-self: stretch;
+}
+
+.header {
+  color: var(--taco-color-text-primary);
+  font: var(--taco-font-bold-medium);
+}
+
+.rg-container-bar-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-200);
+  align-self: stretch;
+}
+
+.rg-container-bars-descriptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: var(--taco-space-pixel-100);
+}
+
+.rg-container-bars {
+  display: flex;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.rg-container-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-100);
+  flex: 1 0 0;
+
+  &.interest-description {
+    min-width: 10%;
+  }
+}
+
+.bar {
+  height: var(--taco-unit-pixel-300);
+  align-self: stretch;
+
+  &.amount {
+    border-right: 2px solid var(--taco-color-white-100);
+    background: var(--taco-color-magenta-500);
+  }
+
+  &.interest {
+    background: var(--taco-color-emerald-500);
+  }
+}
+
+.rg-container-bar-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.description-header {
+  color: var(--taco-color-text-secondary);
+  font: var(--taco-font-x-small);
+}
+
+.rg-container-description-dot-value {
+  display: flex;
+  align-items: center;
+  gap: var(--taco-unit-pixel-050);
+}
+
+.description-dot {
+  width: var(--taco-unit-pixel-100);
+  height: var(--taco-unit-pixel-100);
+  fill: var(--taco-color-magenta-500);
+}
+
+.description-value {
+  color: var(--taco-color-text-primary);
+  font: var(--taco-font-bold-small);
+}
+
+.loan-summary-separator {
+  margin: var(--taco-space-pixel-300) 0;
+  border-top: 1px solid var(--taco-color-border-primary);
+}
+
+.loan-summary-section-title {
+  font: var(--taco-font-bold-medium);
+  color: var(--taco-color-text-primary);
+  position: relative;
+  display: flex;
+  gap: var(--taco-space-pixel-050);
+  align-items: center;
+}
+
+.loan-summary-column {
+  flex: 1;
+  .loan-summary-condition-container {
+    display: grid;
+    gap: var(--taco-space-pixel-200);
+    .loan-summary-conditions {
+      display: flex;
+      gap: var(--taco-space-pixel-300);
+    }
+  }
+}
+
+button.loan-summary-trigger {
+  display: flex;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.loan-summary-popover {
+  z-index: 1;
+}

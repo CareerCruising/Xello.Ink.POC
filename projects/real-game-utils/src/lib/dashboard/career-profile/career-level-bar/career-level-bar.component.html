@@ -1,0 +1,37 @@
+<div class="career-level-container">
+  <div class="career-level" [class.selected]="level == 1"></div>
+  <div class="career-level" [class.selected]="level == 2"></div>
+  <div class="career-level" [class.selected]="level == 3"></div>
+  <img
+    class="user-icon"
+    [src]="userAvatarURL"
+    alt="user icon"
+    [attr.data-level]="level"
+  />
+</div>
+<div class="career-level-text-container">
+  <taco-article
+    center
+    size="sm"
+    [headline]="'CAREER_LEVEL.ENTRY' | translate"
+    [desc]="'YOUR_CAREER_LEVEL' | translate"
+    [highlight]="level == 1"
+    [isolated]="level != 1"
+  ></taco-article>
+  <taco-article
+    center
+    size="sm"
+    [headline]="'CAREER_LEVEL.MID' | translate"
+    [desc]="'YOUR_CAREER_LEVEL' | translate"
+    [isolated]="level != 2"
+    [highlight]="level == 2"
+  ></taco-article>
+  <taco-article
+    center
+    size="sm"
+    [headline]="'CAREER_LEVEL.SENIOR' | translate"
+    [desc]="'YOUR_CAREER_LEVEL' | translate"
+    [isolated]="level != 3"
+    [highlight]="level == 3"
+  ></taco-article>
+</div>

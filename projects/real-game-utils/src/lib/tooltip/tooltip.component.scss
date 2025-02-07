@@ -1,0 +1,27 @@
+:host {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.trigger {
+    border: none;
+    outline: none;
+    display: inline-flex;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 0 0 3px var(--taco-color-blue-700);
+    }
+}
+
+.rgs-popover {
+    z-index: 99;
+    font-size: var(--taco-font-size-175);
+
+    ::ng-deep p:not(:last-child) {
+        margin-bottom: var(--taco-unit-pixel-200);
+    }
+}

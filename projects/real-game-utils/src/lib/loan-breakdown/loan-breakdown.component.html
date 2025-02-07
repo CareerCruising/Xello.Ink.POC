@@ -1,0 +1,136 @@
+<div class="loan-summary-column">
+  <div class="loan-summary-condition-container">
+    <div class="loan-summary-section-title">
+      <h4 class="loan-summary-section-title-text">
+        {{ "LOAN_SUMMARY.CONDITIONS_TITLE" | translate }}
+      </h4>
+      <div class="popover-container">
+        <button
+          id="loan-summary-trigger"
+          class="loan-summary-trigger"
+          (click)="openLoanConditionPopover()"
+          aria-label="open-loan-condition-popover"
+        >
+          <taco-icon
+            size="sm"
+            icon="ic-info"
+            [fill]="openInfoHovered ? 'blue-700' : 'grey-900'"
+            (mouseover)="openInfoHovered = true"
+            (mouseout)="openInfoHovered = false"
+            onFocus=""
+            onBlur=""
+          ></taco-icon>
+        </button>
+        <taco-popover
+          id="loanConditionPopover"
+          class="loan-summary-popover"
+          defaultPlacement="bottom-end"
+          strategy="absolute"
+          (taco-popover-closed)="closingFunction()"
+        >
+          <taco-article
+            size="sm"
+            [headline]="'LOAN_SUMMARY.LOAN_CONDITION_POPUP' | translate"
+            isolated
+            disabled
+          ></taco-article>
+        </taco-popover>
+      </div>
+    </div>
+    <div class="loan-summary-conditions">
+      <div class="loan-summary-condition">
+        <taco-article
+          [desc]="'LOAN_SUMMARY.INTEREST_TITLE' | translate"
+          headline="{{ loanInterestRate }}%"
+          highlight
+          size="md"
+          reversed
+        ></taco-article>
+      </div>
+      <div class="loan-summary-condition">
+        <taco-article
+          [desc]="'LOAN_SUMMARY.TIME_TITLE' | translate"
+          [headline]="
+            'LOAN_SUMMARY.TIME' + (loanTerm < 2 ? '_SINGULAR' : '')
+              | translate
+                : {
+                    figure: loanTerm,
+                  }
+          "
+          highlight
+          size="md"
+          reversed
+        ></taco-article>
+      </div>
+    </div>
+  </div>
+  <div class="loan-summary-separator"></div>
+  <div class="rg-container">
+    <h4 class="header">{{ "LOAN_BREAKDOWN.HEADER" | translate }}</h4>
+    <div class="rg-container-amount-bar">
+      <taco-article
+        size="md"
+        highlight
+        reversed
+        [headline]="formatNumber(totalInterestPrincipal.total || 0)"
+        [desc]="'LOAN_BREAKDOWN.AMOUNT_OWED' | translate"
+      ></taco-article>
+    </div>
+    <div class="rg-container-bars-descriptions">
+      <div class="rg-container-bars">
+        <div class="rg-container-bar" [attr.style]="maxBarWidths.amount">
+          <div class="bar amount"></div>
+        </div>
+        <div class="rg-container-bar" [attr.style]="maxBarWidths.interest">
+          <div class="bar interest"></div>
+        </div>
+      </div>
+      <div class="rg-container-bars">
+        <div class="rg-container-bar" [attr.style]="maxBarWidths.amount">
+          <div class="bar">
+            <div class="rg-container-bar-description">
+              <p class="description-header">
+                {{ "LOAN_BREAKDOWN.AMOUNT_BORROWED" | translate }}
+              </p>
+              <div class="rg-container-description-dot-value">
+                <taco-icon
+                  class="bullet-point"
+                  fill="magenta-500"
+                  size="xxsm"
+                  icon="ic-dot"
+                ></taco-icon>
+                <p class="description-value">
+                  {{ formatNumber(totalInterestPrincipal.principal || 0) }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rg-container-bar interest-description"
+          [attr.style]="maxBarWidths.interest"
+        >
+          <div class="bar">
+            <div class="rg-container-bar-description">
+              <p class="description-header">
+                {{ "LOAN_BREAKDOWN.INTEREST" | translate }}
+              </p>
+              <div class="rg-container-description-dot-value">
+                <taco-icon
+                  class="bullet-point"
+                  fill="emerald-500"
+                  size="xxsm"
+                  icon="ic-dot"
+                ></taco-icon>
+
+                <p class="description-value">
+                  {{ formatNumber(totalInterestPrincipal.interest || 0) }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

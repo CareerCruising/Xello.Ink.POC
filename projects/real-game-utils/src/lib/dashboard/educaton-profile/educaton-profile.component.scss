@@ -1,0 +1,113 @@
+@use "../../styles/mixins/mixins" as m;
+
+:host {
+  width: 100%;
+}
+.education_profile_card {
+  border: 1px solid var(--taco-color-border-primary);
+  border-radius: var(--taco-space-pixel-050);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  &.hoverable {
+    &:hover {
+      box-shadow: var(--shadows-container-bottom);
+    }
+  }
+  @include m.device(tabport) {
+    flex-direction: row;
+  }
+
+  .image-card {
+    object-fit: cover;
+    width: 100%;
+    height: 192px;
+    @include m.device(tabport) {
+      flex: 1;
+      height: unset;
+      min-width: 164px;
+      max-width: 240px;
+    }
+  }
+
+  .education_profilfe_card-body {
+    padding: var(--taco-space-pixel-200);
+    flex: 1.8;
+    display: grid;
+    gap: var(--taco-space-pixel-100);
+    .education_profile_card--title {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--taco-space-pixel-200);
+      .education_profile_card--text {
+        color: var(--taco-color-text-button-inline-secondary);
+        font: var(--taco-font-bold-large);
+        flex: 1;
+        &.hoverable {
+          &:focus-visible,
+          &:hover {
+            text-decoration: underline;
+            color: var(--taco-color-blue-700);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .education_profile_card--subtext {
+        color: var(--taco-color-text-secondary);
+        font: var(--taco-font-medium);
+      }
+      .data-image {
+        height: 32px;
+        align-items: center;
+      }
+    }
+  }
+
+  .education_profile_card--data_row {
+    margin-top: var(--taco-space-pixel-100);
+    display: grid;
+    gap: var(--taco-space-pixel-200);
+    .data-container {
+      display: flex;
+      align-items: center;
+      gap: var(--taco-unit-pixel-100);
+      .data-image {
+        padding: var(--taco-unit-pixel-100);
+        box-sizing: content-box;
+        background-color: var(--taco-color-emerald-050, #edf7f2);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.table-item-image {
+  object-fit: cover;
+  width: 100%;
+  height: 192px;
+  @include m.device(tabport) {
+    flex: 1;
+    height: unset;
+    min-width: 164px;
+    max-width: 240px;
+  }
+
+  &.default-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.background-emerald {
+    background-color: var(--taco-color-background-emerald);
+  }
+
+  &.background-olive {
+    background-color: var(--taco-color-background-olive);
+  }
+
+  &.background-gold {
+    background-color: var(--taco-color-background-gold);
+  }
+}

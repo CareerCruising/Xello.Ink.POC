@@ -1,0 +1,67 @@
+<section
+  class="container-card"
+  [class.selected]="selected"
+  [class.dashed]="custom"
+  [tabindex]="0"
+  (click)="onClick()"
+  (keyup.enter)="onClick()"
+  [attr.heap-id]="(item && item.heapId) || ''"
+>
+  <div class="container-card-content">
+    <section class="education-card-body">
+      <taco-illustration
+        size="xxlg"
+        [illustration]="custom ? 'il-stopwatch-fast' : item?.image"
+      ></taco-illustration>
+      <section class="section-card-content">
+        @if (custom) {
+        <taco-article
+          size="md"
+          isLink
+          [headline]="'CREDENTIALS.ADD_CUSTOM_CREDENTIAL_TITLE' | translate"
+          [desc]="'CREDENTIALS.ADD_CUSTOM_CREDENTIAL_SUBTITLE' | translate"
+        ></taco-article>
+        } @else {
+        <section class="section-title-label-description">
+          <section class="section-title-label">
+            <p class="item-title">{{ item?.title }}</p>
+          </section>
+          @if (item?.description) {
+          <section class="section-description">
+            <p class="item-description">
+              {{ item?.description }}
+            </p>
+          </section>
+          }
+        </section>
+        @if (item?.data && !custom) {
+        <section class="section-specs">
+          @for(data of item?.data; track data.id){
+          <section class="section-spec">
+            <taco-illustration
+              size="lg"
+              [illustration]="data.illustration"
+            ></taco-illustration>
+            <taco-article
+              size="sm"
+              [headline]="data.data | translate"
+              [desc]="data.subtitle | translate"
+            ></taco-article>
+          </section>
+          }
+        </section>
+        } }
+      </section>
+    </section>
+    @if (item?.tag; as tag) {
+    <taco-tag
+      variant="flexible"
+      [color]="tag.color"
+      [label]="tag.text | translate"
+    ></taco-tag>
+    }
+  </div>
+  @if (selected) {
+  <rgs-card-selected-icon></rgs-card-selected-icon>
+  }
+</section>

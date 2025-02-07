@@ -1,0 +1,31 @@
+.taco-article-large-title {
+  font: var(--taco-font-large);
+  &--bold {
+    font-weight: bold;
+  }
+}
+
+.taco-article-large-description {
+  font: var(--taco-font-medium);
+  color: var(--taco-color-text-secondary);
+}
+
+.taco-article-medium-title {
+  font: var(--taco-font-medium);
+  &.bold {
+    font-weight: bold;
+  }
+  &.hover {
+    &:focus-visible,
+    &:hover {
+      text-decoration: underline;
+      color: var(--taco-color-blue-700);
+      cursor: pointer;
+    }
+  }
+}
+
+.taco-article-medium-description {
+  font: var(--taco-font-small);
+  color: var(--taco-color-text-secondary);
+}

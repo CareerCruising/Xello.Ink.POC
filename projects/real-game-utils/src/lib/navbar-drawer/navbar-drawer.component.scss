@@ -1,0 +1,53 @@
+@use "../../lib/styles/mixins/mixins" as *;
+
+:host {
+  z-index: 3000;
+}
+
+.backdrop {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.5s ease-in-out;
+  pointer-events: none;
+  z-index: 3000;
+  &.in {
+    background-color: rgba(255, 255, 255, 0.4);
+    pointer-events: all;
+  }
+}
+
+.wrapper {
+  display: flex;
+  padding: var(--taco-space-pixel-500) var(--taco-space-pixel-200)
+    var(--taco-space-pixel-300) var(--taco-space-pixel-200);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-400);
+  flex-shrink: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 223px;
+
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+
+  background-color: var(--taco-color-white-300);
+  box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+  z-index: 3001;
+  will-change: transform;
+
+  &.open {
+    transform: translateX(0%);
+  }
+  @include device(tabport) {
+    width: 331px;
+  }
+}

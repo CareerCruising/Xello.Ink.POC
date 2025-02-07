@@ -1,0 +1,31 @@
+<h2 class="month_budget_title">{{ "MONTHY_BUDGET.TITLE" | translate }}</h2>
+<span class="month_budget_total">
+  <p
+    class="month_budget_total--amount"
+    [class.error]="totalExpenses() > totalIncome()"
+  >
+    {{ formatMoney(totalIncome() - totalExpenses()) }}
+  </p>
+  <p class="month_budget_total--suffix">
+    {{
+      (totalExpenses() > totalIncome() ? "" : "MONTHY_BUDGET.AMOUNT_SUFFIX")
+        | translate
+    }}
+  </p>
+</span>
+<rgs-budget-fill-bar
+  class="month_budget_bar"
+  [value]="totalExpenses()"
+  [maxValue]="totalIncome()"
+></rgs-budget-fill-bar>
+<p
+  class="monthy_budget_summary"
+  [innerHTML]="
+    'MONTHY_BUDGET.SUMMARY'
+      | translate
+        : {
+            expenses: formatMoney(totalExpenses()),
+            income: formatMoney(totalIncome())
+          }
+  "
+></p>

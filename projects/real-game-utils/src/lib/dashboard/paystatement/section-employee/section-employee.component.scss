@@ -1,0 +1,47 @@
+@use "../../../../lib/styles/mixins/mixins" as m;
+
+.section-employee {
+  display: flex;
+  padding: var(--taco-space-pixel-200);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-100);
+  flex: 1 0 0;
+  border-radius: var(--taco-unit-pixel-100);
+  background: var(--taco-color-background-secondary);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: var(--taco-space-pixel-050);
+  position: relative;
+  margin-bottom: var(--taco-space-pixel-200);
+
+  > :last-child {
+    padding-top: var(--taco-space-pixel-050);
+  }
+}
+
+.section-personal-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--taco-space-pixel-100);
+  row-gap: var(--taco-space-pixel-100);
+
+  @include m.device(tabland) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include m.device(desktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.article-personal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

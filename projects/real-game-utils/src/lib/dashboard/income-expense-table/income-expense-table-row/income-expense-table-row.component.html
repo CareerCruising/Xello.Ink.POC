@@ -1,0 +1,17 @@
+<div
+  class="income-row"
+  (click)="onClickRow()"
+  tabindex="0"
+  (keydown.enter)="onClickRow()"
+  [attr.aria-label]="leftText"
+  [class.dotted]="dotted"
+  [class.hover]="hover"
+  [attr.heap-id]="heapId"
+>
+  <p #name class="income-name" [class.blue]="isHighlighted">
+    {{ leftText | translate }}
+  </p>
+  <p class="income-amount">
+    {{ rightText | translate }}
+  </p>
+</div>

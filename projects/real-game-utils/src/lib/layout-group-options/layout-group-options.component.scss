@@ -1,0 +1,50 @@
+@use "../styles/mixins/mixins" as m;
+
+.container-group-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-group-options {
+  color: var(--taco-color-text-primary);
+  margin-bottom: var(--taco-space-pixel-100);
+}
+
+.card-option {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.column-header-group-options {
+  color: var(--taco-color-text-secondary);
+  text-align: center;
+  font: var(--taco-font-small);
+  margin-left: auto;
+  align-self: flex-end;
+  max-width: calc(var(--taco-unit-pixel-1500) - var(--taco-unit-pixel-200));
+  width: calc(var(--taco-unit-pixel-1500) - var(--taco-unit-pixel-200));
+
+  @include m.device(tabport) {
+    max-width: var(--taco-unit-pixel-1500);
+    width: var(--taco-unit-pixel-1500);
+  }
+}
+
+.header-options {
+  display: flex;
+  flex-direction: column;
+
+  @include m.device(tabport) {
+    flex-direction: row;
+  }
+}
+
+.list-options {
+  margin-top: var(--taco-space-pixel-100);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-200);
+  align-self: stretch;
+}

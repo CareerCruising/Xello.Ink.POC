@@ -1,0 +1,13 @@
+.income-heading {
+  font: var(--taco-font-bold-medium);
+  color: var(--taco-color-text-primary);
+}
+
+.income-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px var(--taco-color-border-secondary) solid;
+  padding: var(--taco-space-pixel-100) var(--taco-space-pixel-050);
+  font: var(--taco-font-small);
+  color: var(--taco-color-text-primary);
+}

@@ -1,0 +1,23 @@
+<article class="card card--bg-{{ cardColor }}" [@CardAnimation]="animation">
+  <taco-illustration
+    class="card__illustration"
+    size="xxxxxlg"
+    [illustration]="illustration"
+  ></taco-illustration>
+  <div class="card__content">
+    <p class="card__title" size="md">{{ title }}</p>
+    <p class="card__desc" size="md">
+      {{ desc }}
+    </p>
+    @if (descPrevious) {
+      <div class="card__desc--previous" size="md">{{ descPrevious }}</div>
+    }
+  </div>
+  <taco-button
+    type="cta"
+    class="card__cta"
+    size="sm"
+    [value]="ctaBtnText"
+    (click)="onClickOption()"
+  ></taco-button>
+</article>

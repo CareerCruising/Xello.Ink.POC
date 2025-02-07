@@ -1,0 +1,8 @@
+<img [alt]="altText" class="image-card" [src]="src" fill priority />
+<section class="gradient-card"></section>
+@if(saved){
+<section class="container-saved">
+  <taco-icon size="sm" icon="ic-heart-filled" fill="pink-500"></taco-icon>
+  <p class="text-saved">{{ "SAVED" | translate }}</p>
+</section>
+}

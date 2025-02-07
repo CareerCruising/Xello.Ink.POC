@@ -1,0 +1,31 @@
+.month_budget_title {
+  font: var(--taco-font-bold-medium);
+  color: var(--taco-color-text-primary);
+}
+
+.month_budget_total {
+  display: flex;
+  align-items: baseline;
+  color: var(--taco-color-text-primary);
+  gap: var(--taco-space-pixel-025);
+  .month_budget_total--amount {
+    font: var(--taco-font-bold-x-large);
+    &.error {
+      color: var(--taco-color-text-error);
+    }
+  }
+  .month_budget_total--suffix {
+    font: var(--taco-font-small);
+  }
+}
+
+.month_budget_bar {
+  display: block;
+  margin-top: var(--taco-space-pixel-100);
+  margin-bottom: var(--taco-space-pixel-050);
+}
+
+.monthy_budget_summary {
+  font: var(--taco-font-small);
+  color: var(--taco-color-text-secondary);
+}

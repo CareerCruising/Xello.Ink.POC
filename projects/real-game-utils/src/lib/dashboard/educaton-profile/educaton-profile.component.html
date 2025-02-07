@@ -1,0 +1,92 @@
+@if(currentSchool(); as school){
+<div
+  class="education_profile_card"
+  (click)="clickCard()"
+  [class.hoverable]="!educatorView"
+  heap-id="student-real-game-edit-education-choice"
+>
+  @if (school.id) {
+  <img
+    [alt]="school.schoolName"
+    class="image-card"
+    src="{{ getImage(currentSchool()) }}"
+  />
+  } @else{
+  <div
+    class="table-item-image default-illustration"
+    [class.background-emerald]="getDefaultBackgroundColor() == 'emerald'"
+    [class.background-olive]="getDefaultBackgroundColor() == 'olive'"
+    [class.background-gold]="getDefaultBackgroundColor() == 'gold'"
+  >
+    <taco-illustration
+      size="xxxlg"
+      [illustration]="currentPathway().image || 'il-resume'"
+    ></taco-illustration>
+  </div>
+  }
+  <section class="education_profilfe_card-body">
+    <div class="education_profile_card--title">
+      <div>
+        <h2
+          class="education_profile_card--text"
+          [class.hoverable]="!educatorView"
+        >
+          {{
+            ("EDUCATION.PREFIX" | translate) +
+              (school.id ? school.schoolName : currentPathway().title)
+          }}
+        </h2>
+        @if(school.id){
+        <p class="education_profile_card--subtext">
+          {{ school.city }}, {{ school.stateProv }}
+        </p>
+        }
+      </div>
+      @if(!educatorView){
+      <taco-icon
+        size="sm"
+        icon="ic-pencil"
+        [fill]="editHovered ? 'blue-700' : 'grey-900'"
+        class="data-image"
+        (mouseover)="editHovered = true"
+        (mouseout)="editHovered = false"
+        tabindex="0"
+        (keydown.enter)="clickCard()"
+        (click)="clickCard()"
+        heap-id="student-real-game-edit-education-choice"
+        aria-label="edit educations"
+      ></taco-icon>
+      }
+    </div>
+    @if(currentSchool().id && !educatorView){
+    <taco-button
+      heap-id="student-real-game-viewed-school-profile"
+      class="career-profile-link"
+      type="link"
+      variant="primary"
+      size="sm"
+      mode="light"
+      [value]="'VIEW_SCHOOL_PROFILE' | translate"
+      (click)="openFullSchoolProfile($event)"
+    ></taco-button>
+    }
+    <div class="education_profile_card--data_row">
+      @for(data of pathwayData(); track data.illustration){
+      <div class="data-container">
+        <taco-illustration
+          size="sm"
+          [illustration]="data.illustration"
+          class="data-image"
+        ></taco-illustration>
+        <taco-article
+          size="md"
+          isolated
+          [headline]="data.data + ' ' + (data?.subtitle || '' | translate)"
+          [desc]="data.subtitle || '' | translate"
+        ></taco-article>
+      </div>
+      }
+    </div>
+  </section>
+</div>
+}

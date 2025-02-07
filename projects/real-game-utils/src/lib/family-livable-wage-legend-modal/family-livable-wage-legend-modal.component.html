@@ -1,0 +1,37 @@
+<section class="container">
+  <div class="header">
+    <h2 class="title">{{ "COMPARABLE_FAMILY_EXPENSE.TITLE" | translate }}</h2>
+    <div class="popover-container">
+      <button
+        id="family-livable-wage-mobile-trigger"
+        class="trigger"
+        (click)="openPopover()"
+      >
+        <taco-icon size="sm" icon="ic-info" fill="grey-700"></taco-icon>
+      </button>
+      <taco-popover
+        #livableWageLegendMobilePopover
+        id="mobile-popover-livable-wage-legend"
+        class="popover"
+        defaultPlacement="bottom-end"
+        strategy="fixed"
+      >
+        <taco-article
+          class="popover__desc"
+          size="sm"
+          [headline]="'COMPARABLE_FAMILY_EXPENSE.INFO_TEXT' | translate"
+          desc=""
+        ></taco-article>
+      </taco-popover>
+    </div>
+    <taco-button
+      class="header__close-btn"
+      type="close"
+      size="xsm"
+      (click)="closeModal()"
+    ></taco-button>
+  </div>
+  <div class="content">
+    <rgs-family-livable-wage-legend></rgs-family-livable-wage-legend>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+:host {
+  --top-position: -4px;
+  --right-position: 0px;
+  top: var(--top-position);
+  right: var(--right-position);
+  position: absolute;
+}
+
+.icon-background {
+  position: absolute;
+  height: var(--taco-unit-pixel-250);
+  width: var(--taco-unit-pixel-250);
+  top: -2px;
+  right: 2px;
+}
+
+.icon-checkmark {
+  position: absolute;
+  height: var(--taco-unit-pixel-250);
+  width: var(--taco-unit-pixel-250);
+  top: 0;
+  right: 0;
+}

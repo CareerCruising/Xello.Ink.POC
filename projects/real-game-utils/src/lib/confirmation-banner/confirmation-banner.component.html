@@ -1,0 +1,24 @@
+@if (visible) {
+<div class="container-banner" [@slideInOut]>
+  <div class="container-banner-icon">
+    <taco-icon
+      fill="white-100"
+      size="sm"
+      icon="ic-checkmark-isolated"
+    ></taco-icon>
+  </div>
+  <div class="container-banner-message-action">
+    <div class="container-banner-message">
+      <p class="banner-message" [innerHTML]="message | translate"></p>
+    </div>
+    <div
+      class="container-banner-action"
+      (click)="onClick()"
+      tabindex="0"
+      (keydown.enter)="onClick()"
+    >
+      <taco-icon fill="grey-900" size="sm" icon="ic-close-isolated"></taco-icon>
+    </div>
+  </div>
+</div>
+}

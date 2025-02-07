@@ -1,0 +1,37 @@
+@if (!hasMadeBudgetSelections() && (hasFamilySelected || selectedEducation())) {
+  <rgs-family-education-expense-table
+    [title]="
+      (header || 'EXPENSES.HEADER' | translate) +
+      formatExpenses(expensesSummaryData().total)
+    "
+    [isEducationSelected]="!!selectedEducation()"
+    [isFamilySelected]="hasFamilySelected"
+    [totalEducationExpense]="selectedEducation()?.loanPaymentPerMonth || 0"
+    [totalFamilyExpense]="totalFamilyExpense()"
+    [educatorView]="educatorView"
+    (clickExpensesViewButton)="clickBudgetExpenseEmpty.emit()"
+    (clickStudentLoanRow)="clickStudentLoanRow.emit()"
+  ></rgs-family-education-expense-table>
+} @else {
+  @if (hasMadeBudgetSelections()) {
+    <rgs-income-expense-table
+      [title]="
+        (header || 'EXPENSES.HEADER' | translate) +
+        formatExpenses(expensesSummaryData().total)
+      "
+      [rows]="expensesSummaryData().rows"
+      (onClickRow)="clickBudgetExpenseRow.emit($event)"
+    ></rgs-income-expense-table>
+  }
+  @if (hasFamilySelected || !!selectedEducation()) {
+    <rgs-other-expense-table
+      [isFamilySelected]="hasFamilySelected"
+      [isPathwaySelected]="!!selectedEducation()"
+      [totalEducationExpense]="selectedEducation()?.loanPaymentPerMonth || 0"
+      [totalFamilyExpense]="totalFamilyExpense()"
+      (clickFamilyRow)="clickFamilyRow.emit()"
+      (clickStudentLoanRow)="clickStudentLoanRow.emit()"
+      [educatorView]="educatorView"
+    ></rgs-other-expense-table>
+  }
+}

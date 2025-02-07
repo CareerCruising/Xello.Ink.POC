@@ -1,0 +1,39 @@
+<article class="livable-wage-table">
+  @for (data of familyWageData; track data.monthlyLivingWage) {
+    <div
+      class="livable-wage-table-row"
+      [class.livable-wage-table-row--selected]="data.isSelected"
+    >
+      <div class="livable-wage-table-row__col">
+        <span>
+          {{
+            (data.parents === 1
+              ? "COMPARABLE_FAMILY_EXPENSE.FAMILY.ADULT"
+              : "COMPARABLE_FAMILY_EXPENSE.FAMILY.ADULTS"
+            ) | translate: { count: data.parents }
+          }},
+          @if (data.children === 0) {
+            {{ "COMPARABLE_FAMILY_EXPENSE.FAMILY.NO_CHILDREN" | translate }}
+          } @else {
+            {{
+              (data.children === 1
+                ? "COMPARABLE_FAMILY_EXPENSE.FAMILY.CHILD"
+                : "COMPARABLE_FAMILY_EXPENSE.FAMILY.CHILDREN"
+              ) | translate: { count: data.children }
+            }}
+          }
+        </span>
+        @if (data.isSelected) {
+          <img
+            class="livable-wage-table-row__img"
+            [src]="avatar"
+            alt="user icon"
+          />
+        }
+      </div>
+      <div class="livable-wage-table-row__col">
+        {{ data.monthlyLivingWage }}
+      </div>
+    </div>
+  }
+</article>

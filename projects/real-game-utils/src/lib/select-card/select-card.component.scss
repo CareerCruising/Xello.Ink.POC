@@ -1,0 +1,107 @@
+@use "../styles/mixins/mixins" as m;
+
+:host {
+  --description-text-color: var(--taco-color-text-secondary);
+  --spec-text-color: var(--taco-color-text-primary);
+  --content-spec-spacing: var(--taco-space-pixel-150);
+}
+
+rgs-description-text {
+  --text-color: var(--description-text-color);
+}
+
+rgs-career-specs-small {
+  --text-color: var(--spec-text-color);
+}
+
+.container-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: var(--taco-space-pixel-050);
+  border: 1px solid var(--taco-color-border-primary);
+  background: var(--taco-color-background-primary);
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0px 2px var(--taco-unit-pixel-100) 0px rgba(0, 0, 0, 0.1);
+  }
+
+  &.selected {
+    border: 2px solid var(--taco-color-border-focus);
+  }
+
+  @include m.device(tabport) {
+    flex-direction: row;
+    padding-right: var(--taco-space-pixel-300);
+    gap: var(--taco-space-pixel-300);
+    align-items: flex-start;
+  }
+}
+
+.container-image-card {
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  height: 160px;
+  width: 100%;
+
+  @include m.device(tabport) {
+    width: 184px;
+    height: auto;
+  }
+}
+
+.text-saved {
+  color: var(--taco-color-text-primary-on-dark);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: var(--taco-font-small);
+}
+
+.container-content {
+  display: flex;
+  padding: var(--taco-space-pixel-200);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--content-spec-spacing);
+  flex: 1 0 0;
+  width: 100%;
+
+  @include m.device(tabport) {
+    padding: var(--taco-space-pixel-200) 0;
+  }
+}
+
+.container-title-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.title-card {
+  color: var(--taco-color-text-primary);
+  font: var(--taco-font-bold-medium);
+}
+
+.subtitle-card {
+  color: var(--taco-color-text-secondary);
+  font: var(--taco-font-bold-small);
+  font-weight: normal;
+}
+
+.container-specs {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-150);
+  align-self: stretch;
+  flex-direction: column;
+
+  @include m.device(tabport) {
+    flex-direction: row;
+    gap: var(--taco-space-pixel-300);
+  }
+}

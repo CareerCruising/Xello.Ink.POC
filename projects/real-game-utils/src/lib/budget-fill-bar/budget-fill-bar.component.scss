@@ -1,0 +1,41 @@
+@use "../styles/mixins/mixins" as m;
+
+$straight-fill-bar-accent-color: var(--taco-color-purple-500);
+$straight-fill-bar-background-color: var(--taco-color-purple-100);
+$straight-fill-bar-height: var(--taco-size-pixel-300);
+$straight-fill-border-radius: var(--taco-size-pixel-1000, 80px);
+
+.straight-fill-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--taco-space-pixel-050);
+
+  .straight-fill-bar__fill-bar {
+    position: relative;
+    height: $straight-fill-bar-height;
+    flex: 1;
+    background-color: $straight-fill-bar-background-color;
+    border-radius: $straight-fill-border-radius;
+    overflow: hidden;
+
+    .straight-fill-bar__fill-bar__fill {
+      height: 100%;
+      width: 0;
+      background-color: $straight-fill-bar-accent-color;
+      transition: width 300ms ease-out;
+    }
+    .overflow_fill {
+      background: repeating-linear-gradient(
+        120deg,
+        var(--taco-color-pink-300),
+        var(--taco-color-pink-300) 4px,
+        var(--taco-color-pink-100) 4px,
+        var(--taco-color-pink-100) 8px
+      );
+    }
+
+    @include m.device(tabport) {
+      display: block;
+    }
+  }
+}

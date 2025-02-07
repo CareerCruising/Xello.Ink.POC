@@ -1,0 +1,64 @@
+@use "../styles/mixins/mixins" as m;
+
+:host {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-100);
+  align-self: stretch;
+}
+
+.container-custom-expense {
+  display: flex;
+  align-items: center;
+  gap: var(--taco-space-pixel-300);
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: var(--taco-unit-pixel-050);
+  border: 1px dashed var(--taco-color-border-primary);
+  background: var(--taco-color-background-primary);
+  padding: 0px var(--taco-space-pixel-200);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 2px var(--taco-unit-pixel-100) 0px rgba(0, 0, 0, 0.1);
+  }
+
+  @include m.device(tabport) {
+    padding: 0 var(--taco-space-pixel-300) 0 0;
+  }
+}
+
+.custom-illustration {
+  display: flex;
+  width: var(--taco-unit-pixel-1500);
+  height: var(--taco-unit-pixel-1000);
+  padding: var(--taco-space-pixel-200) 0;
+  justify-content: center;
+  align-items: center;
+  background: var(--taco-color-white-700);
+  display: none;
+
+  @include m.device(tabport) {
+    display: flex;
+  }
+}
+
+.custom-expense-icon {
+  width: 32.125px;
+  height: var(--taco-unit-pixel-600);
+  flex-shrink: 0;
+}
+
+.container-content {
+  display: flex;
+  padding: var(--taco-space-pixel-200) 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+
+.custom-expense-description {
+  color: var(--taco-color-text-secondary);
+  font: var(--taco-font-small);
+}

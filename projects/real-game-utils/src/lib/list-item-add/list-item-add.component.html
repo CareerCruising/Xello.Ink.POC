@@ -1,0 +1,25 @@
+<div class="container-fill" (click)="clickAdd($event)">
+  @if(!hideButton) {
+  <div class="container-icon-button">
+    <div
+      class="container-icon"
+      (mouseover)="iconAddColor = 'blue-700'"
+      (mouseout)="iconAddColor = 'black-500'"
+    >
+      <taco-icon
+        [fill]="iconAddColor"
+        size="xlg"
+        icon="ic-plus-isolated"
+      ></taco-icon>
+    </div>
+    <taco-button
+      type="link"
+      variant="primary"
+      size="sm"
+      mode="light"
+      [value]="text | translate"
+    >
+    </taco-button>
+  </div>
+  }
+</div>

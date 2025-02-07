@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <ul class="navbar-list">
+    @for (item of _items; track item.label) {
+    <li
+      aria-label="item.label"
+      class="navbar-item"
+      [class.active]="item.route === _currentRoute"
+      [title]="item.label | translate"
+      (click)="addOnClickEvent(item.route)"
+      (keyup.enter)="addOnClickEvent(item.route)"
+      [attr.data-navbar-item-index]="$index"
+      tabindex="0"
+      [attr.heap-id]="item.heapId || ''"
+    >
+      {{ item.label | translate }}
+    </li>
+    }
+  </ul>
+</nav>

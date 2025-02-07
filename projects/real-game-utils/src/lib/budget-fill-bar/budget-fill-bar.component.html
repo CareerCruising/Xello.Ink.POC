@@ -1,0 +1,19 @@
+<div
+  class="straight-fill-bar"
+  role="fillbar"
+  attr.aria-label="Budget used bar {{ value }} / {{ maxValue }}"
+  [attr.aria-valuenow]="value"
+  [attr.aria-valuemin]="minValue"
+  [attr.aria-valuemax]="maxValue"
+>
+  <div class="straight-fill-bar__fill-bar">
+    <div
+      class="straight-fill-bar__fill-bar__fill"
+      [class.overflow_fill]="value > maxValue"
+      [style.width.%]="fillWidth"
+    ></div>
+  </div>
+  @if(value > maxValue){
+  <taco-defined-icon size="sm" icon="icd-warning-yellow"></taco-defined-icon>
+  }
+</div>

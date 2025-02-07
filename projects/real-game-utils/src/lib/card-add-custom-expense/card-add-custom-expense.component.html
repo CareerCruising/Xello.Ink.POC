@@ -1,0 +1,16 @@
+<section class="container-custom-expense" (click)="onClickButton()">
+  <section class="custom-illustration">
+    <lib-card-custom-expense-background></lib-card-custom-expense-background>
+  </section>
+  <article class="container-content">
+    <taco-button
+      type="link"
+      variant="primary"
+      size="md"
+      mode="light"
+      [value]="'ADD_CUSTOM_EXPENSE' | translate"
+    >
+    </taco-button>
+    <h5 class="custom-expense-description">{{ description | translate }}</h5>
+  </article>
+</section>

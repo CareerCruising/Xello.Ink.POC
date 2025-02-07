@@ -1,0 +1,36 @@
+.modal-header {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-radius: var(--taco-unit-pixel-050) var(--taco-unit-pixel-050) 0px 0px;
+}
+
+.header-divider {
+  display: flex;
+  height: 1px;
+  width: 100%;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: var(--taco-color-border-secondary);
+}
+
+.container-header {
+  display: flex;
+  padding: var(--taco-space-pixel-300);
+  align-items: center;
+  gap: var(--taco-space-pixel-300);
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.header-title {
+  flex: 1 0 0;
+  color: var(--taco-color-text-primary);
+  font: var(--taco-font-bold-large);
+}
+
+.container-header-icon {
+  cursor: pointer;
+}

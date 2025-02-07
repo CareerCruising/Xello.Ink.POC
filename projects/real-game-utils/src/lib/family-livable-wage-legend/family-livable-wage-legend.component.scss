@@ -1,0 +1,27 @@
+@use "../../styles/mixins/mixins" as m;
+
+.livable-wage-table-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px var(--taco-color-border-secondary) solid;
+  padding: var(--taco-space-pixel-100) var(--taco-space-pixel-050);
+  font: var(--taco-font-small);
+  color: var(--taco-color-text-primary);
+
+  &--selected {
+    font-weight: var(--taco-font-weight-700);
+  }
+}
+
+.livable-wage-table-row__col {
+  display: flex;
+  align-items: center;
+  gap: var(--taco-space-pixel-100);
+}
+
+.livable-wage-table-row__img {
+  width: var(--taco-space-pixel-300);
+  height: var(--taco-space-pixel-300);
+  border: var(--taco-unit-pixel-025) solid var(--taco-color-border-primary);
+  border-radius: var(--taco-radius-all-circle);
+}

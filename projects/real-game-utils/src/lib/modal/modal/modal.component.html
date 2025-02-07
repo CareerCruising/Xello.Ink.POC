@@ -1,0 +1,7 @@
+<div class="modal-wrapper" [@FadeInOut]="isOpen ? 'open' : 'closed'">
+  <section class="modal" #modal>
+    <ng-content></ng-content>
+  </section>
+
+  <div class="modal-overlay" #overlay (click)="onClose()"></div>
+</div>

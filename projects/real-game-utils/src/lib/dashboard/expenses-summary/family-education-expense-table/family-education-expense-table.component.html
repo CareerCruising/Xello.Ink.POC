@@ -1,0 +1,32 @@
+<h2 class="expense-header">
+  {{ title | translate }}
+</h2>
+@if (isFamilySelected) {
+  <rgs-income-expense-table-row
+    leftText="FAMILY"
+    [rightText]="formatExpenses(totalFamilyExpense)"
+    (onClick)="clickFamView()"
+    [hover]="!educatorView"
+  ></rgs-income-expense-table-row>
+}
+@if (isEducationSelected) {
+  <rgs-income-expense-table-row
+    leftText="EDUCATION.ROW"
+    [rightText]="formatExpenses(totalEducationExpense)"
+    [hover]="!educatorView"
+    (onClick)="clickEducationView()"
+  ></rgs-income-expense-table-row>
+}
+
+<div class="container-add-more-expenses">
+  <rgs-dashboard-empty-section
+    description="EXPENSES.PARTIAL_SELECTIONS.DESCRIPTION"
+    [textSize]="educatorView ? 'md' : 'large'"
+    buttonType="link"
+    [linkText]="educatorView ? '' : 'EXPENSES.PARTIAL_SELECTIONS.BUTTON'"
+    illustration="il-receipt-coins"
+    [linkAction]="clickExpensesButton.bind(this)"
+    [textMutted]="educatorView"
+    heapId="student-real-game-add-expenses"
+  ></rgs-dashboard-empty-section>
+</div>

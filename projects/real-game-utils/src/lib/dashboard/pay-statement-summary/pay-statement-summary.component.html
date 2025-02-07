@@ -1,0 +1,7 @@
+@if(currentCareer){
+<rgs-income-expense-table
+  [title]="header || 'PAY_STATEMENT.HEADER' | translate"
+  [rows]="getRows()"
+  (onClickRow)="clickPayStatementRow.emit($event)"
+></rgs-income-expense-table>
+}

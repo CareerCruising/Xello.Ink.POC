@@ -1,0 +1,24 @@
+<section class="section-other-expenses">
+  <div class="header-other-expenses">
+    <p>{{ "EXPENSES.OTHER_EXPENSES" | translate }}</p>
+  </div>
+</section>
+@if (isFamilySelected) {
+  <rgs-income-expense-table-row
+    leftText="FAMILY"
+    [rightText]="formatExpenses(totalFamilyExpense)"
+    [dotted]="true"
+    (onClick)="clickFamRow()"
+    [hover]="true"
+    [isHighlighted]="true"
+  ></rgs-income-expense-table-row>
+}
+@if (isPathwaySelected) {
+  <rgs-income-expense-table-row
+    leftText="EDUCATION.ROW"
+    [rightText]="formatExpenses(totalEducationExpense)"
+    (onClick)="clickEduRow()"
+    [hover]="true"
+    [isHighlighted]="true"
+  ></rgs-income-expense-table-row>
+}

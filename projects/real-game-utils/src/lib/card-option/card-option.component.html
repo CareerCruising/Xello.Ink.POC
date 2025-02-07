@@ -1,0 +1,47 @@
+<section
+  class="container-card"
+  [class.selected]="selected"
+  [class.selectable]="selectable"
+  [tabindex]="selectable ? 0 : -1"
+  (click)="onClickOption()"
+  (keyup.enter)="onClickOption()"
+>
+  @if (option){
+  <section class="card-illustration">
+    <img
+      [alt]="option.title"
+      class="card-image"
+      [src]="
+        imageUrl +
+        'rg_expense_option_' +
+        option.expenseOptionId +
+        '.jpg?maxwidth=120&height=80'
+      "
+    />
+  </section>
+  <section class="container-option">
+    <article class="container-option-title-description">
+      <h3 class="title-option">
+        {{ option.title || "" | translate }}
+      </h3>
+      <h4 class="description-option">
+        {{ option.description || "" | translate }}
+      </h4>
+    </article>
+  </section>
+  <section class="container-value">
+    <h4
+      class="value-option"
+      [class.font_small]="option.cost.toString().length > 7"
+    >
+      {{
+        option.isPercent
+          ? option.cost + formatPercent()
+          : (option.cost | formatCurrency : locale)
+      }}
+    </h4>
+  </section>
+  @if (selected) {
+  <rgs-card-selected-icon></rgs-card-selected-icon>
+  } }
+</section>

@@ -1,0 +1,57 @@
+:host {
+  width: 100%;
+}
+
+.card {
+  border: var(--taco-unit-pixel-012) solid var(--taco-color-white-900);
+  padding: var(--taco-unit-pixel-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--taco-unit-pixel-100);
+  border-radius: var(--taco-unit-pixel-050);
+}
+
+.card__title {
+  font-size: var(--taco-unit-pixel-300);
+  line-height: var(--taco-unit-pixel-400);
+  font-weight: var(--taco-font-weight-700);
+}
+
+.card__content {
+  flex-grow: 1;
+  position: relative;
+}
+
+.card__desc {
+  font-size: var(--taco-unit-pixel-225);
+  line-height: var(--taco-unit-pixel-300);
+}
+.card__desc--previous {
+  opacity: 0;
+  font-size: var(--taco-unit-pixel-225);
+  line-height: var(--taco-unit-pixel-300);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.card__title,
+.card__desc {
+  color: var(--taco-color-grey-900);
+  text-align: center;
+}
+
+.card--bg-yellow {
+  background-color: var(--taco-color-yellow-100);
+}
+
+.card--bg-blue {
+  background-color: var(--taco-color-blue-100);
+}
+
+.card--bg-purple {
+  background-color: var(--taco-color-purple-100);
+}

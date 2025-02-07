@@ -1,0 +1,52 @@
+<section class="section-container-link">
+  <div class="container-pay-statement">
+    <div class="container-sections">
+      <rgs-section-company
+        [company]="{
+          name: currentCareer?.employerName,
+          address: currentCareer?.employerAddress,
+        }"
+        [statementNumber]="payStatement?.statementNumber || ''"
+        [payPeriod]="payPeriod()"
+        (onTooltipOpen)="onTooltipOpen.emit($event)"
+        (onTooltipClose)="onTooltipClose.emit()"
+      ></rgs-section-company>
+      <rgs-section-employee
+        [employee]="{
+          firstName: user?.firstName,
+          id: currentPlay?.employeeId || '',
+          role: currentCareer?.careerName || '',
+        }"
+        (onTooltipOpen)="onTooltipOpen.emit($event)"
+        (onTooltipClose)="onTooltipClose.emit()"
+      ></rgs-section-employee>
+    </div>
+    <div class="container-sections">
+      <rgs-section-earnings-deductions
+        header="PAY_STATEMENT.EARNINGS.HEADER"
+        tooltipLabel="earnings"
+        tooltipContent="PAY_STATEMENT.EARNINGS.TOOLTIPS.EARNINGS"
+        [rows]="getRowsEarnings()"
+        (onTooltipOpen)="onTooltipOpen.emit($event)"
+        (onTooltipClose)="onTooltipClose.emit()"
+      ></rgs-section-earnings-deductions>
+      <rgs-section-earnings-deductions
+        header="PAY_STATEMENT.DEDUCTIONS.HEADER"
+        tooltipLabel="deductions"
+        tooltipContent="PAY_STATEMENT.DEDUCTIONS.TOOLTIPS.DEDUCTIONS"
+        [rows]="getRowsDeductions()"
+        (onTooltipOpen)="onTooltipOpen.emit($event)"
+        (onTooltipClose)="onTooltipClose.emit()"
+      ></rgs-section-earnings-deductions>
+    </div>
+    <rgs-section-earnings-deductions
+      header="PAY_STATEMENT.SUMMARY.HEADER"
+      [rows]="getRowsSummary()"
+      tooltipLabel="summary"
+      tooltipContent="PAY_STATEMENT.EARNINGS.TOOLTIPS.NET"
+      (onTooltipOpen)="onTooltipOpen.emit($event)"
+      (onTooltipClose)="onTooltipClose.emit()"
+      class="summary-tooltip"
+    ></rgs-section-earnings-deductions>
+  </div>
+</section>

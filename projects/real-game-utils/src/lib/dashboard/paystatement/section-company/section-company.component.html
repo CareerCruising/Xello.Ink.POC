@@ -1,0 +1,41 @@
+<section class="section-company">
+  <taco-article
+    size="md"
+    highlight
+    [headline]="company.name || ''"
+    [desc]="company.address || ''"
+  ></taco-article>
+  <section class="section-statement-info">
+    <p class="text-statement-info">
+      {{ "PAY_STATEMENT.INFO.SCHEDULE" | translate }}
+      <rgs-tooltip label="schedule" 
+                  (open)="onTooltipOpen.emit($event)"
+                  (close)="onTooltipClose.emit()">
+        <span [innerHTML]="'PAY_STATEMENT.INFO.SCHEDULE_DESC' | translate"></span>
+      </rgs-tooltip>
+    </p>
+    <p class="text-statement-info">
+      {{
+        "PAY_STATEMENT.INFO.NUMBER"
+          | translate
+            : {
+                number: statementNumber
+              }
+      }}
+    </p>
+    <p class="text-statement-info">
+      {{
+        "PAY_STATEMENT.INFO.PERIOD"
+          | translate
+            : {
+                period: payPeriod
+              }
+      }}
+      <rgs-tooltip label="period"
+                  (open)="onTooltipOpen.emit($event)"
+                  (close)="onTooltipClose.emit()">
+        <span [innerHTML]="'PAY_STATEMENT.INFO.PERIOD_DESC' | translate"></span>
+      </rgs-tooltip>
+    </p>
+  </section>
+</section>

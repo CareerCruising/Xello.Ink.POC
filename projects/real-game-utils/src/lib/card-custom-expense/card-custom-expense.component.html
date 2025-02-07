@@ -1,0 +1,39 @@
+<section
+  class="container-card"
+  [class.selected]="selected"
+  (click)="onClickOption()"
+  tabindex="0"
+  (keyup.enter)="onClickOption()"
+>
+  @if (option){
+  <section class="card-illustration">
+    <lib-card-custom-expense-background></lib-card-custom-expense-background>
+  </section>
+  <section class="container-option-title-edit">
+    <h3 class="title-option">
+      {{ option.title || "" | translate }}
+    </h3>
+    <taco-button
+      stop-propagation
+      type="link"
+      variant="primary"
+      size="sm"
+      mode="light"
+      [value]="'CUSTOM_EXPENSE_EDIT' | translate"
+      (onClick)="onClickEditCustomExpense()"
+      (keydown.enter)="onClickEditCustomExpense()"
+    >
+    </taco-button>
+  </section>
+  <section class="container-value">
+    <h4
+      class="value-option"
+      [class.font_small]="option.cost.toString().length > 7"
+    >
+      {{ option.cost | formatCurrency : locale }}
+    </h4>
+  </section>
+  @if (selected) {
+  <rgs-card-selected-icon></rgs-card-selected-icon>
+  } }
+</section>

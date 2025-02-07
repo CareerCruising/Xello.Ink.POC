@@ -1,0 +1,25 @@
+.section-company {
+  display: flex;
+  padding-top: var(--taco-space-pixel-200);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-200);
+  flex: 1 0 0;
+}
+
+.section-statement-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-100);
+  align-self: stretch;
+}
+
+.text-statement-info {
+  display: block;
+  position: relative;
+  width: 100%;
+  color: var(--taco-color-text-primary);
+  font: var(--taco-font-small);
+}

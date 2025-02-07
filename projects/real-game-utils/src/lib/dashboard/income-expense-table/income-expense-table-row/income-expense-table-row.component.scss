@@ -1,0 +1,29 @@
+.income-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px var(--taco-color-border-secondary) solid;
+  padding: var(--taco-space-pixel-100) var(--taco-space-pixel-050);
+  font: var(--taco-font-small);
+  color: var(--taco-color-text-primary);
+
+  &.dotted {
+    border-bottom: 1px var(--taco-color-border-secondary) dotted;
+  }
+
+  .income-name {
+    &.blue {
+      color: var(--taco-color-blue-700);
+    }
+  }
+
+  &.hover {
+    &:hover {
+      background-color: var(--taco-color-white-300);
+      cursor: pointer;
+
+      .income-name {
+        text-decoration: underline;
+      }
+    }
+  }
+}

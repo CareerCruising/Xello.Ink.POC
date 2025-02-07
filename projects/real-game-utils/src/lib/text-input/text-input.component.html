@@ -1,0 +1,29 @@
+<taco-formfield>
+  @if(error && error !== true){
+  <p class="error_text" slot="error">{{ error | translate }}</p>
+  }
+  <div class="input-wrapper" [class.error]="error" slot="control">
+    @if(prefix){
+    <div class="input-prefix-suffix" [class.input-prefix]="prefix">
+      {{ prefix }}
+    </div>
+    }
+    <input
+      [attr.aria-label]="ariaLabel ? ariaLabel : null"
+      class="input"
+      [class.input-prefix-space]="prefix"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      [mask]="mask"
+      [attr.maxlength]="maxLength"
+      [thousandSeparator]="getThousandsSeparator()"
+      (ngModelChange)="processData($event)"
+      #input
+    />
+    @if(suffix){
+    <div class="input-prefix-suffix" [class.input-suffix]="suffix">
+      {{ suffix }}
+    </div>
+    }
+  </div>
+</taco-formfield>

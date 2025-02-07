@@ -1,0 +1,22 @@
+<div
+  class="straight-progress-bar"
+  role="progressbar"
+  attr.aria-label="Straight progress bar {{ value }} / {{ maxValue }}"
+  [attr.aria-valuenow]="value"
+  [attr.aria-valuemin]="minValue"
+  [attr.aria-valuemax]="maxValue"
+>
+  <div class="straight-progress-bar__progress-bar">
+    <div
+      class="straight-progress-bar__progress-bar__fill"
+      [style.width.%]="fillWidth"
+    ></div>
+  </div>
+
+  <div class="straight-progress-bar__fraction">
+    <span class="straight-progress-bar__fraction--numerator">{{ value }}</span>
+    <span class="straight-progress-bar__fraction--denominator">
+      / {{ maxValue }}</span
+    >
+  </div>
+</div>

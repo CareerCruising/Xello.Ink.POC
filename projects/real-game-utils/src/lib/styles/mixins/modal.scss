@@ -1,0 +1,52 @@
+@use "./mixins" as m;
+
+:host {
+  width: 343px;
+  max-height: 90vh;
+
+  @include m.device(tabport) {
+    width: 640px;
+  }
+}
+
+.modal-container {
+  display: flex;
+  overflow: visible;
+  inset: 0;
+  outline: 0;
+  opacity: 1;
+  width: 100%;
+  max-height: 90vh;
+}
+
+.modal-document {
+  width: 100%;
+  position: relative;
+  align-self: center;
+  max-height: 90vh;
+}
+
+.modal-body {
+  position: relative;
+  border-radius: var(--taco-unit-pixel-050);
+  background: var(--taco-color-background-secondary);
+  outline: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.modal-content {
+  display: flex;
+  padding: var(--taco-space-pixel-400) var(--taco-space-pixel-300);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-400);
+  align-self: stretch;
+  border-radius: 0px 0px var(--taco-unit-pixel-050) var(--taco-unit-pixel-050);
+  border: none;
+  background: var(--taco-color-background-primary);
+  overflow: auto;
+  flex: 1;
+}

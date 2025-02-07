@@ -1,0 +1,48 @@
+.container {
+  width: calc(100vw - 32px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--taco-color-background-secondary);
+  padding: var(--taco-space-pixel-200);
+  gap: var(--taco-space-pixel-100);
+  border-bottom: var(--taco-unit-pixel-012) var(--taco-color-border-secondary)
+    solid;
+  border-radius: var(--taco-space-pixel-050) var(--taco-space-pixel-050) 0 0;
+
+  &__close-btn {
+    margin-left: auto;
+  }
+}
+
+.popover-container {
+  position: relative;
+}
+
+.popover__desc {
+  max-width: 143px;
+  color: var(--taco-color-grey-700);
+}
+
+.title {
+  font: var(--taco-font-bold-medium);
+  color: var(--taco-color-text-primary);
+}
+
+.content {
+  padding: var(--taco-space-pixel-200) var(--taco-space-pixel-300);
+
+  &::ng-deep .livable-wage-table-row:last-child {
+    border: none;
+  }
+}
+
+.trigger {
+  border: none;
+  outline: none;
+  display: flex;
+  background-color: transparent;
+  cursor: pointer;
+}

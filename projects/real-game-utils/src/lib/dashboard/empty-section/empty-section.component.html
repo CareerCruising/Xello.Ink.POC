@@ -1,0 +1,27 @@
+<section>
+  <article class="empty-container">
+    <section class="empty-container-icon-description">
+      <taco-illustration
+        class="empty-taco-illustration"
+        size="xxlg"
+        [illustration]="illustration"
+      ></taco-illustration>
+      <taco-article
+        [size]="textSize"
+        isolated
+        [headline]="description | translate"
+        [disabled]="textMutted"
+      ></taco-article>
+    </section>
+    <taco-button
+      [attr.heap-id]="heapId"
+      class="empty-link"
+      [type]="buttonType"
+      variant="primary"
+      size="sm"
+      mode="light"
+      (onClick)="linkAction()"
+      [value]="linkText | translate"
+    ></taco-button>
+  </article>
+</section>

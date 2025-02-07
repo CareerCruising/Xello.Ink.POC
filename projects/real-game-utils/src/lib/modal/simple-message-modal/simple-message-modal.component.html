@@ -1,0 +1,18 @@
+<div class="modal-container">
+  <div class="modal-document">
+    <div class="modal-body">
+      <rgs-modal-header [header]="header"></rgs-modal-header>
+      <div novalidate class="modal-content">
+        {{ bodyText | translate }}
+      </div>
+      <rgs-modal-footer
+        [primaryButtonText]="primaryButtonText"
+        [primaryButtonAction]="primaryButtonAction"
+        [primaryButtonHeapId]="primaryButtonHeapId"
+        [secondaryButtonAction]="secondaryButtonAction"
+        [secondaryButtonHeapId]="secondaryButtonHeapId"
+        [secondaryButtonText]="secondaryButtonText"
+      ></rgs-modal-footer>
+    </div>
+  </div>
+</div>

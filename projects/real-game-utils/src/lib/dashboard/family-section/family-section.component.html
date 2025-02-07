@@ -1,0 +1,68 @@
+<section
+  class="container-family"
+  (click)="clickCard()"
+  [class.hoverable]="!educatorView"
+  heap-id="student-real-game-edit-family-profile"
+>
+  <section class="container-family-heading">
+    <h2 [class.hoverable]="!educatorView" class="family-section-text">
+      {{ "FAMILY" | translate }}
+    </h2>
+    @if (!educatorView && !isAssigned) {
+      <taco-icon
+        size="sm"
+        icon="ic-pencil"
+        [fill]="editHovered ? 'blue-700' : 'grey-900'"
+        class="data-image"
+        tabindex="0"
+        (keydown.enter)="clickCard()"
+        (mouseover)="editHovered = true"
+        (mouseout)="editHovered = false"
+        (click)="clickCard()"
+        heap-id="student-real-game-edit-family-profile"
+        aria-label="edit family"
+      ></taco-icon>
+    }
+  </section>
+  <section class="container-family-content">
+    <section
+      class="list-family-members"
+      [class.grid-family-members]="educatorView"
+    >
+      @for (familyMember of mappedFamily(); track familyMember.firstName) {
+        <div class="container-family-member">
+          @if (familyMember?.familyMemberAvatarId) {
+            <rgs-family-avatar
+              [color]="
+                familyAvatarColors[familyMember?.familyMemberAvatarId || 1]
+              "
+              [outline]="
+                familyMember?.familyMemberTypeId == familyRelationships.PET
+                  ? 'PET'
+                  : 'PERSON'
+              "
+              size="xsm"
+            ></rgs-family-avatar>
+          } @else {
+            <img
+              class="avatar-family-member"
+              [src]="familyMember?.avatarUrl"
+              [alt]="familyMember?.firstName"
+            />
+          }
+          <div class="container-family-member-info">
+            <p class="family-member-name">{{ familyMember.firstName }}</p>
+          </div>
+        </div>
+      }
+    </section>
+  </section>
+  @if (!educatorView && family().length - 4 >= 1) {
+    <p class="family-overflow-text">
+      {{
+        (family().length == 5 ? "MORE_FAMILY_MEMBER" : "MORE_FAMILY_MEMBERS")
+          | translate: { figure: family().length - 4 }
+      }}
+    </p>
+  }
+</section>

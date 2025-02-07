@@ -1,0 +1,17 @@
+<rgs-select-card
+  [shadowedImageUrl]="imageURL + career?.cardImage"
+  [shadowedImageAltText]="
+    'persons taking part in the career: ' + career?.careerName
+  "
+  [title]="career?.careerName"
+  [index]="index"
+  [id]="'career_card_' + career?.careerId"
+  [description]="career?.jobDescription || ''"
+  [selected]="selected"
+  [saved]="saved"
+  [specsSmall]="careerData()"
+  [selectReturn]="career?.careerId"
+  (onSelect)="onClick()"
+  [heapId]="saved ? 'student-real-game-choose-saved-career' : ''"
+  dataTestId="career-selection-card"
+></rgs-select-card>

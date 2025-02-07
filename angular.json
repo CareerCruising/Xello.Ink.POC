@@ -3,34 +3,34 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-ink-player": {
+    "real-game-player": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/real-game-player",
+      "sourceRoot": "projects/real-game-player/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-ink-player",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "outputPath": "dist/real-game-player",
+            "index": "projects/real-game-player/src/index.html",
+            "browser": "projects/real-game-player/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/real-game-player/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/real-game-player/src/favicon.ico",
+              "projects/real-game-player/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "projects/real-game-player/src/styles.scss"
             ],
             "scripts": []
           },
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng-ink-player:build:production"
+              "buildTarget": "real-game-player:build:production"
             },
             "development": {
-              "buildTarget": "ng-ink-player:build:development"
+              "buildTarget": "real-game-player:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ng-ink-player:build"
+            "buildTarget": "real-game-player:build"
           }
         },
         "test": {
@@ -83,7 +83,7 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "tsconfig.spec.json",
+            "tsConfig": "projects/real-game-player/src/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
@@ -96,6 +96,32 @@
           }
         }
       }
+    },
+    "real-game-utils": {
+      "projectType": "library",
+      "root": "projects/real-game-utils",
+      "sourceRoot": "projects/real-game-utils/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/real-game-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/real-game-utils/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/real-game-utils/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -1,0 +1,39 @@
+@use "../../styles/mixins/mixins" as m;
+
+.livable-wage {
+  &__heading {
+    display: flex;
+    gap: var(--taco-unit-pixel-100);
+    position: relative;
+    align-items: center;
+  }
+
+  &__text {
+    color: var(--taco-color-text-primary);
+    font: var(--taco-font-bold-medium);
+  }
+
+  .trigger {
+    display: flex;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  &__description {
+    color: var(--taco-color-text-primary);
+    font: var(--taco-font-small);
+  }
+}
+
+.popover__desc {
+  color: var(--taco-color-grey-700);
+}
+
+.livable-wage-legend-wrapper {
+  margin-top: var(--taco-unit-pixel-100);
+
+  @include m.device(tabport) {
+    margin-top: var(--taco-unit-pixel-300);
+  }
+}

@@ -1,0 +1,53 @@
+<section class="container">
+  <taco-icon
+    class="search-icon"
+    icon="ic-magnifying-glass"
+    size="sm"
+    fill="grey-700"
+  ></taco-icon>
+  <input
+    [attr.heap-id]="heapId"
+    class="input-search"
+    type="text"
+    placeholder="{{ placeholder | translate }}"
+    autocapitalize="none"
+    [typeahead]="list"
+    [(ngModel)]="selectionInput"
+    [typeaheadOptionField]="optionField"
+    [optionsListTemplate]="customListTemplate"
+    [typeaheadMinLength]="selectionInput && selectionInput.length ? 0 : 1"
+    class="input-search form-control typeahead"
+    (typeaheadOnSelect)="selectSearch($event)"
+    (typeaheadNoResults)="typeaheadNoResults($event)"
+    (typeaheadOnBlur)="typeaheadNoResults(false)"
+  />
+</section>
+@if(noResult){
+<div class="no-results-found">{{ "NO_RESULTS_FOUND" | translate }}</div>
+}
+
+<ng-template
+  #customListTemplate
+  let-matches="matches"
+  let-query="query"
+  let-typeaheadTemplateMethods
+>
+  <ul class="dropdown-list" datatest-id="typeahead-search-dropdown">
+    @for (match of matches; track match.item[valueField]) {
+    <li
+      class="dropdown-item"
+      (click)="typeaheadTemplateMethods.selectMatch(match.item, $event)"
+      (mouseenter)="typeaheadTemplateMethods.selectActive(match)"
+    >
+      @if(isSaved(match.item[valueField])){
+      <taco-icon size="sm" icon="ic-heart-filled" fill="pink-500"></taco-icon>
+      }
+      <p
+        [highlight]="query"
+        [content]="match.item[optionField]"
+        customClasses="bold-text"
+      ></p>
+    </li>
+    }
+  </ul>
+</ng-template>

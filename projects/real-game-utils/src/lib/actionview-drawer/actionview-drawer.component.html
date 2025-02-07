@@ -1,0 +1,14 @@
+<div class="drawer__backdrop" [class.in]="open" (click)="close()"></div>
+<div class="drawer__wrapper" [class.open]="open">
+  <div class="drawer__heading">
+    <taco-illustration
+      size="lg"
+      [illustration]="illustration"
+    ></taco-illustration>
+    <taco-article isolated highlight [headline]="heading"></taco-article>
+    <taco-button type="close" size="xsm" (onClick)="close()"></taco-button>
+  </div>
+  <div class="drawer__body">
+    <ng-content></ng-content>
+  </div>
+</div>

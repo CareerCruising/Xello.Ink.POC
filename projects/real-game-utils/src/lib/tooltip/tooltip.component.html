@@ -1,0 +1,29 @@
+<div class="popover-container">
+  <button
+    [id]="label + '-trigger'"
+    class="trigger"
+    (click)="openPopover()"
+    (keydown.enter)="openPopover()"
+    (focus)="focusing = true"
+    (blur)="focusing = false"
+    [attr.aria-label]="'open-'+label+'-popover'"
+  >
+    <taco-icon
+      size="sm"
+      icon="ic-info"
+      [fill]="(hovering || focusing) ? 'blue-700' : 'grey-900'"
+      (mouseover)="hovering = true"
+      (mouseout)="hovering = false"
+    ></taco-icon>
+  </button>
+  <taco-popover
+    id="{{label}}"
+    #popover
+    class="rgs-popover"
+    defaultPlacement="bottom-start"
+    strategy="absolute"
+    (taco-popover-closed)="closePopover()"
+  >
+    <ng-content></ng-content>
+  </taco-popover>
+</div>

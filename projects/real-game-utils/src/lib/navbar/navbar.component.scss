@@ -1,0 +1,61 @@
+@use "../styles/mixins/mixins" as m;
+
+:host {
+  flex: 1 0 0;
+}
+
+.navbar {
+  overflow: hidden;
+  width: 100%;
+
+  @include m.device(tabland) {
+    width: 187px;
+  }
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  align-items: flex-start;
+  gap: var(--taco-space-pixel-200);
+  flex: 1 0 0;
+  align-self: stretch;
+  @include m.hide-scrollbar();
+
+  @include m.device(tabland) {
+    gap: var(--taco-space-pixel-200, 16px);
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.navbar-item {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: var(--taco-space-pixel-100, 8px) var(--taco-space-pixel-200, 16px);
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+
+  @include m.device(tabland) {
+    border-radius: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.active {
+    border-radius: 200px;
+    background-color: var(--taco-color-application-family-secondary);
+    color: var(--taco-color-text-primary-on-dark);
+    font-weight: var(--taco-font-weight-700, 700);
+  }
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

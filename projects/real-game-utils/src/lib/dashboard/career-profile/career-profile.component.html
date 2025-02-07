@@ -1,0 +1,87 @@
+<section
+  class="career_profile_card"
+  [class.hoverable]="!educatorView"
+  (click)="clickCard()"
+  heap-id="student-real-game-edit-career-choice"
+>
+  <img
+    [alt]="'persons taking part in the career: ' + currentCareer()?.careerName"
+    class="image-card"
+    src="{{ environment.imageUrl }}{{ currentCareer()?.cardImage }}{{
+      '?maxwidth=800'
+    }}"
+  />
+  <div class="career_profile_card--content">
+    <div class="career_profile_card--title">
+      <div>
+        <h2 class="career_profile_card--text" [class.hoverable]="!educatorView">
+          {{
+            ("VIEW_CAREER_ROLE" | translate) + currentCareer()?.careerName || ""
+          }}
+        </h2>
+        <p class="career_profile_card--subtext">
+          {{
+            ("CAREER_PROFILE_EMPLOYER" | translate) +
+              currentCareer()?.employerName || ""
+          }}
+        </p>
+      </div>
+      @if (!educatorView && !isAssigned) {
+        <taco-icon
+          size="sm"
+          icon="ic-pencil"
+          [fill]="editHovered ? 'blue-700' : 'grey-900'"
+          class="data-image"
+          (mouseover)="editHovered = true"
+          (mouseout)="editHovered = false"
+          (keydown.enter)="clickCard()"
+          tabindex="0"
+          heap-id="student-real-game-edit-career-choice"
+          aria-label="edit career"
+        ></taco-icon>
+      }
+    </div>
+    <p class="career_profile_card--description">
+      {{ currentCareer()?.jobDescription }}
+    </p>
+
+    @if (!educatorView) {
+      <taco-button
+        heap-id="student-real-game-viewed-full-career-profile"
+        class="career-profile-link"
+        type="link"
+        variant="primary"
+        size="sm"
+        mode="light"
+        [value]="'VIEW_CAREER_PROFILE' | translate"
+        (click)="openFullCareerProfile($event)"
+      ></taco-button>
+      <rgs-career-level-bar
+        [userAvatarURL]="userAvatarURL"
+      ></rgs-career-level-bar>
+    }
+    <div class="career_profile_card--data_row">
+      @for (data of careerData(); track data.illustration) {
+        <div class="data-container">
+          <taco-illustration
+            size="sm"
+            [illustration]="data.illustration"
+            class="data-image"
+          ></taco-illustration>
+          <taco-article
+            size="md"
+            isolated
+            [headline]="
+              data.data +
+              ' ' +
+              (data.unit || '' | translate) +
+              ' ' +
+              (data.subtitle | translate)
+            "
+            [desc]="data.subtitle | translate"
+          ></taco-article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

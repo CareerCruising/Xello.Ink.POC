@@ -1,0 +1,8 @@
+@if(currentCareer){
+<rgs-income-expense-table
+  [title]="
+    (header || 'INCOME.HEADER' | translate) + formatIncome(totalIncome())
+  "
+  [rows]="getRows()"
+></rgs-income-expense-table>
+}

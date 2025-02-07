@@ -1,0 +1,46 @@
+<section class="section-employee">
+  <div class="header">
+    <taco-article
+      size="sm"
+      highlight
+      isolated
+      [headline]="'PAY_STATEMENT.EMPLOYEE.HEADER' | translate"
+    ></taco-article>
+    <rgs-tooltip label="employee-info"
+                (open)="onTooltipOpen.emit($event)"
+                (close)="onTooltipClose.emit()">
+      <span [innerHTML]="'PAY_STATEMENT.EMPLOYEE.INFO.TOOLTIP' | translate"></span>
+    </rgs-tooltip>  
+  </div>
+  
+  <section class="section-personal-info">
+    <taco-article
+      class="article-personal-info"
+      size="sm"
+      reversed
+      [headline]="employee.firstName || ''"
+      [desc]="'PAY_STATEMENT.EMPLOYEE.INFO.NAME' | translate"
+    ></taco-article>
+    <taco-article
+      class="article-personal-info"
+      size="sm"
+      reversed
+      [headline]="employee.id || ''"
+      [desc]="'PAY_STATEMENT.EMPLOYEE.INFO.ID' | translate"
+    ></taco-article>
+    <taco-article
+      class="article-personal-info"
+      size="sm"
+      reversed
+      [headline]="employee.role || ''"
+      [desc]="'PAY_STATEMENT.EMPLOYEE.INFO.ROLE' | translate"
+    ></taco-article>
+    <taco-article
+      class="article-personal-info"
+      size="sm"
+      reversed
+      [headline]="'PAY_STATEMENT.EMPLOYEE.INFO.SSN_VALUE' | translate"
+      [desc]="'PAY_STATEMENT.EMPLOYEE.INFO.SSN' | translate"
+    ></taco-article>
+  </section>
+</section>

@@ -1,0 +1,15 @@
+rgs-career-specs-small {
+  --spec-text-color: var(--taco-color-text-secondary);
+}
+
+.container-spec-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--taco-unit-pixel-100);
+}
+
+.text-spec-info {
+  color: var(--spec-text-color);
+  font: var(--taco-font-small);
+}

@@ -1,0 +1,86 @@
+@use "../../styles/mixins/mixins" as m;
+
+:host {
+  width: 100%;
+}
+.career_profile_card {
+  border: 1px solid var(--taco-color-border-primary);
+  border-radius: var(--taco-space-pixel-050);
+  display: grid;
+  &.hoverable {
+    &:hover {
+      box-shadow: var(--shadows-container-bottom);
+    }
+  }
+  .image-card {
+    width: 100%;
+    object-fit: cover;
+    height: 192px;
+    @include m.device(tabport) {
+      height: 228px;
+    }
+  }
+  .career_profile_card--content {
+    padding: var(--taco-space-pixel-200);
+    flex: 1;
+    .career_profile_card--title {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--taco-space-pixel-200);
+
+      .career_profile_card--text {
+        color: var(--taco-color-text-button-inline-secondary);
+        font: var(--taco-font-bold-large);
+        flex: 1;
+        &.hoverable {
+          &:focus-visible,
+          &:hover {
+            text-decoration: underline;
+            color: var(--taco-color-blue-700);
+            cursor: pointer;
+          }
+        }
+      }
+
+      .career_profile_card--subtext {
+        color: var(--taco-color-text-secondary);
+        font: var(--taco-font-medium);
+      }
+      .data-image {
+        height: 32px;
+        align-items: center;
+      }
+    }
+    .career_profile_card--description {
+      font: var(--taco-font-medium);
+      color: var(--taco-color-text-primary);
+      padding: var(--taco-space-pixel-100) 0;
+    }
+    .career-profile-link {
+      height: var(--taco-space-pixel-200);
+      display: flex;
+    }
+    .career_profile_card--data_row {
+      display: grid;
+      gap: var(--taco-space-pixel-200);
+      @include m.device(tabport) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .data-container {
+        display: flex;
+        align-items: center;
+        gap: var(--taco-unit-pixel-100);
+        flex: 1;
+        text-wrap: nowrap;
+        .data-image {
+          padding: var(--taco-unit-pixel-100);
+          box-sizing: content-box;
+          background-color: var(--taco-color-emerald-050, #edf7f2);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

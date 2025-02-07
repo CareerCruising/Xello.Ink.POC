@@ -1,0 +1,20 @@
+.section-other-expenses {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.header-other-expenses {
+  display: flex;
+  padding: var(--taco-space-pixel-100) var(--taco-unit-pixel-050);
+  align-items: center;
+  gap: var(--taco-space-pixel-100);
+  align-self: stretch;
+  border-bottom: 1px solid var(--taco-color-border-secondary);
+
+  p {
+    color: var(--taco-color-text-primary);
+    font: var(--taco-font-bold-small);
+  }
+}

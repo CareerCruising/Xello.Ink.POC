@@ -1,0 +1,29 @@
+<footer class="modal-footer">
+  <div class="footer-separator"></div>
+  <section class="footer-container-actions">
+    @if(primaryButtonText){
+
+    <taco-button
+      [atttr.heap-id]="primaryButtonHeapId"
+      type="cta"
+      variant="primary"
+      size="sm"
+      mode="light"
+      (onClick)="pressPrimaryButton()"
+      [value]="primaryButtonText | translate"
+    >
+    </taco-button>
+    } @if(secondaryButtonText){
+    <taco-button
+      [atttr.heap-id]="secondaryButtonHeapId"
+      type="link"
+      variant="primary"
+      size="sm"
+      mode="light"
+      (onClick)="pressSecondaryButton()"
+      [value]="secondaryButtonText | translate"
+    >
+    </taco-button>
+    }
+  </section>
+</footer>

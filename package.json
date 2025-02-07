@@ -1,12 +1,16 @@
 {
-  "name": "ng-ink-player",
+  "name": "xello-ink-poc",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "npm run start:real-game-player",
+    "start:real-game-player": "ng serve --project=real-game-player -o --watch  --configuration=development",
+    "build:real-game-player": "npm run build:real-game-utils &&  ng build --project=real-game-player --base-href '/real-game/' && node cdnify.js",
+    "build:real-game-utils": "ng build --project=real-game-utils",
+    "watch:real-game-utils": "ng build --project=real-game-utils --watch",
+    "test": "npm run test:real-game-utils && npm run test:real-game-player && npm run test:real-game-educator-web && npm run test:real-game-role-assignment-web",
+    "collect-test-coverage": "npm run build:real-game-utils && jest --config ./projects/real-game-player/jest.config.js --coverage && jest --config ./projects/real-game-utils/jest.config.js --coverage",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
