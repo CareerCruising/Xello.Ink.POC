@@ -1,5 +1,5 @@
 import { HttpEvent, HttpHandlerFn, HttpRequest } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 
 export function tokenInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
     const authToken = localStorage.getItem('token') || '';
@@ -8,8 +8,12 @@ export function tokenInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn)
     }
 
     const authReq = req.clone({
-      headers: req.headers.set('Authorization', authToken)
+        headers: req.headers.set('Authorization', authToken)
     });
 
-    return next(authReq);
+    return next(authReq).pipe(tap((event: any) => {
+        if (event.status === 401) {
+            localStorage.removeItem('token');
+        }
+    }));
 }
