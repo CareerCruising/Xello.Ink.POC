@@ -6,11 +6,7 @@ import {
 } from '@angular/core';
 import { loadScript, loadStyle } from '../helpers/url.helpers';
 import { CommonModule, DOCUMENT } from '@angular/common';
-import { ReaderComponent } from '../reader/reader.component';
-import { InkService } from '../services/ink.service';
-import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RouterOutlet } from '@angular/router';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -28,11 +24,8 @@ export const scriptIDs = {
   styleUrl: './app.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-    ReaderComponent,
     CommonModule,
-    FooterComponent,
-    HeaderComponent,
-    SidebarComponent,
+    RouterOutlet,
   ],
 })
 export class AppComponent {
@@ -41,7 +34,6 @@ export class AppComponent {
 
   constructor(
     rendererFactory: RendererFactory2,
-    public inkService: InkService,
     @Inject(DOCUMENT) private document: Document
   ) {
     const renderer = rendererFactory.createRenderer(null, null);
