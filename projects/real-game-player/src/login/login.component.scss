@@ -6,6 +6,7 @@
     color: white;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     &:before {
         content: "";
@@ -19,4 +20,29 @@
         background: linear-gradient(108.98deg, #905DA7 2.26%, #34496B 100.06%);
         transition: opacity .15s ease-in-out;
     }
+}
+
+.form-signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-remember__wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    margin: 8px 0 12px 0;
+}
+
+input { 
+    padding: 8px;
+    margin: 4px 0 8px 0;
+}
+
+input[type="checkbox"] { 
+    padding: 8px;
+    margin: 0;
 }

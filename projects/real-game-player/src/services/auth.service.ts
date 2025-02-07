@@ -19,6 +19,7 @@ export class AuthService {
     const endpoint: string = payload.k ? 'student' : 'local';
     return this.authApiService.login(endpoint, payload).then((res: any) => {
       if (res) {
+        localStorage.setItem(this.STORAGE_KEYS.token, res.token);
         console.log(res);
       }
 

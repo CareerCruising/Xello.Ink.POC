@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['']);
+    }
   }
 
   submit() {
@@ -37,9 +40,10 @@ export class LoginComponent implements OnInit {
     };
     this.tokenInProgress = true;
 
-    this.authService.login(payload).then(() => {
+    this.authService.login(payload).then(res => {
+      console.log(res);
       this.tokenInProgress = false;
-      this.router.navigate([''])
+      this.router.navigate(['']);
     }, err => {
       this.tokenInProgress = false;
     });
