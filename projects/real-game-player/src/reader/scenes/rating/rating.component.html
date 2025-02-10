@@ -3,8 +3,8 @@
     <app-basic class="content" [showChoices]="false"></app-basic>
 
     <div class="choice-frame">
-        <div class="choice-frame__illustration">
-
+        <div class="choice-frame__illustration" [ngClass]="illustrationBG">
+            <taco-illustration illustration="{{illustration}}" size="xxxlg"></taco-illustration>
         </div>
         <div class="choice-frame__content">
             <span [innerHTML]="lookupContent()"></span>

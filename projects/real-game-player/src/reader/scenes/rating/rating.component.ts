@@ -29,6 +29,8 @@ export class RatingComponent implements OnInit {
   choiceSelected: Choice | null = null;
 
   careerStore = inject(CareerStore);
+  illustration = '';
+  illustrationBG = ''
 
   lookupContent = computed(() => {
     return this.careerStore.career()?.briefIntroduction ?? ''
@@ -45,6 +47,12 @@ export class RatingComponent implements OnInit {
   ngOnInit() {
     this.inkService.onCommandReceived.subscribe(cmd => {
       switch (cmd.name) {
+        case 'illustration':
+          this.illustration = cmd.params[0];
+          break;
+        case 'illustration-bg':
+          this.illustrationBG = 'bg--' + cmd.params[0];
+          break;
         case 'lookup':
           const content = cmd.params[0].split('.');
           if (content.length > 0) {

@@ -14,8 +14,8 @@ export const CareerStore = signalStore(
       state,
       careerService = inject(CareerService),
     ) => ({
-      getCareer: () => {
-        careerService.getCareerProfile(95).subscribe((data) => {
+      getCareer: (careerId: number) => {
+        careerService.getCareerProfile(careerId).subscribe((data) => {
           patchState(state, {
             career: data,
           });

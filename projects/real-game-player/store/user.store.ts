@@ -43,7 +43,7 @@ export const UserStore = signalStore(
             patchState(state, {
               user: data,
             });
-            careerStore.getCareer()
+            careerStore.getCareer(95)
           }
         );
       },

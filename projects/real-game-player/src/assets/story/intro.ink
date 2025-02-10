@@ -123,7 +123,9 @@ VAR ratingVacation = 0
         ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Job description</b>
-        {getContent("career.jobDescription")}
+        >>> illustration-bg: cornflower-50
+        >>> illustration: il-document
+        {getContent("career.briefIntroduction")}
         -> DONE
     
     = ex2

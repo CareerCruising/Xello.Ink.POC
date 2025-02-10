@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { computed, EventEmitter, inject, Injectable } from '@angular/core';
 import { Story } from 'inkjs';
 import * as json from '../assets/story.ink.json';
 import { Choice } from 'inkjs/engine/Choice';
@@ -6,6 +6,8 @@ import { ContentLine } from '../models/content-line.interface';
 import { environment } from '../environments/environment';
 import { Templates } from '../models/templates.model';
 import { CareerService } from './career.service';
+import { CareerStore } from '../../store/career.store';
+import { firstValueFrom } from 'rxjs';
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -21,6 +23,8 @@ function capitalize(str: string) {
 export class InkService {
 
   onCommandReceived = new EventEmitter<{ name: string, params: any[] }>();
+
+  careerStore = inject(CareerStore);
 
   story = new Story(json);
 
@@ -115,7 +119,11 @@ export class InkService {
         this.showFullUI = tokens[1] === 'game';
         break;
       case 'lookup':
-        console.log(tokens);
+        console.log('await');
+        const values = tokens[1].split('.');
+        var res = await firstValueFrom(this.careerService.getCareerProfile(95));
+        // @ts-ignore;
+        console.log('done awaiting ', res[values[1]]);
         break;
       case 'delay':
         this.delay = +tokens[1];
