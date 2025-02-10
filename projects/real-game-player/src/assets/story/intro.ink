@@ -96,7 +96,6 @@
     -
     + [Next]
         ~ setTemplate(Templates.StoryBite)
-        ~ setBackground(Backgrounds.Gradient)
         <h1>Ready to go!</h1>
         You’re confident you can rock your first day of work.
         ++ [Next]

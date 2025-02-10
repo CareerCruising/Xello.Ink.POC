@@ -8,11 +8,26 @@
     row-gap: 8px;
     z-index: 1;
 }
+
+.meter {
+    label {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+
+    &:not(:first-of-type) {
+        margin-top: 8px;
+    }
+}
+
 .sidebar__section {
     padding: var(--taco-space-200);
     border-radius: var(--taco-radius-all);
     background-color: #19273e80;
     transition: background-color 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
 }
 .sidebar__section--gradient {
     background-color: #5A3A6880;   
@@ -28,14 +43,24 @@
         transform: translate(-50%, -50%);
     }
 }
-.student__info {
+.sidebar__header {
     display: grid;
     column-gap: 8px;
     grid-template-columns: 32px 1fr;
+    font-size: var(--taco-font-size-175);
+    line-height: 1;
+
+    &--student-info {
+        margin-bottom: 8px;
+    }
+
+    b {
+        font-size: var(--taco-font-size-225);
+    }
 
     :last-child {
         display: flex;
         flex-direction: column;
-        font-size: var(--taco-font-size-175);
+        justify-content: center;
     }
 }

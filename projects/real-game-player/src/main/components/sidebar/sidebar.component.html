@@ -1,24 +1,50 @@
 
-<div class="sidebar__section sidebar__section--{{background}}">
-    <div class="student__info">
-        <div class="sidebar__badge">
-            <img class="badge__bg" src="../../../assets/img/badge.svg" alt="" />
-            <span class="badge__level">1</span>
+<div class="sidebar__section sidebar__section--student-info sidebar__section--{{background}}">
+    <div>
+        <div class="sidebar__header sidebar__header--student-info">
+            <div class="sidebar__badge">
+                <img class="badge__bg" src="../../../assets/img/badge.svg" alt="" />
+                <span class="badge__level">1</span>
+            </div>
+            <div>
+                <b>Maya Anderson</b>
+                <span>0xp</span>
+            </div>
         </div>
         <div>
-            <span>Entry level</span>
-            <b>Maya Anderson</b>
+            <app-meter class="meter" [color]="'blue'"></app-meter>
         </div>
     </div>
 </div>
-<div class="sidebar__section sidebar__section--{{background}}">
-    <div class="student__info">
+<div class="sidebar__section sidebar__section--balance sidebar__section--{{background}}">
+    <div class="sidebar__header sidebar__header--balance">
         <div class="sidebar__badge">
             <taco-illustration size="xlg" illustration="il-balance-heart-brain"></taco-illustration>
         </div>
         <div>
-            <span>Work-life balance</span>
-            <b>Role: Civil engineer</b>
+            <b>Work-life balance</b>
+        </div>
+    </div>
+    <div>
+        <div class="meter">
+            <label>Career</label>
+            <app-meter></app-meter>    
+        </div>
+        <div class="meter">
+            <label>Well-being</label>
+            <app-meter></app-meter>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar__section sidebar__section--story sidebar__section--{{background}}">
+    <div class="sidebar__header">
+        <div class="sidebar__badge">
+            <taco-illustration size="xlg" illustration="il-shirt-book-cellphone"></taco-illustration>
+        </div>
+        <div>
+            <b>Prologue</b>
+            <span>The Transformation</span>
         </div>
     </div>
 </div>

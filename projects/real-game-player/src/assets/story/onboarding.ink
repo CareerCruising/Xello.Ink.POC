@@ -12,17 +12,17 @@
     + [Check for messages]
         -> ollex_appears ->
         <h1>A figure appears on your watch and says:</h1>
+        <p>Hello, I'm Ollex! I am your guide. I'll help you figure out this new life.</p>
     + [Ignore it]
         -> ollex_appears ->
         <h1>The beeping gets louder. A figure appears on your watch and says:</h1>
+        <p>Hello, hello! I'm Ollex, your guide. You will want to check in as you figure out this new life.</p>
     + [Turn it off]
         -> ollex_appears ->
         <h1>Your watch has no off button! A figure appears on it and says:</h1>
+        <p>Nice try! I'm Ollex, your guide. You will want me around as you figure out this new life.</p>
     -
 
-    <p>Hello, I’m Ollex, your guide!</p>
-    <p>I’ll give you some tips for figuring out this new life.</p>
-    
     + [Got it]
         -> begin_onboarding
         
