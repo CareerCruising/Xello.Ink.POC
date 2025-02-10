@@ -4,8 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { catchError, map, Observable, of } from 'rxjs';
 import {
-  Career,
-  CareerProfile
+  Career
 } from '@careercruising/real-game-utils';
 
 @Injectable({
@@ -36,12 +35,15 @@ export class CareerService {
       );
   }
 
-  getCareerProfile(careerId: number): Observable<CareerProfile> {
+  getCareerProfile(careerId: number): Observable<Career> {
     return this.httpClient
       .get(
         `${environment.CDN_ABSOLUTE_URL}careers/${careerId}_careerprofile_${this.locale || 'en-US'}.json`
       )
       .pipe(
+        catchError((err) => {
+          return of('')
+        }),
         map((res: any) => {
           return res;
         })

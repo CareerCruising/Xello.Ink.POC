@@ -4,6 +4,7 @@
   justify-content: center;
   width: 100%;
   max-width: 1366px;
+  padding: 0 32px;
 }
 
 .content {
@@ -11,9 +12,35 @@
   display: block;
 }
 
+.choice-frame {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  background-color: var(--taco-color-white-100);
+  color: var(--taco-color-text-primary);
+  margin: 16px 0;
+  font-size: var(--taco-font-size-225);
+
+  &__illustration {
+    background-color: var(--taco-color-white-500);
+  }
+
+  &__content {
+    padding: 24px;
+  }
+
+  ::ng-deep {
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
 .reader {
-    text-align: center;
+    text-align: left;
     position: relative;
+    width: 100%;
+    max-width: 1088px;
+    margin: 0 auto;
   
     ::ng-deep {
       font-size: var(--taco-font-size-300);

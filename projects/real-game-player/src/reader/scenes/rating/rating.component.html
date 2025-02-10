@@ -2,9 +2,26 @@
 <div class="reader" [@fadeIn]="true">
     <app-basic class="content" [showChoices]="false"></app-basic>
 
-    <app-choice-rating
-        [choices]="inkService.currentChoices"
-        class="choice-list"
-        (handleChoice)="inkService.SelectChoice($event)"
-    ></app-choice-rating>
+    <div class="choice-frame">
+        <div class="choice-frame__illustration">
+
+        </div>
+        <div class="choice-frame__content">
+            <span [innerHTML]="lookupContent()"></span>
+            <app-choice-rating
+                [choices]="inkService.currentChoices"
+                class="choice-list"
+                (handleSelect)="selectChoice($event)"
+            ></app-choice-rating>
+        </div>
+    </div>
+
+    <taco-button
+        size="md"
+        type="basic"
+        class="choice choice__next"
+        [attr.disabled]="!choiceSelected ? true : undefined"
+        value="Next"
+        (tacoButtonClick)="confirmChoice()"
+    ></taco-button>
 </div>

@@ -15,13 +15,4 @@
             </button>
         }
     </div>
-    <taco-button
-        size="md"
-        type="basic"
-        class="choice choice__next"
-        [ngClass]="{ 'hidden': !choices.length }"
-        [attr.disabled]="!choiceSelected ? true : undefined"
-        value="Next"
-        (tacoButtonClick)="confirmChoice()"
-    ></taco-button>
 </div>

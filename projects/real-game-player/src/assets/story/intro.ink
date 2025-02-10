@@ -123,6 +123,7 @@ VAR ratingVacation = 0
         ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Job description</b>
+        {getContent("career.jobDescription")}
         -> DONE
     
     = ex2

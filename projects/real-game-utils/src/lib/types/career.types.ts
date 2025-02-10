@@ -2,6 +2,7 @@ export type Career = {
   careerId: number;
   careerName: string;
   jobDescription: string;
+  briefIntroduction?: string;
   isActive: boolean;
   salary: number[];
   grossSalary: number[];

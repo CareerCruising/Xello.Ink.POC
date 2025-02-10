@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../src/services/user.service';
 import { AuthenticatedUser } from '../src/models/authenticated-user.model';
 import { CareerStore } from './career.store';
+import { catchError, of } from 'rxjs';
 
 
 export const UserStore = signalStore(
@@ -21,19 +22,30 @@ export const UserStore = signalStore(
       router = inject(Router),
     ) => ({
       load: () => {
-        userService.getUserData().subscribe((data) => {
-          if (!data) {
+        userService.getUserProfile().pipe(
+          catchError((err: any) => {
             if (!environment.production) {
+              localStorage.removeItem('token');
               router.navigate(['login']);
             }
-            return;
+            return of(null);
+          })
+        ).subscribe(
+          (data) => {
+            if (!data) {
+              if (!environment.production) {
+                localStorage.removeItem('token');
+                router.navigate(['login']);
+              }
+              return;
+            }
+            localStorage.setItem('culture', data.languages[0]?.name);
+            patchState(state, {
+              user: data,
+            });
+            careerStore.getCareer()
           }
-          localStorage.setItem('culture', data.languages[0]?.name);
-          patchState(state, {
-            user: data,
-          });
-          careerStore.getCareer()
-        });
+        );
       },
       setInstitutionId: (institutionId: string) => {
         patchState(state, {

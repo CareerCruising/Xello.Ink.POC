@@ -24,11 +24,7 @@ export class UserService {
 
     if (token) {
       // We have a token, but no user profile data, so fetch it
-      return this.getUserProfile().pipe(
-        map((profile: any) => {
-          return profile
-        })
-      );
+      return this.getUserProfile();
     } else {
       // We don't have a token
       return of(null);

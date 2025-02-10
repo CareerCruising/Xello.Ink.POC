@@ -23,12 +23,14 @@ import { Choice } from 'inkjs/engine/Choice';
 })
 export class ChoiceListComponent {
   @Input() choices: Choice[] = [];
+  @Output() handleSelect = new EventEmitter<Choice>();
   @Output() handleChoice = new EventEmitter<Choice>();
 
   choiceSelected: Choice | null = null;
 
   selectChoice(choice: Choice) {
     this.choiceSelected = choice;
+    this.handleSelect.emit(choice);
   }
 
   confirmChoice() {

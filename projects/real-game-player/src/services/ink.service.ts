@@ -5,6 +5,7 @@ import { Choice } from 'inkjs/engine/Choice';
 import { ContentLine } from '../models/content-line.interface';
 import { environment } from '../environments/environment';
 import { Templates } from '../models/templates.model';
+import { CareerService } from './career.service';
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -45,13 +46,18 @@ export class InkService {
 
   knots: string[] = [];
 
-  constructor() {
+  constructor(
+    private careerService: CareerService
+  ) {
     this.startingKnot = environment.STARTING_KNOT;
     this.initStory();
   }
 
   initStory() {
     this.story.variablesState.$('environment', 'web');
+    this.story.BindExternalFunction('loadCareer', (id: string) => {
+      return this.careerService.getCareerProfile(+id)
+    }, true);
     this.story.BindExternalFunction('lowercase', (str) => { return str.toLowerCase() }, true);
     this.story.BindExternalFunction('titlecase', (str: string) => { return str.split(' ').map(text => capitalize(text)).join(' ') }, true);
   }
@@ -108,6 +114,9 @@ export class InkService {
       case 'ui':
         this.showFullUI = tokens[1] === 'game';
         break;
+      case 'lookup':
+        console.log(tokens);
+        break;
       case 'delay':
         this.delay = +tokens[1];
         await sleep(this.delay);
@@ -124,6 +133,7 @@ export class InkService {
         break;
       case 'background':
         this.currentBackground = tokens[1].toLowerCase();
+        break;
     }
 
     this.onCommandReceived.emit(command);
