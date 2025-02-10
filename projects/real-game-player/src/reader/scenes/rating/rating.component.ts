@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, effect, inject, OnInit } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, effect, inject, OnDestroy, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { InkService } from '../../../services/ink.service';
 import { BasicComponent } from "../basic/basic.component";
 import { ChoiceRatingComponent } from "../../components/choice-rating/choice-rating.component";
 import { Choice } from 'inkjs/engine/Choice';
 import { CareerStore } from '../../../../store/career.store';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rating',
@@ -23,7 +24,7 @@ import { CareerStore } from '../../../../store/career.store';
     ])
   ]
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent implements OnInit, OnDestroy {
 
   choiceFrame: { content: string } | null = null;
   choiceSelected: Choice | null = null;
@@ -34,46 +35,55 @@ export class RatingComponent implements OnInit {
 
   lookupContent = '';
 
+  destroyed$ = new Subject<boolean>();
+
+
   constructor(public inkService: InkService) {
     this.inkService.delay = 0;
-
-    effect(() => {
-      console.log(this.careerStore.career());
-    })
   }
 
   ngOnInit() {
-    this.inkService.onLookup.subscribe(str => {
-      this.lookupContent = str;
-    });
-    this.inkService.onCommandReceived.subscribe(cmd => {
-      switch (cmd.name) {
-        case 'illustration':
-          this.illustration = cmd.params[0];
-          break;
-        case 'illustration-bg':
-          this.illustrationBG = 'bg--' + cmd.params[0];
-          break;
-        case 'lookup':
-          const content = cmd.params[0].split('.');
-          if (content.length > 0) {
-            switch (content[0]) {
-              case 'career':
-                console.log('get career');
-                break;
-              default:
-                break;
+    this.inkService.onLookup
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(str => {
+        this.lookupContent = str;
+      });
+
+    this.inkService.onCommandReceived
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(cmd => {
+        switch (cmd.name) {
+          case 'illustration':
+            this.illustration = cmd.params[0];
+            break;
+          case 'illustration-bg':
+            this.illustrationBG = 'bg--' + cmd.params[0];
+            break;
+          case 'lookup':
+            const content = cmd.params[0].split('.');
+            if (content.length > 0) {
+              switch (content[0]) {
+                case 'career':
+                  console.log('get career');
+                  break;
+                default:
+                  break;
+              }
+              break;
+            }
+            this.choiceFrame = {
+              content: cmd.params.join(' ')
             }
             break;
-          }
-          this.choiceFrame = {
-            content: cmd.params.join(' ')
-          }
-          break;
-        default:
-          break;
-      }
-    });
+          default:
+            break;
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 
   selectChoice(choice: Choice) {

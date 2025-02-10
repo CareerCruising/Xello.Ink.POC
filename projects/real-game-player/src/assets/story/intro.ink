@@ -132,6 +132,9 @@ VAR ratingVacation = 0
         ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Monthly pay</b>
+        >>> illustration-bg: emerald-50
+        >>> illustration: il-bills-coins
+        {getContent("career.earningDescription")}
         -> DONE
     
     = ex3
