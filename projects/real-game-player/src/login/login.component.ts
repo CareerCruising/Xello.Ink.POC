@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { UserStore } from '../../store/user.store';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,8 @@ export class LoginComponent implements OnInit {
   password !: string;
   remember !: boolean;
 
+  userStore = inject(UserStore);
+
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
@@ -43,6 +46,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(payload).then(res => {
       console.log(res);
       this.tokenInProgress = false;
+      this.userStore.load();
       this.router.navigate(['']);
     }, err => {
       this.tokenInProgress = false;
