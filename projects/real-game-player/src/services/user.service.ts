@@ -10,10 +10,9 @@ import { environment } from '../environments/environment';
 export class UserService {
 
   private readonly STORAGE_KEYS = { token: 'token', sessionId: 'sessionId' };
+  private readonly PROFILE_ROUTE = 'profile';
 
-  readonly PROFILE_ROUTE = 'profile';
-
-  constructor(private injector: Injector, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getUserProfile(): Observable<AuthenticatedUser> {
     return this.http.get<AuthenticatedUser>(`${environment.API_SERVER}/profile`);
