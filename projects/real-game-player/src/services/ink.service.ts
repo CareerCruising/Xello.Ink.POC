@@ -23,6 +23,7 @@ function capitalize(str: string) {
 export class InkService {
 
   onCommandReceived = new EventEmitter<{ name: string, params: any[] }>();
+  onLookup = new EventEmitter<string>();
 
   careerStore = inject(CareerStore);
 
@@ -119,11 +120,10 @@ export class InkService {
         this.showFullUI = tokens[1] === 'game';
         break;
       case 'lookup':
-        console.log('await');
         const values = tokens[1].split('.');
         var res = await firstValueFrom(this.careerService.getCareerProfile(95));
         // @ts-ignore;
-        console.log('done awaiting ', res[values[1]]);
+        this.onLookup.emit(res[values[1]])
         break;
       case 'delay':
         this.delay = +tokens[1];

@@ -7,7 +7,7 @@
             <taco-illustration illustration="{{illustration}}" size="xxxlg"></taco-illustration>
         </div>
         <div class="choice-frame__content">
-            <span [innerHTML]="lookupContent()"></span>
+            <span [innerHTML]="lookupContent"></span>
             <app-choice-rating
                 [choices]="inkService.currentChoices"
                 class="choice-list"

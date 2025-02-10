@@ -32,9 +32,7 @@ export class RatingComponent implements OnInit {
   illustration = '';
   illustrationBG = ''
 
-  lookupContent = computed(() => {
-    return this.careerStore.career()?.briefIntroduction ?? ''
-  });
+  lookupContent = '';
 
   constructor(public inkService: InkService) {
     this.inkService.delay = 0;
@@ -45,6 +43,9 @@ export class RatingComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.inkService.onLookup.subscribe(str => {
+      this.lookupContent = str;
+    });
     this.inkService.onCommandReceived.subscribe(cmd => {
       switch (cmd.name) {
         case 'illustration':
