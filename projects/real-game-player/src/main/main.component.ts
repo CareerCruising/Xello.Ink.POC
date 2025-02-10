@@ -5,9 +5,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
 import { InkService } from '../services/ink.service';
-import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-main',
@@ -25,18 +22,9 @@ import { environment } from '../environments/environment';
 export class MainComponent implements OnInit {
 
   constructor(
-    public inkService: InkService,
-    private router: Router,
-    private userService: UserService
+    public inkService: InkService
   ) {}
 
-  ngOnInit() {
-    this.userService.getUserData().subscribe(res => {
-      console.log('init', res);
-    });
-    if (!localStorage.getItem('token') && !environment.production) {
-      this.router.navigate(['login']);
-    }
-  }
+  ngOnInit() {}
 
 }

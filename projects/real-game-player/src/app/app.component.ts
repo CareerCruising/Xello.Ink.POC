@@ -1,6 +1,7 @@
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  inject,
   Inject,
   RendererFactory2,
 } from '@angular/core';
@@ -8,6 +9,8 @@ import { loadScript, loadStyle } from '../helpers/url.helpers';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserStore } from '../../store/user.store';
+import { environment } from '../environments/environment';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -34,7 +37,7 @@ export const scriptIDs = {
 })
 export class AppComponent {
 
-  CDN_ABSOLUTE_URL = 'https://cdn-dev-anaca.azureedge.net/';
+  userStore = inject(UserStore);
 
   constructor(
     rendererFactory: RendererFactory2,
@@ -43,28 +46,28 @@ export class AppComponent {
     const renderer = rendererFactory.createRenderer(null, null);
 
     loadScript(
-      `${this.CDN_ABSOLUTE_URL}/design-system/latest/taco-components/bundled.js`,
+      `${environment.CDN_ABSOLUTE_URL}/design-system/latest/taco-components/bundled.js`,
       this.document,
       renderer,
       scriptIDs.TACO_SCRIPT_ID
     );
 
     loadScript(
-      `${this.CDN_ABSOLUTE_URL}cdnjs/lottie-player.js`,
+      `${environment.CDN_ABSOLUTE_URL}cdnjs/lottie-player.js`,
       this.document,
       renderer,
       scriptIDs.LOTTIE_PLAYER_ID
     );
 
     loadStyle(
-      `${this.CDN_ABSOLUTE_URL}/design-system/latest/taco-tokens/css/design-tokens-v1.css`,
+      `${environment.CDN_ABSOLUTE_URL}/design-system/latest/taco-tokens/css/design-tokens-v1.css`,
       this.document,
       renderer,
       scriptIDs.TACO_STYLE_OLD_ID
     );
 
     loadStyle(
-      `${this.CDN_ABSOLUTE_URL}/design-system/latest/taco-tokens/css/design-tokens-v2.css`,
+      `${environment.CDN_ABSOLUTE_URL}/design-system/latest/taco-tokens/css/design-tokens-v2.css`,
       this.document,
       renderer,
       scriptIDs.TACO_STYLE_ID
