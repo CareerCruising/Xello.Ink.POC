@@ -4,6 +4,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../src/services/user.service';
 import { AuthenticatedUser } from '../src/models/authenticated-user.model';
+import { CareerStore } from './career.store';
 
 
 export const UserStore = signalStore(
@@ -15,6 +16,7 @@ export const UserStore = signalStore(
   withMethods(
     (
       state,
+      careerStore = inject(CareerStore),
       userService = inject(UserService),
       router = inject(Router),
     ) => ({
@@ -30,6 +32,7 @@ export const UserStore = signalStore(
           patchState(state, {
             user: data,
           });
+          careerStore.getCareer()
         });
       },
       setInstitutionId: (institutionId: string) => {

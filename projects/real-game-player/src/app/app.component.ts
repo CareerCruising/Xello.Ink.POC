@@ -11,6 +11,7 @@ import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserStore } from '../../store/user.store';
 import { environment } from '../environments/environment';
+import { CareerStore } from '../../store/career.store';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -38,6 +39,7 @@ export const scriptIDs = {
 export class AppComponent {
 
   userStore = inject(UserStore);
+  careerStore = inject(CareerStore);
 
   constructor(
     rendererFactory: RendererFactory2,
