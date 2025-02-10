@@ -16,6 +16,10 @@
         grid-template-columns: 304px 1fr;
         grid-template-rows: 1fr;
         column-gap: var(--taco-space-400);
+        
+        > * {
+            animation: fade-in 1s ease-in-out;
+        }
 
         .main__reader {
             align-items: flex-start;
@@ -58,4 +62,9 @@
     &--full {
         overflow-y: scroll;
     }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1 }
 }

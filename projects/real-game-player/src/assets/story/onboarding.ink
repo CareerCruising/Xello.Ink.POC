@@ -32,7 +32,8 @@
         >>> delay: 1000
         >>> illustration: dude-white
         ->->
-        
+
+
 === begin_onboarding ===
     
     >>> background: gradient

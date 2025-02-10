@@ -7,6 +7,8 @@ INCLUDE utility/flow.ink
 INCLUDE utility/media.ink
 INCLUDE utility/templates.ink
 INCLUDE utility/data.ink
+INCLUDE story/first_day.ink
+
 
 
 
