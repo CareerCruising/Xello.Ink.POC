@@ -37,7 +37,6 @@ export class InkService {
   groups: {[id: string]: ContentLine[]} = {};
   currentText: ContentLine[] = [];
   currentChoices: Choice[] = [];
-  currentAccent = '';
   currentChoiceMode = '';
   startingKnot = '';
 
@@ -54,7 +53,7 @@ export class InkService {
   constructor(
     private careerService: CareerService
   ) {
-    this.startingKnot = environment.STARTING_KNOT;
+    this.startingKnot = environment.STARTING_KNOT || 'intro';
     this.initStory();
   }
 
@@ -136,9 +135,6 @@ export class InkService {
       case 'rating':
         this.addLine({ type: 'rating', content: tokens[1] })
         break;
-      case 'accent':
-        this.currentAccent = tokens[1];
-        break;
       case 'background':
         this.currentBackground = tokens[1].toLowerCase();
         break;
@@ -162,7 +158,6 @@ export class InkService {
   Reset() {
     this.groups = {};
     this.currentTemplate = Templates.None;
-    this.currentAccent = '';
     this.currentBackground = '';
     this.currentText = [];
     this.numColumns = 1;

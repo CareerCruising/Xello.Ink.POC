@@ -3,7 +3,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnDestroy } from '@angular/co
 import { InkService } from '../../../services/ink.service';
 import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
-import { BehaviorSubject, Observable, Subscription, takeUntil } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-basic',
@@ -32,7 +32,7 @@ export class BasicComponent implements OnDestroy {
     return this.inkService.currentText;
   }
 
-  isDestroyed$ = new BehaviorSubject<boolean>(false);
+  isDestroyed$ = new Subject<boolean>();
   
   constructor(public inkService: InkService) {}
 

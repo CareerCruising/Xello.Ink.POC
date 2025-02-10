@@ -125,7 +125,7 @@ VAR ratingVacation = 0
         <b>Job description</b>
         >>> illustration-bg: cornflower-50
         >>> illustration: il-document
-        {getContent("career.briefIntroduction")}
+        >>> content: You work full time as a civil engineer. Your job is to plan, design, and oversee the construction of buildings and structures. These include bridges, roads, and sewers. You use advanced math and science in your work. You survey sites, write reports, and draw up designs. You supervise workers and make sure the building process is safe and efficient.
         -> DONE
     
     = ex2
@@ -134,19 +134,25 @@ VAR ratingVacation = 0
         <b>Monthly pay</b>
         >>> illustration-bg: emerald-50
         >>> illustration: il-bills-coins
-        {getContent("career.earningDescription")}
+        >>> content: <p>You get paid <b>$5,613</b> a month.</p>
         -> DONE
     
     = ex3
         ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Hours of work a week</b>
+        >>> illustration-bg: purple-50
+        >>> illustration: il-clock
+        >>> content: <p>You work about <b>40 hours</b> a week.</p>
         -> DONE
         
     = ex4
         ~ setBackground(Gradient)
         Rate how you feel about this role's:
         <b>Vacation time</b>
+        >>> illustration-bg: gold-50
+        >>> illustration: il-suitcase
+        >>> content: <p>You get <b>3 weeks</b> of vacation each year.</p>
         -> DONE
 
 

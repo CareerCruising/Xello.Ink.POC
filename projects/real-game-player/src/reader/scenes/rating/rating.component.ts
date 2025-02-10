@@ -53,12 +53,17 @@ export class RatingComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(cmd => {
         switch (cmd.name) {
+          case 'content':
+            console.log(cmd.params.join(' '));
+            this.lookupContent = cmd.params.join(' ');
+            break;
           case 'illustration':
             this.illustration = cmd.params[0];
             break;
           case 'illustration-bg':
             this.illustrationBG = 'bg--' + cmd.params[0];
             break;
+          /*
           case 'lookup':
             const content = cmd.params[0].split('.');
             if (content.length > 0) {
@@ -75,6 +80,7 @@ export class RatingComponent implements OnInit, OnDestroy {
               content: cmd.params.join(' ')
             }
             break;
+          */
           default:
             break;
         }
