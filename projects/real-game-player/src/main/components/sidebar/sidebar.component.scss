@@ -23,15 +23,13 @@
 .sidebar__section {
     padding: var(--taco-space-200);
     border-radius: var(--taco-radius-all);
-    background-color: #19273e80;
+    background-color: #5A3A6880;   
     transition: background-color 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
     row-gap: 16px;
 }
-.sidebar__section--gradient {
-    background-color: #5A3A6880;   
-}
+
 .sidebar__badge {
     position: relative;
     height: 32px;
