@@ -51,36 +51,56 @@
     ~ setBackground(Backgrounds.Gradient)
     
     >>> illustration: il-magnifying-glass
-    {
-        -   check_pockets and search_bag:
-            -> onboarding
-        -   came_from(-> role_rating_summary):
-            <h1>How did you qualify for this job?</h1>
-            You're feeling strangely prepared to start working.
-        -   // Default
-            <h1>What's going on?</h1>
-            Maybe there's a clue that can help you figure this out.
-    }
+    <h1>What's going on?</h1>
+    Maybe there's a clue that can help you figure this out.
 
-    * (check_pockets) [Check pockets]
+    + [Check pockets]
         ~ setTemplate(Templates.StoryBite)
-        You search your pockets and pull out an employee ID card.
+        You search your pockets and pull out a staff ID card.
         <h1>What does it say?</h1>
-        ++ [Next]
-            -> role_revealed
-    * (search_bag) [Search bag]
+    + [Search bag]
         ~ setTemplate(Templates.StoryBite)
-        <h1>Score! You pull out a crumpled resume.</h1>
-        What education and training did you take to prepare for this role?
-        ++ [Uncover education]
-            ~ setTemplate(Templates.StoryBite)
-            ~ setBackground(Backgrounds.Gradient)
-            <h1>Ready to go!</h1>
-            You’re confident you can rock your first day of work.
-            +++ [Next]
-                -> investigation
-    * ->
-        -> onboarding
+        You search your bag and pull out a staff ID card.
+        <h1>What does it say?</h1>
+    + [Turn on phone]
+        ~ setTemplate(Templates.StoryBite)
+       You turn on your phone and find a staff ID login screen.
+        <h1>What does it say?</h1>
+    -
+    + [Next]
+        -> role_revealed
+
+
+=== investigation_2 ===
+
+    ~ setTemplate(Templates.MultiChoice)
+    ~ setBackground(Backgrounds.Gradient)
+    
+    >>> illustration: il-magnifying-glass
+    <h1>How did you qualify for this job?</h1>
+    Time to look for another clue.
+    
+    + [Check pockets]
+        ~ setTemplate(Templates.StoryBite)
+        Score! You pull out a crumpled resume.
+        <h1>How did you prepare for this career?</h1>
+    + [Search bag]
+        ~ setTemplate(Templates.StoryBite)
+        Score! You pull out a crumpled resume.
+        <h1>How did you prepare for this career?</h1>
+    + [Scroll through phone]
+        ~ setTemplate(Templates.StoryBite)
+        Score! You find an email with a resume attached.
+        <h1>How did you prepare for this career?</h1>
+
+    -
+    + [Next]
+        ~ setTemplate(Templates.StoryBite)
+        ~ setBackground(Backgrounds.Gradient)
+        <h1>Ready to go!</h1>
+        You’re confident you can rock your first day of work.
+        ++ [Next]
+            -> onboarding
 
 
 === role_revealed ===
@@ -125,7 +145,7 @@ VAR ratingVacation = 0
         <b>Job description</b>
         >>> illustration-bg: cornflower-50
         >>> illustration: il-document
-        >>> content: You work full time as a civil engineer. Your job is to plan, design, and oversee the construction of buildings and structures. These include bridges, roads, and sewers. You use advanced math and science in your work. You survey sites, write reports, and draw up designs. You supervise workers and make sure the building process is safe and efficient.
+        >>> content: <p>You work full time as a civil engineer. Your job is to plan, design, and oversee the construction of buildings and structures. These include bridges, roads, and sewers. You use advanced math and science in your work. You survey sites, write reports, and draw up designs. You supervise workers and make sure the building process is safe and efficient.</p>
         -> DONE
     
     = ex2
@@ -174,4 +194,4 @@ VAR ratingVacation = 0
     
     + [Done] #cta-footer
         - (done)
-        -> investigation
+        -> investigation_2

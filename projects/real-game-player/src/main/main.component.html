@@ -1,14 +1,17 @@
-<div class="main__wrapper main__wrapper--full main__wrapper--bg-{{inkService.currentBackground}}"
-     *ngIf="inkService.showFullUI; else simple">
-    <app-header></app-header>
-    <app-sidebar></app-sidebar>
-    <app-reader class="main__reader main__reader--full"></app-reader>
-    <app-footer></app-footer>
-</div>
-
-<ng-template #simple>
-    <div class="main__wrapper main__wrapper--simple main__wrapper--bg-{{inkService.currentBackground}}">
+<ng-container>
+    <div class="main__wrapper main__wrapper--full main__wrapper--bg-{{inkService.currentBackground}}"
+         *ngIf="inkService.showFullUI; else simple">
         <app-header></app-header>
-        <app-reader class="main__reader main__reader--simple"></app-reader>
-    </div>    
-</ng-template>
+        <app-sidebar></app-sidebar>
+        <app-reader class="main__reader main__reader--full"></app-reader>
+        <app-footer></app-footer>
+    </div>
+    
+    <ng-template #simple>
+        <div class="main__wrapper main__wrapper--simple main__wrapper--bg-{{inkService.currentBackground}}">
+            <app-header></app-header>
+            <app-reader class="main__reader main__reader--simple"></app-reader>
+        </div>    
+    </ng-template>
+    
+</ng-container>

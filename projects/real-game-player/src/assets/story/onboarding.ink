@@ -10,20 +10,28 @@
     >>> choice-mode: list
     
     + [Check for messages]
+        -> ollex_appears ->
+        <h1>A figure appears on your watch and says:</h1>
     + [Ignore it]
+        -> ollex_appears ->
+        <h1>The beeping gets louder. A figure appears on your watch and says:</h1>
     + [Turn it off]
+        -> ollex_appears ->
+        <h1>Your watch has no off button! A figure appears on it and says:</h1>
     -
-    
-    ~ setTemplate(Templates.StoryBite)
-    >>> delay: 1000
-    >>> illustration: dude-white
 
-    <h1>A figure appears on the watch and says:</h1>
     <p>Hello, I’m Ollex, your guide!</p>
     <p>I’ll give you some tips for figuring out this new life.</p>
     
     + [Got it]
         -> begin_onboarding
+        
+        
+    = ollex_appears
+        ~ setTemplate(Templates.StoryBite)
+        >>> delay: 1000
+        >>> illustration: dude-white
+        ->->
         
 === begin_onboarding ===
     
