@@ -12,7 +12,7 @@
             </div>
         </div>
         <div>
-            <app-meter class="meter" [color]="'blue'"></app-meter>
+            <app-meter [watch]="'xp'" class="meter" [color]="'blue'"></app-meter>
         </div>
     </div>
 </div>
@@ -28,11 +28,11 @@
     <div>
         <div class="meter">
             <label>Career</label>
-            <app-meter></app-meter>    
+            <app-meter [watch]="'career'"></app-meter>    
         </div>
         <div class="meter">
             <label>Well-being</label>
-            <app-meter></app-meter>
+            <app-meter [watch]="'wellbeing'"></app-meter>
         </div>
     </div>
 </div>

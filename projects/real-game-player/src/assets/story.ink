@@ -8,6 +8,8 @@ INCLUDE utility/media.ink
 INCLUDE utility/templates.ink
 INCLUDE utility/data.ink
 INCLUDE story/first_day.ink
+INCLUDE utility/swing.ink
+
 
 
 
@@ -20,6 +22,7 @@ LIST Cultures = enCA, frCA, enUS, esUS
 VAR culture = Cultures.enCA
 
 VAR environment = "inky"
+
 
 -> init
 

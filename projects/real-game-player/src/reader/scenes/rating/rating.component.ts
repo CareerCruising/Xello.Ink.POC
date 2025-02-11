@@ -54,7 +54,6 @@ export class RatingComponent implements OnInit, OnDestroy {
       .subscribe(cmd => {
         switch (cmd.name) {
           case 'content':
-            console.log(cmd.params.join(' '));
             this.lookupContent = cmd.params.join(' ');
             break;
           case 'illustration':
@@ -63,24 +62,6 @@ export class RatingComponent implements OnInit, OnDestroy {
           case 'illustration-bg':
             this.illustrationBG = 'bg--' + cmd.params[0];
             break;
-          /*
-          case 'lookup':
-            const content = cmd.params[0].split('.');
-            if (content.length > 0) {
-              switch (content[0]) {
-                case 'career':
-                  console.log('get career');
-                  break;
-                default:
-                  break;
-              }
-              break;
-            }
-            this.choiceFrame = {
-              content: cmd.params.join(' ')
-            }
-            break;
-          */
           default:
             break;
         }

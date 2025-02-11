@@ -20,7 +20,6 @@ export class AuthService {
     return this.authApiService.login(endpoint, payload).then((res: any) => {
       if (res) {
         localStorage.setItem(this.STORAGE_KEYS.token, res.token);
-        console.log(res);
       }
 
       return res;

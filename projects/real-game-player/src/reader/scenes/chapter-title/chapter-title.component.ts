@@ -13,6 +13,6 @@ import { TitleComponent } from '../title/title.component';
 })
 export class ChapterTitleComponent extends TitleComponent implements OnInit {
   ngOnInit(): void {
-    console.log('...')
+    // ...
   }
 }

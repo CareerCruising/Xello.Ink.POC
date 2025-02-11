@@ -16,5 +16,18 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 50%;
+    transition: width .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, opacity 1s ease-in-out 1s, background-color 1s ease-in-out 1s;
+
+    &--updating {
+        transition: width .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, opacity 0.1s ease-in-out 0s;
+        opacity: 0.8;
+    }
+    &--rising {
+        transition: width .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, opacity 0.1s ease-in-out 0s;
+        opacity: 0.7;
+    }
+    &--falling {
+        transition: width .5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, opacity 0.1s ease-in-out 0s;
+        opacity: 0.7;
+    }
 }

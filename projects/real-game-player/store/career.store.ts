@@ -19,7 +19,6 @@ export const CareerStore = signalStore(
           patchState(state, {
             career: data,
           });
-          console.log(data);
         });
       },
       clear: () => {

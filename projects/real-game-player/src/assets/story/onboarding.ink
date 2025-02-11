@@ -38,6 +38,8 @@
     
     >>> background: gradient
     >>> ui: game
+
+    -> first_day
     
     >>> show: experience
     >>> move-ollex: experience

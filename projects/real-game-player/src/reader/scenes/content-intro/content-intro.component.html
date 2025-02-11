@@ -16,5 +16,15 @@
             ></taco-illustration>
         </ng-container>
     </div>
-    <app-basic></app-basic>
+    <app-basic>
+        <div *ngIf="results.length > 0" class="result__wrapper">
+            <div *ngFor="let result of results" class="result__item">
+                <taco-icon *ngIf="result.icon != ''" fill="white-100" icon="{{result.icon}}" size="md"></taco-icon>
+                <span>
+                    {{result.change > 0 ? ('+'+result.change) : result.change}}
+                    {{result.name}}
+                </span>
+            </div>
+        </div>
+    </app-basic>
 </div>

@@ -15,6 +15,21 @@
   transform: scale(2);
 }
 
+.result__wrapper {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.result__item {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  font-size: var(--taco-font-size-175);
+}
+
 .reader {
     text-align: center;
     position: relative;
