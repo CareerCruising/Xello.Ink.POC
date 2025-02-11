@@ -142,6 +142,48 @@
     -
     + [Next]
     -
+    -> first_weekend
+    
+      
+=== first_weekend ===
+
+    ~ setTemplate(Templates.MultiChoice)
+    
+    <h1>It's the weekend at last. </h1>
+    <p>What do you want to do this evening?</p>
+    
+    + [Stay late at work]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-high-school
+        <h1>Into the grind</h1>
+        <p>That’s fine, but make some time to relax and recharge, too.</p>
+        ~ modifyCareer(1)
+        ~ modifyWellbeing(-3)
+        ~ gainXP(5)
+        
+    + [Relax and unwind]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-house
+        {culture == Cultures.enGB:
+            <h1>Get cosy</h1>
+        -else:
+            <h1>Get cozy</h1>
+        }
+        <p>You have an epic amount of streaming to do.</p>
+        ~ modifyWellbeing(3)
+        ~ gainXP(20)
+
+    + [Go out with friends]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-group
+        <h1>Get ready</h1>
+        <p>Time to celebrate your new job!</p>
+        ~ modifyWellbeing(3)
+        ~ gainXP(20)
+    
+    -
+    + [Next]
+    -
     -> DONE
     
     
