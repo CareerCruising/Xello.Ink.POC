@@ -1,5 +1,4 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { InkService } from '../../../services/ink.service';
 import { BasicComponent } from '../basic/basic.component';
 import { CommonModule } from '@angular/common';
 import { query, trigger, transition, animate, style, group, state } from '@angular/animations';
@@ -41,8 +40,18 @@ import { query, trigger, transition, animate, style, group, state } from '@angul
 export class TitleComponent extends BasicComponent implements OnInit {
 
   showIllustration = false;
+  illustration: string = '';
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.inkService.onCommandReceived.subscribe(command => {
+      switch (command.name) {
+        case 'illustration':
+          this.illustration = command.params[0]
+          break;
+        default:
+          break;
+      }
+    });
     setTimeout(() => {
       this.showIllustration = true;
     }, 1500);

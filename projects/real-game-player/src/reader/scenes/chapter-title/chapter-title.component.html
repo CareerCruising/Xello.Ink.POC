@@ -1,3 +1,15 @@
-<app-scene-illustrated>
-    <app-basic class="reader"></app-basic>
-</app-scene-illustrated>
+<div class="title__wrapper">
+    <div>
+        <taco-illustration
+            [@shiftLeft]="showIllustration"
+            class="illustration"
+            illustration="{{illustration}}"
+            size="xxxxxxlg"
+        ></taco-illustration>
+    </div>
+    <app-basic
+        class="reader"
+        alignment="left"
+        [@visible]="showIllustration"
+    ></app-basic>
+</div>
