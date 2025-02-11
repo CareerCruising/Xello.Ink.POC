@@ -18,7 +18,7 @@ VAR debug = true
 
 VAR role = "Civil engineer"
 
-LIST Cultures = enCA, frCA, enUS, esUS
+LIST Cultures = enCA, frCA, enUS, esUS, enGB
 VAR culture = Cultures.enCA
 
 VAR environment = "inky"

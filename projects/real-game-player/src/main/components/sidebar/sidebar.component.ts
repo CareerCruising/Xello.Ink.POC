@@ -16,10 +16,15 @@ import { MeterComponent } from '../meter/meter.component';
 export class SidebarComponent implements OnDestroy {
   background = '';
   isDestroyed$ = new BehaviorSubject<boolean>(false);
+  currentXP = 0
 
   constructor(private inkService: InkService) {
     this.inkService.onCommandReceived.subscribe(cmd => {
       this.background = this.inkService.currentBackground;
+    });
+    this.currentXP = +(this.inkService.story.variablesState.$('xp') || 0);
+    this.inkService.story.ObserveVariable('xp', (variableName, newValue) => {
+      this.currentXP = +newValue;
     });
   }
 

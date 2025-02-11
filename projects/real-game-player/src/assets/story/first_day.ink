@@ -19,7 +19,11 @@
     
     + [Let's go!]
 
-    -
+    -> office_introduction
+    
+    
+=== office_introduction ===
+
     ~ setTemplate(Templates.MultiChoice)
     
     <h1>Turns out, it's your first day on the job.</h1>
@@ -53,7 +57,91 @@
         ~ gainXP(25)
     
     -
+    + [Next]
+    -
+    -> temp_housing
     
+
+=== temp_housing ===
+
+    ~ setTemplate(Templates.MultiChoice)
+    
+    <h1>Crash pad</h1>
+    <p>You need a place to sleep while you get your housing sorted. Where are you staying?</p>
+    
+    + [Set up on a friendly co-worker's couch]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-high-school
+        <h1>Couch, sweet couch</h1>
+        <p>Hope that co-worker likes to host.</p>
+        ~ modifyWellbeing(-2)
+        ~ gainXP(20)
+        
+    + [House-sit for a dog owner on vacation]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-house
+        <h1>Woof, woof</h1>
+        <p>Hope you're not allergic to dogs.</p>
+        ~ modifyWellbeing(2)
+        ~ gainXP(20)
+
+    + [Find a bed in a hostel close to work]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-suitcase
+        <h1>Bed, sweet bed</h1>
+        {culture == Cultures.enGB:
+            <p>The hostel costs £20 a night.</p>
+        - else:
+            <p>The hostel costs $25 a day.</p>
+        }
+        ~ modifyWellbeing(-1)
+        ~ modifyCareer(1)
+        ~ addExpenses(35)
+        ~ gainXP(20)
+    
+    -
+    + [Next]
+    -
+    -> work_woes
+    
+    
+=== work_woes ===
+
+    ~ setTemplate(Templates.MultiChoice)
+    
+    <h1>Work woes</h1>
+    <p>Your teammate is explaining a complex project, but you don't understand your role. What do you do?</p>
+    
+    + [Start a side conversation to quietly ask another co-worker]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-high-school
+        <h1>Side convo, side eye</h1>
+        <p>Both co-workers are surprised by your attempt.</p>
+        ~ modifyCareer(-2)
+        ~ modifyWellbeing(-3)
+        ~ gainXP(10)
+        
+    + [Nod and pretend you get it]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-house
+        <h1>Looks good...</h1>
+        <p>That is... until you actually have to work on the project.</p>
+        ~ modifyCareer(-2)
+        ~ modifyWellbeing(-2)
+        ~ gainXP(5)
+
+    + [Ask questions to the speaker when they pause]
+        ~ setTemplate(Templates.Result)
+        >>> illustration: il-group
+        <h1>No problem!</h1>
+        <p>Your teammate is happy to pause and go over what to do. </p>
+        ~ modifyWellbeing(1)
+        ~ modifyCareer(1)
+        ~ gainXP(20)
+    
+    -
+    + [Next]
+    -
     -> DONE
     
     
