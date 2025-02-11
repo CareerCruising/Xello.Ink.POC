@@ -19,6 +19,14 @@ VAR wellbeing = 5005
     >>> modify: wellbeing {num}
     ~ modify(wellbeing, num)
 
+VAR money = 0
+=== function addMoney(num) ===
+    >>> modify: money {num}
+    ~ money += num
+=== function takeMoney(num) ===
+    >>> modify: money {-num}
+    ~ money -= num
+
 VAR expenses = 0
 === function addExpenses(num) ===
     ~ expenses += num

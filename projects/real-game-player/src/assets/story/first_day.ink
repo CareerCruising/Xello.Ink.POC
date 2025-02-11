@@ -184,6 +184,18 @@
     -
     + [Next]
     -
+    -> first_week_complete
+    
+=== first_week_complete ===
+
+    ~ setTemplate(Templates.Result)
+    >>> illustration: il-confetti
+    <h1>Seamless slide into the workforce!</h1>
+    <p>You've made it through your first month as an adult.</p>
+    ~ modifyWellbeing(5)
+    ~ gainXP(50)
+
     -> DONE
+
     
     
