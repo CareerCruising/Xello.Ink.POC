@@ -1,6 +1,14 @@
 
 <ng-container [ngSwitch]="currentAccent">
-    <img class="accent" *ngSwitchCase="'stars'" alt="" src="../assets/img/bg-stars.svg" />
+    <lottie-player
+        class="accent"
+        *ngSwitchCase="'stars'" 
+        src="../../../assets/animations/stars.json"
+        background="transparent"
+        speed="1"
+        style="width: 256px; height: 256px;"
+        loop autoplay
+    ></lottie-player>
     <ng-container *ngSwitchDefault></ng-container>
 </ng-container>
 
