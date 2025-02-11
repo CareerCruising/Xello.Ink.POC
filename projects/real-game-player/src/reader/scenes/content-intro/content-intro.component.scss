@@ -12,7 +12,16 @@
 }
 .illustration {
   transform-origin: top;
-  transform: scale(2);
+
+  &--lottie {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:not(.illustration--lottie) {
+    transform: scale(2);
+  }
 }
 
 .result__wrapper {

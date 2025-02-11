@@ -48,7 +48,7 @@
     ~ setTemplate(Templates.ContentIntro)
     ~ setBackground(Backgrounds.Gradient)
     
-    >>> illustration: il-directional-signs
+    >>> illustration: machine
 
     <h1>Aw snap.</h1>
     Interdimensional time travel was not something you expected to do today.

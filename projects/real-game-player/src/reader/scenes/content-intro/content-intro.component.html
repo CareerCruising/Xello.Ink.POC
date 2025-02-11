@@ -2,6 +2,15 @@
 <div class="reader" [@fadeIn]="fadeIn">
     <div class="illustration__wrapper" *ngIf="illustration">
         <ng-container [ngSwitch]="illustration">
+            <lottie-player
+                class="illustration illustration--lottie"
+                *ngSwitchCase="'machine'"
+                src="../../../assets/animations/machine.json"
+                background="transparent"
+                speed="1"
+                style="width: 160px; height: 160px;"
+                loop autoplay
+            ></lottie-player>
             <taco-logo
                 size="1000"
                 class="illustration"
