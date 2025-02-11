@@ -18,6 +18,7 @@ import { RatingComponent } from './scenes/rating/rating.component';
 import { ChapterTitleComponent } from './scenes/chapter-title/chapter-title.component';
 import { ContentIntroComponent } from './scenes/content-intro/content-intro.component';
 import { SummaryComponent } from './scenes/summary/summary.component';
+import { StoryBiteIllustratedComponent } from "./scenes/story-bite-illustrated/story-bite-illustrated.component";
 
 @Component({
   selector: 'app-reader',
@@ -32,8 +33,9 @@ import { SummaryComponent } from './scenes/summary/summary.component';
     StoryBiteComponent,
     StorySceneComponent,
     MultiChoiceComponent,
-    RatingComponent
-  ],
+    RatingComponent,
+    StoryBiteIllustratedComponent
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './reader.component.html',
   styleUrl: './reader.component.scss',

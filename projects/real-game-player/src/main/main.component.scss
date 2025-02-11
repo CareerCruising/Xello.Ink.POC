@@ -6,8 +6,25 @@
     grid-template-rows: 1fr;
     min-height: 100vh;
     color: white;
-    background: var(--taco-color-cornflower-900);
-    background-color: var(--taco-color-cornflower-900);
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background: linear-gradient(108.98deg, #905DA7 2.26%, #34496B 100.06%);
+        transition: opacity .15s ease-in-out;
+    }
+  
+    &--bg-gradient {
+        &:before {
+            opacity: 1;
+            transition: opacity .5s ease-in-out;
+        }
+    }
 
     &--full {
         grid-template-areas: 'sidebar reader';
@@ -26,24 +43,9 @@
             margin-top: 64px;
             padding-bottom: 116px;
         }
-    }
 
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0;
-        background: linear-gradient(108.98deg, #905DA7 2.26%, #34496B 100.06%);
-        transition: opacity .15s ease-in-out;
-    }
-  
-    &--bg-gradient {
         &:before {
-            opacity: 1;
-            transition: opacity .5s ease-in-out;
+            animation: fade-in 1s ease-in-out;
         }
     }
 }

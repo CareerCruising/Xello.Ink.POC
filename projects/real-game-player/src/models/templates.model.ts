@@ -4,6 +4,7 @@ export enum Templates {
     Title = 'Title',
     StoryScene = 'StoryScene',
     StoryBite = 'StoryBite',
+    StoryBiteIllustrated = 'StoryBiteIllustrated',
     ChapterTitle = 'ChapterTitle',
     ContentIntro = 'ContentIntro',
     Video = 'Video',

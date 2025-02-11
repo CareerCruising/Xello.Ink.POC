@@ -28,9 +28,9 @@
         
         
     = ollex_appears
-        ~ setTemplate(Templates.StoryBite)
-        >>> delay: 1000
+        ~ setTemplate(Templates.StoryBiteIllustrated)
         >>> illustration: dude-white
+        >>> delay: 1000
         ->->
 
 

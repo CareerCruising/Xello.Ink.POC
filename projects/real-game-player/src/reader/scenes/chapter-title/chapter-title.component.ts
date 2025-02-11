@@ -12,6 +12,12 @@ import { query, trigger, transition, animate, style, group, state } from '@angul
   templateUrl: './chapter-title.component.html',
   styleUrl: './chapter-title.component.scss',
   animations: [
+    trigger('fadeIn', [
+      transition('* => *', [
+        style({ opacity: 0 }),
+        animate('0.5s ease-in-out', style({ opacity: 1 }))
+      ])
+    ]),
     trigger('visible', [
       state('false', style({ opacity: 0 })),
       state('true', style({ opacity: 1 })),
