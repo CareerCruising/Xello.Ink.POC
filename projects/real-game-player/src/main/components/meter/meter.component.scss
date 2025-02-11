@@ -9,6 +9,29 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    transition: box-shadow 1.5s ease-in-out 1s;
+
+    &--updating {
+        animation: pulse 3.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: box-shadow 0.15s ease-in-out 0s;
+        box-shadow: 0 0 0 3px rgba(white, 0.4);
+    }
+    &--rising {
+        animation: pulse 3.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: box-shadow 0.15s ease-in-out 0s;
+        box-shadow: 0 0 0 3px rgba(yellowgreen, 0.4);
+    }
+    &--falling {
+        animation: pulse 3.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: box-shadow 0.15s ease-in-out 0s;
+        box-shadow: 0 0 0 3px rgba(red, 0.4);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1, 1); }
+    50% { transform: scale(1.05, 1.1); }
+    100% { transform: scale(1, 1); }
 }
 
 .meter__inner {

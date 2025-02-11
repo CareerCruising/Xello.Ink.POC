@@ -1,4 +1,9 @@
-<div class="meter__wrapper bg--{{color}}-50">
+<div class="meter__wrapper bg--{{color}}-50"
+    [ngClass]="{
+        'meter__wrapper--updating': isUpdating,
+        'meter__wrapper--rising': isRising,
+        'meter__wrapper--falling': isFalling
+    }">
     <div
         class="meter__inner bg--{{color}}-500"
         [ngClass]="{
