@@ -11,8 +11,5 @@ import { TitleComponent } from '../title/title.component';
   templateUrl: './chapter-title.component.html',
   styleUrl: './chapter-title.component.scss'
 })
-export class ChapterTitleComponent extends TitleComponent implements OnInit {
-  ngOnInit(): void {
-    // ...
-  }
+export class ChapterTitleComponent extends TitleComponent {
 }

@@ -8,6 +8,18 @@
     ~ setBackground(Backgrounds.Gradient)
 
     + [Get started]
+        -> prologue_intro
+
+
+=== prologue_intro ===
+    ~ setTemplate(Templates.ChapterTitle)
+    
+    >>> illustration: il-shirt-book-cellphone
+    
+    <h1>Prologue:</h1>
+    The transformation
+
+    + [Next]
         -> passage
 
 

@@ -1,3 +1,19 @@
-<app-scene-illustrated>
-    <app-basic class="reader"></app-basic>
-</app-scene-illustrated>
+<div class="title__wrapper">
+    <app-basic
+        class="reader no-illustration"
+        alignment="center"
+        [@basic]="!showIllustration"
+    ></app-basic>
+
+    <div class="illustration__wrapper" [@illustration]="showIllustration">
+        <lottie-player
+            class="illustration"
+            src="../../../assets/animations/scale.json"
+            background="transparent"
+            speed="1"
+            style="width: 256px; height: 256px;"
+            loop autoplay
+        ></lottie-player>
+        <app-basic class="reader illustrated" alignment="left"></app-basic>
+    </div>
+</div>

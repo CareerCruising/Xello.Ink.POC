@@ -39,6 +39,7 @@ export class InkService {
   currentChoices: Choice[] = [];
   currentChoiceMode = '';
   startingKnot = '';
+  currentPathString = '';
 
   currentTemplate: Templates = Templates.Title;
 
@@ -64,6 +65,13 @@ export class InkService {
     }, true);
     this.story.BindExternalFunction('lowercase', (str) => { return str.toLowerCase() }, true);
     this.story.BindExternalFunction('titlecase', (str: string) => { return str.split(' ').map(text => capitalize(text)).join(' ') }, true);
+
+    this.currentPathString = localStorage.getItem('currentPathString') || '';
+    if (false && this.currentPathString !== '') {
+      this.ChoosePathString(this.currentPathString.split('.')[0]);
+    } else if (this.startingKnot) {
+      this.ChoosePathString(this.startingKnot);
+    }
   }
 
   async Continue() {
@@ -89,6 +97,15 @@ export class InkService {
       }
     } else {
       this.isComplete = true;
+    }
+
+    if (this.story.state.currentPathString) {
+      const pathString = this.story.state.currentPathString.split('.')[0]
+      if (this.currentPathString !== pathString) {
+        this.currentPathString = pathString;
+        localStorage.setItem('currentPathString', this.currentPathString);
+        console.log('new path:', this.currentPathString);  
+      }
     }
     this.isPlaying = false;
   }

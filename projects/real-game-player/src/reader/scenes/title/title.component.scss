@@ -1,3 +1,6 @@
+:host {
+  width: 100%;
+}
 
 .reader {
   text-align: center;
@@ -10,6 +13,45 @@
       margin: 0;
     }
   }
+}
+
+.title__wrapper {
+  > * {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    right: 0;
+  }
+}
+
+.illustration__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+  width: 100%;
+
+  .reader {
+    text-align: left;
+    justify-self: flex-start;
+  }
+
+  > * {
+    display: block;
+    width: 100%;
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.illustration {
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .text-wrapper {

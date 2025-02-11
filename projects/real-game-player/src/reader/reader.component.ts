@@ -60,9 +60,6 @@ export class ReaderComponent {
     if (this.inkService.isInitialized) {
       return;
     }
-    if (this.inkService.startingKnot) {
-      this.inkService.ChoosePathString(this.inkService.startingKnot);
-    }
     this.inkService.Continue();
   }
 }
