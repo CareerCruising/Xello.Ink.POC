@@ -4,6 +4,8 @@
         grid-template-columns: 1fr 1fr;
         align-items: center;
         column-gap: 8px;
+        margin-top: 0;
+
         label {
             font-size: var(--taco-font-size-175);
         }
@@ -12,7 +14,6 @@
         }        
     }
 }
-
 
 .meter:not(:first-of-type) {
     margin-top: 8px;
