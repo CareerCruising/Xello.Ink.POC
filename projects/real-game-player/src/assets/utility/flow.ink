@@ -23,3 +23,20 @@
     -
     ->->
 
+
+VAR actionViewTitle = ""
+VAR actionViewNext = "Next"
+
+VAR onCloseActionView = -> onboarding
+=== action_view(-> redirect, -> complete, -> back) ===
+    ~ onCloseActionView = back
+
+    >>> action-view: open
+    ~ actionViewTitle = "World of work survey"
+
+    -> redirect ->
+
+    >>> action-view: close
+    
+    -> complete
+    

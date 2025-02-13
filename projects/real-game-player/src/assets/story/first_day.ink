@@ -18,7 +18,7 @@
     <p>You are nervous but excited to find out about working life.</p>
     
     + [Let's go!]
-
+    -
     -> office_introduction
     
     
@@ -59,7 +59,41 @@
     -
     + [Next]
     -
+    -> orientation
+
+
+=== orientation ===
+
+    ~ setTemplate(Templates.ContentIntro)
+    
+    >>> illustration: il-desktop-checklist
+    
+    <h1>Orientation</h1>
+    <p>Your boss asks you to take a survey as part of your training.</p>
+    
+    + [Take survey]
+    -
+    
+    -> action_view(-> orientation_survey, -> result, -> orientation) ->
+    
+    - (result)
+
+    ~ setTemplate(Templates.Result)
+    >>> illustration: il-ribbon
+    <h1>Well done!</h1>
+    <p>Your boss is pleased with your effort.</p>
+    ~ modifyWellbeing(2)
+    ~ modifyCareer(2)
+    ~ gainXP(150)
+    
+    + [Next]
+    -
     -> temp_housing
+
+
+=== orientation_survey ===
+    Survey
+    ->->
 
 
 === temp_housing ===

@@ -11,7 +11,7 @@ export const environment = {
   IMAGE_ENDPOINT: "https://img-dev-anaca.azureedge.net/",
   LOGIN_URL: "http://localhost:4200",
   LOGIN_ENDPOINT: "https://cc3dev.us.xello.tech/api",
-  STARTING_KNOT: '',
+  STARTING_KNOT: 'orientation',
   FEATURE_TOGGLE: {},
   CDN_ABSOLUTE_URL:'https://cdn-dev-anaca.azureedge.net/'
 };

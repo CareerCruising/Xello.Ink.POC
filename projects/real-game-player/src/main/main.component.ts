@@ -6,6 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
 import { InkService } from '../services/ink.service';
 import { CareerStore } from '../../store/career.store';
+import { ActionViewComponent } from "./action-view/action-view.component";
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,8 @@ import { CareerStore } from '../../store/career.store';
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-  ],
+    ActionViewComponent
+],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })

@@ -1,0 +1,56 @@
+.action-view__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(108.93deg, #4B6EB2 0%, #34496B 100%);
+    z-index: 9999;
+    display: grid;
+    grid-template-rows: 64px 1fr 88px;
+    color: white;
+}
+
+.action-view__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 27px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: var(--taco-color-cornflower-900);
+}
+.action-view__left {
+    text-align: left;
+    justify-items: flex-start;
+}
+.action-view__right {
+    text-align: right;
+    justify-items: flex-end;
+
+    ::ng-deep svg {
+        --taco-icon-fill: white;
+        fill: white !important;
+    }
+}
+
+.action-view__content {
+    justify-content: center;
+    align-items: center;
+
+    app-reader {
+        display: block;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.action-view__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--taco-color-cornflower-900);
+}
