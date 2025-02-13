@@ -9,17 +9,6 @@
     z-index: 1;
 }
 
-.meter {
-    label {
-        display: inline-block;
-        margin-bottom: 4px;
-    }
-
-    &:not(:first-of-type) {
-        margin-top: 8px;
-    }
-}
-
 .sidebar__section {
     padding: var(--taco-space-200);
     border-radius: var(--taco-radius-all);
@@ -30,20 +19,6 @@
     row-gap: 16px;
 }
 
-.sidebar__badge {
-    position: relative;
-    height: 32px;
-
-    .badge__level {
-        position: absolute;
-        color: var(--taco-color-text-primary);
-        font-size: var(--taco-font-size-175);
-        font-weight: bold;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
 .sidebar__header {
     display: grid;
     column-gap: 8px;

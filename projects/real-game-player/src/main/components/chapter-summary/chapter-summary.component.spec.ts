@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ChapterSummaryComponent } from './chapter-summary.component';
+
+describe('ChapterSummaryComponent', () => {
+  let component: ChapterSummaryComponent;
+  let fixture: ComponentFixture<ChapterSummaryComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ChapterSummaryComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(ChapterSummaryComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

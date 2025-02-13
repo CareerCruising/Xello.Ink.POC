@@ -1,19 +1,7 @@
 
 <div class="sidebar__section sidebar__section--student-info sidebar__section--{{background}}">
     <div>
-        <div class="sidebar__header sidebar__header--student-info">
-            <div class="sidebar__badge">
-                <img class="badge__bg" src="../../../assets/img/badge.svg" alt="" />
-                <span class="badge__level">1</span>
-            </div>
-            <div>
-                <b>Maya Anderson</b>
-                <span>{{currentXP}}xp</span>
-            </div>
-        </div>
-        <div>
-            <app-meter [watch]="'xp'" class="meter" [color]="'blue'"></app-meter>
-        </div>
+        <app-user-basic-info></app-user-basic-info>
     </div>
 </div>
 <div class="sidebar__section sidebar__section--balance sidebar__section--{{background}}">

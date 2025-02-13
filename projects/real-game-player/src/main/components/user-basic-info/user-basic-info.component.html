@@ -1,0 +1,14 @@
+
+<div class="header__wrapper">
+    <div class="badge__wrapper">
+        <img class="badge__bg" src="../../../assets/img/badge.svg" alt="" />
+        <span class="badge__level">1</span>
+    </div>
+    <div>
+        <b>Maya Anderson</b>
+        <span>{{currentXP}}xp</span>
+    </div>
+</div>
+<div>
+    <app-meter [watch]="'xp'" class="meter" [color]="'blue'"></app-meter>
+</div>

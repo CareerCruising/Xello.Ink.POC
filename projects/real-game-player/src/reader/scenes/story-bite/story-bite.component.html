@@ -1,5 +1,5 @@
 <app-scene-illustrated [@fadeIn]="true">
     <app-basic [ngClass]="{'illustrated': illustration}" class="reader">
-        <app-frame class="frame" *ngIf="currentFrame"></app-frame>
+        <app-frame class="frame" *ngIf="currentFrame" [component]="currentFrame"></app-frame>
     </app-basic>
 </app-scene-illustrated>

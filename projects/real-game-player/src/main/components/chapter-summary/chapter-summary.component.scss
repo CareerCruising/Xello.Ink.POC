@@ -1,0 +1,17 @@
+:host {
+    display: grid;
+    column-gap: 24px;
+    grid-template-columns: 1fr auto 1fr;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.divider {
+    border-right: solid 1px var(--taco-color-border-secondary);
+}
