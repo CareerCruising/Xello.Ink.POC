@@ -31,7 +31,7 @@
     
     + [Make a joke about the office]
         ~ setTemplate(Templates.Result)
-        >>> illustration: il-group
+        >>> illustration: il-diverse-people
         <h1>That was a little awkward.</h1>
         <p>Your joke about feeding llamas at the office lands a few laughs, and a few weird looks.</p>
         ~ modifyWellbeing(-1)
@@ -40,7 +40,7 @@
         
     + [Wave but don't say anything]
         ~ setTemplate(Templates.Result)
-        >>> illustration: il-group
+        >>> illustration: il-diverse-people
         <h1>That was a little awkward.</h1>
         <p>Your silent waving gets a few weird looks from co-workers.</p>
         ~ modifyWellbeing(-1)
@@ -49,7 +49,7 @@
 
     + [Offer a few quick facts about yourself]
         ~ setTemplate(Templates.Result)
-        >>> illustration: il-group
+        >>> illustration: il-diverse-people
         <h1>That was a little awkward.</h1>
         <p>You give a 2-minute intro and everyone smiles.</p>
         ~ modifyWellbeing(2)
@@ -132,7 +132,7 @@
 
     + [Ask questions to the speaker when they pause]
         ~ setTemplate(Templates.Result)
-        >>> illustration: il-group
+        >>> illustration: il-diverse-people
         <h1>No problem!</h1>
         <p>Your teammate is happy to pause and go over what to do. </p>
         ~ modifyWellbeing(1)
@@ -175,7 +175,7 @@
 
     + [Go out with friends]
         ~ setTemplate(Templates.Result)
-        >>> illustration: il-group
+        >>> illustration: il-diverse-people
         <h1>Get ready</h1>
         <p>Time to celebrate your new job!</p>
         ~ modifyWellbeing(3)

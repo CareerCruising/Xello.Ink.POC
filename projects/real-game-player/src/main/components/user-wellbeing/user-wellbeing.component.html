@@ -1,1 +1,19 @@
-<p>user-wellbeing works!</p>
+
+<div class="info__wrapper">
+    <div class="badge__wrapper">
+        <taco-illustration size="xlg" illustration="il-balance-heart-brain"></taco-illustration>
+    </div>
+    <div>
+        <b>Work-life balance</b>
+    </div>
+</div>
+<div class="meter__wrapper">
+    <div class="meter">
+        <label>Career</label>
+        <app-meter [watch]="'career'"></app-meter>    
+    </div>
+    <div class="meter">
+        <label>Well-being</label>
+        <app-meter [watch]="'wellbeing'"></app-meter>
+    </div>
+</div>

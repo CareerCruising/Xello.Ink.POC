@@ -1,0 +1,19 @@
+:host-context(app-chapter-summary) {
+    .meter__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        column-gap: 8px;
+        label {
+            font-size: var(--taco-font-size-175);
+        }
+        .meter:not(:first-of-type) {
+            margin-top: 0;
+        }        
+    }
+}
+
+
+.meter:not(:first-of-type) {
+    margin-top: 8px;
+}

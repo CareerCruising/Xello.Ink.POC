@@ -13,32 +13,6 @@
         transform: translate(-50%, -50%);
     }
 }
-.header__wrapper {
-    display: grid;
-    column-gap: 8px;
-    grid-template-columns: 32px 1fr;
-    font-size: var(--taco-font-size-175);
-    line-height: 1;
+.info__wrapper {
     margin-bottom: 8px;
-    text-align: left;
-
-    b {
-        font-size: var(--taco-font-size-225);
-    }
-
-    :last-child {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-}
-.meter {
-    label {
-        display: inline-block;
-        margin-bottom: 4px;
-    }
-
-    &:not(:first-of-type) {
-        margin-top: 8px;
-    }
 }

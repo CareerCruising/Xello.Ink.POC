@@ -98,3 +98,45 @@ small {
 .bg--blue-500 {
   background-color: var(--taco-color-blue-500) !important;
 }
+
+.info__wrapper {
+  display: grid;
+  column-gap: 8px;
+  align-items: center;
+  grid-template-columns: 32px 1fr;
+  font-size: var(--taco-font-size-175);
+  line-height: 1;
+  text-align: left;
+
+  b {
+    font-size: var(--taco-font-size-225);
+  }
+
+  :last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  :host-context(frame) {
+    b {
+      color: var(--taco-color-text-primary);
+    }
+    span {
+      color: var(--taco-color-text-secondary);
+    }
+  }
+
+  + .meter__wrapper {
+    margin-top: 8px;
+  }
+}
+
+.meter {
+    label {
+      font-size: var(--taco-font-size-175);
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+}
+
