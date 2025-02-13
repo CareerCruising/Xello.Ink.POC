@@ -22,12 +22,17 @@ import { CommonModule } from '@angular/common';
 })
 export class ActionViewComponent implements OnInit, OnDestroy {
 
+  actionViewTitle = '';
   isDestroyed$ = new Subject<boolean>();
   isOpen = false;
 
   constructor(private inkService: InkService) {}
 
   ngOnInit() {
+    this.actionViewTitle = this.inkService.story.variablesState.$('actionViewTitle')?.toString() ?? ''
+    this.inkService.story.ObserveVariable('actionViewTitle', (variableName, newValue) => {
+      this.actionViewTitle = newValue
+    })
     this.inkService.onCommandReceived
       .pipe(takeUntil(this.isDestroyed$))
       .subscribe(command => {
