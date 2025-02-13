@@ -1,5 +1,6 @@
 INCLUDE story/intro.ink
 INCLUDE story/onboarding.ink
+INCLUDE story/first_day.ink
 
 INCLUDE utility/typography.ink
 INCLUDE utility/roles.ink
@@ -7,10 +8,7 @@ INCLUDE utility/flow.ink
 INCLUDE utility/media.ink
 INCLUDE utility/templates.ink
 INCLUDE utility/data.ink
-INCLUDE story/first_day.ink
 INCLUDE utility/swing.ink
-
-
 
 
 
