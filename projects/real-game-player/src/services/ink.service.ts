@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 import { Templates } from '../models/templates.model';
 import { CareerService } from './career.service';
 import { CareerStore } from '../../store/career.store';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -42,12 +42,24 @@ export class InkService {
   currentPathString = '';
 
   currentTemplate: Templates = Templates.Title;
+  currentTemplate$ = new BehaviorSubject<Templates>(this.currentTemplate);
 
   isInitialized = false
 
   currentBackground = '';
   numColumns = 1;
   showFullUI = false;
+
+  get choiceRequiresConfirmation() {
+    switch (this.currentTemplate) {
+      case Templates.MultiChoice:
+      case Templates.DecisionPoint:
+      case Templates.Rating:
+        return true;
+      default:
+        return false;
+    } 
+  }
 
   knots: string[] = [];
 
@@ -148,6 +160,7 @@ export class InkService {
       case 'mode':
       case 'template':
         this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
+        this.currentTemplate$.next(this.currentTemplate)
         break;
       case 'rating':
         this.addLine({ type: 'rating', content: tokens[1] })

@@ -1,4 +1,4 @@
-<div class="action-view__wrapper">
+<div class="action-view__wrapper" [@isOpen]="isOpen">
     <div class="action-view__header">
         <div class="action-view__left">
             <!-- Progress bar -->
@@ -9,11 +9,11 @@
         </div>
     </div>
 
-    <div class="action-view__content">
+    <div class="action-view__content" *ngIf="isOpen">
         <app-reader></app-reader>
     </div>
 
     <div class="action-view__footer">
-        <taco-button type="basic" size="sm" value="Next"></taco-button>
+        <taco-button type="basic" size="sm" (tacoButtonClick)="onNext()" value="Next"></taco-button>
     </div>
 </div>

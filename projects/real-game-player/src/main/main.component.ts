@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { InkService } from '../services/ink.service';
 import { CareerStore } from '../../store/career.store';
 import { ActionViewComponent } from "./action-view/action-view.component";
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -24,6 +25,8 @@ import { ActionViewComponent } from "./action-view/action-view.component";
 })
 export class MainComponent implements OnInit {
 
+  isDestroyed$ = new Subject<boolean>();
+  isActionViewOpen = false;
   careerStore = inject(CareerStore);
 
   isLoading = computed(() => {
@@ -34,6 +37,18 @@ export class MainComponent implements OnInit {
     public inkService: InkService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+      this.inkService.onCommandReceived
+        .pipe(takeUntil(this.isDestroyed$))
+        .subscribe(command => {
+          switch (command.name) {
+            case 'action-view':
+              this.isActionViewOpen = command.params[0] === 'open';
+              break;
+            default:
+              break;
+          }
+        })
+  }
 
 }

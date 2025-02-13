@@ -92,7 +92,15 @@
 
 
 === orientation_survey ===
-    Survey
+    ~ setTemplate(Templates.ContentIntro)
+    
+    >>> illustration: il-briefcase-stars
+    
+    <h1>What do you think about the world of work?</h1>
+    <p>This is not a test. If you are not sure or don't have an opinion, answer "Don't know."</p>
+    
+    + [Next]
+    -
     ->->
 
 
