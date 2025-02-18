@@ -7,9 +7,9 @@
             </div>
         }
     </div>
-    <app-choice-list-dense
+    <app-choice-select-confirm
         [choices]="inkStore.currentChoices()"
         class="choice-list"
         (handleChoice)="inkService.SelectChoice($event)"
-    ></app-choice-list-dense>
+    ></app-choice-select-confirm>
 </app-scene-illustrated>

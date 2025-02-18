@@ -7,11 +7,13 @@ import { Choice } from 'inkjs/engine/Choice';
 import { Templates } from '../src/models/templates.model';
 import { computed } from '@angular/core';
 
+const DELAY_NORMAL = 1000;
+
 export const InkStore = signalStore(
   { providedIn: 'root' },
   withState({
     story: new Story(json),
-    delay: 1000,
+    delay: DELAY_NORMAL,
     isPlaying: false,
     isComplete: false,
     isInitialized: false,
@@ -74,7 +76,7 @@ export const InkStore = signalStore(
           currentTemplate: Templates.None,
           currentBackground: '',
           currentText: [],
-          delay: 1000,
+          delay: DELAY_NORMAL,
           currentChoiceMode: '',
         })
       }

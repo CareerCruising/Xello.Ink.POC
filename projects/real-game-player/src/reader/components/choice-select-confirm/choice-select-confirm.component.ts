@@ -4,12 +4,12 @@ import { ChoiceListComponent } from '../choice-list/choice-list.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-choice-list-dense',
+  selector: 'app-choice-select-confirm',
   standalone: true,
   imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './choice-list-dense.component.html',
-  styleUrl: './choice-list-dense.component.scss',
+  templateUrl: './choice-select-confirm.component.html',
+  styleUrl: './choice-select-confirm.component.scss',
   animations: [
     trigger('list', [
       transition('0 => *', [
@@ -27,6 +27,6 @@ import { CommonModule } from '@angular/common';
     ]),
   ]
 })
-export class ChoiceListDenseComponent extends ChoiceListComponent {
+export class ChoiceSelectConfirmComponent extends ChoiceListComponent {
 
 }

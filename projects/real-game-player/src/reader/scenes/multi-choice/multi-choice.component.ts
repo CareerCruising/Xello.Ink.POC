@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BasicComponent } from '../basic/basic.component';
-import { ChoiceListDenseComponent } from '../../components/choice-list-dense/choice-list-dense.component';
+import { ChoiceSelectConfirmComponent } from '../../components/choice-select-confirm/choice-select-confirm.component';
 import { SceneIllustratedComponent } from "../../components/scene-illustrated/scene-illustrated.component";
 
 @Component({
@@ -10,7 +10,7 @@ import { SceneIllustratedComponent } from "../../components/scene-illustrated/sc
   standalone: true,
   templateUrl: './multi-choice.component.html',
   styleUrl: './multi-choice.component.scss',
-  imports: [CommonModule, ChoiceListDenseComponent, SceneIllustratedComponent],
+  imports: [CommonModule, ChoiceSelectConfirmComponent, SceneIllustratedComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   animations: [
     trigger('fadeIn', [
