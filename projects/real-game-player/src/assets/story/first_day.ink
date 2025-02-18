@@ -66,10 +66,10 @@
 
     ~ setTemplate(Templates.ContentIntro)
     
-    >>> illustration: il-desktop-checklist
-    
     <h1>Orientation</h1>
     <p>Your boss asks you to take a survey as part of your training.</p>
+
+    >>> illustration: il-desktop-checklist
     
     + [Take survey]
     -

@@ -27,7 +27,6 @@ export class ActionViewComponent implements OnInit, OnDestroy {
 
   actionViewTitle = '';
   isDestroyed$ = new Subject<boolean>();
-  isOpen = false;
 
   constructor(private inkService: InkService) {}
 
@@ -41,7 +40,7 @@ export class ActionViewComponent implements OnInit, OnDestroy {
       .subscribe(command => {
         switch (command.name) {
           case 'action-view':
-            this.isOpen = command.params[0] === 'open';
+            this.inkStore.setActionViewOpen(command.params[0] === 'open');
             break;
           default:
             break;

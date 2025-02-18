@@ -21,7 +21,6 @@ import { InkStore } from '../../../../store/ink.store';
 })
 export class SidebarComponent implements OnDestroy {
   inkStore = Inject(InkStore);
-  background = computed(() => { return this.inkStore.currentBackground() });
   isDestroyed$ = new BehaviorSubject<boolean>(false);
 
   constructor() {}

@@ -24,6 +24,6 @@ import { SceneIllustratedComponent } from "../../components/scene-illustrated/sc
 export class MultiChoiceComponent extends BasicComponent implements OnInit {
 
   ngOnInit(): void {
-    this.inkService.delay = 0
+    this.inkStore.setDelay(0)
   }
 }

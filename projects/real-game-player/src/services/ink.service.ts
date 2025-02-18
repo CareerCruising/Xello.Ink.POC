@@ -1,4 +1,4 @@
-import { EventEmitter, inject, Injectable } from '@angular/core';
+import { ApplicationRef, EventEmitter, inject, Injectable } from '@angular/core';
 import { Choice } from 'inkjs/engine/Choice';
 import { ContentLine } from '../models/content-line.interface';
 import { environment } from '../environments/environment';
@@ -24,8 +24,6 @@ export class InkService {
   careerStore = inject(CareerStore);
   inkStore = inject(InkStore);
 
-  delay = 1000;
-
   isPlaying = false;
   isComplete = false;
 
@@ -37,7 +35,8 @@ export class InkService {
   knots: string[] = [];
 
   constructor(
-    private careerService: CareerService
+    private careerService: CareerService,
+    private appRef: ApplicationRef
   ) {
     this.startingKnot = environment.STARTING_KNOT || 'intro';
     this.initStory();
@@ -76,13 +75,15 @@ export class InkService {
 
       if (text.startsWith('>>>')) {
         await this.HandleCommand(text.substring(3).trim());
+        this.appRef.tick();
         this.Continue();
       } else {
         this.inkStore.addLine({type: 'text', content: text});
+        this.appRef.tick();
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
-        }, this.delay);
+        }, this.inkStore.delay());
       }
     } else {
       this.isComplete = true;
@@ -104,11 +105,13 @@ export class InkService {
   }
 
   ChoosePathString(path: string) {
+    console.log(path);
     if (!this.inkStore.story().HasFunction(path)) {
       console.error(`Attempting to navigate to ${path}, which does not exist in this story!`)
       return;
     }
     this.inkStore.story().ChoosePathString(path);
+    this.Continue();
   }
 
   async HandleCommand(str: string) {
@@ -119,6 +122,7 @@ export class InkService {
       name: commandName,
       params: tokens.slice(1)
     }
+    console.log(command);
   
     switch (commandName) {
       case 'ui':
@@ -131,8 +135,8 @@ export class InkService {
         this.onLookup.emit(res[values[1]])
         break;
       case 'delay':
-        this.delay = +tokens[1];
-        await sleep(this.delay);
+        this.inkStore.setDelay(+tokens[1]);
+        await sleep(this.inkStore.delay());
         break;
       case 'mode':
       case 'template':

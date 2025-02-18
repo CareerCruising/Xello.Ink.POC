@@ -29,7 +29,7 @@ export class StoryBiteComponent extends BasicComponent implements OnInit {
 
   ngOnInit(): void {
     this.fadeIn = true;
-    this.inkService.delay = 0;
+    this.inkStore.setDelay(0);
     this.inkService.onCommandReceived.subscribe(command => {
       switch (command.name) {
         case 'frame':

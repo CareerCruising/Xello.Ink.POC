@@ -28,7 +28,8 @@ export class ContentIntroComponent extends BasicComponent implements OnInit {
 
   ngOnInit(): void {
     this.fadeIn = true;
-    this.inkService.delay = 0;
+    this.inkStore.setDelay(0)
+    console.log('init');
     this.inkService.onCommandReceived
       .pipe(takeUntil(this.isDestroyed$))
       .subscribe(command => {

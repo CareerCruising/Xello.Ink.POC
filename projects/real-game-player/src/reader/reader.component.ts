@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, Input } from '@angular/core';
 import {
   animate,
   query,
@@ -57,14 +57,18 @@ import { InkStore } from '../../store/ink.store';
 })
 export class ReaderComponent {
 
+  @Input() context: 'basic' | 'action-view' = 'basic';
+
   inkStore = inject(InkStore);
+
+  allowProgress = computed(() => {
+    if (this.context == 'action-view') {
+      return true;
+    }
+    return !this.inkStore.isActionViewOpen();
+  })
 
   Templates = Templates;
 
-  constructor(public inkService: InkService) {
-    if (this.inkService.isInitialized) {
-      return;
-    }
-    this.inkService.Continue();
-  }
+  constructor() {}
 }

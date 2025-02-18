@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SceneIllustratedComponent } from '../../components/scene-illustrated/scene-illustrated.component';
 import { BasicComponent } from '../basic/basic.component';
 import { InkService } from '../../../services/ink.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-summary',
@@ -22,10 +23,12 @@ import { CommonModule } from '@angular/common';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private inkService: InkService) {}
+  private inkStore = inject(InkStore);
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.inkService.delay = 0;
+    this.inkStore.setDelay(0);
   }
 
 }

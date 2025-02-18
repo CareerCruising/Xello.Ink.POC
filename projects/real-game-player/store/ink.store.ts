@@ -17,6 +17,7 @@ export const InkStore = signalStore(
     isPlaying: false,
     isComplete: false,
     isInitialized: false,
+    isActionViewOpen: false,
     showFullUI: false,
     currentBackground: '',
     currentChoices: [] as Choice[],
@@ -65,8 +66,14 @@ export const InkStore = signalStore(
       setUIState(state: string) {
         patchState(store, { showFullUI: state === 'full' });
       },
+      setActionViewOpen(isOpen: boolean) {
+        patchState(store, { isActionViewOpen: isOpen });
+      },
       setBackground(background: string) {
         patchState(store, { currentBackground: background });
+      },
+      setDelay(delay: number) {
+        patchState(store, { delay });
       },
       setTemplate(template: Templates) {
         patchState(store, { currentTemplate: template });

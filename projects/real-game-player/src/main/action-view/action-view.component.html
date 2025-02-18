@@ -1,4 +1,4 @@
-<div class="action-view__wrapper" [@isOpen]="isOpen">
+<div class="action-view__wrapper" [@isOpen]="inkStore.isActionViewOpen()">
     <div class="action-view__header">
         <div class="action-view__left">
             <!-- Progress bar -->
@@ -9,8 +9,8 @@
         </div>
     </div>
 
-    <div class="action-view__content" *ngIf="isOpen">
-        <app-reader></app-reader>
+    <div class="action-view__content" *ngIf="inkStore.isActionViewOpen()">
+        <app-reader [context]="'action-view'"></app-reader>
     </div>
 
     <div class="action-view__footer">

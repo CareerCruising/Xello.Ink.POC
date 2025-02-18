@@ -42,7 +42,7 @@ export class RatingComponent implements OnInit, OnDestroy {
 
 
   constructor(public inkService: InkService) {
-    this.inkService.delay = 0;
+    this.inkStore.setDelay(0)
   }
 
   ngOnInit() {
