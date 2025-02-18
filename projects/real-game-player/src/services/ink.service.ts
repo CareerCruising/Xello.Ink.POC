@@ -1,6 +1,4 @@
-import { computed, EventEmitter, inject, Injectable } from '@angular/core';
-import { Story } from 'inkjs';
-import * as json from '../assets/story.ink.json';
+import { EventEmitter, inject, Injectable } from '@angular/core';
 import { Choice } from 'inkjs/engine/Choice';
 import { ContentLine } from '../models/content-line.interface';
 import { environment } from '../environments/environment';
@@ -8,13 +6,11 @@ import { Templates } from '../models/templates.model';
 import { CareerService } from './career.service';
 import { CareerStore } from '../../store/career.store';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { capitalize } from '../helpers/string.helpers';
+import { InkStore } from '../../store/ink.store';
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function capitalize(str: string) {
-  return str[0].toUpperCase() + str.slice(1)
 }
 
 @Injectable({
@@ -26,8 +22,7 @@ export class InkService {
   onLookup = new EventEmitter<string>();
 
   careerStore = inject(CareerStore);
-
-  story = new Story(json);
+  inkStore = inject(InkStore);
 
   delay = 1000;
 
@@ -71,12 +66,15 @@ export class InkService {
   }
 
   initStory() {
-    this.story.variablesState.$('environment', 'web');
-    this.story.BindExternalFunction('loadCareer', (id: string) => {
-      return this.careerService.getCareerProfile(+id)
-    }, true);
-    this.story.BindExternalFunction('lowercase', (str) => { return str.toLowerCase() }, true);
-    this.story.BindExternalFunction('titlecase', (str: string) => { return str.split(' ').map(text => capitalize(text)).join(' ') }, true);
+    const story = this.inkStore.story();
+    if (story !== null) {
+      story.variablesState.$('environment', 'web');
+      story.BindExternalFunction('loadCareer', (id: string) => {
+        return this.careerService.getCareerProfile(+id)
+      }, true);
+      story.BindExternalFunction('lowercase', (str) => { return str.toLowerCase() }, true);
+      story.BindExternalFunction('titlecase', (str: string) => { return str.split(' ').map(text => capitalize(text)).join(' ') }, true);  
+    }
 
     this.currentPathString = localStorage.getItem('currentPathString') || '';
     if (false && this.currentPathString !== '') {
@@ -87,15 +85,16 @@ export class InkService {
   }
 
   async Continue() {
-    if (this.isPlaying) {
+    const story = this.inkStore.story();
+    if (this.isPlaying || !story) {
       return;
     }
     this.isInitialized = true;
     this.isPlaying = true;
-    this.currentChoices = this.story.currentChoices;
-    if (this.story.canContinue) {
+    this.currentChoices = story.currentChoices;
+    if (story.canContinue) {
       this.isComplete = false;
-      const text = this.story.Continue() ?? '';
+      const text = story.Continue() ?? '';
 
       if (text.startsWith('>>>')) {
         await this.HandleCommand(text.substring(3).trim());
@@ -111,8 +110,8 @@ export class InkService {
       this.isComplete = true;
     }
 
-    if (this.story.state.currentPathString) {
-      const pathString = this.story.state.currentPathString.split('.')[0]
+    if (story.state.currentPathString) {
+      const pathString = story.state.currentPathString.split('.')[0]
       if (this.currentPathString !== pathString) {
         this.currentPathString = pathString;
         localStorage.setItem('currentPathString', this.currentPathString);
@@ -123,15 +122,15 @@ export class InkService {
   }
 
   Choose(choice: Choice) {
-    this.story.ChooseChoiceIndex(choice.index);
+    this.inkStore.story().ChooseChoiceIndex(choice.index);
   }
 
   ChoosePathString(path: string) {
-    if (!this.story.HasFunction(path)) {
+    if (!this.inkStore.story().HasFunction(path)) {
       console.error(`Attempting to navigate to ${path}, which does not exist in this story!`)
       return;
     }
-    this.story.ChoosePathString(path);
+    this.inkStore.story().ChoosePathString(path);
   }
 
   async HandleCommand(str: string) {

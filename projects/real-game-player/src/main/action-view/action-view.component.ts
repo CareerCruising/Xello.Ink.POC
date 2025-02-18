@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnDestroy, OnInit } from '@angular/core';
 import { ReaderComponent } from "../../reader/reader.component";
 import { InkService } from '../../services/ink.service';
 import { Subject, takeUntil } from 'rxjs';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { InkStore } from '../../../store/ink.store';
 
 @Component({
   selector: 'app-action-view',
@@ -22,6 +23,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ActionViewComponent implements OnInit, OnDestroy {
 
+  inkStore = inject(InkStore);
+
   actionViewTitle = '';
   isDestroyed$ = new Subject<boolean>();
   isOpen = false;
@@ -29,8 +32,8 @@ export class ActionViewComponent implements OnInit, OnDestroy {
   constructor(private inkService: InkService) {}
 
   ngOnInit() {
-    this.actionViewTitle = this.inkService.story.variablesState.$('actionViewTitle')?.toString() ?? ''
-    this.inkService.story.ObserveVariable('actionViewTitle', (variableName, newValue) => {
+    this.actionViewTitle = this.inkStore.story().variablesState.$('actionViewTitle')?.toString() ?? ''
+    this.inkStore.story().ObserveVariable('actionViewTitle', (_: string, newValue: string) => {
       this.actionViewTitle = newValue
     })
     this.inkService.onCommandReceived

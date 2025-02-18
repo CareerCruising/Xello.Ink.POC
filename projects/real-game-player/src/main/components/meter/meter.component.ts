@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { CommonModule } from '@angular/common';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-meter',
@@ -13,6 +14,8 @@ export class MeterComponent implements OnInit {
 
   @Input() watch = '';
   @Input() color = 'green';
+
+  inkStore = inject(InkStore)
 
   value = 0;
   max = 100;
@@ -31,12 +34,12 @@ export class MeterComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.watch !== '') {
-      const value = this.inkService.story.variablesState.$(this.watch);
+      const value = this.inkStore.story().variablesState.$(this.watch);
       if (value && !isNaN(+value)) {
         this.value = +value;
       }
     
-      this.inkService.story.ObserveVariable(this.watch, (variable, newValue) => {
+      this.inkStore.story().ObserveVariable(this.watch, (variable, newValue) => {
         const isNumber = !isNaN(+newValue)
         if (isNumber) {
           const prev = this.getValue(this.watch, this.value);
@@ -90,8 +93,8 @@ export class MeterComponent implements OnInit {
   }
 
   getSwingValue(variable: string, value: number) {
-    const upness = this.inkService.story.EvaluateFunction('upness', [value]);
-    const downness = this.inkService.story.EvaluateFunction('downness', [value]);
+    const upness = this.inkStore.story().EvaluateFunction('upness', [value]);
+    const downness = this.inkStore.story().EvaluateFunction('downness', [value]);
     return upness / downness;
   }
   

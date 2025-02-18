@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MeterComponent } from '../meter/meter.component';
 import { InkService } from '../../../services/ink.service';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-user-basic-info',
@@ -10,11 +11,14 @@ import { InkService } from '../../../services/ink.service';
   styleUrl: './user-basic-info.component.scss'
 })
 export class UserBasicInfoComponent {
+
+  inkStore = inject(InkStore);
+
   currentXP = 0
 
-  constructor(private inkService: InkService) {
-    this.currentXP = +(this.inkService.story.variablesState.$('xp') || 0);
-    this.inkService.story.ObserveVariable('xp', (variableName, newValue) => {
+  constructor() {
+    this.currentXP = +(this.inkStore.story().variablesState.$('xp') || 0);
+    this.inkStore.story().ObserveVariable('xp', (variableName, newValue) => {
       this.currentXP = +newValue;
     });
   }
