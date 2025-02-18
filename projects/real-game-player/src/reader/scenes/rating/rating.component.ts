@@ -7,6 +7,7 @@ import { ChoiceRatingComponent } from "../../components/choice-rating/choice-rat
 import { Choice } from 'inkjs/engine/Choice';
 import { CareerStore } from '../../../../store/career.store';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-rating',
@@ -25,6 +26,8 @@ import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
   ]
 })
 export class RatingComponent implements OnInit, OnDestroy {
+
+  inkStore = inject(InkStore);
 
   choiceFrame: { content: string } | null = null;
   choiceSelected: Choice | null = null;

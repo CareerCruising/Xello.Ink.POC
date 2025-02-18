@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnDestroy } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, Input, OnDestroy } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { BehaviorSubject, Observable, Subject, Subscription, takeUntil } from 'rxjs';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-basic',
@@ -25,12 +26,10 @@ import { BehaviorSubject, Observable, Subject, Subscription, takeUntil } from 'r
 })
 export class BasicComponent implements OnDestroy {
 
+  inkStore = inject(InkStore);
+
   @Input() animate = true;
   @Input() showChoices = true;
-
-  get lines() {
-    return this.inkService.currentText;
-  }
 
   isDestroyed$ = new Subject<boolean>();
   

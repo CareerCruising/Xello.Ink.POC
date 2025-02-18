@@ -8,6 +8,7 @@ import { InkService } from '../services/ink.service';
 import { CareerStore } from '../../store/career.store';
 import { ActionViewComponent } from "./action-view/action-view.component";
 import { Subject, takeUntil } from 'rxjs';
+import { InkStore } from '../../store/ink.store';
 
 @Component({
   selector: 'app-main',
@@ -24,10 +25,12 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './main.component.scss'
 })
 export class MainComponent implements OnInit {
+  inkStore = inject(InkStore);
+  careerStore = inject(CareerStore);
+
 
   isDestroyed$ = new Subject<boolean>();
   isActionViewOpen = false;
-  careerStore = inject(CareerStore);
 
   isLoading = computed(() => {
     return this.careerStore.career() == null;

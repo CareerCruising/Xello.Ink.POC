@@ -1,18 +1,83 @@
-import { signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
 import { Story } from 'inkjs';
 
 import * as json from '../src/assets/story.ink.json'
+import { ContentLine } from '../src/models/content-line.interface';
+import { Choice } from 'inkjs/engine/Choice';
+import { Templates } from '../src/models/templates.model';
+import { computed } from '@angular/core';
 
 export const InkStore = signalStore(
   { providedIn: 'root' },
   withState({
-    story: new Story(json)
+    story: new Story(json),
+    delay: 1000,
+    isPlaying: false,
+    isComplete: false,
+    isInitialized: false,
+    showFullUI: false,
+    currentBackground: '',
+    currentChoices: [] as Choice[],
+    currentChoiceMode: '',
+    currentText: [] as ContentLine[],
+    currentTemplate: Templates.Title
   }),
+  withComputed(({ currentTemplate }) => ({
+    choiceRequiresConfirmation: computed(() => {
+      switch (currentTemplate()) {
+        case Templates.MultiChoice:
+        case Templates.DecisionPoint:
+        case Templates.Rating:
+          return true;
+        default:
+          return false;
+      } 
+    })
+  })),
   withMethods(
-    (
-      state
-    ) => ({
-      // ...
+    ( store ) => ({
+      continue() {
+        var story = store.story()
+        if (store.isPlaying() || !story) {
+          return;
+        }
+
+        patchState(store, {
+          isInitialized: true,
+          currentChoices: story.currentChoices
+        });
+      },
+      addLine(line: Partial<ContentLine>) {
+        const _currentText = store.currentText()
+        const _newLine  = {
+          id: _currentText.length,
+          type: 'text',
+          content: '',
+          ...line
+        };
+
+        patchState(store, {
+          currentText: [..._currentText, _newLine]
+        });
+      },
+      setUIState(state: string) {
+        patchState(store, { showFullUI: state === 'full' });
+      },
+      setBackground(background: string) {
+        patchState(store, { currentBackground: background });
+      },
+      setTemplate(template: Templates) {
+        patchState(store, { currentTemplate: template });
+      },
+      reset() {
+        patchState(store, {
+          currentTemplate: Templates.None,
+          currentBackground: '',
+          currentText: [],
+          delay: 1000,
+          currentChoiceMode: '',
+        })
+      }
     }),
   ),
   withHooks({

@@ -1,10 +1,11 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, Inject, OnDestroy } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { BehaviorSubject } from 'rxjs';
 import { MeterComponent } from '../meter/meter.component';
 import { UserBasicInfoComponent } from "../user-basic-info/user-basic-info.component";
 import { UserWellbeingComponent } from "../user-wellbeing/user-wellbeing.component";
 import { UserChapterProgressComponent } from "../user-chapter-progress/user-chapter-progress.component";
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,14 +20,11 @@ import { UserChapterProgressComponent } from "../user-chapter-progress/user-chap
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent implements OnDestroy {
-  background = '';
+  inkStore = Inject(InkStore);
+  background = computed(() => { return this.inkStore.currentBackground() });
   isDestroyed$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private inkService: InkService) {
-    this.inkService.onCommandReceived.subscribe(cmd => {
-      this.background = this.inkService.currentBackground;
-    });
-  }
+  constructor() {}
 
   ngOnDestroy(): void {
     this.isDestroyed$.next(true);

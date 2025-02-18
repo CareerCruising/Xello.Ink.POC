@@ -12,8 +12,8 @@
     <ng-container *ngSwitchDefault></ng-container>
 </ng-container>
 
-<div class="text-wrapper" [@fadeIn]="lines.length">
-    @for (line of lines; track line.id) {
+<div class="text-wrapper" [@fadeIn]="inkStore.currentText().length">
+    @for (line of inkStore.currentText(); track line.id) {
         <ng-container [ngSwitch]="line.type">
             <div
                 class="text"
@@ -31,8 +31,8 @@
 </div>
 
 <app-choice-list
-    [mode]="inkService.currentChoiceMode"
-    [choices]="inkService.currentChoices"
+    [mode]="inkStore.currentChoiceMode()"
+    [choices]="inkStore.currentChoices()"
     class="choice-list"
     alignment="center"
     (handleChoice)="inkService.SelectChoice($event)"

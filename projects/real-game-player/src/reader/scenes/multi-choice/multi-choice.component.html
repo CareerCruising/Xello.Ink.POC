@@ -1,6 +1,6 @@
 <app-scene-illustrated [@fadeIn]="true">
     <div class="text-wrapper">
-        @for (line of lines; track line.id) {
+        @for (line of inkStore.currentText(); track line.id) {
             <div
                 class="text"
                 [innerHTML]="line.content">
@@ -8,7 +8,7 @@
         }
     </div>
     <app-choice-list-dense
-        [choices]="inkService.currentChoices"
+        [choices]="inkStore.currentChoices()"
         class="choice-list"
         (handleChoice)="inkService.SelectChoice($event)"
     ></app-choice-list-dense>

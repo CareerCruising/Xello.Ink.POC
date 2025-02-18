@@ -9,7 +9,7 @@
         <div class="choice-frame__content">
             <span [innerHTML]="lookupContent"></span>
             <app-choice-rating
-                [choices]="inkService.currentChoices"
+                [choices]="inkStore.currentChoices()"
                 class="choice-list"
                 (handleSelect)="selectChoice($event)"
             ></app-choice-rating>

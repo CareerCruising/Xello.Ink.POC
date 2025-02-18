@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import {
   animate,
   query,
@@ -19,6 +19,7 @@ import { ChapterTitleComponent } from './scenes/chapter-title/chapter-title.comp
 import { ContentIntroComponent } from './scenes/content-intro/content-intro.component';
 import { SummaryComponent } from './scenes/summary/summary.component';
 import { StoryBiteIllustratedComponent } from "./scenes/story-bite-illustrated/story-bite-illustrated.component";
+import { InkStore } from '../../store/ink.store';
 
 @Component({
   selector: 'app-reader',
@@ -55,6 +56,8 @@ import { StoryBiteIllustratedComponent } from "./scenes/story-bite-illustrated/s
   ],
 })
 export class ReaderComponent {
+
+  inkStore = inject(InkStore);
 
   Templates = Templates;
 

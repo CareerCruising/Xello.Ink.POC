@@ -29,32 +29,10 @@ export class InkService {
   isPlaying = false;
   isComplete = false;
 
-  groups: {[id: string]: ContentLine[]} = {};
-  currentText: ContentLine[] = [];
-  currentChoices: Choice[] = [];
-  currentChoiceMode = '';
   startingKnot = '';
   currentPathString = '';
 
-  currentTemplate: Templates = Templates.Title;
-  currentTemplate$ = new BehaviorSubject<Templates>(this.currentTemplate);
-
   isInitialized = false
-
-  currentBackground = '';
-  numColumns = 1;
-  showFullUI = false;
-
-  get choiceRequiresConfirmation() {
-    switch (this.currentTemplate) {
-      case Templates.MultiChoice:
-      case Templates.DecisionPoint:
-      case Templates.Rating:
-        return true;
-      default:
-        return false;
-    } 
-  }
 
   knots: string[] = [];
 
@@ -89,18 +67,18 @@ export class InkService {
     if (this.isPlaying || !story) {
       return;
     }
-    this.isInitialized = true;
     this.isPlaying = true;
-    this.currentChoices = story.currentChoices;
+
     if (story.canContinue) {
       this.isComplete = false;
       const text = story.Continue() ?? '';
+      this.inkStore.continue();
 
       if (text.startsWith('>>>')) {
         await this.HandleCommand(text.substring(3).trim());
         this.Continue();
       } else {
-        this.addLine({type: 'text', content: text});
+        this.inkStore.addLine({type: 'text', content: text});
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
@@ -144,7 +122,7 @@ export class InkService {
   
     switch (commandName) {
       case 'ui':
-        this.showFullUI = tokens[1] === 'game';
+        this.inkStore.setUIState(tokens[1] === 'game' ? 'full' : 'partial');
         break;
       case 'lookup':
         const values = tokens[1].split('.');
@@ -158,14 +136,13 @@ export class InkService {
         break;
       case 'mode':
       case 'template':
-        this.currentTemplate = Templates[tokens[1] as keyof typeof Templates];
-        this.currentTemplate$.next(this.currentTemplate)
+        this.inkStore.setTemplate(Templates[tokens[1] as keyof typeof Templates]);
         break;
       case 'rating':
-        this.addLine({ type: 'rating', content: tokens[1] })
+        this.inkStore.addLine({ type: 'rating', content: tokens[1] })
         break;
       case 'background':
-        this.currentBackground = tokens[1].toLowerCase();
+        this.inkStore.setBackground(tokens[1].toLowerCase());
         break;
     }
 
@@ -175,23 +152,8 @@ export class InkService {
     return command;
   }
 
-  addLine(line: Partial<ContentLine>) {
-    this.currentText.push({
-      id: this.currentText.length,
-      type: 'text',
-      content: '',
-      ...line
-    });
-  }
-
   Reset() {
-    this.groups = {};
-    this.currentTemplate = Templates.None;
-    this.currentBackground = '';
-    this.currentText = [];
-    this.numColumns = 1;
-    this.delay = 1000;
-    this.currentChoiceMode = '';
+    this.inkStore.reset();
   }
 
   SelectChoice(choice: Choice) {

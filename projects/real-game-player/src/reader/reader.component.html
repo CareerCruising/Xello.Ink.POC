@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="inkService.currentTemplate">
+<ng-container [ngSwitch]="inkStore.currentTemplate()">
     <div *ngSwitchCase="Templates.None"></div>
     <app-title *ngSwitchCase="Templates.Title"></app-title>
     <app-content-intro *ngSwitchCase="Templates.ContentIntro"></app-content-intro>
@@ -11,6 +11,6 @@
     <app-summary *ngSwitchCase="Templates.RatingSummary"></app-summary>
     <app-multi-choice *ngSwitchCase="Templates.MultiChoice"></app-multi-choice>
     <div class="container" *ngSwitchDefault>
-        <app-basic class="reader reader--{{inkService.currentTemplate}}"></app-basic>
+        <app-basic class="reader reader--{{inkStore.currentTemplate()}}"></app-basic>
     </div>
 </ng-container>

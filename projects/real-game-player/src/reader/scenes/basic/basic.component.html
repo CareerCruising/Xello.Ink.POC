@@ -1,5 +1,5 @@
-<div class="content" [ngClass]="{ 'text-wrapper--animated': animate }" [@fadeIn]="animate ? lines.length : 0">
-    @for (line of lines; track line.id) {
+<div class="content" [ngClass]="{ 'text-wrapper--animated': animate }" [@fadeIn]="animate ? inkStore.currentText().length : 0">
+    @for (line of inkStore.currentText(); track line.id) {
         <ng-container [ngSwitch]="line.type">
             <div class="rating" *ngSwitchCase="'rating'">
                 @for (i of [1, 2, 3, 4, 5]; track i) {
@@ -22,8 +22,8 @@
 </div>
 
 <app-choice-list
-    [mode]="inkService.currentChoiceMode"
-    [choices]="inkService.currentChoices"
+    [mode]="inkStore.currentChoiceMode()"
+    [choices]="inkStore.currentChoices()"
     *ngIf="showChoices"
     class="choice-list"
     alignment="center"

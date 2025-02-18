@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, effect, inject, OnDestroy, OnInit } from '@angular/core';
 import { ReaderComponent } from "../../reader/reader.component";
 import { InkService } from '../../services/ink.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -46,12 +46,6 @@ export class ActionViewComponent implements OnInit, OnDestroy {
           default:
             break;
         }
-      })
-
-    this.inkService.currentTemplate$
-      .pipe(takeUntil(this.isDestroyed$))
-      .subscribe(template => {
-        console.log(template);
       })
   }
 

@@ -1,6 +1,6 @@
 <ng-container *ngIf="!isLoading(); else loading">
     <div class="main__wrapper main__wrapper--full main__wrapper--bg-gradient"
-         *ngIf="inkService.showFullUI; else simple">
+         *ngIf="inkStore.showFullUI(); else simple">
         <app-header></app-header>
         <app-sidebar></app-sidebar>
         <app-reader *ngIf="!isActionViewOpen" class="main__reader main__reader--full"></app-reader>
@@ -8,7 +8,7 @@
     </div>
     
     <ng-template #simple>
-        <div class="main__wrapper main__wrapper--simple main__wrapper--bg-{{inkService.currentBackground}}">
+        <div class="main__wrapper main__wrapper--simple main__wrapper--bg-{{inkStore.currentBackground()}}">
             <app-header></app-header>
             <app-reader *ngIf="!isActionViewOpen" class="main__reader main__reader--simple"></app-reader>
         </div>    
@@ -18,6 +18,6 @@
 <app-action-view></app-action-view>
 
 <ng-template #loading>
-    <div class="main__wrapper main__wrapper--simple main__wrapper--bg-{{inkService.currentBackground}}">
+    <div class="main__wrapper main__wrapper--simple main__wrapper--bg-{{inkStore.currentBackground()}}">
     </div>
 </ng-template>
