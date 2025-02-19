@@ -6,5 +6,5 @@
     [ngClass]="{ 'choice--illustrated': !!illustration, active: inkStore.selectedChoice()?.index === choice.index }"
     (click)="inkStore.selectChoice(choice)">
     <taco-illustration class="choice__illustration" *ngIf="illustration" size="xxlg" illustration="{{illustration}}"></taco-illustration>
-    <span class="choice__text">{{choice.text}}</span>
+    <div class="choice__text" [innerHTML]="choice.text"></div>
 </button>

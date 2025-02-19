@@ -88,7 +88,57 @@
     
     + [Next]
     -
+    -> aspiration_choice
+    
+
+=== aspiration_choice ===
+
+    ~ setTemplate(Templates.ContentIntro)
+    
+    <h1>What does success look like for you?</h1>
+    <p>Choose an aspiration to guide you.</p>
+
+    >>> illustration: il-mountain-flag
+    
+    + [Set aspiration]
+    -
+    
+    -> action_view(-> aspiration_survey, -> result, -> aspiration_choice) ->
+    
+    - (result)
+
+    ~ setTemplate(Templates.Result)
+    >>> illustration: {get_aspiration_illustration(aspiration)}
+    <h1>Life, inspired!</h1>
+    <p>Your boss is pleased with your effort.</p>
+    ~ modifyWellbeing(2)
+    ~ modifyCareer(2)
+    ~ gainXP(150)
+    
+    + [Next]
+    -
     -> temp_housing
+
+
+=== aspiration_survey ===
+    ~ setTemplate(Templates.MultiChoiceRow)
+    
+    <h1>What is your main aspiration in life?</h1>
+    <p>You will have the chance to change this later, if you want.</p>
+    
+    + <b>Family</b> Support and raise a family # illustration: {get_aspiration_illustration(Aspirations.Family)}
+        ~ aspiration = Aspirations.Family
+    + <b>Career</b> Rise up professionally and be recognized # illustration: {get_aspiration_illustration(Aspirations.Career)}
+        ~ aspiration = Aspirations.Career
+    + <b>Savings</b> Save enough to retire comfortably # illustration: {get_aspiration_illustration(Aspirations.Savings)}
+        ~ aspiration = Aspirations.Savings
+    + <b>Social</b> Have fun experiences with friends # illustration: {get_aspiration_illustration(Aspirations.Social)}
+        ~ aspiration = Aspirations.Social
+    + <b>Lifestyle</b> Buy expensive things and live large # illustration: {get_aspiration_illustration(Aspirations.Lifestyle)}
+        ~ aspiration = Aspirations.Lifestyle
+    
+    -
+    ->->
 
 
 VAR opinionTransferableSkills = 0

@@ -13,3 +13,17 @@
         align-items: center;
     }
 }
+
+:host-context(.action-view__wrapper) {
+    .choice.active {
+        background-color: var(--taco-color-blue-50);
+    }
+}
+
+.choice__text {
+    ::ng-deep b {
+        font-size: var(--taco-font-size-225);
+        line-height: var(--taco-font-line-height-300);
+        display: block;
+    }
+}

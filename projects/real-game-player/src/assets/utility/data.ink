@@ -35,3 +35,20 @@ VAR xp = 0
 === function gainXP(num) ===
     >>> modify: xp {num}
     ~ xp += num
+
+LIST Aspirations = None, Family, Career, Savings, Social, Lifestyle
+VAR aspiration = Aspirations.None
+=== function get_aspiration_illustration(_aspiration) ===
+    {_aspiration:
+    -   Aspirations.Family:
+        ~ return "il-one-hand-heart"
+    -   Aspirations.Career:
+        ~ return "il-briefcase-stars"
+    -   Aspirations.Social:
+        ~ return "il-high-five"
+    -   Aspirations.Savings:
+        ~ return "il-piggy-bank-money"
+    -   Aspirations.Lifestyle:
+        ~ return "il-car"
+    }
+    ~ return "il-mountain-flag"

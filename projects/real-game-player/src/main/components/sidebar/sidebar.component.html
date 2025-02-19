@@ -5,6 +5,9 @@
 <div class="sidebar__section sidebar__section--balance sidebar__section--{{currentBackground()}}">
     <app-user-wellbeing></app-user-wellbeing>
 </div>
+<div *ngIf="aspiration != null" class="sidebar__section sidebar__section--balance sidebar__section--{{currentBackground()}}">
+    <app-user-aspiration></app-user-aspiration>
+</div>
 
 <div class="sidebar__section sidebar__section--story sidebar__section--{{currentBackground()}}">
     <app-user-chapter-progress></app-user-chapter-progress>

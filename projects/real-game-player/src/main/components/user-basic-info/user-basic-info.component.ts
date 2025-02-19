@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { MeterComponent } from '../meter/meter.component';
-import { InkService } from '../../../services/ink.service';
 import { InkStore } from '../../../../store/ink.store';
 
 @Component({
