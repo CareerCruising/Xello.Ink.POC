@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="goals__wrapper">
-    <b>Goals {{goalsCompleted() || 0}}/{{goalsList.length}}</b>
+    <b>Goals {{achievedGoals?.Count || 0}}/{{goalsList.length}}</b>
     <ul class="goals__list">
         @for (item of goalsList; track item.name) {
             <li class="goals__item">
