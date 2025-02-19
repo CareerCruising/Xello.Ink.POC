@@ -6,7 +6,7 @@
             <taco-illustration illustration="il-piggy-bank" size="xxlg"></taco-illustration>
             <div class="footer__info">
                 <b>
-                    Bank: ${{money}}
+                    Bank: <app-ink-counter [track]="'money'" [prefix]="'$'"></app-ink-counter>
                     <taco-icon size="sm" fill="white-100" icon="ic-chevron-right"></taco-icon>
                 </b>
                 <span>Payday in 6 days ($5,613)</span>

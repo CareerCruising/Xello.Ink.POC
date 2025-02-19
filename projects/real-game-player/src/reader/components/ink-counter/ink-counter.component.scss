@@ -1,0 +1,13 @@
+.counter {
+    display: inline-block;
+    transform: scale(1) translateY(0);
+    color: var(--taco-color-white-100);
+    transform-origin: center center;
+    transition: transform .15s cubic-bezier(0.7, -0.4, 0.4, 1.4), color .15s ease-in-out, margin .15s ease-in-out;
+    margin: 0 0;
+    &.animating {
+        transform: scale(1.2) translateY(-2px);
+        color: var(--taco-color-green-300);
+        margin: 0 6px 0 2px;
+    }
+}
