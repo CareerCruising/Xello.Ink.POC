@@ -25,7 +25,7 @@
         *ngIf="context == ReaderContext.Basic"
         type="basic"
         class="choice choice__next"
-        [attr.disabled]="!choiceSelected ? true : undefined"
+        [attr.disabled]="!inkStore.selectedChoice() ? true : undefined"
         value="Next"
         (tacoButtonClick)="confirmChoice()"
     ></taco-button>

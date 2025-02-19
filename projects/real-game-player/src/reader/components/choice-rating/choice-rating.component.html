@@ -5,17 +5,17 @@
                 size="md"
                 type="basic"
                 class="choice choice-button"
-                [ngClass]="{ active: choiceSelected?.index === choice.index }"
+                [ngClass]="{ active: inkStore.selectedChoice()?.index === choice.index }"
                 (click)="selectChoice(choice)">
                 <taco-defined-icon
                     size="lg"
                     fill="black-500"
-                    [icon]="(choiceSelected && choiceSelected.index >= choice.index) ? 'icd-100-percent-star' : 'icd-0-percent-star'"
+                    [icon]="((inkStore.selectedChoice()?.index ?? -1) >= choice.index) ? 'icd-100-percent-star' : 'icd-0-percent-star'"
                 ></taco-defined-icon>
             </button>
         }
         <span class="counter">
-            ({{(choiceSelected?.index ?? -1) + 1}})
+            ({{(inkStore.selectedChoice()?.index ?? -1) + 1}})
         </span>
     </div>
 </div>

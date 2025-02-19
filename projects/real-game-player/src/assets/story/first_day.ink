@@ -92,6 +92,7 @@
 
 
 === orientation_survey ===
+
     ~ setTemplate(Templates.ContentIntro)
     
     >>> illustration: il-briefcase-stars
@@ -101,6 +102,28 @@
     
     + [Next]
     -
+
+    ~ setTemplate(Templates.MultiChoice)
+    
+    <h1>Transferable skills are skills you can pass on to your co-workers</h1>
+
+    + [Strongly agree]
+    + [Agree]
+    + [Don't know]
+    + [Disagree]
+    + [Strongly disagree]
+    -
+    
+    ~ setTemplate(Templates.ContentIntro)
+    
+    >>> illustration: il-target
+    
+    <h1>Great work so far!</h1>
+    <p>Tackle a few more questions.</p>
+    
+    + [Next]
+    -
+    
     ->->
 
 

@@ -1,4 +1,4 @@
-import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, Inject, OnDestroy } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { UserBasicInfoComponent } from "../user-basic-info/user-basic-info.component";
 import { UserWellbeingComponent } from "../user-wellbeing/user-wellbeing.component";
@@ -21,11 +21,10 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent implements OnDestroy {
   
-  inkStore = Inject(InkStore);
+  inkStore = inject(InkStore);
 
   currentBackground = computed(() => {
-    console.log(this.inkStore.currentBackground);
-    return this.inkStore.currentBackground;
+    return this.inkStore.currentBackground();
   })
 
   isDestroyed$ = new BehaviorSubject<boolean>(false);

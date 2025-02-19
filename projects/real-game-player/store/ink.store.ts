@@ -20,6 +20,7 @@ export const InkStore = signalStore(
     isActionViewOpen: false,
     showFullUI: true,
     currentBackground: '',
+    selectedChoice: null as Choice | null,
     currentChoices: [] as Choice[],
     currentChoiceMode: '',
     currentText: [] as ContentLine[],
@@ -63,6 +64,10 @@ export const InkStore = signalStore(
           currentText: [..._currentText, _newLine]
         });
       },
+      selectChoice(_choice: Choice | null) {
+        patchState(store, { selectedChoice: _choice });
+        console.log('selected ', store.selectedChoice()?.index);
+      },
       setUIState(state: string) {
         patchState(store, { showFullUI: state === 'full' });
       },
@@ -79,7 +84,9 @@ export const InkStore = signalStore(
         patchState(store, { currentTemplate: template });
       },
       reset() {
+        console.log('reset');
         patchState(store, {
+          selectedChoice: null,
           currentTemplate: Templates.None,
           currentBackground: '',
           currentText: [],

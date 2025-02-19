@@ -6,7 +6,7 @@
                 size="md"
                 type="basic"
                 class="choice choice--square choice-button"
-                [ngClass]="{ active: choiceSelected?.index === choice.index }"
+                [ngClass]="{ active: inkStore.selectedChoice()?.index === choice.index }"
                 (click)="selectChoice(choice)">
                 {{choice.text}}
             </button>
@@ -15,9 +15,10 @@
         <taco-button
             size="md"
             type="basic"
+            *ngIf="allowConfirm"
             class="choice choice__next"
             [ngClass]="{ 'hidden': !choices.length }"
-            [attr.disabled]="(!choiceSelected) ? true : undefined"
+            [attr.disabled]="(!inkStore.selectedChoice()) ? true : undefined"
             value="Next"
             (tacoButtonClick)="confirmChoice()"
         ></taco-button>

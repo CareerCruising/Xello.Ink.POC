@@ -1,7 +1,8 @@
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, inject, Inject, Input, Output } from '@angular/core';
 import { Choice } from 'inkjs/engine/Choice';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-choice-list',
@@ -23,19 +24,20 @@ import { Choice } from 'inkjs/engine/Choice';
 })
 export class ChoiceListComponent {
   @Input() choices: Choice[] = [];
+  @Input() allowConfirm = true;
+
   @Output() handleSelect = new EventEmitter<Choice>();
   @Output() handleChoice = new EventEmitter<Choice>();
 
-  choiceSelected: Choice | null = null;
+  inkStore = inject(InkStore);
 
   selectChoice(choice: Choice) {
-    this.choiceSelected = choice;
-    this.handleSelect.emit(choice);
+    this.inkStore.selectChoice(choice);
   }
 
   confirmChoice() {
-    if (!this.choiceSelected) { return; }
-    this.handleChoice.emit(this.choiceSelected);
-    this.choiceSelected = null;
+    const _selectedChoice = this.inkStore.selectedChoice();
+    if (!_selectedChoice || !this.allowConfirm) { return; }
+    this.handleChoice.emit(_selectedChoice);
   }
 }

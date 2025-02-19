@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, effect, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, effect, inject, OnDestroy, OnInit } from '@angular/core';
 import { ReaderComponent } from "../../reader/reader.component";
 import { InkService } from '../../services/ink.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -57,6 +57,14 @@ export class ActionViewComponent implements OnInit, OnDestroy {
   }
 
   onNext(): void {
+    if (this.inkStore.choiceRequiresConfirmation()) {
+      const _selectedChoice = this.inkStore.selectedChoice();
+      console.log(_selectedChoice);
+      if (!_selectedChoice) { return; }
+      this.inkService.SelectChoice(_selectedChoice);
+      return;
+    }
+    
     const currentChoices = this.inkStore.story().currentChoices;
     this.inkService.SelectChoice(currentChoices[0]);
   }

@@ -2,6 +2,7 @@ import { animate, group, style, transition, trigger } from '@angular/animations'
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChoiceListComponent } from '../choice-list/choice-list.component';
 import { CommonModule } from '@angular/common';
+import { InkStore } from '../../../../store/ink.store';
 
 @Component({
   selector: 'app-choice-select-confirm',

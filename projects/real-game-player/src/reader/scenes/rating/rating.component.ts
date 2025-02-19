@@ -35,7 +35,6 @@ export class RatingComponent implements OnInit, OnDestroy {
   ReaderContext = ReaderContext;
 
   choiceFrame: { content: string } | null = null;
-  choiceSelected: Choice | null = null;
 
   careerStore = inject(CareerStore);
   illustration = '';
@@ -82,13 +81,13 @@ export class RatingComponent implements OnInit, OnDestroy {
   }
 
   selectChoice(choice: Choice) {
-    this.choiceSelected = choice;
+    this.inkStore.selectChoice(choice);
   }
 
   confirmChoice() {
-    if (!this.choiceSelected) { return; }
-    this.inkService.SelectChoice(this.choiceSelected);
-    this.choiceSelected = null;
+    const selectedChoice = this.inkStore.selectedChoice();
+    if (!selectedChoice) { return; }
+    this.inkService.SelectChoice(selectedChoice);
   }
 
 }
