@@ -7,7 +7,6 @@ import {
   trigger,
 } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { InkService } from '../services/ink.service';
 import { BasicComponent } from './scenes/basic/basic.component';
 import { StoryBiteComponent } from './scenes/story-bite/story-bite.component';
 import { StorySceneComponent } from './scenes/story-scene/story-scene.component';
@@ -21,6 +20,7 @@ import { SummaryComponent } from './scenes/summary/summary.component';
 import { StoryBiteIllustratedComponent } from "./scenes/story-bite-illustrated/story-bite-illustrated.component";
 import { InkStore } from '../../store/ink.store';
 import { ReaderContext } from './reader-context.enum';
+import { MultiChoiceRowComponent } from './scenes/multi-choice-row/multi-choice-row.component';
 
 @Component({
   selector: 'app-reader',
@@ -35,9 +35,10 @@ import { ReaderContext } from './reader-context.enum';
     StoryBiteComponent,
     StorySceneComponent,
     MultiChoiceComponent,
+    MultiChoiceRowComponent,
     RatingComponent,
     StoryBiteIllustratedComponent
-],
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './reader.component.html',
   styleUrl: './reader.component.scss',

@@ -31,6 +31,7 @@ export class InkService {
   currentPathString = '';
 
   isInitialized = false
+  lastChoiceSelected: Choice | null = null;
 
   knots: string[] = [];
 
@@ -79,16 +80,25 @@ export class InkService {
         this.isPlaying = false;
         this.Continue();
       } else {
-        this.inkStore.addLine({type: 'text', content: text});
-        setTimeout(() => {
+        const rawText = text.trim();
+        console.log(this.lastChoiceSelected, rawText);
+        if (!this.lastChoiceSelected || this.lastChoiceSelected.text !== rawText) {
+          this.inkStore.addLine({type: 'text', content: text});
+          setTimeout(() => {
+            this.isPlaying = false;
+            this.Continue();
+          }, this.inkStore.delay());
+        } else {
           this.isPlaying = false;
           this.Continue();
-        }, this.inkStore.delay());
+        }
       }
     } else {
       this.isPlaying = false;
       this.isComplete = true;
     }
+
+    this.lastChoiceSelected = null;
 
     if (story.state.currentPathString) {
       const pathString = story.state.currentPathString.split('.')[0]
@@ -158,6 +168,7 @@ export class InkService {
   }
 
   SelectChoice(choice: Choice) {
+    this.lastChoiceSelected = choice;
     this.Choose(choice);
     this.Reset();
     this.Continue();

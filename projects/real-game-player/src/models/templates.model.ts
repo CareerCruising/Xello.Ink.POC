@@ -11,6 +11,7 @@ export enum Templates {
     Progress = 'Progress',
     TrueFalse = 'TrueFalse',
     MultiChoice = 'MultiChoice',
+    MultiChoiceRow = 'MultiChoiceRow',
     Rating = 'Rating',
     RatingSummary = 'RatingSummary',
     Summary = 'Summary',

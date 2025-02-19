@@ -1,0 +1,30 @@
+:host {
+    width: 100%;
+    min-height: 100%;
+    font-size: var(--taco-font-size-225);
+}
+
+:host-context(.main__reader--simple) {
+    height: 100%;
+}
+
+.container {
+    padding: 30px;
+    display: grid;
+    max-width: 1088px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.text-wrapper {
+    text-align: center;
+}
+
+::ng-deep {
+    h1 {
+        font-size: var(--taco-font-size-300);
+        margin: 0;
+    }
+    p {
+        margin: 0 0 16px 0;
+    }
+}

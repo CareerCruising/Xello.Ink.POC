@@ -1,0 +1,16 @@
+<app-scene-illustrated [@fadeIn]="true">
+    <div class="text-wrapper">
+        @for (line of inkStore.currentText(); track line.id) {
+            <div
+                class="text"
+                [innerHTML]="line.content">
+            </div>
+        }
+    </div>
+    <app-choice-select-confirm
+        [choices]="inkStore.currentChoices()"
+        class="choice-list choice-list--row"
+        [allowConfirm]="context !== ReaderContext.ActionView"
+        (handleChoice)="inkStore.selectChoice($event)"
+    ></app-choice-select-confirm>
+</app-scene-illustrated>

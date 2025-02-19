@@ -91,6 +91,7 @@
     -> temp_housing
 
 
+VAR opinionTransferableSkills = 0
 === orientation_survey ===
 
     ~ setTemplate(Templates.ContentIntro)
@@ -102,17 +103,8 @@
     
     + [Next]
     -
-
-    ~ setTemplate(Templates.MultiChoice)
     
-    <h1>Transferable skills are skills you can pass on to your co-workers</h1>
-
-    + [Strongly agree]
-    + [Agree]
-    + [Don't know]
-    + [Disagree]
-    + [Strongly disagree]
-    -
+    -> agree_or_disagree(-> ex1, opinionTransferableSkills) ->
     
     ~ setTemplate(Templates.ContentIntro)
     
@@ -134,6 +126,12 @@
     -
     
     ->->
+    
+
+    = ex1
+        <h1>Transferable skills are skills you can pass on to your co-workers</h1>
+        -> DONE
+
 
 
 === temp_housing ===

@@ -4,6 +4,26 @@
     ~ return TURNS_SINCE(divert) < 1 && TURNS_SINCE(divert) != -1
     
 
+=== agree_or_disagree(-> instructions, ref out) ===
+    ~ setTemplate(Templates.MultiChoiceRow)
+    
+    <- instructions
+    
+    + Strongly agree # illustration: il-very-happy
+        ~ out = 1
+    + Agree # illustration: il-smile
+        ~ out = 2
+    + Don't know # illustration: il-not-sure
+        ~ out = 3
+    + Disagree # illustration: il-sad
+        ~ out = 4
+    + Strongly disagree # illustration: il-very-sad
+        ~ out = 5
+    
+    -
+    ->->
+
+
 === rate(-> instructions, ref out) ===
     ~ setTemplate(Templates.Rating)
     

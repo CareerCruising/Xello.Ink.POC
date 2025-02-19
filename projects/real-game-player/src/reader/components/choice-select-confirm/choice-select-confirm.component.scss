@@ -1,4 +1,10 @@
-
+:host-context(.choice-list--row) {
+    .choices {
+        flex-direction: row;
+        justify-content: center;
+        column-gap: 16px;
+    }
+}
 
 .choices {
     display: flex;

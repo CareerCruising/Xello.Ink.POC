@@ -66,7 +66,6 @@ export const InkStore = signalStore(
       },
       selectChoice(_choice: Choice | null) {
         patchState(store, { selectedChoice: _choice });
-        console.log('selected ', store.selectedChoice()?.index);
       },
       setUIState(state: string) {
         patchState(store, { showFullUI: state === 'full' });
