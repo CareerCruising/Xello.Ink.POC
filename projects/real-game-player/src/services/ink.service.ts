@@ -118,6 +118,7 @@ export class InkService {
       return;
     }
     this.inkStore.story().ChoosePathString(path);
+    this.Reset();
     this.Continue();
   }
 

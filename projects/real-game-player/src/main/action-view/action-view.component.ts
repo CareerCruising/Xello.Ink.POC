@@ -75,4 +75,14 @@ export class ActionViewComponent implements OnInit, OnDestroy {
     this.inkService.SelectChoice(currentChoices[0]);
   }
 
+  closeActionView(): void {
+    var story = this.inkStore.story();
+    var divert = story.variablesState.$('onCloseActionView'); // Stores a divert (-> back)
+    var path = divert?.toString();
+    if (path) {
+      this.inkService.ChoosePathString(path);
+      this.inkStore.setActionViewOpen(false);
+    }
+  }
+
 }

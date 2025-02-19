@@ -28,9 +28,7 @@ export class MainComponent implements OnInit {
   inkStore = inject(InkStore);
   careerStore = inject(CareerStore);
 
-
   isDestroyed$ = new Subject<boolean>();
-  isActionViewOpen = false;
 
   isLoading = computed(() => {
     return this.careerStore.career() == null;
@@ -41,17 +39,6 @@ export class MainComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-      this.inkService.onCommandReceived
-        .pipe(takeUntil(this.isDestroyed$))
-        .subscribe(command => {
-          switch (command.name) {
-            case 'action-view':
-              this.isActionViewOpen = command.params[0] === 'open';
-              break;
-            default:
-              break;
-          }
-        })
   }
 
 }
