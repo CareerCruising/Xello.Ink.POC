@@ -6,13 +6,13 @@
     </div>
 </div>
 <div class="goals__wrapper">
-    <b>Goals {{goalsCompleted()}}/{{goalsList.length}}</b>
+    <b>Goals {{goalsCompleted() || 0}}/{{goalsList.length}}</b>
     <ul class="goals__list">
         @for (item of goalsList; track item.name) {
             <li class="goals__item">
                 <div class="goals__icon">
                     <taco-defined-icon
-                        *ngIf="item.isComplete"
+                        *ngIf="achievedGoals?.ContainsKey(item.key)"
                         icon="icd-checkmark-green"
                         size="lg"
                     ></taco-defined-icon>

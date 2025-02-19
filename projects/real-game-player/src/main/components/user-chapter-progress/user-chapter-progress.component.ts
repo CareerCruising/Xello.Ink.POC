@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit } from '@angular/core';
+import { InkStore } from '../../../../store/ink.store';
+import { InkList } from 'inkjs';
+import { InkListItem } from 'inkjs/engine/InkList';
 
 export interface IGoal {
+  key: InkListItem,
   name: string;
   rewards: { xp: number };
-  isComplete: boolean;
 }
 
 @Component({
@@ -15,47 +18,32 @@ export interface IGoal {
   templateUrl: './user-chapter-progress.component.html',
   styleUrl: './user-chapter-progress.component.scss'
 })
-export class UserChapterProgressComponent {
+export class UserChapterProgressComponent implements OnInit {
+
+  inkStore = inject(InkStore);
   
   goalsCompleted = computed(() => {
-    return this.goalsList.filter(x => x.isComplete).length;
+    return this.achievedGoals?.Count;
   })
 
-  goalsList: IGoal[] = [
-    {
-      name: 'Meet Ollex',
-      rewards: { xp: 50 },
-      isComplete: false
-    },
-    {
-      name: 'First day of work',
-      rewards: { xp: 50 },
-      isComplete: false
-    },
-    {
-      name: 'World of work survey',
-      rewards: { xp: 50 },
-      isComplete: false
-    },
-    {
-      name: 'Set an aspiration',
-      rewards: { xp: 50 },
-      isComplete: false
-    },
-    {
-      name: 'Find a place to live',
-      rewards: { xp: 50 },
-      isComplete: false
-    },
-    {
-      name: 'First payday',
-      rewards: { xp: 50 },
-      isComplete: false
-    },
-    {
-      name: 'Pay statement challenge',
-      rewards: { xp: 50 },
-      isComplete: false
-    }
-  ]
+  achievedGoals: null | InkList = null;
+  goalsList: IGoal[] = [];
+  
+  ngOnInit(): void {
+    const story = this.inkStore.story();
+    const list = story.EvaluateFunction('getGoals') as InkList;
+    this.goalsList = list.orderedItems.map((kvp) => {
+      return {
+        key: kvp.Key,
+        name: story.EvaluateFunction('goalName', [ new InkList(kvp) ]),
+        rewards: {
+          xp: 50
+        }
+      }
+    })
+    story.ObserveVariable('achievedGoals', (varName, value) => {
+      this.achievedGoals = value;
+    })
+  }
+  
 }

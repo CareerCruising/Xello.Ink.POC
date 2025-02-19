@@ -9,6 +9,8 @@ INCLUDE utility/media.ink
 INCLUDE utility/templates.ink
 INCLUDE utility/data.ink
 INCLUDE utility/swing.ink
+INCLUDE goals/goals.ink
+
 
 
 

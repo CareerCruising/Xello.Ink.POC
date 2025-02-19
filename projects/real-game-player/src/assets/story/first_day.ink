@@ -7,6 +7,8 @@
     <h1>You're in it now.</h1>
     <p>At least you have Ollex to help you out.</p>
     
+    ~ achievedGoals += MeetOllex
+    
     + [Next]
     -
     
@@ -59,6 +61,7 @@
     -
     + [Next]
     -
+    ~ achievedGoals += FirstDay
     -> orientation
 
 
@@ -82,6 +85,7 @@
     >>> illustration: il-ribbon
     <h1>Well done!</h1>
     <p>Your boss is pleased with your effort.</p>
+    ~ achievedGoals += WorldOfWork
     ~ modifyWellbeing(2)
     ~ modifyCareer(2)
     ~ gainXP(150)
@@ -145,6 +149,7 @@
     <p>Your aspiration drives your choices, big and small.</p>
     ~ modifyWellbeing(2)
     ~ gainXP(50)
+    ~ achievedGoals += SetAnAspiration
     
     + [Next]
     -
@@ -262,6 +267,7 @@ VAR opinionBuyThingsYouWant = 0
     -
     + [Next]
     -
+    ~ achievedGoals += PlaceToLive
     -> chance_busking
     
     
@@ -336,7 +342,7 @@ VAR opinionBuyThingsYouWant = 0
     ~ modifyWellbeing(3)
     ~ modifyCareer(2)
     ~ gainXP(25)
-
+    ~ achievedGoals += FirstPayday
 
     + [Next]
     -
@@ -355,6 +361,9 @@ VAR opinionBuyThingsYouWant = 0
     
     + [Next] // View pay statement
     -
+    
+    ~ achievedGoals += PayStatementChallenge
+    
     -> first_weekend
 
       
