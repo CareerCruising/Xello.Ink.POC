@@ -95,7 +95,6 @@ export class InkService {
       if (this.currentPathString !== pathString) {
         this.currentPathString = pathString;
         localStorage.setItem('currentPathString', this.currentPathString);
-        console.log('new path:', this.currentPathString);  
       }
     }
   }
@@ -105,7 +104,6 @@ export class InkService {
   }
 
   ChoosePathString(path: string) {
-    console.log(path);
     if (!this.inkStore.story().HasFunction(path)) {
       console.error(`Attempting to navigate to ${path}, which does not exist in this story!`)
       return;
@@ -122,7 +120,6 @@ export class InkService {
       name: commandName,
       params: tokens.slice(1)
     }
-    console.log(command);
   
     switch (commandName) {
       case 'ui':
