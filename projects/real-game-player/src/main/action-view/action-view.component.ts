@@ -31,6 +31,13 @@ export class ActionViewComponent implements OnInit, OnDestroy {
 
   ReaderContext = ReaderContext
 
+  allowNext = computed(() => {
+    if (this.inkStore.choiceRequiresConfirmation()) {
+      return this.inkStore.selectedChoice() != null;
+    }
+    return true;
+  });
+
   constructor(private inkService: InkService) {}
 
   ngOnInit() {

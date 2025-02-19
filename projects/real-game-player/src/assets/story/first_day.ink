@@ -124,6 +124,15 @@
     + [Next]
     -
     
+    ~ setTemplate(Templates.ContentIntro)
+    
+    >>> illustration: il-briefcase-stars
+    
+    <h1>Excellent! Keep your answers in mind as you get settled in at work.</p>
+    
+    + [Next]
+    -
+    
     ->->
 
 

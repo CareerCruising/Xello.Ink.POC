@@ -14,11 +14,11 @@ export class MeterComponent implements OnInit {
 
   @Input() watch = '';
   @Input() color = 'green';
+  @Input() max = 100;
 
   inkStore = inject(InkStore)
 
   value = 0;
-  max = 100;
   isUpdating = false;
   isRising = false;
   isFalling = false;
