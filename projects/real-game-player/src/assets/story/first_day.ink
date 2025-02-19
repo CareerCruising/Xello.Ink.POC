@@ -110,10 +110,6 @@
 
     + [Next]
     -
-    -> aspiration_choice
-
-
-=== aspiration_choice ===
 
     ~ setTemplate(Templates.ContentIntro)
     
@@ -123,6 +119,11 @@
     
     + [Next]
     -
+    
+    -> aspiration_choice
+
+
+=== aspiration_choice ===
 
     ~ setTemplate(Templates.ContentIntro)
 
