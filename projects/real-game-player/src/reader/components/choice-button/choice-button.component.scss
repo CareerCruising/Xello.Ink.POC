@@ -1,7 +1,15 @@
 .choice {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
     row-gap: 12px;
     width: 100%;
+
+    &--illustrated {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
 }
