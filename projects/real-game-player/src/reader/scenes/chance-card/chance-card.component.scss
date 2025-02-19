@@ -1,0 +1,24 @@
+:host {
+    width: 100%;
+}
+
+.chance-card {
+    &__wrapper {
+        max-width: 752px;
+        margin: 0 auto;    
+        background-color: #34496BE5;
+        padding: 24px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 120px 1fr;
+    }
+    &__illustration {
+        min-height: 120px;
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        padding: 0 24px;
+        border-left: solid 1px var(--taco-color-grey-700);
+    }
+}

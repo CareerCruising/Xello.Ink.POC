@@ -16,6 +16,7 @@ export enum Templates {
     RatingSummary = 'RatingSummary',
     Summary = 'Summary',
     ChanceCard = 'ChanceCard',
+    ChanceCardResult = 'ChanceCardResult',
     DecisionPoint = 'DecisionPoint',
     Result = 'Result'
 }

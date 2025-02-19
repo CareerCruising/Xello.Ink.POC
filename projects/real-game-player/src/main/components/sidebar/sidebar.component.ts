@@ -37,7 +37,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.inkStore.story().ObserveVariable('aspiration', (varName, value: InkListItem) => {
-      console.log(value);
       this.aspiration = value;
     })
   }

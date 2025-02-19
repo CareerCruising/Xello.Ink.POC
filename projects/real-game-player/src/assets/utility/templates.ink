@@ -15,6 +15,7 @@ LIST Templates = None,
                  Summary,
                  RatingSummary,
                  ChanceCard,
+                 ChanceCardResult,
                  DecisionPoint,
                  Result
                  

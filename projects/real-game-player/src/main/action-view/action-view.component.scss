@@ -9,6 +9,7 @@
     display: grid;
     grid-template-rows: 64px 1fr 88px;
     color: white;
+    box-shadow: 0 100px 0 0 var(--taco-color-cornflower-900);
 }
 
 .action-view__header {

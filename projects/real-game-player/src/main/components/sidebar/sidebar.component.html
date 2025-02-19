@@ -2,11 +2,11 @@
 <div class="sidebar__section sidebar__section--student-info sidebar__section--{{currentBackground()}}">
     <app-user-basic-info></app-user-basic-info>
 </div>
-<div class="sidebar__section sidebar__section--balance sidebar__section--{{currentBackground()}}">
-    <app-user-wellbeing></app-user-wellbeing>
-</div>
 <div *ngIf="aspiration != null" class="sidebar__section sidebar__section--balance sidebar__section--{{currentBackground()}}">
     <app-user-aspiration></app-user-aspiration>
+</div>
+<div class="sidebar__section sidebar__section--balance sidebar__section--{{currentBackground()}}">
+    <app-user-wellbeing></app-user-wellbeing>
 </div>
 
 <div class="sidebar__section sidebar__section--story sidebar__section--{{currentBackground()}}">

@@ -88,8 +88,30 @@
     
     + [Next]
     -
-    -> aspiration_choice
+    -> chance_radio
     
+
+=== chance_radio ===
+
+    ~ setTemplate(Templates.ChanceCard)
+    
+    <p>You call a radio station on a whim and guess the song correctly! What’s the prize?</p>
+    
+    + [Reveal]
+    -
+    ~ setTemplate(Templates.ChanceCardResult)
+    
+    <h1>Cha-ching!</h1>
+    <p>You score a $20 gift card.</p>
+    
+    ~ modifyWellbeing(1)
+    ~ addMoney(20)
+    ~ gainXP(10)
+
+    + [Next]
+    -
+    -> aspiration_choice
+
 
 === aspiration_choice ===
 

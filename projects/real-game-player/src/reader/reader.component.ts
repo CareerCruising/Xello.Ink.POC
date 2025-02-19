@@ -21,6 +21,8 @@ import { StoryBiteIllustratedComponent } from "./scenes/story-bite-illustrated/s
 import { InkStore } from '../../store/ink.store';
 import { ReaderContext } from './reader-context.enum';
 import { MultiChoiceRowComponent } from './scenes/multi-choice-row/multi-choice-row.component';
+import { ChanceCardComponent } from "./scenes/chance-card/chance-card.component";
+import { ChanceCardResultComponent } from './scenes/chance-card-result/chance-card-result.component';
 
 @Component({
   selector: 'app-reader',
@@ -37,8 +39,10 @@ import { MultiChoiceRowComponent } from './scenes/multi-choice-row/multi-choice-
     MultiChoiceComponent,
     MultiChoiceRowComponent,
     RatingComponent,
-    StoryBiteIllustratedComponent
-  ],
+    StoryBiteIllustratedComponent,
+    ChanceCardComponent,
+    ChanceCardResultComponent
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './reader.component.html',
   styleUrl: './reader.component.scss',

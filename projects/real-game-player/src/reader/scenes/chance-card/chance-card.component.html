@@ -1,0 +1,27 @@
+<div class="chance-card__wrapper">
+    <div class="chance-card__illustration">
+        <!-- Question mark -->
+    </div>
+    <div class="chance-card__body">
+        @for (line of inkStore.currentText(); track line.id) {
+            <ng-container [ngSwitch]="line.type">
+                <div
+                    class="text"
+                    [innerHTML]="line.content"
+                    *ngSwitchDefault>
+                </div>
+            </ng-container>
+        }
+        @for (choice of inkStore.currentChoices(); track choice.index) {
+            <taco-button
+                type="link"
+                value="{{choice.text}}"
+                (tacoButtonClick)="selectChoice(choice)"
+                bold
+                iconName="ic-chevron-right"
+                mode="dark"
+                icon="right"
+            ></taco-button>
+        }
+    </div>
+</div>

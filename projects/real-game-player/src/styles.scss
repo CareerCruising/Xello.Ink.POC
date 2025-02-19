@@ -140,3 +140,14 @@ small {
     }
 }
 
+.chance-card__wrapper {
+  h1 {
+    margin: 0;
+    font-size: var(--taco-font-size-300);
+    line-height: var(--taco-font-line-height-400);
+  }
+  p:first-child {
+    margin-top: 0;
+  }
+}
+

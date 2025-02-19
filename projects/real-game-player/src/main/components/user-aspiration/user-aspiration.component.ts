@@ -21,10 +21,8 @@ export class UserAspirationComponent {
 
   constructor() {
     this.aspiration = this.inkStore.story().variablesState.$('aspiration') as (InkList | null);
-    console.log(this.aspiration);
     this.inkStore.story().ObserveVariable('aspiration', (variableName, newValue: InkList) => {
       this.aspiration = newValue;
-      console.log(this.aspiration);
     });
   }
 

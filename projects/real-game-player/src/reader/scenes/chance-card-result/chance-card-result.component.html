@@ -1,0 +1,35 @@
+<div class="chance-card__wrapper">
+    <div class="chance-card__illustration">
+        <!-- Question mark -->
+    </div>
+    <div class="chance-card__body">
+        @for (line of inkStore.currentText(); track line.id) {
+            <ng-container [ngSwitch]="line.type">
+                <div
+                    class="text"
+                    [innerHTML]="line.content"
+                    *ngSwitchDefault>
+                </div>
+            </ng-container>
+        }
+        <div *ngIf="results.length > 0" class="result__wrapper">
+            <div *ngFor="let result of results" class="result__item">
+                <taco-icon *ngIf="result.icon != ''" fill="white-100" icon="{{result.icon}}" size="md"></taco-icon>
+                <span>
+                    {{result.change > 0 ? ('+' + (result.variable === 'money' ? '$' : '') + result.change) : ((result.variable === 'money' ? '$' : '') + result.change)}}
+                    {{result.name}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-choice-list
+    [mode]="inkStore.currentChoiceMode()"
+    [choices]="inkStore.currentChoices()"
+    *ngIf="showChoices && context == ReaderContext.Basic"
+    class="choice-list"
+    alignment="left"
+    (handleChoice)="selectChoice($event)"
+></app-choice-list>
+

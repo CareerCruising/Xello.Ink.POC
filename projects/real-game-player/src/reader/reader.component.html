@@ -10,6 +10,8 @@
     <app-rating *ngSwitchCase="Templates.Rating" [context]="context"></app-rating>
     <app-summary *ngSwitchCase="Templates.RatingSummary" [context]="context"></app-summary>
     <app-multi-choice *ngSwitchCase="Templates.MultiChoice" [context]="context"></app-multi-choice>
+    <app-chance-card *ngSwitchCase="Templates.ChanceCard" [context]="context"></app-chance-card>
+    <app-chance-card-result *ngSwitchCase="Templates.ChanceCardResult" [context]="context"></app-chance-card-result>
     <app-multi-choice-row *ngSwitchCase="Templates.MultiChoiceRow" [context]="context"></app-multi-choice-row>
     <div class="container" *ngSwitchDefault>
         <app-basic class="reader reader--{{inkStore.currentTemplate()}}" [context]="context"></app-basic>
