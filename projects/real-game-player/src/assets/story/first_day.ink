@@ -110,10 +110,9 @@
     ~ setTemplate(Templates.Result)
     >>> illustration: {get_aspiration_illustration(aspiration)}
     <h1>Life, inspired!</h1>
-    <p>Your boss is pleased with your effort.</p>
+    <p>Your aspiration drives your choices, big and small.</p>
     ~ modifyWellbeing(2)
-    ~ modifyCareer(2)
-    ~ gainXP(150)
+    ~ gainXP(50)
     
     + [Next]
     -
