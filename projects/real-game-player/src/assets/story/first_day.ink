@@ -342,6 +342,7 @@ VAR opinionBuyThingsYouWant = 0
     ~ modifyWellbeing(3)
     ~ modifyCareer(2)
     ~ gainXP(25)
+    ~ addMoney(5613)
     ~ completeGoal(FirstPayday)
 
     + [Next]
@@ -358,6 +359,8 @@ VAR opinionBuyThingsYouWant = 0
     ~ setTemplate(Templates.Result)
     >>> illustration: il-government-coins
     <h1>$5,613 - $1,251 = $4,362</h1>
+    
+    ~ takeMoney(1251)
     
     + [Next] // View pay statement
     -

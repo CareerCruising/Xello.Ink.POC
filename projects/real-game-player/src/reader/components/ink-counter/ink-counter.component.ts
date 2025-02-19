@@ -18,15 +18,29 @@ export class InkCounterComponent implements OnInit {
 
   currentValue = signal(0);
   valueDisplayed = 0;
-  isAnimating = false
+  isAnimating = false;
+  isIncreasing = false;
+  isDecreasing = false;
+  currentTimeout: NodeJS.Timeout | null = null;
 
   constructor() {
     effect(() => {
-      if (this.isAnimating) { return; }
+      if (this.currentTimeout) {
+        clearTimeout(this.currentTimeout);
+      }
+      if (this.isAnimating) {
+        this.isIncreasing = false;
+        this.isDecreasing = false;
+        this.isAnimating = false;
+      }
       if (this.valueDisplayed != this.currentValue()) {
         this.isAnimating = true;
         const delta = this.currentValue() - this.valueDisplayed;
-        this.animate(delta)
+        if (delta > 0) {
+          this.increase(delta)
+        } else {
+          this.decrease(delta)
+        }
       }
     });
   }
@@ -38,16 +52,35 @@ export class InkCounterComponent implements OnInit {
     })
   }
 
-  animate(delta: number): void {
+  increase(delta: number): void {
+    this.isIncreasing = true;
     if (delta <= 0) {
       this.isAnimating = false;
+      this.isIncreasing = false;
       this.valueDisplayed = this.currentValue();
       return;
     }
-    setTimeout(() => {
-      this.valueDisplayed += 1;
-      delta -= 1;
-      this.animate(delta);
+    this.currentTimeout = setTimeout(() => {
+      const amount = Math.max(1, Math.ceil(delta / 15))
+      this.valueDisplayed += amount;
+      delta -= amount;
+      this.increase(delta);
+    }, 50);
+  }
+
+  decrease(delta: number): void {
+    this.isDecreasing = true;
+    if (delta >= 0) {
+      this.isAnimating = false;
+      this.isDecreasing = false;
+      this.valueDisplayed = this.currentValue();
+      return;
+    }
+    this.currentTimeout = setTimeout(() => {
+      const amount = Math.max(1, Math.ceil(Math.abs(delta) / 15))
+      this.valueDisplayed -= amount;
+      delta += amount;
+      this.decrease(delta);
     }, 50);
   }
 }

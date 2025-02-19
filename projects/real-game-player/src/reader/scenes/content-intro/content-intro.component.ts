@@ -25,6 +25,7 @@ export class ContentIntroComponent extends BasicComponent implements OnInit {
 
   illustration: string = '';
   fadeIn = false;
+  showResults = false;
 
   ngOnInit(): void {
     this.fadeIn = true;

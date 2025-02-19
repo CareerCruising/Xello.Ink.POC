@@ -10,4 +10,7 @@
         color: var(--taco-color-green-300);
         margin: 0 6px 0 2px;
     }
+    &.decreasing {
+        color: var(--taco-color-red-300);
+    }
 }
