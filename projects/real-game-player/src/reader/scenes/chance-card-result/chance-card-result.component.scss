@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.illustration {
+  display: block;
+}
+
 .chance-card {
   &__wrapper {
     background-color: #34496BE5;
@@ -15,6 +19,7 @@
 
   &__illustration {
     min-height: 120px;
+    padding-left: 12px;
   }
 
   &__body {

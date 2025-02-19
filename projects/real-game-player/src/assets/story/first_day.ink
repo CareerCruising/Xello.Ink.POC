@@ -125,11 +125,10 @@
     -
 
     ~ setTemplate(Templates.ContentIntro)
-    
-    <h1>What does success look like for you?</h1>
-    <p>Choose an aspiration to guide you.</p>
 
     >>> illustration: il-mountain-flag
+    <h1>What does success look like for you?</h1>
+    <p>Choose an aspiration to guide you.</p>
     
     + [Set aspiration]
     -
@@ -139,6 +138,7 @@
     - (result)
 
     ~ setTemplate(Templates.Result)
+    
     >>> illustration: {get_aspiration_illustration(aspiration)}
     <h1>Life, inspired!</h1>
     <p>Your aspiration drives your choices, big and small.</p>
@@ -323,8 +323,39 @@ VAR opinionBuyThingsYouWant = 0
     -
     + [Next]
     -
-    -> first_weekend
+    -> first_payday
+
+
+=== first_payday ===
+
+    ~ setTemplate(Templates.Result)
+    >>> illustration: il-clock-bills
+    <h1>Payday!</h1>
+    <p>Your employer paid you <b>$5,613</b> for the month.</p>
+    ~ modifyWellbeing(3)
+    ~ modifyCareer(2)
+    ~ gainXP(25)
+
+
+    + [Next]
+    -
     
+    ~ setTemplate(Templates.Result)
+    >>> illustration: il-government-coins
+    <h1>Hold up.</h1>
+    <p>For every paycheck you get, you have to pay taxes.</p>
+    
+    + [Pay taxes]
+    -
+    
+    ~ setTemplate(Templates.Result)
+    >>> illustration: il-government-coins
+    <h1>$5,613 - $1,251 = $4,362</h1>
+    
+    + [Next] // View pay statement
+    -
+    -> first_weekend
+
       
 === first_weekend ===
 
