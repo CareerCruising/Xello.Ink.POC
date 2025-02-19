@@ -76,16 +76,17 @@ export class InkService {
       if (text.startsWith('>>>')) {
         await this.HandleCommand(text.substring(3).trim());
         this.appRef.tick();
+        this.isPlaying = false;
         this.Continue();
       } else {
         this.inkStore.addLine({type: 'text', content: text});
-        this.appRef.tick();
         setTimeout(() => {
           this.isPlaying = false;
           this.Continue();
         }, this.inkStore.delay());
       }
     } else {
+      this.isPlaying = false;
       this.isComplete = true;
     }
 
@@ -97,7 +98,6 @@ export class InkService {
         console.log('new path:', this.currentPathString);  
       }
     }
-    this.isPlaying = false;
   }
 
   Choose(choice: Choice) {

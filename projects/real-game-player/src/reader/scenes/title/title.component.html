@@ -2,6 +2,7 @@
     <app-basic
         class="reader no-illustration"
         alignment="center"
+        [context]="context"
         [@basic]="!showIllustration"
     ></app-basic>
 
@@ -14,6 +15,10 @@
             style="width: 256px; height: 256px;"
             loop autoplay
         ></lottie-player>
-        <app-basic class="reader illustrated" alignment="left"></app-basic>
+        <app-basic
+            class="reader illustrated"
+            [context]="context"
+            alignment="left"
+        ></app-basic>
     </div>
 </div>

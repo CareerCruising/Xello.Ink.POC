@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, effect, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, effect, inject, Input, input, OnDestroy, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { InkService } from '../../../services/ink.service';
 import { BasicComponent } from "../basic/basic.component";
@@ -8,6 +8,7 @@ import { Choice } from 'inkjs/engine/Choice';
 import { CareerStore } from '../../../../store/career.store';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { InkStore } from '../../../../store/ink.store';
+import { ReaderContext } from '../../reader-context.enum';
 
 @Component({
   selector: 'app-rating',
@@ -27,7 +28,11 @@ import { InkStore } from '../../../../store/ink.store';
 })
 export class RatingComponent implements OnInit, OnDestroy {
 
+  @Input() context: ReaderContext = ReaderContext.Basic;
+
   inkStore = inject(InkStore);
+
+  ReaderContext = ReaderContext;
 
   choiceFrame: { content: string } | null = null;
   choiceSelected: Choice | null = null;

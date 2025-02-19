@@ -5,6 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { InkStore } from '../../../store/ink.store';
+import { ReaderContext } from '../../reader/reader-context.enum';
 
 @Component({
   selector: 'app-action-view',
@@ -27,6 +28,8 @@ export class ActionViewComponent implements OnInit, OnDestroy {
 
   actionViewTitle = '';
   isDestroyed$ = new Subject<boolean>();
+
+  ReaderContext = ReaderContext
 
   constructor(private inkService: InkService) {}
 
@@ -54,7 +57,8 @@ export class ActionViewComponent implements OnInit, OnDestroy {
   }
 
   onNext(): void {
-
+    const currentChoices = this.inkStore.story().currentChoices;
+    this.inkService.SelectChoice(currentChoices[0]);
   }
 
 }

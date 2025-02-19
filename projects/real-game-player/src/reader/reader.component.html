@@ -1,16 +1,16 @@
 <ng-container [ngSwitch]="inkStore.currentTemplate()">
     <div *ngSwitchCase="Templates.None"></div>
-    <app-title *ngSwitchCase="Templates.Title"></app-title>
-    <app-content-intro *ngSwitchCase="Templates.ContentIntro"></app-content-intro>
-    <app-content-intro *ngSwitchCase="Templates.Result"></app-content-intro>
-    <app-chapter-title *ngSwitchCase="Templates.ChapterTitle"></app-chapter-title>
-    <app-story-bite *ngSwitchCase="Templates.StoryBite"></app-story-bite>
-    <app-story-bite-illustrated *ngSwitchCase="Templates.StoryBiteIllustrated"></app-story-bite-illustrated>
-    <app-story-scene *ngSwitchCase="Templates.StoryScene"></app-story-scene>
-    <app-rating *ngSwitchCase="Templates.Rating"></app-rating>
-    <app-summary *ngSwitchCase="Templates.RatingSummary"></app-summary>
-    <app-multi-choice *ngSwitchCase="Templates.MultiChoice"></app-multi-choice>
+    <app-title *ngSwitchCase="Templates.Title" [context]="context"></app-title>
+    <app-content-intro *ngSwitchCase="Templates.ContentIntro" [context]="context"></app-content-intro>
+    <app-content-intro *ngSwitchCase="Templates.Result" [context]="context"></app-content-intro>
+    <app-chapter-title *ngSwitchCase="Templates.ChapterTitle" [context]="context"></app-chapter-title>
+    <app-story-bite *ngSwitchCase="Templates.StoryBite" [context]="context"></app-story-bite>
+    <app-story-bite-illustrated *ngSwitchCase="Templates.StoryBiteIllustrated" [context]="context"></app-story-bite-illustrated>
+    <app-story-scene *ngSwitchCase="Templates.StoryScene" [context]="context"></app-story-scene>
+    <app-rating *ngSwitchCase="Templates.Rating" [context]="context"></app-rating>
+    <app-summary *ngSwitchCase="Templates.RatingSummary" [context]="context"></app-summary>
+    <app-multi-choice *ngSwitchCase="Templates.MultiChoice" [context]="context"></app-multi-choice>
     <div class="container" *ngSwitchDefault>
-        <app-basic class="reader reader--{{inkStore.currentTemplate()}}"></app-basic>
+        <app-basic class="reader reader--{{inkStore.currentTemplate()}}" [context]="context"></app-basic>
     </div>
 </ng-container>

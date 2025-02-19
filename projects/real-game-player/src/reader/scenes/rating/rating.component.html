@@ -1,6 +1,10 @@
 
 <div class="reader" [@fadeIn]="true">
-    <app-basic class="content" [showChoices]="false"></app-basic>
+    <app-basic
+        class="content"
+        [context]="context"
+        [showChoices]="false"
+    ></app-basic>
 
     <div class="choice-frame">
         <div class="choice-frame__illustration" [ngClass]="illustrationBG">
@@ -18,6 +22,7 @@
 
     <taco-button
         size="md"
+        *ngIf="context == ReaderContext.Basic"
         type="basic"
         class="choice choice__next"
         [attr.disabled]="!choiceSelected ? true : undefined"

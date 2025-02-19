@@ -1,5 +1,7 @@
 
 === intro ===
+    >>> ui: simple
+    
     ~ setTemplate(Templates.Title)
     
     <h1>The Real Game</h1>

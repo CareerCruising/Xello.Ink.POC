@@ -18,7 +18,7 @@ export const InkStore = signalStore(
     isComplete: false,
     isInitialized: false,
     isActionViewOpen: false,
-    showFullUI: false,
+    showFullUI: true,
     currentBackground: '',
     currentChoices: [] as Choice[],
     currentChoiceMode: '',
@@ -41,7 +41,7 @@ export const InkStore = signalStore(
     ( store ) => ({
       continue() {
         var story = store.story()
-        if (store.isPlaying() || !story) {
+        if (!story) {
           return;
         }
 

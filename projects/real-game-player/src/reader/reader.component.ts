@@ -20,6 +20,7 @@ import { ContentIntroComponent } from './scenes/content-intro/content-intro.comp
 import { SummaryComponent } from './scenes/summary/summary.component';
 import { StoryBiteIllustratedComponent } from "./scenes/story-bite-illustrated/story-bite-illustrated.component";
 import { InkStore } from '../../store/ink.store';
+import { ReaderContext } from './reader-context.enum';
 
 @Component({
   selector: 'app-reader',
@@ -57,7 +58,7 @@ import { InkStore } from '../../store/ink.store';
 })
 export class ReaderComponent {
 
-  @Input() context: 'basic' | 'action-view' = 'basic';
+  @Input() context: ReaderContext = ReaderContext.Basic;
 
   inkStore = inject(InkStore);
 

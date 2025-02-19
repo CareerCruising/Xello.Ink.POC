@@ -5,6 +5,7 @@ import { ChoiceListComponent } from '../../components/choice-list/choice-list.co
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { BehaviorSubject, Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { InkStore } from '../../../../store/ink.store';
+import { ReaderContext } from '../../reader-context.enum';
 
 @Component({
   selector: 'app-basic',
@@ -28,8 +29,11 @@ export class BasicComponent implements OnDestroy {
 
   inkStore = inject(InkStore);
 
+  @Input() context: ReaderContext = ReaderContext.Basic;
   @Input() animate = true;
   @Input() showChoices = true;
+
+  ReaderContext = ReaderContext;
 
   isDestroyed$ = new Subject<boolean>();
   

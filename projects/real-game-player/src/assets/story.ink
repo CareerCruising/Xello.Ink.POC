@@ -26,6 +26,7 @@ VAR environment = "inky"
 
 
 === init ===
+    >>> ui: simple
     // This is where we'd load user data, like this:
 
     // This environment variable is changed on the app end

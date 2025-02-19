@@ -25,7 +25,7 @@
             ></taco-illustration>
         </ng-container>
     </div>
-    <app-basic>
+    <app-basic [context]="context">
         <div *ngIf="results.length > 0" class="result__wrapper">
             <div *ngFor="let result of results" class="result__item">
                 <taco-icon *ngIf="result.icon != ''" fill="white-100" icon="{{result.icon}}" size="md"></taco-icon>
