@@ -30,6 +30,7 @@ export const InkStore = signalStore(
     choiceRequiresConfirmation: computed(() => {
       switch (currentTemplate()) {
         case Templates.MultiChoice:
+        case Templates.MultiChoiceRow:
         case Templates.DecisionPoint:
         case Templates.Rating:
           return true;
