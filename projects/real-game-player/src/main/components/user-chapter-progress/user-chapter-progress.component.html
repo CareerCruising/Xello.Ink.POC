@@ -5,3 +5,23 @@
         <span>The transformation</span>
     </div>
 </div>
+<div class="goals__wrapper">
+    <b>Goals {{goalsCompleted()}}/{{goalsList.length}}</b>
+    <ul class="goals__list">
+        @for (item of goalsList; track item.name) {
+            <li class="goals__item">
+                <div class="goals__icon">
+                    <taco-defined-icon
+                        *ngIf="item.isComplete"
+                        icon="icd-checkmark-green"
+                        size="lg"
+                    ></taco-defined-icon>
+                </div>
+                <div class="article">
+                    <div class="article__headline">{{item.name}}</div>
+                    <div class="article__desc">{{item.rewards.xp}}xp</div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
