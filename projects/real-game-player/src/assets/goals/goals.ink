@@ -7,6 +7,10 @@ VAR achievedGoals = ()
 === function getGoals() ===
     ~ return prologueGoals
 
+=== function completeGoal(goal) ===
+    ~ achievedGoals += goal
+    ~ gainXP(goalRewardXP(goal))
+
 === function goalName(goal) ===
     {goal:
     - MeetOllex:

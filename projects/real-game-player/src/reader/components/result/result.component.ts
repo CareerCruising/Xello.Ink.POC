@@ -3,6 +3,9 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit } from '@angular/c
 import { InkService } from '../../../services/ink.service';
 import { Subject, takeUntil } from 'rxjs';
 
+interface IResult { variable: string, name: string, icon: string, change: number };
+
+
 @Component({
   selector: 'app-result',
   standalone: true,
@@ -13,7 +16,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class ResultComponent implements OnInit, OnDestroy {
 
-  results: {variable: string, name: string, icon: string, change: number}[] = [];
+  results: {[variable: string]: IResult} = {};
   isDestroyed$ = new Subject<boolean>();
 
   constructor(private inkService: InkService) {}
@@ -24,12 +27,20 @@ export class ResultComponent implements OnInit, OnDestroy {
       .subscribe(command => {
         switch (command.name) {
           case 'modify':
-            this.results.push({
-              variable: command.params[0],
-              name: this.getName(command.params[0]),
-              icon: this.getIcon(command.params[0]),
-              change: +command.params[1]
-            });
+            var existing = this.results[command.params[0]]
+            if (existing) {
+              this.results[command.params[0]] = {
+                ...existing,
+                change: +(existing?.change ?? 0) + (+command.params[1])
+              };
+            } else {
+              this.results[command.params[0]] = {
+                variable: command.params[0],
+                name: this.getName(command.params[0]),
+                icon: this.getIcon(command.params[0]),
+                change: +command.params[1]
+              };
+            }
             break;
           default:
             break;
