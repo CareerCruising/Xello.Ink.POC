@@ -3,6 +3,7 @@ import { InkStore } from '../../../../store/ink.store';
 import { CommonModule } from '@angular/common';
 import { InkService } from '../../../services/ink.service';
 import { Choice } from 'inkjs/engine/Choice';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-chance-card',
@@ -10,7 +11,15 @@ import { Choice } from 'inkjs/engine/Choice';
   imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './chance-card.component.html',
-  styleUrl: './chance-card.component.scss'
+  styleUrl: './chance-card.component.scss',
+  animations: [
+    trigger('fadeIn', [
+      transition('* <=> *', [
+        style({ opacity: 0 }),
+        animate('0.5s 0.5s ease-in-out', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class ChanceCardComponent {
 

@@ -252,9 +252,31 @@ VAR opinionBuyThingsYouWant = 0
     -
     + [Next]
     -
+    -> chance_busking
+    
+    
+=== chance_busking ===
+
+    ~ setTemplate(Templates.ChanceCard)
+    
+    <p>You do a little busking on the sidewalk to make some extra cash. How much is in your hat after an hour?</p>
+    
+    + [Reveal]
+    -
+    ~ setTemplate(Templates.ChanceCardResult)
+    
+    <h1>Wow!</h1>
+    <p>You pull out $25 in crumpled bills.</p>
+    
+    ~ modifyWellbeing(1)
+    ~ addMoney(25)
+    ~ gainXP(10)
+
+    + [Next]
+    -
     -> work_woes
-    
-    
+
+
 === work_woes ===
 
     ~ setTemplate(Templates.MultiChoice)
