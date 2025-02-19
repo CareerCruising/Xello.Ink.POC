@@ -81,7 +81,6 @@ export class InkService {
         this.Continue();
       } else {
         const rawText = text.trim();
-        console.log(this.lastChoiceSelected, rawText);
         if (!this.lastChoiceSelected || this.lastChoiceSelected.text !== rawText) {
           this.inkStore.addLine({type: 'text', content: text});
           setTimeout(() => {
