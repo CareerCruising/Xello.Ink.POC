@@ -117,6 +117,15 @@
 
     ~ setTemplate(Templates.ContentIntro)
     
+    >>> illustration: il-question-answer
+    <h1>You have money in the bank!</h1>
+    <p>You start to dream about what you want to achieve in this life.</p>
+    
+    + [Next]
+    -
+
+    ~ setTemplate(Templates.ContentIntro)
+    
     <h1>What does success look like for you?</h1>
     <p>Choose an aspiration to guide you.</p>
 
