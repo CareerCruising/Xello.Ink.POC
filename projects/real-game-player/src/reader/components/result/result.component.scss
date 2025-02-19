@@ -1,0 +1,20 @@
+:host-context([Padded]) {
+    .result__wrapper {
+        margin: 16px 0 8px 0;
+    }
+}
+
+.result__wrapper {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.result__item {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    font-size: var(--taco-font-size-175);
+}

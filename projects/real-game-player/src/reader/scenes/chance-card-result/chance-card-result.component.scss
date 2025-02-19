@@ -24,18 +24,3 @@
     border-left: solid 1px var(--taco-color-grey-700);
   }
 }
-
-.result__wrapper {
-  display: flex;
-  column-gap: 16px;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0;
-}
-
-.result__item {
-  display: flex;
-  column-gap: 8px;
-  align-items: center;
-  font-size: var(--taco-font-size-175);
-}
