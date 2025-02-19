@@ -1,8 +1,16 @@
+:host {
+    display: block;
+}
+
 :host-context(.choice-list--row) {
     .choices {
-        flex-direction: row;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
         justify-content: center;
         column-gap: 16px;
+        max-width: 1088px;
+        margin: 0 auto;
     }
 }
 

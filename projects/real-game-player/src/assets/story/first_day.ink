@@ -92,6 +92,7 @@
 
 
 VAR opinionTransferableSkills = 0
+VAR opinionBuyThingsYouWant = 0
 === orientation_survey ===
 
     ~ setTemplate(Templates.ContentIntro)
@@ -116,6 +117,8 @@ VAR opinionTransferableSkills = 0
     + [Next]
     -
     
+    -> agree_or_disagree(-> ex2, opinionBuyThingsYouWant) ->
+    
     ~ setTemplate(Templates.ContentIntro)
     
     >>> illustration: il-briefcase-stars
@@ -130,6 +133,10 @@ VAR opinionTransferableSkills = 0
 
     = ex1
         <h1>Transferable skills are skills you can pass on to your co-workers</h1>
+        -> DONE
+
+    = ex2
+        <h1>When you have a job, you can buy the things you want.</h1>
         -> DONE
 
 

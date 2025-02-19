@@ -2,12 +2,12 @@ import { animate, group, style, transition, trigger } from '@angular/animations'
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChoiceListComponent } from '../choice-list/choice-list.component';
 import { CommonModule } from '@angular/common';
-import { InkStore } from '../../../../store/ink.store';
+import { ChoiceButtonComponent } from '../choice-button/choice-button.component';
 
 @Component({
   selector: 'app-choice-select-confirm',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ChoiceButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './choice-select-confirm.component.html',
   styleUrl: './choice-select-confirm.component.scss',

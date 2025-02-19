@@ -1,11 +1,19 @@
 :host {
     width: 100%;
     min-height: 100%;
+    height: 100%;
     font-size: var(--taco-font-size-225);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 :host-context(.main__reader--simple) {
     height: 100%;
+}
+
+.choice-list--row {
+    display: block;
 }
 
 .container {
@@ -13,10 +21,12 @@
     display: grid;
     max-width: 1088px;
     grid-template-columns: 1fr 1fr;
+    align-self: center;
 }
 
 .text-wrapper {
     text-align: center;
+    margin-bottom: 24px;
 }
 
 ::ng-deep {

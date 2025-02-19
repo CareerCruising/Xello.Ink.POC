@@ -2,14 +2,7 @@
     <div class="choices"
         [@list]="choices.length">
         @for (choice of choices; track choice.index) {
-            <button
-                size="md"
-                type="basic"
-                class="choice choice--square choice-button"
-                [ngClass]="{ active: inkStore.selectedChoice()?.index === choice.index }"
-                (click)="selectChoice(choice)">
-                {{choice.text}}
-            </button>
+            <app-choice-button [choice]="choice"></app-choice-button>
         }
         
         <taco-button

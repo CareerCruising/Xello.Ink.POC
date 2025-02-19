@@ -1,0 +1,10 @@
+
+<button
+    size="md"
+    type="basic"
+    class="choice choice--square choice-button"
+    [ngClass]="{ active: inkStore.selectedChoice()?.index === choice.index }"
+    (click)="inkStore.selectChoice(choice)">
+    <taco-illustration class="choice__illustration" *ngIf="illustration" size="xxlg" illustration="{{illustration}}"></taco-illustration>
+    <span class="choice__text">{{choice.text}}</span>
+</button>
