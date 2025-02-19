@@ -11,7 +11,7 @@
     
     + Strongly agree # illustration: il-very-happy
         ~ out = 1
-    + Agree # illustration: il-smile
+    + Agree # illustration: il-happy
         ~ out = 2
     + Don't know # illustration: il-not-sure
         ~ out = 3
