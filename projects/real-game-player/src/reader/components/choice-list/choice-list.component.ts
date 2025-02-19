@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, inject, Inject, Input, Output } from '@angular/core';
 import { Choice } from 'inkjs/engine/Choice';
 import { InkStore } from '../../../../store/ink.store';
+import { InkService } from '../../../services/ink.service';
 
 @Component({
   selector: 'app-choice-list',
@@ -31,6 +32,8 @@ export class ChoiceListComponent {
 
   inkStore = inject(InkStore);
 
+  constructor(private inkService: InkService) {}
+
   selectChoice(choice: Choice) {
     this.inkStore.selectChoice(choice);
   }
@@ -38,6 +41,6 @@ export class ChoiceListComponent {
   confirmChoice() {
     const _selectedChoice = this.inkStore.selectedChoice();
     if (!_selectedChoice || !this.allowConfirm) { return; }
-    this.handleChoice.emit(_selectedChoice);
+    this.inkService.SelectChoice(_selectedChoice);
   }
 }

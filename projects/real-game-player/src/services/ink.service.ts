@@ -158,7 +158,6 @@ export class InkService {
   }
 
   SelectChoice(choice: Choice) {
-    console.log('SelectChoice', choice);
     this.Choose(choice);
     this.Reset();
     this.Continue();

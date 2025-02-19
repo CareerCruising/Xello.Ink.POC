@@ -59,7 +59,6 @@ export class ActionViewComponent implements OnInit, OnDestroy {
   onNext(): void {
     if (this.inkStore.choiceRequiresConfirmation()) {
       const _selectedChoice = this.inkStore.selectedChoice();
-      console.log(_selectedChoice);
       if (!_selectedChoice) { return; }
       this.inkService.SelectChoice(_selectedChoice);
       return;

@@ -84,7 +84,6 @@ export const InkStore = signalStore(
         patchState(store, { currentTemplate: template });
       },
       reset() {
-        console.log('reset');
         patchState(store, {
           selectedChoice: null,
           currentTemplate: Templates.None,
