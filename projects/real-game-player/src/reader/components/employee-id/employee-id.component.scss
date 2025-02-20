@@ -36,4 +36,26 @@
     &__name {
         font-weight: bold;
     }
+    &__job-description {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 24px;
+        column-gap: 16px;
+    }
+    &__data-point {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        column-gap: 8px;
+    }
+}
+.illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--taco-color-emerald-50);
 }

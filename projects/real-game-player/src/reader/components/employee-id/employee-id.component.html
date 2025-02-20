@@ -5,13 +5,30 @@
     </div>
     <div class="employee__info">
         <div class="employee__person">
-            <taco-avatar firstName="Maya" lastName="Anderson" size="md" variant="circle"></taco-avatar>
+            <taco-avatar image="{{userStore.user()?.avatarUrl}}" firstName="{{userStore.user()?.firstName}}" lastName="{{userStore.user()?.lastName}}" size="md" variant="circle"></taco-avatar>
             <div>
-                <div class="employee__name">Maya Anderson</div>
+                <div class="employee__name">{{userStore.user()?.firstName}} {{userStore.user()?.lastName}}</div>
                 <taco-article size="md" headline="Civil engineer" desc="Employee ID: 3456789"></taco-article>    
             </div>
         </div>
         <div class="border"></div>
-        <div></div>
+        <div class="employee__job-description">
+            <div class="employee__data-point">
+                <div class="illustration"><taco-illustration size="md" illustration="il-bills-coins"></taco-illustration></div>
+                <taco-article size="md" headline="$5000" desc="a month"></taco-article>
+            </div>
+            <div class="employee__data-point">
+                <div class="illustration"><taco-illustration size="md" illustration="il-clock"></taco-illustration></div>
+                <taco-article size="md" headline="40 hours" desc="a week"></taco-article>
+            </div>
+            <div class="employee__data-point">
+                <div class="illustration"><taco-illustration size="md" illustration="il-briefcase"></taco-illustration></div>
+                <taco-article size="md" headline="3 weeks" desc="a year"></taco-article>
+            </div>
+            <div class="employee__data-point">
+                <div class="illustration"><taco-illustration size="md" illustration="il-bar-chart"></taco-illustration></div>
+                <taco-article size="md" headline="Entry" desc="level"></taco-article>
+            </div>
+        </div>
     </div>
 </div>

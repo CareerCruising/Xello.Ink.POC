@@ -1,4 +1,5 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { UserStore } from '../../../../store/user.store';
 
 @Component({
   selector: 'app-employee-id',
@@ -9,5 +10,5 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrl: './employee-id.component.scss'
 })
 export class EmployeeIdComponent {
-
+  userStore = inject(UserStore);
 }
