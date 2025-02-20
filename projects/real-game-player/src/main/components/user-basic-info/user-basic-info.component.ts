@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MeterComponent } from '../meter/meter.component';
 import { InkStore } from '../../../../store/ink.store';
+import { UserStore } from '../../../../store/user.store';
 
 @Component({
   selector: 'app-user-basic-info',
@@ -12,6 +13,7 @@ import { InkStore } from '../../../../store/ink.store';
 export class UserBasicInfoComponent {
 
   inkStore = inject(InkStore);
+  userStore = inject(UserStore);
 
   currentXP = 0
 

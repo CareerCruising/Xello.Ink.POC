@@ -43,6 +43,7 @@ export class TitleComponent extends BasicComponent implements OnInit {
   illustration: string = '';
 
   ngOnInit(): void {
+    this.inkStore.setDelay(1000);
     this.inkService.onCommandReceived.subscribe(command => {
       switch (command.name) {
         case 'illustration':

@@ -34,6 +34,7 @@
     [mode]="inkStore.currentChoiceMode()"
     [choices]="inkStore.currentChoices()"
     class="choice-list"
+    *ngIf="inkStore.currentChoices().length > 0"
     alignment="center"
     (handleChoice)="inkService.SelectChoice($event)"
 ></app-choice-list>

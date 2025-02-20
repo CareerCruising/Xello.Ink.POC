@@ -23,8 +23,17 @@
     justify-content: flex-start;
 }
 
+.choice-list {
+    animation: fade-in .35s ease-in-out 1s both;
+}
+
 .accent {
     position: absolute;
     top: 12px;
     left: 27px;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

@@ -35,7 +35,7 @@
         column-gap: var(--taco-space-400);
         
         > * {
-            animation: fade-in 1s ease-in-out;
+            animation: fade-in 1s ease-in-out both;
         }
 
         .main__reader {
@@ -45,7 +45,7 @@
         }
 
         &:before {
-            animation: fade-in 1s ease-in-out;
+            animation: fade-in 1s ease-in-out both;
         }
     }
 }

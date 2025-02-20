@@ -3,6 +3,8 @@
         [context]="context"
         [ngClass]="{'illustrated': illustration}"
         class="reader">
-        <app-frame class="frame" *ngIf="currentFrame" [component]="currentFrame"></app-frame>
+        <div [@grow]="currentFrame != ''">
+            <app-frame *ngIf="currentFrame" class="frame" [component]="currentFrame"></app-frame>
+        </div>
     </app-basic>
 </app-scene-illustrated>

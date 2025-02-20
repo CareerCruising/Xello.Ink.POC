@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { BasicComponent } from "../basic/basic.component";
 import { SceneIllustratedComponent } from '../../components/scene-illustrated/scene-illustrated.component';
 import { FrameComponent } from '../../components/frame/frame.component';
@@ -18,6 +18,13 @@ import { FrameComponent } from '../../components/frame/frame.component';
         style({ opacity: 0 }),
         animate('0.5s 0.5s ease-in-out', style({ opacity: 1 }))
       ])
+    ]),
+    trigger('grow', [
+      state("false", style({ height: 0, opacity: 0 })),
+      transition("false <=> true", [
+        style({ height: 0, opacity: 0 }),
+        animate('0.5s 0.5s ease-in-out', style({ height: '*', opacity: 1 }))
+      ])
     ])
   ]
 })
@@ -25,7 +32,7 @@ export class StoryBiteComponent extends BasicComponent implements OnInit {
 
   illustration: string = '';
   fadeIn = false;
-  currentFrame = '';
+  currentFrame: string = '';
 
   ngOnInit(): void {
     this.fadeIn = true;

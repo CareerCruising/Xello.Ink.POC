@@ -83,6 +83,7 @@ export class InkService {
         const rawText = text.trim();
         if (!this.lastChoiceSelected || this.lastChoiceSelected.text !== rawText) {
           this.inkStore.addLine({type: 'text', content: text});
+          this.appRef.tick();
           setTimeout(() => {
             this.isPlaying = false;
             this.Continue();
@@ -95,6 +96,7 @@ export class InkService {
     } else {
       this.isPlaying = false;
       this.isComplete = true;
+      this.appRef.tick();
     }
 
     this.lastChoiceSelected = null;
@@ -131,6 +133,8 @@ export class InkService {
       params: tokens.slice(1)
     }
   
+    this.onCommandReceived.emit(command);
+    
     switch (commandName) {
       case 'ui':
         this.inkStore.setUIState(tokens[1] === 'game' ? 'full' : 'partial');
@@ -145,6 +149,9 @@ export class InkService {
         this.inkStore.setDelay(+tokens[1]);
         await sleep(this.inkStore.delay());
         break;
+      case 'frame':
+        await sleep(1000);
+        break;
       case 'mode':
       case 'template':
         this.inkStore.setTemplate(Templates[tokens[1] as keyof typeof Templates]);
@@ -157,7 +164,6 @@ export class InkService {
         break;
     }
 
-    this.onCommandReceived.emit(command);
     await sleep(1); // This ensures synchronicity when creating templates -- they need a chance to render and subscribe to events
     this.isPlaying = false;
     return command;

@@ -4,6 +4,12 @@
     }
 }
 
+:host-context(.illustrated) {
+    .choices {
+        justify-content: flex-start;
+    }
+}
+
 taco-button {
     display: block;
 }
@@ -15,11 +21,10 @@ taco-button {
     min-height: 51px;
     margin-top: 16px;
     margin-bottom: 16px;
+    animation: fade-in .35s ease-in-out both;
 }
 
-
-:host-context(.illustrated) {
-    .choices {
-        justify-content: flex-start;
-    }
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
