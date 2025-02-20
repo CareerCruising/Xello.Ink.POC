@@ -195,6 +195,8 @@ VAR ratingVacation = 0
     ~ setTemplate(Templates.RatingSummary)
     ~ setBackground(Gradient)
     
+    >>> frame: career-profile
+    
     <h1>Nicely done! Here's how you rated this role:</h1>
     Description
     {rating(ratingJobDesc)}
@@ -205,6 +207,6 @@ VAR ratingVacation = 0
     Vacation time
     {rating(ratingVacation)}
     
-    + [Done] #cta-footer
+    + [Next] #cta-footer
         - (done)
         -> investigation_2

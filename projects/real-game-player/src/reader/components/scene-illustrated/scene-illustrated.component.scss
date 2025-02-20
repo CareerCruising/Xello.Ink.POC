@@ -11,7 +11,12 @@
     align-items: center;
     &.illustrated {
         grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
     }
+}
+
+.align-items-top {
+    align-items: flex-start;
 }
 
 .content {

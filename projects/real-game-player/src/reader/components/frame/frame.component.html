@@ -1,6 +1,7 @@
 <ng-container [ngSwitch]="component">
-    <app-employee-id *ngSwitchCase="'employee-id'"></app-employee-id>
-    <app-chapter-summary *ngSwitchCase="'chapter-summary'"></app-chapter-summary>
+    <app-employee-id class="panel__padded" *ngSwitchCase="'employee-id'"></app-employee-id>
+    <app-chapter-summary class="panel__padded" *ngSwitchCase="'chapter-summary'"></app-chapter-summary>
+    <app-career-profile *ngSwitchCase="'career-profile'"></app-career-profile>
 </ng-container>
 <ng-content></ng-content>
 

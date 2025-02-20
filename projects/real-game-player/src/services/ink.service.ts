@@ -133,8 +133,6 @@ export class InkService {
       params: tokens.slice(1)
     }
   
-    this.onCommandReceived.emit(command);
-    
     switch (commandName) {
       case 'ui':
         this.inkStore.setUIState(tokens[1] === 'game' ? 'full' : 'partial');
@@ -163,6 +161,9 @@ export class InkService {
         this.inkStore.setBackground(tokens[1].toLowerCase());
         break;
     }
+
+    this.onCommandReceived.emit(command);
+    this.appRef.tick();
 
     await sleep(1); // This ensures synchronicity when creating templates -- they need a chance to render and subscribe to events
     this.isPlaying = false;

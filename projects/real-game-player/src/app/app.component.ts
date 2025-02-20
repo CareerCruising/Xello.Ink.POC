@@ -3,6 +3,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
   Inject,
+  Input,
   RendererFactory2,
 } from '@angular/core';
 import { loadScript, loadStyle } from '../helpers/url.helpers';
@@ -12,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
 import { UserStore } from '../../store/user.store';
 import { environment } from '../environments/environment';
 import { CareerStore } from '../../store/career.store';
+import { TranslationLocalService } from '../services/translate.service';
+import { SupportedLanguage } from '../shared/app.constants';
 
 export const scriptIDs = {
   TACO_SCRIPT_ID: 'taco-js',
@@ -41,10 +44,16 @@ export class AppComponent {
   userStore = inject(UserStore);
   careerStore = inject(CareerStore);
 
+  @Input() set language(value: SupportedLanguage) {
+    this.translateService.setLanguage(value);
+  }
+
   constructor(
     rendererFactory: RendererFactory2,
+    private translateService: TranslationLocalService,
     @Inject(DOCUMENT) private document: Document
   ) {
+    this.translateService.init(this.language || 'en-US');
     const renderer = rendererFactory.createRenderer(null, null);
 
     loadScript(

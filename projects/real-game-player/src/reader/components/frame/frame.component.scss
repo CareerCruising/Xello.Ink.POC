@@ -2,8 +2,14 @@
     display: block;
     border-radius: var(--taco-unit-pixel-050);
     background-color: var(--taco-color-background-primary);
-    padding: var(--taco-unit-pixel-300);
     color: var(--taco-color-text-primary);
 
     width: 100%;
+    overflow: hidden;
+
+    border: solid 1px var(--taco-color-white-900);
+}
+
+.panel__padded {
+    padding: var(--taco-unit-pixel-300);
 }

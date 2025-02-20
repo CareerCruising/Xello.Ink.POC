@@ -15,7 +15,6 @@
     }
     &__item {
         display: flex;
-        color: var(--taco-color-white-100);
         width: 100%;
         align-items: center;
         column-gap: 8px;
@@ -40,5 +39,16 @@
     &__desc {
         color: var(--taco-color-text-secondary-on-dark);
         font-size: var(--taco-font-size-150);
+    }
+}
+
+:host-context(app-frame) {
+    .article {
+        &__headline {
+            color: var(--taco-color-text-primary);
+        }
+        &__desc {
+            color: var(--taco-color-text-secondary);
+        }
     }
 }

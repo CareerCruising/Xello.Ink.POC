@@ -1,6 +1,10 @@
-<div class="container" [ngClass]="{illustrated: illustration || alwaysShowLeftPanel}">
-    <ng-container *ngIf="illustration || alwaysShowLeftPanel">
-        <div *ngIf="!illustration"></div>
+<div class="container" [ngClass]="{illustrated: illustration || alwaysShowLeftPanel, 'align-items-top': currentFrame && showFrames}">
+
+    <ng-container *ngIf="illustration || currentFrame || alwaysShowLeftPanel">
+        <div *ngIf="!illustration && !currentFrame"></div>
+        <div *ngIf="currentFrame && showFrames">
+            <app-frame class="frame" [component]="currentFrame"></app-frame>
+        </div>
         <ng-container *ngIf="illustration" [ngSwitch]="illustration">
             <lottie-player
                 class="illustration"
@@ -25,6 +29,7 @@
             ></taco-illustration>
         </ng-container>
     </ng-container>
+
     <div class="content">
         <ng-content></ng-content>
     </div>

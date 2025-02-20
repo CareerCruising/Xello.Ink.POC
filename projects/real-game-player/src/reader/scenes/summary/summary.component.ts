@@ -6,11 +6,12 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { InkStore } from '../../../../store/ink.store';
 import { ReaderContext } from '../../reader-context.enum';
+import { FrameComponent } from "../../components/frame/frame.component";
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [ CommonModule, SceneIllustratedComponent, BasicComponent ],
+  imports: [CommonModule, SceneIllustratedComponent, BasicComponent, FrameComponent],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.scss',
   animations: [

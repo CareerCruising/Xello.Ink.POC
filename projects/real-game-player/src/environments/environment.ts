@@ -8,6 +8,7 @@ export const environment = {
   CDN_ENDPOINT_FOR_IMAGES: "",
   API_SERVER: "https://cc3dev.us.xello.tech/api",
   IMAGE_SERVER: "https://devimg.us.xello.tech/res/images/",
+  imageUrl: "https://devimg.us.xello.tech/res/images/",
   IMAGE_ENDPOINT: "https://img-dev-anaca.azureedge.net/",
   LOGIN_URL: "http://localhost:4200",
   LOGIN_ENDPOINT: "https://cc3dev.us.xello.tech/api",

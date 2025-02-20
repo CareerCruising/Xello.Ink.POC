@@ -19,7 +19,7 @@ export class CareerService {
 
   locale = this.translateService.currentLang;
 
-  allCareersURL = `${environment.CDN_ABSOLUTE_URL}real-game/${this.locale}/trg_careers_${this.locale || 'en-US'}.json`;
+  allCareersURL = `${environment.CDN_ABSOLUTE_URL}real-game/${this.locale || 'en-US'}/trg_careers_${this.locale || 'en-US'}.json`;
   getAllCareers(): Observable<Career[]> {
     return this.httpClient
       .get(this.allCareersURL, {
@@ -38,7 +38,7 @@ export class CareerService {
   getCareerProfile(careerId: number): Observable<Career> {
     return this.httpClient
       .get(
-        `${environment.CDN_ABSOLUTE_URL}careers/${careerId}_careerprofile_${this.locale || 'en-US'}.json`
+        `${environment.CDN_ABSOLUTE_URL}real-game/en-US/${careerId}_trg_careerprofile_en-US.json`,
       )
       .pipe(
         catchError((err) => {
