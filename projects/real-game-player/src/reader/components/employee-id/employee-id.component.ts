@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { UserStore } from '../../../../store/user.store';
+import { CareerStore } from '../../../../store/career.store';
 
 @Component({
   selector: 'app-employee-id',
@@ -11,4 +12,5 @@ import { UserStore } from '../../../../store/user.store';
 })
 export class EmployeeIdComponent {
   userStore = inject(UserStore);
+  careerStore = inject(CareerStore);
 }

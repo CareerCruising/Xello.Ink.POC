@@ -1,7 +1,7 @@
 <div class="employee__wrapper">
     <div class="employee__employer">
-        <h2>Urban Designs Inc.</h2>
-        <div>552 Ponce de Leon blvd. Coral Gables, FL</div>
+        <h2>{{careerStore.careerProfile()?.employerName}}</h2>
+        <div>{{careerStore.careerProfile()?.employerAddress}}</div>
     </div>
     <div class="employee__info">
         <div class="employee__person">
@@ -19,11 +19,11 @@
             </div>
             <div class="employee__data-point">
                 <div class="illustration"><taco-illustration size="md" illustration="il-clock"></taco-illustration></div>
-                <taco-article size="sm" headline="40 hours" desc="a week"></taco-article>
+                <taco-article size="sm" headline="{{careerStore.careerProfile()?.workHoursPerWeek}} hours" desc="a week"></taco-article>
             </div>
             <div class="employee__data-point">
                 <div class="illustration"><taco-illustration size="md" illustration="il-briefcase"></taco-illustration></div>
-                <taco-article size="sm" headline="3 weeks" desc="a year"></taco-article>
+                <taco-article size="sm" headline="{{careerStore.careerProfile()?.vacationWeeksPerYear}} weeks" desc="a year"></taco-article>
             </div>
             <div class="employee__data-point">
                 <div class="illustration"><taco-illustration size="md" illustration="il-bar-chart"></taco-illustration></div>

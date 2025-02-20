@@ -30,6 +30,9 @@
   }
 
   ::ng-deep {
+    p {
+      margin: 16px 0;
+    }
     p:first-child {
       margin-top: 0;
     }
