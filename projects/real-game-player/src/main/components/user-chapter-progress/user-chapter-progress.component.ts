@@ -41,6 +41,7 @@ export class UserChapterProgressComponent implements OnInit {
         }
       }
     })
+    this.achievedGoals = story.variablesState.$('achievedGoals') as InkList;
     story.ObserveVariable('achievedGoals', (varName, value) => {
       this.achievedGoals = value;
     })
