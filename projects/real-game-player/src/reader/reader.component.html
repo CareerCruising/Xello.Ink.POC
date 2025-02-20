@@ -1,7 +1,7 @@
 <ng-container [ngSwitch]="inkStore.currentTemplate()">
     <div *ngSwitchCase="Templates.None"></div>
     <app-title *ngSwitchCase="Templates.Title" [context]="context"></app-title>
-    <app-content-intro *ngSwitchCase="Templates.ContentIntro" [context]="context"></app-content-intro>
+    <app-content-intro *ngSwitchCase="Templates.ContentIntro" [showResults]="false" [context]="context"></app-content-intro>
     <app-content-intro *ngSwitchCase="Templates.Result" [showResults]="true" [context]="context"></app-content-intro>
     <app-chapter-title *ngSwitchCase="Templates.ChapterTitle" [context]="context"></app-chapter-title>
     <app-story-bite *ngSwitchCase="Templates.StoryBite" [context]="context"></app-story-bite>

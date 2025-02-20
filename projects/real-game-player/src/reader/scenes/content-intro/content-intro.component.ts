@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { BasicComponent } from "../basic/basic.component";
 import { takeUntil } from 'rxjs';
@@ -23,9 +23,10 @@ import { ResultComponent } from "../../components/result/result.component";
 })
 export class ContentIntroComponent extends BasicComponent implements OnInit {
 
+  @Input() showResults = true;
+
   illustration: string = '';
   fadeIn = false;
-  showResults = false;
 
   ngOnInit(): void {
     this.fadeIn = true;
