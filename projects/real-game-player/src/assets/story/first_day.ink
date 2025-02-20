@@ -348,7 +348,7 @@ VAR opinionBuyThingsYouWant = 0
     + [Next]
     -
     
-    ~ setTemplate(Templates.Result)
+    ~ setTemplate(Templates.ContentIntro)
     >>> illustration: il-government-coins
     <h1>Hold up.</h1>
     <p>For every paycheck you get, you have to pay taxes.</p>
@@ -356,7 +356,7 @@ VAR opinionBuyThingsYouWant = 0
     + [Pay taxes]
     -
     
-    ~ setTemplate(Templates.Result)
+    ~ setTemplate(Templates.ContentIntro)
     >>> illustration: il-government-coins
     <h1>$5,613 - $1,251 = $4,362</h1>
     
