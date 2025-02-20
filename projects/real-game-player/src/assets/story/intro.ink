@@ -121,9 +121,8 @@
     >>> delay: 1000
 
     <h1>You have a job as a {lowercase(role)}.</h1>
-    And your job starts today. Better get over there!
-    
     >>> frame: employee-id
+    And your job starts today. Better get over there!
     
     + [Next]
     -
