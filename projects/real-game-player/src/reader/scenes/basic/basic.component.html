@@ -26,6 +26,5 @@
     [choices]="inkStore.currentChoices()"
     *ngIf="showChoices && context == ReaderContext.Basic"
     class="choice-list"
-    alignment="center"
     (handleChoice)="inkService.SelectChoice($event)"
 ></app-choice-list>
