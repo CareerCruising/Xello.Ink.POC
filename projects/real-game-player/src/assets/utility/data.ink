@@ -23,8 +23,12 @@ VAR money = 0
 === function addMoney(num) ===
     >>> modify: money {num}
     ~ money += num
+=== function addMoneySilent(num) ===
+    ~ money += num
 === function takeMoney(num) ===
     >>> modify: money {-num}
+    ~ money -= num
+=== function takeMoneySilent(num) ===
     ~ money -= num
 
 VAR expenses = 0

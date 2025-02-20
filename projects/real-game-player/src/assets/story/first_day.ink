@@ -109,7 +109,7 @@
     <p>You score a $20 gift card.</p>
     
     ~ modifyWellbeing(1)
-    ~ addMoney(20)
+    ~ addMoneySilent(20)
     ~ gainXP(10)
 
     + [Next]
@@ -286,7 +286,7 @@ VAR opinionBuyThingsYouWant = 0
     <p>You pull out ${amount} in crumpled bills.</p>
     
     ~ modifyWellbeing(1)
-    ~ addMoney(amount)
+    ~ addMoneySilent(amount)
     ~ gainXP(10)
 
     + [Next]
@@ -343,7 +343,7 @@ VAR opinionBuyThingsYouWant = 0
     ~ modifyWellbeing(3)
     ~ modifyCareer(2)
     ~ gainXP(25)
-    ~ addMoney(5613)
+    ~ addMoneySilent(5613)
     ~ completeGoal(FirstPayday)
 
     + [Next]
@@ -361,7 +361,7 @@ VAR opinionBuyThingsYouWant = 0
     >>> illustration: il-government-coins
     <h1>$5,613 - $1,251 = $4,362</h1>
     
-    ~ takeMoney(1251)
+    ~ takeMoneySilent(1251)
     
     + [Next] // View pay statement
     -
