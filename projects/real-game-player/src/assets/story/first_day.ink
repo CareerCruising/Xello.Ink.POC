@@ -276,16 +276,17 @@ VAR opinionBuyThingsYouWant = 0
     ~ setTemplate(Templates.ChanceCard)
     
     <p>You do a little busking on the sidewalk to make some extra cash. How much is in your hat after an hour?</p>
-    
+
     + [Reveal]
     -
     ~ setTemplate(Templates.ChanceCardResult)
     
     <h1>Wow!</h1>
-    <p>You pull out $25 in crumpled bills.</p>
+    ~ temp amount = RANDOM(25, 50)
+    <p>You pull out ${amount} in crumpled bills.</p>
     
     ~ modifyWellbeing(1)
-    ~ addMoney(25)
+    ~ addMoney(amount)
     ~ gainXP(10)
 
     + [Next]
@@ -322,7 +323,7 @@ VAR opinionBuyThingsYouWant = 0
         ~ setTemplate(Templates.Result)
         >>> illustration: il-diverse-people
         <h1>No problem!</h1>
-        <p>Your teammate is happy to pause and go over what to do. </p>
+        <p>Your teammate is happy to pause and go over what to do.</p>
         ~ modifyWellbeing(1)
         ~ modifyCareer(1)
         ~ gainXP(20)

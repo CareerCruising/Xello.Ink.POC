@@ -1,6 +1,13 @@
 <div class="chance-card__wrapper" [@fadeIn]="true">
     <div class="chance-card__illustration">
-        <img class="illustration" src="../../../assets/img/question.svg" />
+        <lottie-player
+            class="illustration"
+            src="../../../assets/animations/question-mark.json"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px;"
+            loop autoplay
+        ></lottie-player>
     </div>
     <div class="chance-card__body">
         @for (line of inkStore.currentText(); track line.id) {

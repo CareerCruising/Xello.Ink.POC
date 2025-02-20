@@ -8,18 +8,25 @@
         margin: 0 auto;    
         background-color: #34496BE5;
         padding: 24px;
+        padding-left: 0;
         width: 100%;
         display: grid;
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 160px 1fr;
     }
     &__illustration {
-        min-height: 120px;
-        padding-left: 12px;
+        margin: -12px -8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     &__body {
         display: flex;
         flex-direction: column;
         padding: 0 24px;
         border-left: solid 1px var(--taco-color-grey-700);
+
+        ::ng-deep p {
+            margin-bottom: 16px;
+        }
     }
 }
