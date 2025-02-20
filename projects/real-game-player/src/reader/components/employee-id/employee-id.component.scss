@@ -1,0 +1,39 @@
+:host {
+    display: block;
+    width: 592px;
+    max-width: 100%;
+}
+
+.employee {
+    &__employer {
+        text-align: center;
+        font-size: var(--taco-font-size-225);
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+        border-bottom: solid 1px var(--taco-color-border-secondary);
+        h2 {
+            margin: 0;
+            font-size: var(--taco-font-size-300);
+        }
+    }
+    &__info {
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+        column-gap: 24px;
+        align-items: center;
+
+        .border {
+            height: 100%;
+            border-right: solid 1px var(--taco-color-white-900);
+        }
+    }
+    &__person {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 8px;
+    }
+    &__name {
+        font-weight: bold;
+    }
+}

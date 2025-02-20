@@ -1,4 +1,6 @@
 <ng-container [ngSwitch]="component">
+    <app-employee-id *ngSwitchCase="'employee-id'"></app-employee-id>
     <app-chapter-summary *ngSwitchCase="'chapter-summary'"></app-chapter-summary>
 </ng-container>
 <ng-content></ng-content>
+
