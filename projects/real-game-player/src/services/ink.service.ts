@@ -101,10 +101,7 @@ export class InkService {
 
     this.lastChoiceSelected = null;
 
-    console.log(story.state.toJson(true));
-
     if (story.state.currentPathString) {
-      console.log(story.state.currentPathString);
       const pathString = story.state.currentPathString.split('.')[0]
       if (this.currentPathString !== pathString) {
         this.currentPathString = pathString;
