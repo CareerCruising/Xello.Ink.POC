@@ -9,6 +9,7 @@ import { CareerStore } from '../../store/career.store';
 import { ActionViewComponent } from "./action-view/action-view.component";
 import { Subject, takeUntil } from 'rxjs';
 import { InkStore } from '../../store/ink.store';
+import { TooltipWrapperComponent } from "./components/tooltip-wrapper/tooltip-wrapper.component";
 
 @Component({
   selector: 'app-main',
@@ -19,8 +20,9 @@ import { InkStore } from '../../store/ink.store';
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-    ActionViewComponent
-  ],
+    ActionViewComponent,
+    TooltipWrapperComponent
+],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })

@@ -1,0 +1,7 @@
+<div class="tooltip-wrapper" *ngIf="tooltip">
+    <div class="content voiceover--contained"
+        [innerHTML]="tooltip.content"></div>
+    <taco-button class="close-btn" size="md" type="close" (tacoButtonClick)="onClose()"></taco-button>
+    <div class="caret"
+        [ngClass]="orientation"></div>
+</div>

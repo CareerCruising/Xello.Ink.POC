@@ -1,0 +1,96 @@
+:host {
+  $border-radius: 15px;
+  $caret-size: 10px;
+
+  position: fixed;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  top: 0;
+  left: 0;
+  min-width: 150px;
+  z-index: 99;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.16);
+  border-radius: 4px;
+
+  &.show {
+    opacity: 1;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4px;
+    margin-top: 12px;
+    z-index: 3;
+}
+
+  .caret {
+    border-color: var(--taco-color-red-500);
+    border-width: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    &:after {
+      content: '';
+      z-index: 2;
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: solid $caret-size transparent;
+    }
+    &:before {
+      content: "";
+      z-index: 0;
+      position: absolute;
+      width: calc(#{$caret-size} * 2);
+      height: calc(#{$caret-size} * 2);
+      transform: rotate(45deg);
+      background-color: rgba(0, 0, 0, 0.16);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    }
+
+    &.top {
+      &:before {
+        bottom: -($caret-size - 3px);
+      }
+      &:after {
+        border-top-color: inherit;
+      }
+    }
+
+    &.bottom {
+      top: (-$caret-size) * 2;
+      &:before {
+        top: $caret-size + 3px;
+      }
+      &:after {
+        border-bottom-color: inherit;
+      }
+    }
+  }
+
+  .content {
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background-color: var(--taco-color-red-500);
+    width: 100%;
+    line-height: 1.2em;
+    z-index: 2;
+
+    ::ng-deep {
+      h3 {
+          margin-bottom: 3px;
+          letter-spacing: 0.06em;
+      }
+      p {
+          &:last-child {
+              margin: 0;
+          }
+      }
+    }
+  }
+}

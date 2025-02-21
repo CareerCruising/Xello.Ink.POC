@@ -1,0 +1,7 @@
+@for (tooltip of service.tooltips; track tooltip.id) {
+    <app-tooltip-content
+        [tooltip]="tooltip"
+        [@visibility]="true"
+        (close)="closeTooltip(tooltip.id)">
+    </app-tooltip-content>   
+}
