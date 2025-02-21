@@ -125,7 +125,9 @@ export class InkService {
   }
 
   async HandleCommand(str: string, tags?: string[]) {
-    const tokens = str.match(/(?:[^\s"]+|"[^"]*")+/g);  // .split(' ');
+    const tokens = str.match(/(?:[^\s"]+|"[^"]*")+/g); 
+    
+    console.log(str);
 
     if (!tokens) {
       return;

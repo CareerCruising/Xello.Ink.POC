@@ -1,7 +1,8 @@
-import { Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { InkService } from '../../services/ink.service';
 import { Subject, takeUntil } from 'rxjs';
 import { TooltipService } from '../services/tooltip.service';
+import { InkStore } from '../../../store/ink.store';
 
 export interface TooltipDefinition {
   id: string;
@@ -25,6 +26,8 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
   @Input() tooltipColor !: string;
   @Input() tooltipEnabled = true;
 
+  inkStore = inject(InkStore);
+
   enabled = false;
   focused = false;
   id = (Math.random() * 9999).toString();
@@ -43,7 +46,6 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
         switch (command.name) {
           case 'tooltip':
             if (command.params[0] === this.tooltipAnchor) {
-              console.log(command);
               this.display(command.params[1]);
             }
             break;
@@ -152,13 +154,14 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
     };
     this.tooltipService.addTooltip(obj);
   }
+
   hide(force?: Boolean): void {
     if (!this.enabled && !force) { return; }
     this.enabled = false;
 
     const self = this;
     this.tooltipService.removeTooltip(self.id);
-    this.inkService.Continue();
+    this.inkService.SelectChoice(this.inkStore.story().currentChoices[0]);
   }
 
 

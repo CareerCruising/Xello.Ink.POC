@@ -23,9 +23,7 @@
         <p>Nice try! I'm Ollex, your guide. You will want me around as you figure out this new life.</p>
     -
     
-    -> begin_onboarding ->
-
-    -> first_day
+    -> begin_onboarding
         
         
     = ollex_appears
@@ -40,7 +38,7 @@
     >>> background: gradient
     >>> ui: game
 
-    -> show_tooltip("user-info", "1 of 4<br/>Track your life experience, upcoming goals, and achievements.") ->
+    -> show_tooltip("user-info", "<small>1 of 4</small><br/>Track your life experience, upcoming goals, and achievements.") ->
 
     -> show_tooltip("bank", "2 of 4<br/>Monitor the money you make, spend, save, and invest.") ->
     
@@ -48,5 +46,5 @@
     
     -> show_tooltip("bottom-right", "4 of 4<br/>You can find me here!") ->
 
-    ->->
+    -> first_day
     
