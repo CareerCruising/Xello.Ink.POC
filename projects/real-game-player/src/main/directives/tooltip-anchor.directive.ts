@@ -161,7 +161,9 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
 
     const self = this;
     this.tooltipService.removeTooltip(self.id);
-    this.inkService.SelectChoice(this.inkStore.story().currentChoices[0]);
+    window.requestAnimationFrame(() => {
+      this.inkService.SelectChoice(this.inkStore.story().currentChoices[0]);
+    });
   }
 
 
