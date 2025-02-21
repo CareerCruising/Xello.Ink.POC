@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, Input, OnDestroy } from '@angular/core';
 import { InkService } from '../../../services/ink.service';
 import { ChoiceListComponent } from '../../components/choice-list/choice-list.component';
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, query, state, style, transition, trigger } from '@angular/animations';
 import { BehaviorSubject, Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { InkStore } from '../../../../store/ink.store';
 import { ReaderContext } from '../../reader-context.enum';

@@ -24,7 +24,7 @@ VAR culture = Cultures.enCA
 VAR environment = "inky"
 
 
--> init
+-> begin_onboarding
 
 
 === init ===

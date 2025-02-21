@@ -7,6 +7,7 @@ import { InkStore } from '../../../../store/ink.store';
 import { CommonModule } from '@angular/common';
 import { InkListItem } from 'inkjs/engine/InkList';
 import { UserAspirationComponent } from '../user-aspiration/user-aspiration.component';
+import { TooltipAnchorDirective } from '../../directives/tooltip-anchor.directive';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,7 +17,8 @@ import { UserAspirationComponent } from '../user-aspiration/user-aspiration.comp
     UserBasicInfoComponent,
     UserWellbeingComponent,
     UserAspirationComponent,
-    UserChapterProgressComponent
+    UserChapterProgressComponent,
+    TooltipAnchorDirective
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './sidebar.component.html',

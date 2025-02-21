@@ -75,7 +75,7 @@ export class InkService {
       this.inkStore.continue();
 
       if (text.startsWith('>>>')) {
-        await this.HandleCommand(text.substring(3).trim());
+        await this.HandleCommand(text.substring(3).trim(), story.currentTags || undefined);
         this.appRef.tick();
         this.isPlaying = false;
         this.Continue();
@@ -124,18 +124,28 @@ export class InkService {
     this.Continue();
   }
 
-  async HandleCommand(str: string) {
-    const tokens = str.split(' ');
+  async HandleCommand(str: string, tags?: string[]) {
+    const tokens = str.match(/(?:[^\s"]+|"[^"]*")+/g);  // .split(' ');
+
+    if (!tokens) {
+      return;
+    }
     
     const commandName = tokens[0].replaceAll(':', '');
     const command = {
       name: commandName,
-      params: tokens.slice(1)
+      params: tokens.slice(1).map(token => {
+        if (token.startsWith("\"")) { token = token.slice(1) };
+        if (token.endsWith("\"")) { token = token.slice(0, -1) };
+        return token;
+      }),
+      tags
     }
   
     switch (commandName) {
       case 'ui':
         this.inkStore.setUIState(tokens[1] === 'game' ? 'full' : 'partial');
+        await sleep(1000);
         break;
       case 'lookup':
         const values = tokens[1].split('.');

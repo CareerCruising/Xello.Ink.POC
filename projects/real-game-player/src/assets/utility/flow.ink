@@ -24,6 +24,14 @@
     ->->
 
 
+=== show_tooltip(element, content) ===
+    >>> tooltip: {element} "{content}"
+    
+    + [Next]
+    -
+    ->->
+
+
 === rate(-> instructions, ref out) ===
     ~ setTemplate(Templates.Rating)
     

@@ -22,9 +22,10 @@
         <h1>Your watch has no off button! A figure appears on it and says:</h1>
         <p>Nice try! I'm Ollex, your guide. You will want me around as you figure out this new life.</p>
     -
+    
+    -> begin_onboarding ->
 
-    + [Got it]
-        -> begin_onboarding
+    -> first_day
         
         
     = ollex_appears
@@ -39,42 +40,13 @@
     >>> background: gradient
     >>> ui: game
 
-    -> first_day
+    -> show_tooltip("user-info", "1 of 4<br/>Track your life experience, upcoming goals, and achievements.") ->
+
+    -> show_tooltip("bank", "2 of 4<br/>Monitor the money you make, spend, save, and invest.") ->
     
-    >>> show: experience
-    >>> move-ollex: experience
+    -> show_tooltip("bills", "3 of 4<br/>Track the days until the next payday and bills due.") ->
     
-    Ollex: 1 of 5<br/>Track your life experience, upcoming goals, and achievements. 
+    -> show_tooltip("bottom-right", "4 of 4<br/>You can find me here!") ->
+
+    ->->
     
-    + [Next]
-    -
-    
-    >>> show: mood
-    >>> move-ollex: mood
-    
-    Ollex: 2 of 5<br/>Make sure your work-life balance meters stay level.
-    
-    + [Next]
-    -
-    
-    >>> show: footer
-    >>> show: finances
-    >>> move-ollex: finances
-    
-    Ollex: 3 of 5<br/>Monitor the money you make, spend, save, and invest.
-    
-    + [Next]
-    -
-    
-    >>> show: upcoming
-    >>> move-ollex: upcoming
-    
-    Ollex: 4 of 5<br/>Track the days until the next payday and bills due.
-    
-    >>> move-ollex: bottom-right
-    Ollex: 5 of 5<br/>You can find me here!
-    
-    + [Next]
-    -
-    
-    -> DONE

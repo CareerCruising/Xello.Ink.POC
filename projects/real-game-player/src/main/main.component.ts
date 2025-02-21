@@ -20,7 +20,7 @@ import { InkStore } from '../../store/ink.store';
     HeaderComponent,
     SidebarComponent,
     ActionViewComponent
-],
+  ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
