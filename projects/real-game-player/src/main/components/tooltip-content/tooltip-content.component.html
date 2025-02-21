@@ -1,8 +1,17 @@
 <div class="tooltip-wrapper" *ngIf="tooltip">
     <div class="content">
       <span [innerHTML]="tooltip.content"></span>
+      <taco-button class="next-btn" type="basic" (tacoButtonClick)="onClose()" value="Next" size="sm"></taco-button>
     </div>
+
     <taco-button class="close-btn" size="xsm" type="close" (tacoButtonClick)="onClose()"></taco-button>
+
     <div class="caret"
         [ngClass]="orientation"></div>
+
+    <taco-logo
+        size="700"
+        class="illustration"
+        logo="dude-white"
+    ></taco-logo>
 </div>

@@ -2,9 +2,9 @@
 <div class="main__footer">
     <img class="illustration__wrapper" src="../assets/img/illustration_bg.svg" alt="" />
     <div class="footer__items">
-        <div class="footer__item">
+        <div class="footer__item" tooltipAnchor="bank">
             <taco-illustration illustration="il-piggy-bank" size="xxlg"></taco-illustration>
-            <div class="footer__info" tooltipAnchor="bank">
+            <div class="footer__info">
                 <b>
                     Bank: <app-ink-counter [track]="'money'" [prefix]="'$'"></app-ink-counter>
                     <taco-icon size="sm" fill="white-100" icon="ic-chevron-right"></taco-icon>
@@ -12,9 +12,9 @@
                 <span>Payday in 6 days ($5,613)</span>
             </div>
         </div>
-        <div class="footer__item">
+        <div class="footer__item" tooltipAnchor="bills">
             <taco-illustration illustration="il-clock-bills" size="xxlg"></taco-illustration>
-            <div class="footer__info" tooltipAnchor="bills">
+            <div class="footer__info">
                 <b>
                     Bills: $0
                     <taco-icon size="sm" fill="white-100" icon="ic-chevron-right"></taco-icon>
@@ -23,7 +23,13 @@
             </div>
         </div>
     </div>
-    <div tooltipAnchor="bottom-right">
-        
+    <div class="bottom-right" tooltipAnchor="bottom-right"></div>
+    <div class="ollex">
+        <taco-logo
+            *ngIf="tooltipService.tooltips.length == 0"
+            size="700"
+            class="illustration"
+            logo="dude-white"
+        ></taco-logo>
     </div>
 </div>

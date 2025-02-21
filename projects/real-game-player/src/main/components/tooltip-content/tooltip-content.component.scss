@@ -8,12 +8,18 @@
   top: 0;
   left: 0;
   min-width: 150px;
+  max-width: 298px;
   z-index: 99;
   box-shadow: 0 1px 4px rgba(0,0,0,0.16);
   border-radius: 4px;
 
   &.show {
     opacity: 1;
+  }
+
+  .next-btn {
+    display: block;
+    margin-top: 16px;
   }
 
   .close-btn {
@@ -88,7 +94,7 @@
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
     background-color: var(--taco-color-white-100);
     color: var(--taco-color-text-primary);
-    padding: 16px 32px 16px 16px;
+    padding: 16px 56px 16px 16px;
     width: 100%;
     line-height: 1.2em;
     z-index: 2;
@@ -106,4 +112,10 @@
       }
     }
   }
+}
+
+.illustration {
+  position: absolute;
+  right: -70px;
+  bottom: 0;
 }

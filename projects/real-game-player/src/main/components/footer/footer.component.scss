@@ -10,6 +10,21 @@
     z-index: 1;
 }
 
+.ollex {
+    position: absolute;
+    right: 0;
+    top: -80px;
+    width: 80px;
+    height: 80px;
+}
+.bottom-right {
+    position: absolute;
+    right: 0;
+    top: -12px;
+    bottom: 0;
+    width: 80px;
+}
+
 .illustration__wrapper {
     position: absolute;
     bottom: 0;

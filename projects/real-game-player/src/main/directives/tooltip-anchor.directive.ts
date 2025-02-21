@@ -61,6 +61,8 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
   }
 
 
+  /*
+
   private getTooltip(): any {
     const self = this;
     const myTooltip = this.tooltipService.tooltips.find(function(element) {
@@ -68,7 +70,6 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
     });
     return myTooltip;
   }
-
   checkTooltip(target: EventTarget | null) {
     const myTooltip = this.getTooltip();
 
@@ -82,7 +83,6 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
       }
     }
   }
-
   @HostListener('document:mouseup', ['$event']) onmouseup(event: MouseEvent) {
     this.checkTooltip(event.target);
   }
@@ -113,7 +113,8 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
     } else if (event.keyCode === 27) {
       this.hide(true);
     }
-  }
+  */
+
 
   display(content: string, force?: Boolean): void {
     if (this.enabled && !force) { return; }
@@ -147,11 +148,12 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
     const obj: TooltipDefinition = {
       id: this.id,
       ref: this.eRef,
-      bindRef: bindElm,
+      bindRef: bindElm || this.eRef.nativeElement,
       alignment: this.tooltipAlign,
       mode: this.tooltipMode,
       content: content
     };
+    console.log(obj);
     this.tooltipService.addTooltip(obj);
   }
 
@@ -161,9 +163,6 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
 
     const self = this;
     this.tooltipService.removeTooltip(self.id);
-    window.requestAnimationFrame(() => {
-      this.inkService.SelectChoice(this.inkStore.story().currentChoices[0]);
-    });
   }
 
 

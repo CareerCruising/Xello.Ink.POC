@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TooltipDefinition } from '../directives/tooltip-anchor.directive';
+import { InkService } from '../../services/ink.service';
+import { InkStore } from '../../../store/ink.store';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,9 @@ import { TooltipDefinition } from '../directives/tooltip-anchor.directive';
 export class TooltipService {
   tooltips: TooltipDefinition[];
 
-  constructor() {
+  inkStore = inject(InkStore);
+
+  constructor(private inkService: InkService) {
     this.tooltips = [];
   }
 
@@ -20,5 +24,6 @@ export class TooltipService {
     if (_index > -1) {
       this.tooltips.splice(_index, 1);
     }
+    this.inkService.SelectChoice(this.inkStore.story().currentChoices[0])
   }
 }

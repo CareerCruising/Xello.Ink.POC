@@ -82,11 +82,11 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
 
     let ttposition = 0;
     let caretPosition =  0;
-    const isOffBounds = (window.innerWidth < (bounds.left + nativeElmBounds.width));
+    const isOffBounds = (window.innerWidth < (bounds.left + nativeElmBounds.width + 80));
 
     if (isOffBounds) {
-      ttposition = window.innerWidth - nativeElmBounds.width - 20;
-      caretPosition = caretOffset + (hotspotBounds.left - ttposition + 19 - nativeElmBounds.width / 2);
+      ttposition = window.innerWidth - nativeElmBounds.width - 20 - 80;
+      caretPosition = caretOffset + (hotspotBounds.left - ttposition + 19 - nativeElmBounds.width / 2 - 80);
     } else {
       ttposition = left;
       caretPosition = caretOffset;
