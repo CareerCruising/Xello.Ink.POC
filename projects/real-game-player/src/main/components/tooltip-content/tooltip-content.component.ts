@@ -50,6 +50,11 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
     this.close.emit(this.tooltip.id);
   }
 
+  get isBottomRight() {
+    console.log(this.tooltip.bindRef?.classList);
+    return this.tooltip.bindRef?.classList.contains('bottom-right') ?? false
+  }
+
   position(): void {
     if (!this.tooltip) {
       return;

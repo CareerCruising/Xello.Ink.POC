@@ -131,4 +131,9 @@
   position: absolute;
   right: -70px;
   bottom: 0;
+
+  &.ollex-anchor {
+    top: 16px;
+    bottom: unset;
+  }
 }
