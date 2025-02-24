@@ -70,10 +70,23 @@
       top: 50%;
       transform: translateY(-50%);
       &:before {
+        left: -($caret-size - 6px);
+      }
+      &:after {
+        left: -($caret-size + 6px);
+        border-right-color: inherit;
+        z-index: 99;
+      }
+    }
+
+    &.left {
+      top: 50%;
+      transform: translateY(-50%);
+      &:before {
         left: -($caret-size - 3px);
       }
       &:after {
-        border-right-color: inherit;
+        border-left-color: inherit;
       }
     }
 

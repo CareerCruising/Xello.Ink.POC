@@ -43,11 +43,11 @@
 
     -> show_tooltip("user-info", "<small>1 of 4</small><br/>Track your life experience, upcoming goals, and achievements.") ->
 
-    -> show_tooltip("bank", "2 of 4<br/>Monitor the money you make, spend, save, and invest.") ->
+    -> show_tooltip("bank", "<small>2 of 4</small><br/>Monitor the money you make, spend, save, and invest.") ->
     
-    -> show_tooltip("bills", "3 of 4<br/>Track the days until the next payday and bills due.") ->
+    -> show_tooltip("bills", "<small>3 of 4</small><br/>Track the days until the next payday and bills due.") ->
     
-    -> show_tooltip("bottom-right", "4 of 4<br/>You can find me here!") ->
+    -> show_tooltip("bottom-right", "<small>4 of 4</small><br/>You can find me here!") ->
 
     -> first_day
     

@@ -81,15 +81,15 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
     // Dealing with elements close to the edges
 
     let ttposition = 0;
-    let caretPosition =  0;
+    let caretPosition = [0, 0];
     const isOffBounds = (window.innerWidth < (bounds.left + nativeElmBounds.width + 80));
 
     if (isOffBounds) {
       ttposition = window.innerWidth - nativeElmBounds.width - 20 - 80;
-      caretPosition = caretOffset + (hotspotBounds.left - ttposition + 19 - nativeElmBounds.width / 2 - 80);
+      caretPosition[1] = caretOffset + (hotspotBounds.left - ttposition + 19 - nativeElmBounds.width / 2 - 80);
     } else {
       ttposition = left;
-      caretPosition = caretOffset;
+      caretPosition[1] = caretOffset;
     }
 
     // ...
@@ -106,6 +106,8 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
       } else if (this.isSticky && top + nativeElmBounds.height + offset[1] > window.innerHeight) {
         top = window.innerHeight - nativeElmBounds.height - offset[1];
       }
+      
+      caretPosition[0] = 0
     }
     if (this.orientation === 'bottom') {
       top = hotspotBounds.top + hotspotBounds.height + offset[1];
@@ -119,6 +121,23 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
       } else if (this.isSticky && top < offset[1]) {
         top = offset[1];
       }
+
+      caretPosition[0] = nativeElmBounds.height
+      caretPosition[1] = hotspotBounds.left - nativeElmBounds.width
+    }
+    if (this.orientation === 'left') {
+      top = hotspotBounds.top - offset[1];
+      left = hotspotBounds.left - nativeElmBounds.width - offset[1];
+      ttposition = left;
+      caretPosition[0] = hotspotBounds.height / 2 + 4;
+      caretPosition[1] = nativeElmBounds.width;
+    }
+    if (this.orientation === 'right') {
+      top = hotspotBounds.top - offset[0];
+      left = hotspotBounds.left + hotspotBounds.width + offset[1];
+      ttposition = left;
+      caretPosition[0] = hotspotBounds.height / 2 - 4;
+      caretPosition[1] = -4;
     }
 
     let parent = this.ref.nativeElement.offsetParent;
@@ -134,7 +153,8 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
     }
 
     this.renderer.setStyle(nativeElm, 'transform', `translate3D(${ttposition}px, ${this.tooltip.mode === 'fixed' ? 90 : top}px, 0)`);
-    this.renderer.setStyle(caret, 'left', `${caretPosition}px`);
+    this.renderer.setStyle(caret, 'top', `${caretPosition[0]}px`);
+    this.renderer.setStyle(caret, 'left', `${caretPosition[1]}px`);
   }
 
 }

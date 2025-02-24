@@ -60,62 +60,6 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
     this.isDestroyed$.complete();
   }
 
-
-  /*
-
-  private getTooltip(): any {
-    const self = this;
-    const myTooltip = this.tooltipService.tooltips.find(function(element) {
-      return element.id === self.id;
-    });
-    return myTooltip;
-  }
-  checkTooltip(target: EventTarget | null) {
-    const myTooltip = this.getTooltip();
-
-    if (this.eRef.nativeElement.contains(target)) {
-      if (myTooltip) {
-        this.hide(true);
-      }
-    } else if (!(myTooltip && myTooltip.eRef.nativeElement.contains(target))) {
-      if (myTooltip) {
-        this.hide(true);
-      }
-    }
-  }
-  @HostListener('document:mouseup', ['$event']) onmouseup(event: MouseEvent) {
-    this.checkTooltip(event.target);
-  }
-  @HostListener('document:touchend', ['$event']) ontouchend(evt: any) {
-    const myTooltip = this.getTooltip();
-    if (!this.eRef.nativeElement.contains(evt.target) && !(myTooltip && myTooltip.eRef.nativeElement.contains(evt.target))) {
-      if (myTooltip) {
-        this.hide(true);
-      }
-    }
-  }
-
-  @HostListener('focus', ['$event']) onfocus() {
-    this.focused = true;
-  }
-  @HostListener('blur', ['$event']) onblur() {
-    this.focused = false;
-  }
-
-  @HostListener('document:keyup', ['$event']) onkeyup(event: KeyboardEvent) {
-    if (event.keyCode === 13 || event.keyCode === 32) {
-      if (this.focused) {
-        const myTooltip = this.getTooltip();
-        if (myTooltip) {
-          this.hide(true);
-        }
-      }
-    } else if (event.keyCode === 27) {
-      this.hide(true);
-    }
-  */
-
-
   display(content: string, force?: Boolean): void {
     if (this.enabled && !force) { return; }
     if (!this.tooltipEnabled) {
@@ -153,7 +97,6 @@ export class TooltipAnchorDirective implements OnInit, OnDestroy {
       mode: this.tooltipMode,
       content: content
     };
-    console.log(obj);
     this.tooltipService.addTooltip(obj);
   }
 
