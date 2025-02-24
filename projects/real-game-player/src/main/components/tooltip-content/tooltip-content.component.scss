@@ -9,8 +9,7 @@
   left: 0;
   min-width: 150px;
   max-width: 298px;
-  z-index: 99;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.16);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
   border-radius: 4px;
   animation: fade-in .35s ease-in-out .1s both;
 
@@ -105,7 +104,6 @@
   .content {
     position: relative;
     border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
     background-color: var(--taco-color-white-100);
     color: var(--taco-color-text-primary);
     padding: 16px 56px 16px 16px;
