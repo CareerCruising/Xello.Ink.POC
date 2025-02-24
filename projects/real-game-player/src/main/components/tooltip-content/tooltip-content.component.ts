@@ -51,7 +51,6 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
   }
 
   get isBottomRight() {
-    console.log(this.tooltip.bindRef?.classList);
     return this.tooltip.bindRef?.classList.contains('bottom-right') ?? false
   }
 
@@ -128,7 +127,7 @@ export class TooltipContentComponent implements OnInit, AfterViewInit {
       }
 
       caretPosition[0] = nativeElmBounds.height
-      caretPosition[1] = hotspotBounds.left - nativeElmBounds.width
+      caretPosition[1] = hotspotBounds.width / 2
     }
     if (this.orientation === 'left') {
       top = hotspotBounds.top - offset[1];
